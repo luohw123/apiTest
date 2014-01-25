@@ -1,6 +1,5 @@
 package com.javaapi.test.jms;
 
-
 //public class MessageReciever implements MessageListener {
 //  public void onMessage(Message message) {
 //    if (message instanceof TextMessage) {

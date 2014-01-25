@@ -1,6 +1,5 @@
 package com.javaapi.test.jms;
 
-
 //public class MessageProducter {
 //  public static void main(String[] args) {
 //    String queueConnectionFactoryName = "myjmsconnectionfactory"; // JMS
