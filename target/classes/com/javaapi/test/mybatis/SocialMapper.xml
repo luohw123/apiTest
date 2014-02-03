@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper  
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+  
+<mapper namespace="com.javaapi.test.mybatis.SocialMapper">  
+   <select id="getUserList" resultType="com.javaapi.test.mybatis.Social">  
+        select * from sns_social  
+    </select>  
+   <select id="getTop1User" resultType="com.javaapi.test.mybatis.Social">  
+       SELECT *  FROM csc_sns_dev.sns_social where id='0013399d-1392-4c2a-b196-0f8119e15bad';
+    </select>  
+     <select id="setUser" resultType="com.javaapi.test.mybatis.Social">  
+        insert into  sns_social(id,name,phone,email)values(#{id},#{name},#{phone},#{email});
+    </select>  
+</mapper> 
+
+ 
