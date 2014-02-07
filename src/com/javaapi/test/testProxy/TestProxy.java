@@ -6,6 +6,7 @@ public class TestProxy {
         BookFacadeProxy proxy = new BookFacadeProxy();
         BookFacade bookProxy = (BookFacade) proxy.bind(new BookFacadeImpl());
         bookProxy.addBook();
+        System.out.println("eclipse commit");
     }
 
 }
