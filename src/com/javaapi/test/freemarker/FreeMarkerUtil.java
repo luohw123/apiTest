@@ -45,6 +45,8 @@ public class FreeMarkerUtil {
             freemarker_cfg.setObjectWrapper(new DefaultObjectWrapper());
             freemarker_cfg.setDefaultEncoding("UTF-8");
             freemarker_cfg.setTemplateExceptionHandler(TemplateExceptionHandler.IGNORE_HANDLER);
+            // setTemplateUpdateDelay  设置为0，表示立刻加载模板   @see http://freemart.iteye.com/blog/1086211
+            freemarker_cfg.setTemplateUpdateDelay(0);
             Template template = freemarker_cfg.getTemplate(vsource);
             template.setEncoding("UTF-8");
             creatDirs(vpath);
