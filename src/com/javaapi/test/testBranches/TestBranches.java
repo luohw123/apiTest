@@ -10,6 +10,9 @@ import com.javaapi.test.testBranches.eg.PeopleI;
 import com.javaapi.test.testBranches.eg.StudentImp;
 import com.javaapi.test.testBranches.eg.TeacherImp;
 import com.javaapi.test.testBranches.eg.WorkerImp;
+import com.javaapi.test.testBranches.eg2.VarOne;
+import com.javaapi.test.testBranches.eg2.VarOneImp1;
+import com.javaapi.test.testBranches.eg2.VarOneImp2;
 
 public class TestBranches {
     /**
@@ -183,6 +186,33 @@ public class TestBranches {
      */
     @Test
     public void getName() {
+        String paramone = "one";
+        String paramtwo = "one";
+        String paramthree = "one";
+        String paramfour = "one";
+        String paramfive = "one";
+        Map<String, VarOne> mapOne = new HashMap<String, VarOne>();
+        // Map<String, VarThree> mapThree = new HashMap<String, VarThree>();
+        // Map<String, VarFour> mapFour = new HashMap<String, VarFour>();
+        // Map<String, VarFive> mapFive = new HashMap<String, VarFive>();
+        // // 区分下一个维度的字段,可以通过set方法或者构造函数传入成员变量,也可以通过方法参数传入.方式不限
+        System.out.println("维度---------1");
+        mapOne.put("one", new VarOneImp1());
+        mapOne.put("two", new VarOneImp2());
+        //
+        // System.out.println("维度---------3");
+        // mapThree.put("one", new VarThreeImp1());
+        // mapThree.put("two", new VarThreeImp2());
+        //
+        // System.out.println("维度---------4");
+        // mapFour.put("one", new VarFourImp1());
+        // mapFour.put("two", new VarFourImp2());
+        //
+        // System.out.println("维度---------5");
+        // mapFive.put("one", new VarFiveImp1());
+        // mapFive.put("two", new VarFiveImp2());
+
+        mapOne.get(paramone).getName(paramone);
 
     }
 }
