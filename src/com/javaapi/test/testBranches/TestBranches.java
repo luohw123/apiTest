@@ -88,7 +88,7 @@ public class TestBranches {
     }
 
     /**
-     * 用来获取变量(变量是代码段的特例)
+     * 哈希表可以替代一层if else 判断
      */
     @Test
     public void testName() {
@@ -179,6 +179,45 @@ public class TestBranches {
 
         }
         // ...其余26种情况
+    }
+
+    /**
+     * 这种情况是一种优化,类似switch
+     */
+    @Test
+    public void testLogicEquals() {
+        String var = "oneOneOneTwoOne";
+        String oneOneOneTwoOne = "oneOneOneTwoOne";
+        String oneTwoOneOneOne = "oneTwoOneOneOne";
+        String oneTwoOneTwoOne = "oneTwoOneTwoOne";
+        if (var.equals(oneOneOneTwoOne)) {
+
+        } else if (var.equals(oneTwoOneOneOne)) {
+
+        } else if (var.equals(oneTwoOneTwoOne)) {
+
+        }
+    }
+
+    /**
+     * 这种情况是一种优化,类似switch
+     */
+    @Test
+    public void testLogicEqualsMultiple() {
+        String varOne = "one";
+        String varTwo = "two";
+        String one = "one";
+        String two = "two";
+        boolean oneOneOneTwoOne = varOne.equals(one) && varTwo.equals(two);
+        boolean oneTwoOneOneOne = varOne.equals(one) && varTwo.equals(two);
+        boolean oneTwoOneTwoOne = varOne.equals(one) && varTwo.equals(two);
+        if (oneOneOneTwoOne) {
+
+        } else if (oneTwoOneOneOne) {
+
+        } else if (oneTwoOneTwoOne) {
+
+        }
     }
 
     /**
