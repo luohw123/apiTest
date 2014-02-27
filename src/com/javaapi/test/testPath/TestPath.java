@@ -19,11 +19,16 @@ public class TestPath {
 	}
 	@Test
 	public void getDiff() {
-		//输出编译文件夹根目录
+		//输出编译文件夹      根目录
 		File f = new File(this.getClass().getResource("/").getPath()); 
 		System.out.println(f); 
-		//输出编译文件夹根路径+包路径
+		//输出编译文件夹      根目录+包路径
 		File f2 = new File(this.getClass().getResource("").getPath()); 
 		System.out.println(f2); 
 	}
+//	public void getPath2() throws IOException{
+//		File directory = new File("");//参数为空 
+//		String courseFile = directory.getCanonicalPath() ; 
+//		System.out.println(courseFile); 
+//	}
 }
