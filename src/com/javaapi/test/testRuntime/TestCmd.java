@@ -61,10 +61,8 @@ public class TestCmd {
 				w = new BufferedWriter(new OutputStreamWriter(oss));
 				w.write("hello wrold");
 			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     	
@@ -82,4 +80,7 @@ public class TestCmd {
             e.printStackTrace();
         }
     }
+    public static void main(String[] args) {
+		new TestCmd().testLinux();
+	}
 }
