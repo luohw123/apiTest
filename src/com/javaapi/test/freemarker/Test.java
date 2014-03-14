@@ -11,9 +11,9 @@ public class Test {
      public static void main(String[] args) {
      String freemarkerName="test.ftl";
      String freemarkerHtml="test.shtml";
-     Thread.currentThread().getContextClassLoader().getResource("").getPath();
-     String path=Thread.currentThread().getContextClassLoader().getResource("").getPath()+"com/javaapi/test/freemarker";
-     System.out.println(path);
+//     String path=Thread.currentThread().getContextClassLoader().getResource("").getPath()+"com/javaapi/test/freemarker";
+     String path2=Test.class.getResource("").getPath();
+     System.out.println(path2);
      Map<String, Object> map = new HashMap<String, Object>();
      Map<String, Object> map2 = new HashMap<String, Object>();
      List<String> list=new ArrayList<String>();
@@ -25,12 +25,12 @@ public class Test {
     
      map.put("number", 1);
      map.put("number2", 2);
-     map.put("number3", 3);
+     map.put("number3", 4);
      
      map.put("list", list);
      map.put("map", map2);
      //  输出到path变量
-     FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path,"/page"+
+     FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2,
      freemarkerHtml);
      }
 
