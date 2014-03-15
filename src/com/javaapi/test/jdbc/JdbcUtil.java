@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 
 public class JdbcUtil {
     static {
@@ -65,6 +66,16 @@ public class JdbcUtil {
         try {
             if (con != null) {
                 con.rollback();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void rollbackSavePoint(Connection con, Savepoint sp) {
+        try {
+            if (con != null) {
+                con.rollback(sp);
             }
         } catch (SQLException e) {
             e.printStackTrace();
