@@ -33,10 +33,6 @@ public class JdbcTest {
         }
     }
 
-    public void getCon() {
-
-    }
-
     @Test
     public void jdbc() {
         String path = leaguePath;
