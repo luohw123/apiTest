@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Test {
+public class JdbcApi {
     public static void executeQuery(Connection con, String dbName)
             throws SQLException {
         PreparedStatement stmt = null;
