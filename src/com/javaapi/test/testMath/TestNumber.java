@@ -22,11 +22,30 @@ public class TestNumber {
 	}
 
 	/**
-	 * 具体计算,可以计算之后再进行四舍五入
+	 * 具体计算,可以计算之后再进行四舍五入. precision是指的是整个数字精确后的长度，而非理解的精度（scale）。
 	 */
 	@Test
 	public void testJiSuan() {
-		System.out.println(new BigDecimal(1332.1222, new MathContext(2,
+		System.out.println(new BigDecimal(1332.1222, new MathContext(7,
 				RoundingMode.CEILING)));
+		System.out.println(new BigDecimal(1332.1222, new MathContext(8,
+				RoundingMode.CEILING)));
+		System.out.println(new BigDecimal(1332.1222, new MathContext(9,
+				RoundingMode.CEILING)));
+		System.out.println(new BigDecimal(1332.1222, new MathContext(10,
+				RoundingMode.CEILING)));
+
+	}
+
+	/**
+	 * 正确对数字进行四舍五入得方式.对数字转字符串四舍五入参考numberformat
+	 */
+	@Test
+	public void testHalfUp() {
+		System.out.println("---------------------");
+		System.out.println(new BigDecimal(1332.124).setScale(2,
+				RoundingMode.HALF_UP));
+		System.out.println(new BigDecimal(1332.125).setScale(2,
+				RoundingMode.HALF_UP));
 	}
 }
