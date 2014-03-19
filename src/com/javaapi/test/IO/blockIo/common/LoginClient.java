@@ -1,4 +1,4 @@
-package com.javaapi.test.IO.nio;
+package com.javaapi.test.IO.blockIo.common;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class LoginClient {
 
 			// 1.建立客户端socket连接，指定服务器位置及端口
 
-			Socket socket = new Socket("localhost", 8800);
+			Socket socket = new Socket("localhost", 10002);
 
 			// 2.得到socket读写流
 

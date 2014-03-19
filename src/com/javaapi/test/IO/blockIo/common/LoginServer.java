@@ -1,4 +1,4 @@
-package com.javaapi.test.IO.nio;
+package com.javaapi.test.IO.blockIo.common;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,9 +9,17 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import org.junit.Test;
+
 public class LoginServer {
 
-	public static void main(String[] args) {
+	/**
+	 * 阻塞IO
+	 * 
+	 * @param args
+	 */
+	@Test
+	public void blockIO(String[] args) {
 
 		try {
 
@@ -75,4 +83,8 @@ public class LoginServer {
 
 	}
 
+	@Test
+	public void nonBlockIO() {
+
+	}
 }
