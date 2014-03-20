@@ -61,4 +61,14 @@ public class Accptor implements Runnable
 
 	}
 
+	public static void main(String[] args) {
+		try {
+			ServerSocket serverSocket = new ServerSocket(10002);
+			new Accptor(serverSocket).run();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }
