@@ -9,11 +9,13 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import org.junit.Test;
+
 public class LoginClient {
 
-	public static void main(String[] args) {
+	@Test
+	public void client() {
 		try {
-
 			// 1.建立客户端socket连接，指定服务器位置及端口
 
 			Socket socket = new Socket("localhost", 10002);

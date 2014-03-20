@@ -19,13 +19,13 @@ public class LoginServer {
 	 * @param args
 	 */
 	@Test
-	public void blockIO(String[] args) {
+	public void blockIO() {
 
 		try {
 
 			// 1.建立一个服务器Socket(ServerSocket)绑定指定端口
 
-			ServerSocket serverSocket = new ServerSocket(8800);
+			ServerSocket serverSocket = new ServerSocket(10002);
 
 			// 2.使用accept()方法阻止等待监听，获得新连接
 
@@ -83,8 +83,4 @@ public class LoginServer {
 
 	}
 
-	@Test
-	public void nonBlockIO() {
-
-	}
 }
