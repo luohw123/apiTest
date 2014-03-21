@@ -30,8 +30,7 @@ public class TestNet {
 		urlConn.setRequestMethod("POST");
 		urlConn.setInstanceFollowRedirects(true);
 		// 配置请求Content-Type
-		urlConn.setRequestProperty("Content-Type",
-				"application/x-www-form-urlencode");
+		urlConn.setRequestProperty("Content-Type", "application/x-www-form-urlencode");
 		// 开始连接
 		urlConn.connect();
 		// 判断请求是否成功
@@ -59,10 +58,10 @@ public class TestNet {
 	public void get() throws IOException {
 		String path = "http://www.baidu.com";
 		URL url = new URL(path);
+		url.getProtocol();
 		HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
 		urlConn.setRequestMethod("GET");
-		urlConn.setRequestProperty("Content-Type",
-				"application/x-www-form-urlencode");
+		urlConn.setRequestProperty("Content-Type", "application/x-www-form-urlencode");
 		urlConn.connect();
 		if (urlConn.getResponseCode() == HttpURLConnection.HTTP_OK) {
 			BufferedReader br = new BufferedReader(new InputStreamReader(
