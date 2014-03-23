@@ -74,10 +74,6 @@ public class NIOServer2 {
 			// 配置为非阻塞
 			client.configureBlocking(false);
 			// 注册到selector，等待连接
-			// client.register(selector, SelectionKey.OP_READ);
-
-			// 返回为之创建此键的通道。
-			// client = (SocketChannel) selectionKey.channel();
 			// 将缓冲区清空以备下次读取
 			receivebuffer.clear();
 			// 读取服务器发送来的数据到缓冲区中
