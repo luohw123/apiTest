@@ -15,6 +15,12 @@ import jodd.util.MathUtil;
 
 import org.junit.Test;
 
+/**
+ * select 只能对套接字channel可以使用,filechannel不可以用
+ * 
+ * @author hncw
+ * 
+ */
 public class NIOFile {
 	private static final String S = File.separator;
 	// 编译之后得类路径
