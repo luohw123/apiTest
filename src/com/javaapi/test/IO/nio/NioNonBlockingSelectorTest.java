@@ -31,15 +31,17 @@ public class NioNonBlockingSelectorTest {
 		channel.configureBlocking(false);
 		channel.register(selector, SelectionKey.OP_ACCEPT);
 
-		// while (true) {
-		selector.select();
-		Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
-		while (iterator.hasNext()) {
-			SelectionKey selectionKey = iterator.next();
-			iterator.remove();
-			handleKey(selectionKey);
+		while (true) {
+			selector.select();
+			Iterator<SelectionKey> iterator = selector.selectedKeys()
+					.iterator();
+			// selector监视了几个端口就判断几次
+			while (iterator.hasNext()) {
+				SelectionKey selectionKey = iterator.next();
+				iterator.remove();
+				handleKey(selectionKey);
+			}
 		}
-		// }
 	}
 
 	private void handleKey(SelectionKey selectionKey) throws IOException {
@@ -60,7 +62,8 @@ public class NioNonBlockingSelectorTest {
 			if (count > 0) {
 				String receiveText = new String(receivebuffer.array(), 0, count);
 				System.out.println("服务器端接受客户端数据--:" + receiveText);
-				client.register(selector, SelectionKey.OP_READ);
+				// client.register(selector, SelectionKey.OP_READ);
+				client.close();
 			}
 		}
 	}

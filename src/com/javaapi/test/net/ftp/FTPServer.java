@@ -10,6 +10,13 @@ import java.io.FileOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * not work
+ * 
+ * @author hncw
+ * 
+ */
+@Deprecated
 public class FTPServer {
 	public static void main(String args[]) throws Exception {
 		ServerSocket soc = new ServerSocket(5217);
