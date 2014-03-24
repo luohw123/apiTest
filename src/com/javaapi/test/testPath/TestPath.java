@@ -108,6 +108,7 @@ public class TestPath {
 			}
 		}
 	}
+
 	// public void getPath2() throws IOException{
 	// File directory = new File("");//参数为空
 	// String courseFile = directory.getCanonicalPath() ;
@@ -115,6 +116,6 @@ public class TestPath {
 	// }
 	public static void main(String[] args) {
 		String path = Object.class.getResource("").getPath();
-		// System.out.println(path);
+		System.out.println(path);
 	}
 }

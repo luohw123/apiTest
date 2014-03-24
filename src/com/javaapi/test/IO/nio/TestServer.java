@@ -50,7 +50,7 @@ public class TestServer {
 	}
 
 	private static void handle(SelectionKey selectionKey) {
-
+		ByteBuffer dst = ByteBuffer.allocate(1024);
 		if (selectionKey.isAcceptable()) {
 			try {
 				ServerSocketChannel serverSocketChannel = (ServerSocketChannel) selectionKey
@@ -67,18 +67,30 @@ public class TestServer {
 			try {
 				SocketChannel socketChannel = (SocketChannel) selectionKey
 						.channel();
-				ByteBuffer dst = ByteBuffer.allocate(1024);
 				dst.clear();
 				socketChannel.read(dst);
 				System.out.println("服务端收到得信息==>"
 						+ new String(dst.array(), "utf-8"));
 				dst.flip();
+				socketChannel.register(selector, SelectionKey.OP_WRITE);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		if (selectionKey.isWritable()) {
+			ByteBuffer cb = ByteBuffer.allocate(1024);
+			SocketChannel socketChannel = (SocketChannel) selectionKey
+					.channel();
+			String repInfo = "这是来自服务器得消息";
+			cb.put(repInfo.getBytes());
+			cb.flip();
+			try {
+				socketChannel.write(cb);
 				socketChannel.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			// serverSocketChannel.
 		}
 	}
 }
