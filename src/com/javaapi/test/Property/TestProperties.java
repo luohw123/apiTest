@@ -1,4 +1,4 @@
-package com.javaapi.test.testPath;
+package com.javaapi.test.Property;
 
 import java.io.IOException;
 import java.io.InputStream;
