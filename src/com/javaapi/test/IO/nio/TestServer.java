@@ -42,7 +42,6 @@ public class TestServer {
 					handle(sk);
 				}
 			}
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
