@@ -28,7 +28,7 @@ public class TestServer {
 	public static void main(String[] args) {
 		ServerSocketChannel serverSocketChannel;
 		try {
-
+			// 必须调用open才可以创建 ServerSocketChannel实例，然后对实例进行配置
 			serverSocketChannel = ServerSocketChannel.open();
 			serverSocketChannel.configureBlocking(false);
 			serverSocketChannel.bind(new InetSocketAddress("localhost", 10002));
@@ -55,6 +55,7 @@ public class TestServer {
 			try {
 				ServerSocketChannel serverSocketChannel = (ServerSocketChannel) selectionKey
 						.channel();
+				// serverSocketChannel.accept(); 这个得用法
 				SocketChannel socketChannel = serverSocketChannel.accept();
 				socketChannel.configureBlocking(false);
 				socketChannel.register(selector, SelectionKey.OP_READ);
