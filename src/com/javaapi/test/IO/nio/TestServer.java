@@ -72,7 +72,9 @@ public class TestServer {
 				System.out.println("服务端收到得信息==>"
 						+ new String(dst.array(), "utf-8"));
 				dst.flip();
+				// 俩种操作都可以
 				socketChannel.register(selector, SelectionKey.OP_WRITE);
+				// selectionKey.interestOps(SelectionKey.OP_WRITE);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

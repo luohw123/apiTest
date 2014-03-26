@@ -19,7 +19,6 @@ public class EqualsAndHash {
 		System.out.println("---------------------");
 		Object obj1 = new Object();
 		Object obj2 = new Object();
-
 		System.out.println(obj1.hashCode());
 		System.out.println(obj2.hashCode());
 	}
@@ -47,6 +46,5 @@ public class EqualsAndHash {
 		list2.add("你好");
 		list2.add("你好3");// 注意 这样返回false
 		System.out.println(list.containsAll(list2));
-
 	}
 }
