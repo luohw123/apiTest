@@ -76,5 +76,12 @@
 			<version>4.0</version>
 		</dependency>
 		<!-- apache common -->
+		<!-- 		deal json -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.39</version>
+		</dependency>
+            
 	</dependencies>
 </project>
