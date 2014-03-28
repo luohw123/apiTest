@@ -59,9 +59,10 @@ public class TestServerOther {
 
 				// 这里在调用accept()方法时如果通道配置为非阻塞模式,那么accept()方法立即返回null，并不阻塞
 				this.selector.select();
-				Iterator iter = this.selector.selectedKeys().iterator();
+				Iterator<SelectionKey> iter = this.selector.selectedKeys()
+						.iterator();
 				while (iter.hasNext()) {
-					SelectionKey key = (SelectionKey) iter.next();
+					SelectionKey key = iter.next();
 					iter.remove();
 					this.handlerKey(key);
 
