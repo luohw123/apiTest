@@ -1,12 +1,9 @@
 package com.javaapi.test.IO.aio.sample1;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 public class AioAcceptHandler
 		implements
@@ -32,15 +29,15 @@ public class AioAcceptHandler
 	}
 
 	public void startRead(AsynchronousSocketChannel socket) {
-		ByteBuffer clientBuffer = ByteBuffer.allocate(1024);
-		Future<Integer> future = socket.read(clientBuffer, clientBuffer,
-				new AioReadHandler(socket));
-		try {
-			future.get();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			e.printStackTrace();
-		}
+		// ByteBuffer clientBuffer = ByteBuffer.allocate(1024);
+		// Future<Integer> future = socket.read(clientBuffer, clientBuffer,
+		// new AioReadHandler(socket));
+		// try {
+		// future.get();
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// } catch (ExecutionException e) {
+		// e.printStackTrace();
+		// }
 	}
 }

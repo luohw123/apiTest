@@ -10,7 +10,7 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
 /**
- * 时间处理isacceptable 未处理
+ * 时间处理isacceptable 未处理 Channel,Buffer,Charset
  * 
  * @author hncw
  * 

@@ -8,6 +8,10 @@ import java.net.URL;
 
 import org.junit.Test;
 
+/**
+ * 网络编程常用类,URL,UrlConnection,URLDecoder,URLEncoder,InetAddress,
+ * 
+ */
 public class TestNet {
 	/**
 	 * 测试普通得连接 post
@@ -30,7 +34,8 @@ public class TestNet {
 		urlConn.setRequestMethod("POST");
 		urlConn.setInstanceFollowRedirects(true);
 		// 配置请求Content-Type
-		urlConn.setRequestProperty("Content-Type", "application/x-www-form-urlencode");
+		urlConn.setRequestProperty("Content-Type",
+				"application/x-www-form-urlencode");
 		// 开始连接
 		urlConn.connect();
 		// 判断请求是否成功
@@ -61,7 +66,8 @@ public class TestNet {
 		url.getProtocol();
 		HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
 		urlConn.setRequestMethod("GET");
-		urlConn.setRequestProperty("Content-Type", "application/x-www-form-urlencode");
+		urlConn.setRequestProperty("Content-Type",
+				"application/x-www-form-urlencode");
 		urlConn.connect();
 		if (urlConn.getResponseCode() == HttpURLConnection.HTTP_OK) {
 			BufferedReader br = new BufferedReader(new InputStreamReader(

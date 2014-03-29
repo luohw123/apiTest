@@ -3,10 +3,8 @@ package com.javaapi.test.IO.aio.sample1;
 import java.net.InetSocketAddress;
 import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousServerSocketChannel;
-import java.nio.channels.AsynchronousSocketChannel;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 public class AioTcpServer implements Runnable {
 	private AsynchronousChannelGroup asyncChannelGroup;// aio的核心之一通道组.由它负责处理事件,完成之后通知相应的handler
@@ -20,17 +18,17 @@ public class AioTcpServer implements Runnable {
 	}
 
 	public void run() {
-		try {
-			Future<AsynchronousSocketChannel> future = listener.accept(
-					listener, new AioAcceptHandler());
-			future.get();// 此步为阻塞方法,直到有连接上来为止.
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-
-		}
+		// try {
+		// Future<AsynchronousSocketChannel> future = listener.accept(
+		// listener, new AioAcceptHandler());
+		// future.get();// 此步为阻塞方法,直到有连接上来为止.
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// } finally {
+		//
+		// }
 	}
 
 	public static void main(String... args) throws Exception {
