@@ -3,7 +3,7 @@ package com.javaapi.test.testRuntime;
 import java.io.Console;
 
 /**
- * only use "java TestConsole" can be avaiable
+ * this class is avaiable
  * 
  */
 public class TestConsole {
