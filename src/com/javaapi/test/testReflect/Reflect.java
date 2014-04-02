@@ -61,8 +61,10 @@ public class Reflect {
 			e.printStackTrace();
 		}
 	}
-	@Test
-	public void testDeclareMethod(){
-		
-	}
+
+	// @Test
+	// public void testDeclareMethod() {
+	// People people = ReflectUtil.getInstance(
+	// "com.javaapi.test.testReflect.People", People.class);
+	// }
 }
