@@ -61,4 +61,8 @@ public class Reflect {
 			e.printStackTrace();
 		}
 	}
+	@Test
+	public void testDeclareMethod(){
+		
+	}
 }
