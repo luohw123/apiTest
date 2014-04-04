@@ -1,5 +1,6 @@
 package com.javaapi.test.testReflect;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
 import org.junit.Test;
@@ -62,9 +63,22 @@ public class Reflect {
 		}
 	}
 
-	// @Test
-	// public void testDeclareMethod() {
-	// People people = ReflectUtil.getInstance(
-	// "com.javaapi.test.testReflect.People", People.class);
-	// }
+	 /**
+	 * 用反射获取所有得方法与获取公共的方法
+	 */
+	@Test
+	 public void testDeclareMethod() {
+//	 People people = ReflectUtil.getInstance(People.class);
+		//所有得方法,包括公共得私有的等等 
+		 Field[] fileds= People.class.getDeclaredFields();
+		 for (Field field : fileds) {
+			 System.out.println(field.getName());
+		}
+		 System.out.println("----------------");
+		 //获取公共的方法
+		 Field[] fileds2= People.class.getFields();
+		 for (Field field : fileds2) {
+			 System.out.println(field.getName());
+		}
+	 }
 }

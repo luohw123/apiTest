@@ -10,20 +10,19 @@ public class ReflectUtil {
 	 * @param t
 	 * @return
 	 */
-	// public static <T> T getInstance(T t) {
-	// try {
-	// } catch (ClassNotFoundException e) {
-	// e.printStackTrace();
-	// } catch (InstantiationException e) {
-	// e.printStackTrace();
-	// } catch (IllegalAccessException e) {
-	// e.printStackTrace();
-	// } catch (SecurityException e) {
-	// e.printStackTrace();
-	// } catch (IllegalArgumentException e) {
-	// e.printStackTrace();
-	// }
-	// return t;
-	//
-	// }
+	 public static <T> T getInstance(Class<T> t) {
+		 T instance = null;
+	 try {
+		instance = t.newInstance();
+	 } catch (SecurityException e) {
+	 e.printStackTrace();
+	 } catch (IllegalArgumentException e) {
+	 e.printStackTrace();
+	 } catch (InstantiationException e) {
+		e.printStackTrace();
+	} catch (IllegalAccessException e) {
+		e.printStackTrace();
+	}
+	 return instance;
+	 }
 }

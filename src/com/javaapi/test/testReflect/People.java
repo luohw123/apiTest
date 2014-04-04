@@ -9,7 +9,8 @@ public class People {
 	public String name = "zhang san";
 	public Sex sex = Sex.MALE;
 	public String[] friends = { "李四", "王五" };
-
+	private String phone="12345678901";
+	private String address="XXX";
 	public People(String name) {
 		super();
 		this.name = name;
