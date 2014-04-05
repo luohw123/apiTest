@@ -15,7 +15,7 @@ public class TestGeneric4 {
 	@Test
 	public void test() {
 		Collection<?> c = new ArrayList<String>();
-		c.add(new Object()); // 编译时错误
+		// c.add(new Object()); // 编译时错误
 	}
 
 	/**

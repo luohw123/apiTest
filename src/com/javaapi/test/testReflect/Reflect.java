@@ -63,22 +63,21 @@ public class Reflect {
 		}
 	}
 
-	 /**
+	/**
 	 * 用反射获取所有得方法与获取公共的方法
 	 */
 	@Test
-	 public void testDeclareMethod() {
-//	 People people = ReflectUtil.getInstance(People.class);
-		//所有得方法,包括公共得私有的等等 
-		 Field[] fileds= People.class.getDeclaredFields();
-		 for (Field field : fileds) {
-			 System.out.println(field.getName());
+	public void testDeclareMethod() {
+		// 所有得方法,包括公共得私有的等等
+		Field[] fileds = People.class.getDeclaredFields();
+		for (Field field : fileds) {
+			System.out.println(field.getName());
 		}
-		 System.out.println("----------------");
-		 //获取公共的方法
-		 Field[] fileds2= People.class.getFields();
-		 for (Field field : fileds2) {
-			 System.out.println(field.getName());
+		System.out.println("----------------");
+		// 获取公共的方法
+		Field[] fileds2 = People.class.getFields();
+		for (Field field : fileds2) {
+			System.out.println(field.getName());
 		}
-	 }
+	}
 }

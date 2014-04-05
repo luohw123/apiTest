@@ -21,10 +21,10 @@ import java.util.List;
  * 
  */
 public class TestGeneric2<T> {
-	// 编译不通过
-	private T t = new T();
-	// 编译不通过
-	private T[] tArray = new T[5];
+	// // 编译不通过
+	// private T t = new T();
+	// // 编译不通过
+	// private T[] tArray = new T[5];
 	// 编译通过
 	private List<T> list = new ArrayList<T>();
 

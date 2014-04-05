@@ -8,10 +8,10 @@ public class TestGeneric3 {
 	 * 注意泛型没有继承说
 	 */
 	public void test1() {
-		// 编译不通过
-		List<Object> list = new ArrayList<Integer>();
-		// or
-		List<Object> list2 = new ArrayList<Double>();
+		// // 编译不通过
+		// List<Object> list = new ArrayList<Integer>();
+		// // or
+		// List<Object> list2 = new ArrayList<Double>();
 	}
 
 	/**

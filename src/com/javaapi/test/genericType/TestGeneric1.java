@@ -10,12 +10,12 @@ package com.javaapi.test.genericType;
  * 
  */
 public class TestGeneric1 {
-	public static void test(List<Integer> testParameter) {
-
-	}
-
-	public static void test(List<String> testParameter) {
-
-	}
+	// public static void test(List<Integer> testParameter) {
+	//
+	// }
+	//
+	// public static void test(List<String> testParameter) {
+	//
+	// }
 
 }
