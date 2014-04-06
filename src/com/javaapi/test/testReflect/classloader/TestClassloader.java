@@ -2,6 +2,9 @@ package com.javaapi.test.testReflect.classloader;
 
 import org.junit.Test;
 
+/**
+ * 类加载器机制:1 父类委托,2 全盘负责,3缓存机制
+ */
 public class TestClassloader {
 	static {
 		System.out.println(TestClassloader.class.getName());
