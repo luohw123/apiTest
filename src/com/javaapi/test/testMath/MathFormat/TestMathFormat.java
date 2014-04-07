@@ -1,4 +1,4 @@
-package com.javaapi.test.testMMM;
+package com.javaapi.test.testMath.MathFormat;
 
 import java.math.RoundingMode;
 import java.text.ChoiceFormat;
