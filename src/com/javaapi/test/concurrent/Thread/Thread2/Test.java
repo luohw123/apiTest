@@ -1,4 +1,4 @@
-package com.javaapi.test.Thread.Thread2;
+package com.javaapi.test.concurrent.Thread.Thread2;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.CancellationException;

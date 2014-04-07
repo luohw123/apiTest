@@ -1,4 +1,4 @@
-package com.javaapi.test.testFile;
+package com.javaapi.test.IO.FileIO;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -20,10 +20,10 @@ import jodd.util.MathUtil;
 
 import org.junit.Test;
 
-public class TestFile {
+public class CommonFileIO {
 	private static final String S = File.separator;
 	// 编译之后得类路径
-	private static final String txtPath = TestFile.class.getResource("")
+	private static final String txtPath = CommonFileIO.class.getResource("")
 			.getPath() + "TestCmd.txt";;
 	// 明显是源码路径
 	private static final String tempString = "D:" + S + "workspace2012-11-12"

@@ -1,4 +1,4 @@
-package com.javaapi.test.testFile;
+package com.javaapi.test.IO.nio;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -9,7 +9,7 @@ import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
 import java.util.Iterator;
 
-public class NIOServer {
+public class NIOServer3 {
     // 本地字符集
     private static final String LocalCharsetName = "gb2312";
 

@@ -1,4 +1,4 @@
-package com.javaapi.test.Thread.Thread1;
+package com.javaapi.test.concurrent.Thread.Thread1;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.javaapi.test.Thread.Thread1;
+package com.javaapi.test.concurrent.Thread.Thread1;
 
 import java.util.HashMap;
 import java.util.concurrent.locks.Condition;
