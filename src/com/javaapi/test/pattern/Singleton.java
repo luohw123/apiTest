@@ -1,6 +1,5 @@
 package com.javaapi.test.pattern;
 
-
 public class Singleton {
 	private int a;
 
@@ -23,6 +22,7 @@ public class Singleton {
 	}
 
 	public static Singleton getSingleton() {
+		// TODO
 		// 一个类中,内部类的private方法可以被直接调用?
 		return Holder.singleton;
 	}

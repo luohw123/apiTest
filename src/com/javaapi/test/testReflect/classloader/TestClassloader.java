@@ -8,7 +8,9 @@ import java.util.Map;
 import org.junit.Test;
 
 /**
- * 类加载器机制:1 父类委托,2 全盘负责,3缓存机制
+ * 类加载器机制:1 父类委托,2 全盘负责,3缓存机制 </br>类加载路径,注意路径与jar包得不同</br>
+ * 非web应用一般都是通过java提供得SystemClassLoader类加载</br>
+ * web应用是通过tomcat提供得WebAppClassLoader来加载
  */
 public class TestClassloader {
 	static {
@@ -84,6 +86,9 @@ public class TestClassloader {
 		}
 	}
 
+	/**
+	 * 根类加载器,扩展类加载器,系统类加载器
+	 */
 	@Test
 	public void testEveryClassloader() {
 		// 系统类加载器,
@@ -120,7 +125,6 @@ public class TestClassloader {
 		Map<String, String> env = System.getenv(); // 所有环境变量
 		System.out.println(env.get("CLASSPATH"));// key得名字要与环境变量得相同
 		System.out.println(env.get("Path")); // key得名字要与环境变量得相同
-
 		System.out.println("-------------------");
 	}
 

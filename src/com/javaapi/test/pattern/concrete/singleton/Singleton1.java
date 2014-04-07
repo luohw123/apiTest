@@ -1,5 +1,9 @@
 package com.javaapi.test.pattern.concrete.singleton;
 
+/**
+ * safe,not lazy load
+ * 
+ */
 public class Singleton1 {
 	private static Singleton1 instance = new Singleton1();
 
