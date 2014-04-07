@@ -125,7 +125,8 @@ public class TestClassloader {
 	}
 
 	/**
-	 * 类加载路径,注意路径与jar包得不同
+	 * 类加载路径,注意路径与jar包得不同</br> 非web应用一般都是通过java提供得SystemClassLoader类加载</br>
+	 * web应用是通过tomcat提供得WebAppClassLoader来加载
 	 */
 	@Test
 	public void testClassPath() {
