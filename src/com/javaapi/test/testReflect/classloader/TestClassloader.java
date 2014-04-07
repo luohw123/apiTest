@@ -125,20 +125,18 @@ public class TestClassloader {
 	}
 
 	/**
-	 * 类加载路径,找不到系统类加载路径
+	 * 类加载路径,注意路径与jar包得不同
 	 */
 	@Test
 	public void testClassPath() {
 		Map<String, String> env = System.getenv(); // 所有环境变量
-		System.out.println(env.get("CLASSPATH"));// 通过环境变量设置得类加载路径
-		System.out.println("所有类加载路径------------------------");
+		System.out
+				.println("系统加载器得加载路径1 java命令得-classpath 2 -Djava.class.path系统属性 3 CLASSPATH环境变量所指定得JAR和类路径------------------------");
 		System.out.println(System.getProperty("java.class.path")); // 所有类加载路径
+		System.out.println(env.get("CLASSPATH"));// 通过环境变量设置得类加载路径
 		System.out.println("扩展类加载器得加载路径------------------------");
 		System.out.println(System.getProperty("java.ext.dirs")); // 扩展类加载器负责加载得路径
 		System.out.println("根类加载器加载得路径------------------------");
-		URL[] urls = sun.misc.Launcher.getBootstrapClassPath().getURLs();
-		for (URL url : urls) {
-			System.out.println(url.getPath());
-		}
+		System.out.println(System.getProperty("sun.boot.class.path"));
 	}
 }
