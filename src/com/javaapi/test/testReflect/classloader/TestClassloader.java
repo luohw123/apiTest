@@ -1,5 +1,10 @@
 package com.javaapi.test.testReflect.classloader;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.Map;
+
 import org.junit.Test;
 
 /**
@@ -7,7 +12,7 @@ import org.junit.Test;
  */
 public class TestClassloader {
 	static {
-		System.out.println(TestClassloader.class.getName());
+		// System.out.println(TestClassloader.class.getName());
 	}
 
 	/**
@@ -79,4 +84,61 @@ public class TestClassloader {
 		}
 	}
 
+	@Test
+	public void testEveryClassloader() {
+		// 系统类加载器,
+		// 负责加载java命令-classpath路径或者环境变量CLASSPATH路径
+		ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+		// 扩展类加载器
+		ClassLoader extClassLoader = systemClassLoader.getParent();
+		// 根类加载器,由于根类加载器不是由java写的所以会输出null
+		ClassLoader bootstrapClassloader = extClassLoader.getParent();
+		System.out.println(systemClassLoader);
+		System.out.println(extClassLoader);
+		System.out.println(bootstrapClassloader);
+	}
+
+	@Test
+	public void testEveryClassloaderPath() {
+		ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+		try {
+			Enumeration<URL> urls = systemClassLoader.getResources("");
+			while (urls.hasMoreElements()) {
+				URL url = urls.nextElement();
+				System.out.println(url.getPath());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 环境变量
+	 */
+	@Test
+	public void testEnv() {
+		Map<String, String> env = System.getenv(); // 所有环境变量
+		System.out.println(env.get("CLASSPATH"));// key得名字要与环境变量得相同
+		System.out.println(env.get("Path")); // key得名字要与环境变量得相同
+
+		System.out.println("-------------------");
+	}
+
+	/**
+	 * 类加载路径,找不到系统类加载路径
+	 */
+	@Test
+	public void testClassPath() {
+		Map<String, String> env = System.getenv(); // 所有环境变量
+		System.out.println(env.get("CLASSPATH"));// 通过环境变量设置得类加载路径
+		System.out.println("所有类加载路径------------------------");
+		System.out.println(System.getProperty("java.class.path")); // 所有类加载路径
+		System.out.println("扩展类加载器得加载路径------------------------");
+		System.out.println(System.getProperty("java.ext.dirs")); // 扩展类加载器负责加载得路径
+		System.out.println("根类加载器加载得路径------------------------");
+		URL[] urls = sun.misc.Launcher.getBootstrapClassPath().getURLs();
+		for (URL url : urls) {
+			System.out.println(url.getPath());
+		}
+	}
 }
