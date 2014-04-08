@@ -3,7 +3,7 @@ package com.javaapi.test.testRuntime;
 import java.io.Console;
 
 /**
- * this class is avaiable
+ * this class is avaiable only in commend mode
  * 
  */
 public class TestConsole {
