@@ -1,0 +1,11 @@
+<?xml version= "1.0"  encoding= "UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="school" class="com.javaapi.test.spring.xmlSpring.School">
+		<property name="teacher" ref="teacher"/>
+	</bean>
+	<bean id="teacher" class="com.javaapi.test.spring.xmlSpring.TeacherImp">
+		<property name="name" value="wk"/>
+	</bean>
+</beans>
