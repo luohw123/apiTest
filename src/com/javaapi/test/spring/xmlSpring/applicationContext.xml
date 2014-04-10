@@ -6,6 +6,6 @@
 		<property name="teacher" ref="teacher"/>
 	</bean>
 	<bean id="teacher" class="com.javaapi.test.spring.xmlSpring.TeacherImp">
-		<property name="name" value="wk"/>
+		<property name="name" value="wk-xml"/>
 	</bean>
 </beans>
