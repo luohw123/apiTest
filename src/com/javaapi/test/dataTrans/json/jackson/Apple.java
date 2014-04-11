@@ -1,19 +1,20 @@
 package com.javaapi.test.dataTrans.json.jackson;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
  * @author <a href="mailto:l.weinan@gmail.com">Weinan Li</a>
  */
 
+/**
+ * pom报错，暂时注释掉,以后要打开JsonProperty,JsonIgnore
+ *
+ */
 public class Apple {
 
-    @JsonProperty("_color")
+//    @JsonProperty("_color")
     private String color;
 
-    @JsonIgnore
+//    @JsonIgnore
     private String id;
 
     public String getColor() {
