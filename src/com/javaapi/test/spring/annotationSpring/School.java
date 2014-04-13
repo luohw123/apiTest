@@ -5,9 +5,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class School {
+	static{
+		System.out.println(School.class.getSimpleName());
+	}
+	{
+		System.out.println(School.class.getSimpleName()+"实例初始化块");
+	}
 	@Autowired
 	public WorkerI teacher;
-
+	public School(){
+		System.out.println(School.class.getSimpleName()+"构造函数");
+		System.out.println(this);
+	}
 	public WorkerI getTeacher() {
 		return teacher;
 	}
