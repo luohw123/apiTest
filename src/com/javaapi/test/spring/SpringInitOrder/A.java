@@ -4,6 +4,10 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+/**
+ * 参考 http://www.cnblogs.com/zhouqing/archive/2012/10/28/2743394.html
+ *
+ */
 public class A {
 	@Test
 	public void test() {
