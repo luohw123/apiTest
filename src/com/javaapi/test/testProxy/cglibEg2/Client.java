@@ -8,12 +8,9 @@ public class Client {
 
 	public static void main(String[] args) {
 		TableDAO tableDao = TableDAOFactory.getInstance();
-		doMethod(tableDao);
-	}
-	public static void doMethod(TableDAO dao){
-		dao.create();
-		dao.query();
-		dao.update();
-		dao.delete();
+		tableDao.create();
+		tableDao.query();
+		tableDao.update();
+		tableDao.delete();
 	}
 }

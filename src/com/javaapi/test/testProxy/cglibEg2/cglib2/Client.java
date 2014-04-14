@@ -15,15 +15,15 @@ public class Client {
 	}
 	public static void haveAuthByFilter(){
 		TableDAO tDao = TableDAOFactory.getAuthInstanceByFilter(new AuthProxy("张三"));
-		doMethod(tDao);
+		tDao.create();
+		tDao.query();
+		tDao.update();
+		tDao.delete();
 
 		tDao = TableDAOFactory.getAuthInstanceByFilter(new AuthProxy("李四"));
-		doMethod(tDao);
-	}
-	public static void doMethod(TableDAO dao){
-		dao.create();
-		dao.query();
-		dao.update();
-		dao.delete();
+		tDao.create();
+		tDao.query();
+		tDao.update();
+		tDao.delete();
 	}
 }
