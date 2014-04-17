@@ -1,10 +1,12 @@
 package com.javaapi.test.testMath.MathFormat;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ChoiceFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
+import java.util.Locale;
 
 import org.junit.Test;
 
@@ -27,9 +29,10 @@ public class TestMathFormat {
      */
     @Test
     public void Scale() throws ParseException {
-        NumberFormat nf = NumberFormat.getNumberInstance();
+    	//TODO 不带逗号得输出
+        NumberFormat nf = NumberFormat.getNumberInstance(Locale.CHINA);
         nf.setMinimumFractionDigits(2);
-        nf.setMaximumIntegerDigits(2);
+//        nf.setMaximumIntegerDigits(2);
         Integer integer = 1234567800;
         float fl = 223823.4562000099f;
         double doub = 223123.456000099;
@@ -41,7 +44,6 @@ public class TestMathFormat {
         nf.setRoundingMode(RoundingMode.FLOOR);
         System.out.println(nf.format(12.6655));
         System.out.println(nf.parse("12.665"));
-
     }
 
     /**
@@ -76,7 +78,17 @@ public class TestMathFormat {
             e.printStackTrace();
         }
     }
-
+    @Test
+    public void testNumberFormat(){
+    	NumberFormat finalSpFomat= NumberFormat.getNumberInstance();
+		finalSpFomat.setMaximumFractionDigits(2);
+		finalSpFomat.setRoundingMode(RoundingMode.FLOOR);
+		
+		System.out.println(finalSpFomat.format(new BigDecimal("123456.66666666")));
+		System.out.println(finalSpFomat.format(Double.parseDouble("123456.66666666")));
+    }
+    
+    
     @Test
     public void CurrencyFormat() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
