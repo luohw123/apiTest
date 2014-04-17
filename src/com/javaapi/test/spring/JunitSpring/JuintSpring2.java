@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 /**
  *继承自AbstractTransactionalJUnit4SpringContextTests后</br>
  *1 支持事务回滚</br>
- *2 支持数据库操作</br>
+ *2 支持数据库操作,从而对数据正确性进行验证</br>
  *
  */
 @ContextConfiguration("applicationContext.xml")
