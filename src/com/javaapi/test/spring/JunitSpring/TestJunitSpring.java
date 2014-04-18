@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *   4 没有对数据操作正确性进行检查   ???</br>
  *   5 对正确性进行验证
  *  TestJunitSpring 这个类只支持1,2;
- *
+ * @see http://www.ibm.com/developerworks/cn/java/j-lo-springunitest/
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")
