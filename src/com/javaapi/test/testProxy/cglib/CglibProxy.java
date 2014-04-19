@@ -6,6 +6,10 @@ import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
   
+/**
+ * cglib is a powerful, high performance and quality Code Generation Library, It is used to extend JAVA classes and implements interfaces at runtime</br>
+ *@see http://cglib.sourceforge.net/
+ */
 public class CglibProxy implements MethodInterceptor {  
   
     private Object srcTarget;  
