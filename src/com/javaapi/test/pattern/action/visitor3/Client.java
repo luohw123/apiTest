@@ -14,7 +14,6 @@ public class Client {
      * @param args 
      */  
     public static void main(String[] args) {  
-          
         Visitor v1 = new ConcreteVisitorA();  
         List<Visitable> list = new ArrayList<>();  
         list.add(new ConcreteElementA());  
