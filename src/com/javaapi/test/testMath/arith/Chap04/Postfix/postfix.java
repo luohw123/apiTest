@@ -7,6 +7,10 @@ import java.io.BufferedReader;
 import java.io.IOException;              // for I/O
 import java.io.InputStreamReader;
 ////////////////////////////////////////////////////////////////
+/**
+ * 后缀表达式@see http://www.cnblogs.com/MichaelYin/archive/2012/05/02/2479248.html
+ *
+ */
 class StackX
    {
    private int maxSize;
