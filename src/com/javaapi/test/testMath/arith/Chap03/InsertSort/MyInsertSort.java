@@ -38,14 +38,14 @@ class ArrayInsert
 		   for(in=out;in>0; in--){
 			   if(a[in-1]<temp ){
 				   System.out.println("==");
-				   a[in]= temp;// 如果这么写则没有考虑到 in为0的情况,也就是需要插入的数据比有顺序的数据种任意一个都小的情况
+//				   a[in]= temp;// 如果这么写则没有考虑到 in为0的情况,也就是需要插入的数据比有顺序的数据种任意一个都小的情况
 				  break;
 			   }else{
 				   a[in]=a[in-1];
 			   }
 		   }
 		   System.out.println("++");
-//		   a[in]= temp;
+		   a[in]= temp;
 		  this.display();
 	   }
 	   
