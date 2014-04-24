@@ -8,6 +8,7 @@ class StackX
    {
    private int maxSize;        // size of stack array
    private long[] stackArray;
+   // 栈是有个top得表示
    private int top;            // top of stack
 //--------------------------------------------------------------
    public StackX(int s)         // constructor

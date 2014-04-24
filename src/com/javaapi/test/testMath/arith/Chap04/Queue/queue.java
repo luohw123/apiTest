@@ -8,8 +8,11 @@ class Queue
    {
    private int maxSize;
    private long[] queArray;
+   //队尾
    private int front;
+   //队头
    private int rear;
+   //数组大小
    private int nItems;
 //--------------------------------------------------------------
    public Queue(int s)          // constructor
