@@ -2,7 +2,8 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="school" class="com.javaapi.test.spring.xmlSpring.School">
+<!-- 测试name属性bean,name属性是对id属性的扩充 ,可以允许重复值等 -->
+	<bean name="school" class="com.javaapi.test.spring.xmlSpring.School">
 		<property name="teacher" ref="teacher"/>
 	</bean>
 	<bean id="teacher" class="com.javaapi.test.spring.xmlSpring.TeacherImp">
