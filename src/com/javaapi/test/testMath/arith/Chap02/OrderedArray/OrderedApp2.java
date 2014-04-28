@@ -4,12 +4,12 @@ package com.javaapi.test.testMath.arith.Chap02.OrderedArray;
 // demonstrates ordered array class
 // to run this program: C>java OrderedApp
 ////////////////////////////////////////////////////////////////
-class OrdArray
+class OrdArray2
    {
    private long[] a;                 // ref to array a
    private int nElems;               // number of data items
    //-----------------------------------------------------------
-   public OrdArray(int max)          // constructor
+   public OrdArray2(int max)          // constructor
       {
       a = new long[max];             // create array
       nElems = 0;
@@ -76,13 +76,13 @@ class OrdArray
    //-----------------------------------------------------------
    }  // end class OrdArray
 ////////////////////////////////////////////////////////////////
-public class OrderedApp
+public class OrderedApp2
    {
    public static void main(String[] args)
       {
       int maxSize = 100;             // array size
-      OrdArray arr;                  // reference to array
-      arr = new OrdArray(maxSize);   // create the array
+      OrdArray2 arr;                  // reference to array
+      arr = new OrdArray2(maxSize);   // create the array
 
       arr.insert(77);                // insert 10 items
       arr.insert(99);

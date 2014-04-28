@@ -4,12 +4,12 @@ package com.javaapi.test.testMath.arith.Chap03.SelectSort;
 // demonstrates selection sort
 // to run this program: C>java SelectSortApp
 ////////////////////////////////////////////////////////////////
-class ArraySel
+class ArraySel2
    {
    private long[] a;                 // ref to array a
    private int nElems;               // number of data items
 //--------------------------------------------------------------
-   public ArraySel(int max)          // constructor
+   public ArraySel2(int max)          // constructor
       {
       a = new long[max];                 // create the array
       nElems = 0;                        // no items yet
@@ -53,13 +53,13 @@ class ArraySel
 //--------------------------------------------------------------
    }  // end class ArraySel
 ////////////////////////////////////////////////////////////////
-public class SelectSortApp
+public class SelectSortApp2
    {
    public static void main(String[] args)
       {
       int maxSize = 100;            // array size
-      ArraySel arr;                 // reference to array
-      arr = new ArraySel(maxSize);  // create the array
+      ArraySel2 arr;                 // reference to array
+      arr = new ArraySel2(maxSize);  // create the array
 
       arr.insert(77);               // insert 10 items
       arr.insert(99);

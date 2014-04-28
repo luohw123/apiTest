@@ -7,13 +7,13 @@ import java.io.BufferedReader;
 import java.io.IOException;                 // for I/O
 import java.io.InputStreamReader;
 ////////////////////////////////////////////////////////////////
-class StackX
+class StackX2
    {
    private int maxSize;
    private char[] stackArray;
    private int top;
 //--------------------------------------------------------------
-   public StackX(int max)    // constructor
+   public StackX2(int max)    // constructor
       {
       maxSize = max;
       stackArray = new char[maxSize];
@@ -42,18 +42,18 @@ class StackX
 //--------------------------------------------------------------
    }  // end class StackX
 ////////////////////////////////////////////////////////////////
-class Reverser
+class Reverser2
    {
    private String input;                // input string
    private String output;               // output string
 //--------------------------------------------------------------
-   public Reverser(String in)           // constructor
+   public Reverser2(String in)           // constructor
       { input = in; }
 //--------------------------------------------------------------
    public String doRev()                // reverse the string
       {
       int stackSize = input.length();   // get max stack size
-      StackX theStack = new StackX(stackSize);  // make stack
+      StackX2 theStack = new StackX2(stackSize);  // make stack
 
       for(int j=0; j<input.length(); j++)
          {
@@ -71,7 +71,7 @@ class Reverser
 //--------------------------------------------------------------
    }  // end class Reverser
 ////////////////////////////////////////////////////////////////
-public class ReverseApp
+public class ReverseApp2
    {
    public static void main(String[] args) throws IOException
       {
@@ -84,7 +84,7 @@ public class ReverseApp
          if( input.equals("") )        // quit if [Enter]
             break;
                                        // make a Reverser
-         Reverser theReverser = new Reverser(input);
+         Reverser2 theReverser = new Reverser2(input);
          output = theReverser.doRev(); // use it
          System.out.println("Reversed: " + output);
          }  // end while
