@@ -6,7 +6,6 @@
     <property name="name" value="Raymond.chen"/>  
     <property name="age" value="30"/>  
 </bean>  
-
 <!-- 常用得就这几种 ,around 实现的是aop组织的接口-->
 <bean id="personAroundAdvice" class="com.javaapi.test.spring.aop.PersonAroundAdvice"/>  
 <bean id="personBeforeAdvice" class="com.javaapi.test.spring.aop.PersonBeforeAdvice"/>   
