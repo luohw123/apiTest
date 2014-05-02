@@ -3,7 +3,7 @@
 
 <beans>
 <!-- 代理工厂bean   -->
-<bean id="person" class="org.springframework.aop.framework.ProxyFactoryBean">  
+<bean id="personProxy" class="org.springframework.aop.framework.ProxyFactoryBean">  
     <property name="proxyInterfaces" value="com.javaapi.test.spring.aop.Person"/>  
     <property name="target" ref="personTarget"/>  
     <property name="interceptorNames">  
@@ -13,7 +13,7 @@
             <value>personAroundAdvice</value>  
 <!--             这个personAfterReturningAdvice很有考究:最后注册的,方法调用后是最先执行的. -->
             <value>personAfterReturningAdvice</value>   
-            <value>personThrowsAdvice</value>   
+<!--             <value>personThrowsAdvice</value>    -->
         </list>  
     </property>  
 </bean>  
