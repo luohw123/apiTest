@@ -16,7 +16,13 @@ public class CallableAndFuture {
             new Thread(future).start();
             futures.add(future);
         }
-        while (true) {
+        getResult(futures);
+        long end = System.currentTimeMillis();
+        System.out.println((end - start));
+    }
+
+	private static void getResult(ArrayList<FutureTask<String>> futures) {
+		while (true) {
             int count = 0;
             for (int i = 0; i < 10; i++) {
                 Future<String> f = futures.get(i);
@@ -34,7 +40,5 @@ public class CallableAndFuture {
                 break;
             }
         }
-        long end = System.currentTimeMillis();
-        System.out.println((end - start));
-    }
+	}
 }
