@@ -3,6 +3,7 @@ package com.javaapi.test.testMath.MathFormat;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.ChoiceFormat;
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -11,6 +12,14 @@ import java.util.Locale;
 import org.junit.Test;
 
 public class TestMathFormat {
+	@Test
+	public void DecimalFormat(){
+		DecimalFormat  df =new DecimalFormat() ;
+		// 可以不输出逗号
+		df.setGroupingSize(0);
+		System.out.println(df.format(123456789.00000));
+	}
+	
     @Test
     public void NumberFormat() {
         NumberFormat nf = NumberFormat.getNumberInstance();
