@@ -4,31 +4,58 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.junit.Test;
+
+/**
+ * 测试泛型中的"继承"
+ *
+ */
 public class Generic2 {
-    public String getDiffType() {
-        Collection<?> a;
-        List<String> d = new ArrayList<String>();
-//        Collection<?> b =new ArrayList<String>();
-        d.add("1");
-        d.add("12");
-        d.add("13");
-        printCollection(d);
-        a = d;
-        printCollection(a);
-        return null;
+	/**
+	 * 将泛型子类传递给通配符
+	 */
+	@Test
+	public void testGeneric1() {
+		 Collection<?> collection;
+		List<String> d = new ArrayList<String>();
+		d.add("1");
+		d.add("12");
+		d.add("13");
+//		那么什么是各种collections的父类呢？它写作： Collection<?>(发音为:"collection of unknown")，就是，一个集合，它的元素类型可以匹配任何类型
+//		@1 将一个List<String>传个一个含有Collection<?> 类型参数的方法(传递之后,解开后只能定义为Object类型)
+		printCollection(d);
+//		@ 2 将一个  List<String>传个一个Collection<?> 类型的变量 (经过上面的测试用例肯定是可以的)
+		collection = d;
+	}
+    /**
+     * 1 通配符解开后只能定义为Object类型.</br>
+     * 2 但是将任意元素加入到其中不是类型安全的：
+     * 3 即使加入Object实例也是不可以的
+     */
+	void printCollection(Collection<?> c) {
+		// 1
+		for (Object a : c) {
+			System.out.println(a);
+		}
+		// 2
+		// c.add("1");
+		// 3
+		// c.add(new Object());
+	}
 
-    }
-
-    void printCollection(Collection<?> c) {
-        for (Object a : c) {
-            System.out.println(a);
-        }
-    }
-
-    <T extends Number > void test(){
-    	List<? extends Number  > list = new ArrayList<Integer>();
-    }
-    public static void main(String[] args) {
-        new Generic2().getDiffType();
-    }
+	  /**
+     * 1 有限制的通配符可以直接解开为上限(或者下限).</br>
+     * 2 但是将任意元素加入到其中不是类型安全的：
+     * 3 即使加入Object实例也是不可以的
+     */
+	void printCollection2(Collection<? extends Number> c) {
+		// 1
+		for (Number a : c) {
+			System.out.println(a);
+		}
+		// 2
+		// c.add(new Integer(1));
+		// 3
+		// c.add(new Object());
+	}
 }
