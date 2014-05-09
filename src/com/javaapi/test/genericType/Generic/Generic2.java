@@ -8,6 +8,7 @@ public class Generic2 {
     public String getDiffType() {
         Collection<?> a;
         List<String> d = new ArrayList<String>();
+//        Collection<?> b =new ArrayList<String>();
         d.add("1");
         d.add("12");
         d.add("13");
@@ -24,6 +25,9 @@ public class Generic2 {
         }
     }
 
+    <T extends Number > void test(){
+    	List<? extends Number  > list = new ArrayList<Integer>();
+    }
     public static void main(String[] args) {
         new Generic2().getDiffType();
     }
