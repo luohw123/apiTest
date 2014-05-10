@@ -1,8 +1,11 @@
 package com.javaapi.test.genericType.Generic;
 
+import org.junit.Test;
+
 
 public class Generic6 {
 
+@Test
 public void test(){
 //	List<? extends Race> raceList = null;
 //	ModelResult<? extends List<? extends Race>> dresult;

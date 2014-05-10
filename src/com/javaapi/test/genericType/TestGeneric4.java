@@ -5,6 +5,8 @@ import java.util.Collection;
 
 import org.junit.Test;
 
+import com.javaapi.test.genericType.Generic.GenericExtends;
+import com.javaapi.test.genericType.Generic.GenericSuper;
 import com.javaapi.test.mybatis.User;
 import com.javaapi.test.testlogic.testBranches.eg.PeopleI;
 
@@ -20,7 +22,9 @@ public class TestGeneric4 {
 
 	/**
 	 * 泛型当中支持通配符,可以单独使用 '?' 来表示任意类型,也可以使用刚才上面例子中的extends关键字表示传入参数是某一个类或接口的子类,
-	 * 也可以使用super关键字表示接受某一个类型的父类型,extends和super的写法一样,extends是限定上界,super为限定下界
+	 * 也可以使用super关键字表示接受某一个类型的父类型,extends和super的写法一样,extends是限定上界,super为限定下界</br>
+	 * {@link GenericExtends}</br>
+	 * {@link GenericSuper}
 	 */
 	@Test
 	public void test1() {
