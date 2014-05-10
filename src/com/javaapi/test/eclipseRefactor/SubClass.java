@@ -12,6 +12,7 @@ public class SubClass extends SuperClass {
         resources.put("key", new ArrayList<String>());
         System.out.println("i am sub class");
         try {
+        	
             throw new ReflectiveOperationException();
         } catch (ReflectiveOperationException e) {
             // TODO Auto-generated catch block
