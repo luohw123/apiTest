@@ -1,9 +1,9 @@
-package com.javaapi.test.genericType.Generic;
+package com.javaapi.test.genericType;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Generic3<T extends Number> {
+public class TestGeneric1_2<T extends Number> {
 	//1 这么写会报错
 //	public  Generic3<T> g = new Generic3<T>();
 	public static void main(String[] args) {

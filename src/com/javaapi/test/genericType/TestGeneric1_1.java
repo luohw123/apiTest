@@ -9,7 +9,7 @@ package com.javaapi.test.genericType;
  * @author hncw
  * 
  */
-public class TestGeneric1 {
+public class TestGeneric1_1 {
 	// public static void test(List<Integer> testParameter) {
 	//
 	// }

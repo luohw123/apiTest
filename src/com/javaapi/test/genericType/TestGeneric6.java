@@ -1,9 +1,9 @@
-package com.javaapi.test.genericType.Generic;
+package com.javaapi.test.genericType;
 
 import org.junit.Test;
 
 
-public class Generic6 {
+public class TestGeneric6 {
 
 @Test
 public void test(){
