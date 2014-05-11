@@ -12,7 +12,7 @@ package com.javaapi.test.concurrent.Thread.Thread4;
  */
 /**
  * 2 同步方法
- *
+ * 
  */
 public class SynchronizeMethodThread extends Thread {
 	private int threadNo;
@@ -29,8 +29,9 @@ public class SynchronizeMethodThread extends Thread {
 	}
 
 	private synchronized void synchronizedMethod() {
-			for (int i = 1; i < 10; i++) {
-				System.out.println("No." + threadNo + ":" + i);
-			}
+		for (int i = 1; i < 10; i++) {
+			System.out.println("No." + threadNo + ":" + i);
+		}
 	}
+
 }

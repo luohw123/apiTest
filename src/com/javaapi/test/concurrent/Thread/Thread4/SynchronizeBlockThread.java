@@ -12,17 +12,16 @@ package com.javaapi.test.concurrent.Thread.Thread4;
  */
 /**
  * 1 同步代码块
- *
+ * 
  */
-public class SynchronizeThread extends Thread {
+public class SynchronizeBlockThread extends Thread {
 	private int threadNo;
 	private String lock;
 
-	public SynchronizeThread(int threadNo, String lock) {
+	public SynchronizeBlockThread(int threadNo, String lock) {
 		this.threadNo = threadNo;
 		this.lock = lock;
 	}
-
 
 	public void run() {
 		// 这样会串行执行,这代码
