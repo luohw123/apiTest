@@ -47,9 +47,9 @@ public class Client {
 	}
 
 	/**
-	 * 同步锁
-	 * http://blog.csdn.net/fw0124/article/details/6672522
-	 * http://tenyears.iteye.com/blog/48750
+	 * 同步锁</br>
+	 * @see http://blog.csdn.net/fw0124/article/details/6672522</br>
+	 * http://tenyears.iteye.com/blog/48750</br>
 	 * ReadWriteLock
 	 */
 	@Test
