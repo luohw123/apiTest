@@ -13,10 +13,10 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  * @author wk
  *
  */
-public class SpringTest {
+public class Client {
 	@Test
 	public void test() {
-		String path=SpringTest.class.getResource("").getPath();
+		String path=Client.class.getResource("").getPath();
 		String filename = path+"applicationContext.xml";
 		ApplicationContext app=new FileSystemXmlApplicationContext(filename);
 //		School school=(School)app.getBean("school");
