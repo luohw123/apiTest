@@ -31,6 +31,10 @@ import com.javaapi.test.jdbc.JdbcHelper;
  * 
  * 
  */
+/**
+ * 从Spring容器中获取Service层对象，调用Service层对象持久化对象，大家有没有注意到Spring事务全部在Service层定义，为什么会在Service层定义，而不是Dao层定义呢？这是因为在服务层可能牵扯到业务逻辑，而每个业务逻辑可能调用多个Dao层方法，为保证这些操作的原子性，必须在Service层定义事务。
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")
 public class Client {
@@ -38,7 +42,6 @@ public class Client {
 	PlatformTransactionManager dataSourceTransactionManager;
 	@Autowired
 	DataSource datasource;
-	// 注入单个实例
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	private static DefaultTransactionDefinition def = new DefaultTransactionDefinition();;
@@ -161,5 +164,13 @@ public class Client {
 		System.out.println("-----------");
 		dataSourceTransactionManager.rollback(status);
 		DataSourceUtils.releaseConnection(connection, datasource);
+	}
+	
+	/**
+	 * 测试jta分布式事物
+	 */
+	@Test
+	public void testJtaTransaction(){
+		
 	}
 }
