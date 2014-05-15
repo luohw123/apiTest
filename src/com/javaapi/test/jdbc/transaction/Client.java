@@ -167,7 +167,8 @@ public class Client {
 	}
 	
 	/**
-	 * 测试jta分布式事物
+	 * TODO 测试jta分布式事物
+	 *
 	 */
 	@Test
 	public void testJtaTransaction(){
