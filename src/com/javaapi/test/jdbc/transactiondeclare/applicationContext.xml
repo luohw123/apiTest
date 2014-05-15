@@ -32,9 +32,34 @@ destroy-method="close"
  <bean id="txManager"  
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
-    </bean>  
-  <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-  	<property name="dataSource" ref="dataSource" />
-  </bean>
- <tx:annotation-driven transaction-manager="txManager" />   
+    </bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="transactionProxyParent"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager" ref="txManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">
+					PROPAGATION_REQUIRED,
+					ISOLATION_READ_COMMITTED,
+					timeout_10,
+					-Exception,
+					+NoRollBackException
+				</prop>
+				<prop key="*">
+					PROPAGATION_REQUIRED,
+					ISOLATION_READ_COMMITTED
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="proxyInsertService" parent="transactionProxyParent">
+		<property name="target" ref="targetInsertService" />
+	</bean>  
+	<bean id="proxyUpdateService" parent="transactionProxyParent">
+		<property name="target" ref="targetUpdateService" />
+	</bean>  
 </beans>
