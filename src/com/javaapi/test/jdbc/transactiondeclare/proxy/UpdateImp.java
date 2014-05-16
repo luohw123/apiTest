@@ -1,4 +1,4 @@
-package com.javaapi.test.jdbc.transactiondeclare;
+package com.javaapi.test.jdbc.transactiondeclare.proxy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

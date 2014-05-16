@@ -1,4 +1,4 @@
-package com.javaapi.test.jdbc.transactiondeclare;
+package com.javaapi.test.jdbc.transactiondeclare.proxy;
 
 public interface IupdateService {
 	public void update();

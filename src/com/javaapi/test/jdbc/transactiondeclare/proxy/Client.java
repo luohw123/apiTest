@@ -1,4 +1,4 @@
-package com.javaapi.test.jdbc.transactiondeclare;
+package com.javaapi.test.jdbc.transactiondeclare.proxy;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * 测试声明式事务的一种方式
+ * 通过代理实现事物
  * 1 http://sishuok.com/forum/blogPost/list/2506.html
  * 2 事务配置的5种方式
  *

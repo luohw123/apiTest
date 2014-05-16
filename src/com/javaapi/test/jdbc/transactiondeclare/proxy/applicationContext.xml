@@ -56,6 +56,7 @@ destroy-method="close"
 			</props>
 		</property>
 	</bean>
+<!-- 	如果这样子，每个service都要配置,那样会很冗余 -->
 	<bean id="proxyInsertService" parent="transactionProxyParent">
 		<property name="target" ref="targetInsertService" />
 	</bean>  
