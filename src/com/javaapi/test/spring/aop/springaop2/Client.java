@@ -5,9 +5,10 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.javaapi.test.spring.aop.springaop.GreetingImpl;
 
-/**
+/** * spring这种可以对指定类,或者指定接口的所有方法进行拦截.</br>
+ * <strong>但是如果我想拦截指定的类得指定方法应该怎么样那?</strong></br>
  * aop引入通知 http://my.oschina.net/huangyong/blog/161338
- *
+ * 如果配置事务等,将导致 每个接口都要配置一个代理,非常麻烦
  */
 public class Client {
     public static void main(String[] args) {
