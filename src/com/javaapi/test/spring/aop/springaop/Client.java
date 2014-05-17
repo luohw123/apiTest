@@ -2,6 +2,10 @@ package com.javaapi.test.spring.aop.springaop;
 
 import org.springframework.aop.framework.ProxyFactory;
 
+/**
+ * 利用ProxyFactory , 编程方式实现增强
+ *
+ */
 public class Client {
     public static void main(String[] args) {
         ProxyFactory proxyFactory = new ProxyFactory();     // 创建代理工厂

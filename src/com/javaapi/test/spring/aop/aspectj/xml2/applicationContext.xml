@@ -8,6 +8,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 <context:component-scan base-package="com.javaapi.test.spring.aop.aspectj" />
 	<bean id="logAspectBefore" class="com.javaapi.test.spring.aop.aspectj.xml2.LoggingAspectBefore" />
+	<bean id="logAspectAfter" class="com.javaapi.test.spring.aop.aspectj.xml2.LoggingAspectAfter" />
 	<aop:config>
 		<aop:aspect id="aspectBeforeLoggging" ref="logAspectBefore">
 			<aop:pointcut id="pointCutBefore"
@@ -15,7 +16,6 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 			<aop:before method="logBefore" pointcut-ref="pointCutBefore" />
 		</aop:aspect>
 	</aop:config>
-	<bean id="logAspectAfter" class="com.javaapi.test.spring.aop.aspectj.xml2.LoggingAspectAfter" />
 	<aop:config>
 		<aop:aspect id="aspectAfterLoggging" ref="logAspectAfter">
 			<aop:pointcut id="pointCutAfter"
