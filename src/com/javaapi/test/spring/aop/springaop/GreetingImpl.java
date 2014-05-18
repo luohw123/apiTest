@@ -9,4 +9,10 @@ public class GreetingImpl implements Greeting {
     public void sayHello(String name) {
         System.out.println("Hello! " + name);
     }
+
+	@Override
+	public void sayGoodBye(String name) {
+		this.sayHello("jack");
+        System.out.println("GoodBye! " + name);
+	}
 }

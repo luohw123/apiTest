@@ -6,4 +6,9 @@ public class HelloImpl implements HelloI {
     public void say(String name) {
         System.out.println("Hello! " + name);
     }
+
+	@Override
+	public void sayHello(String name) {
+		this.say("kk");
+	}
 }

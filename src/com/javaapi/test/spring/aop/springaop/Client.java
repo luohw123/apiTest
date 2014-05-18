@@ -3,8 +3,8 @@ package com.javaapi.test.spring.aop.springaop;
 import org.springframework.aop.framework.ProxyFactory;
 
 /**
- * 利用ProxyFactory , 编程方式实现增强
- *
+ * 利用ProxyFactory , 编程方式实现增强,顺带解释一个bug
+ *http://my.oschina.net/mushui/blog/161387
  */
 public class Client {
     public static void main(String[] args) {
@@ -14,5 +14,7 @@ public class Client {
         proxyFactory.addAdvice(new GreetingAfterAdvice());  // 添加后置增强 
         Greeting greeting = (Greeting) proxyFactory.getProxy(); // 从代理工厂中获取代理
         greeting.sayHello("Jack");                              // 调用代理的方法
+        System.out.println("-----------");
+        greeting.sayGoodBye("kk");
     }
 }
