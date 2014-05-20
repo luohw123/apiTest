@@ -12,6 +12,9 @@ import java.util.Locale;
 import org.junit.Test;
 
 public class TestMathFormat {
+	/**
+	 * http://blog.csdn.net/alanzyy/article/details/8465098
+	 */
 	@Test
 	public void DecimalFormat(){
 		DecimalFormat  df =new DecimalFormat() ;
