@@ -17,7 +17,12 @@ public class TestMathFormat {
 		DecimalFormat  df =new DecimalFormat() ;
 		// 可以不输出逗号
 		df.setGroupingSize(0);
-		System.out.println(df.format(123456789.00000));
+		df.setMinimumFractionDigits(2);
+		df.setMaximumFractionDigits(2);
+		// 这是通常意义上的四舍五入
+		df.setRoundingMode(RoundingMode.HALF_UP);
+		System.out.println(df.format(123456789.00400));
+		System.out.println(df.format(123456789.00500));
 	}
 	
     @Test
