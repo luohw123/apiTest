@@ -15,6 +15,9 @@ public class TestMathFormat {
 	/**
 	 * http://blog.csdn.net/alanzyy/article/details/8465098
 	 */
+	/**
+	 * 数字格式化方式1
+	 */
 	@Test
 	public void DecimalFormat(){
 		DecimalFormat  df =new DecimalFormat() ;
@@ -27,7 +30,19 @@ public class TestMathFormat {
 		System.out.println(df.format(123456789.00400));
 		System.out.println(df.format(123456789.00500));
 	}
-	
+	/**
+	 * 数字格式化方式2,比较难懂,有学习成本..</br>
+	 * http://blog.csdn.net/neal1225/article/details/9332957
+	 * 
+	 */
+	@Test
+	public void DecimalFormat2(){
+		DecimalFormat format=new DecimalFormat("###.00");
+		DecimalFormat format2=new DecimalFormat(",##0.00");
+		double number = 123123456789.000000000;
+		System.out.println(format.format(number));
+		System.out.println(format2.format(number));
+	}
     @Test
     public void NumberFormat() {
         NumberFormat nf = NumberFormat.getNumberInstance();
