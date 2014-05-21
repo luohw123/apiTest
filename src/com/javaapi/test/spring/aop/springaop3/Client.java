@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("applicationContext3.xml")
+@ContextConfiguration("applicationContext.xml")
 public class Client {
 	@Autowired
 	Greeting greeting;
