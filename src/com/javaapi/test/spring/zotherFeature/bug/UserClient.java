@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop3;
+package com.javaapi.test.spring.zotherFeature.bug;
 
 
 public class UserClient {
@@ -11,10 +11,11 @@ public class UserClient {
 		this.greeting = greeting;
 	}
 
-	Greeting	greeting;
+	Greeting greeting;
 
 	public void say() {
-		greeting.sayHello("hello kk");
+		System.out.println("----");
+		greeting.goodMorning("kk");
 	}
 
 }

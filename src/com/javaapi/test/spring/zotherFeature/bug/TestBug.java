@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop3;
+package com.javaapi.test.spring.zotherFeature.bug;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
