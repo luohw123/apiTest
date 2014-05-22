@@ -3,10 +3,12 @@ package com.javaapi.test.concurrent.Thread.Thread3;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 1 线程状态
- *
+ * 虽然不想说，但是还是忍不住，首先你要明确interrupt方法的意思，它是设置一个标志来告诉线程已中断</br>
+ * 其次它会使得正在进行sleep、wait和join的方法抛出InterruptException异常
+ * ，你的Example1中只是设置了标志，而没有检查标志，或者满足抛出异常的条件，而且在你进行了中断标志设置之后并没有去检查该标志，线程当然会自动的执行下去
+ * 
  */
-public class Test {
+public class InteruptThread {
 	public static void main(String[] args) {
 		Thread thread = new Thread(new Runnable() {
 			@Override
@@ -20,17 +22,10 @@ public class Test {
 
 			}
 		});
-		// 下面俩个方法是用于挂起,恢复线程的.但是不要调用suspend,容易导致似锁(该方法已经在jdk7中被废弃)
-		// thread.suspend();
-		// thread.resume();
-		// 调用stop会让线程进入丝网状态,也就是永远不会再调用了,容易导致似锁(该方法已经在jdk7中被废弃)
-		// thread.stop();
-		// interupt
 		thread.start();
 		try {
 			TimeUnit.SECONDS.sleep(2);
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		System.out.println("-----------------------------------------");
