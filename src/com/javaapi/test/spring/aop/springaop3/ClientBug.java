@@ -3,7 +3,6 @@ package com.javaapi.test.spring.aop.springaop3;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,13 +20,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("applicationContextBug.xml")
 public class ClientBug {
 	@Autowired
-	@Qualifier("greetingProxy")
-	Greeting greeting;
+	UserClient	userClient;
 
 	@Test
 	public void test() {
-		greeting.sayHello("Jack");
-		greeting.goodMorning("kk");
-		greeting.goodNight("kk");
+		userClient.say();
 	}
 }
