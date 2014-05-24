@@ -18,9 +18,9 @@ public class TestJdbc {
     @Test
     public void executeQuery() {
         String sql = "SELECT * FROM tbl_b";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
-        PreparedStatement ps = JdbcHelper.getPrepareStatement(con, sql);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
+        PreparedStatement ps = JdbcPrepare.getPrepareStatement(con, sql);
         ResultSet rs = JdbcExe.executeQuery(ps);
         try {
             while (rs.next()) {
@@ -41,9 +41,9 @@ public class TestJdbc {
         // String sql = "INSERT INTO  tbl_b (id,val) values('4','d');";
         // String url =
         // "jdbc:mysql://127.0.0.1:3306/csc_sns_dev?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
-        PreparedStatement ps = JdbcHelper.getPrepareStatement(con, sql);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
+        PreparedStatement ps = JdbcPrepare.getPrepareStatement(con, sql);
         boolean result = JdbcExe.execute(ps);
         System.out.println(result);
         try {
@@ -76,9 +76,9 @@ public class TestJdbc {
         String sql = "INSERT INTO  tbl_b (id,val) values('4','d');";
         String sql2 = "INSERT INTO  tbl_b (id,val) values('5','d');";
         // String sql = "DELETE * FROM tbl_b WHERE id=1";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
-        PreparedStatement ps = JdbcHelper.getPrepareStatement(con, sql);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
+        PreparedStatement ps = JdbcPrepare.getPrepareStatement(con, sql);
         boolean result = JdbcExe.execute(ps);
         System.out.println(result);
         try {
@@ -97,7 +97,7 @@ public class TestJdbc {
         }
 
         System.out.println("这里设置断点");
-        ps = JdbcHelper.getPrepareStatement(con, sql2);
+        ps = JdbcPrepare.getPrepareStatement(con, sql2);
         boolean result2 = JdbcExe.execute(ps);
         System.out.println(result);
         try {
@@ -130,9 +130,9 @@ public class TestJdbc {
         // String sql = "INSERT INTO  tbl_b (id,val) values('4','d');";
         // String url =
         // "jdbc:mysql://127.0.0.1:3306/csc_sns_dev?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
-        PreparedStatement ps = JdbcHelper.getPrepareStatement(con, sql);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
+        PreparedStatement ps = JdbcPrepare.getPrepareStatement(con, sql);
         boolean result = JdbcExe.execute(ps);
         System.out.println(result);
         try {
@@ -162,9 +162,9 @@ public class TestJdbc {
         String url = "jdbc:mysql://127.0.0.1:3306/csc_sns_dev?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true";
         String sql = "INSERT INTO  tbl_b (id,val) values('1','d');INSERT INTO  tbl_b (id,val) values('2','d');INSERT INTO  tbl_b (id,val) values('3','d');";
         String sql2 = "INSERT INTO  tbl_b (id,val) values('4','d');";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
-        PreparedStatement ps = JdbcHelper.getPrepareStatement(con, sql);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
+        PreparedStatement ps = JdbcPrepare.getPrepareStatement(con, sql);
         boolean result = JdbcExe.execute(ps);
         System.out.println(result);
         try {
@@ -183,7 +183,7 @@ public class TestJdbc {
         }
 
         System.out.println("这里设置断点");
-        ps = JdbcHelper.getPrepareStatement(con, sql2);
+        ps = JdbcPrepare.getPrepareStatement(con, sql2);
         boolean result2 = JdbcExe.execute(ps);
         System.out.println(result);
         try {
@@ -210,9 +210,9 @@ public class TestJdbc {
     public void commonBatch() {
         String url = "jdbc:mysql://127.0.0.1:3306/csc_sns_dev?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true";
         String sql = "SELECT * FROM tbl_b;INSERT INTO  tbl_b (id,val) values(?,?);";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
-        PreparedStatement ps = JdbcHelper.getPrepareStatement(con, sql);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
+        PreparedStatement ps = JdbcPrepare.getPrepareStatement(con, sql);
         try {
             ps.setString(1, "1");
             ps.setString(2, "d");
@@ -245,9 +245,9 @@ public class TestJdbc {
     public void batch() {
         String url = "jdbc:mysql://127.0.0.1:3306/csc_sns_dev?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true";
         String sql = "INSERT INTO  tbl_b (id,val) values(?,?);";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
-        PreparedStatement ps = JdbcHelper.getPrepareStatement(con, sql);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
+        PreparedStatement ps = JdbcPrepare.getPrepareStatement(con, sql);
         try {
             ps.setString(1, "3");
             ps.setString(2, "d");

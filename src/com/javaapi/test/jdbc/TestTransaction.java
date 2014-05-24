@@ -25,8 +25,8 @@ public class TestTransaction {
     @Test
     public void readUncommitted() {
         String sql = "insert into csc_sns_dev.tbl_b (id,val) values(?,?);";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -51,8 +51,8 @@ public class TestTransaction {
     @Test
     public void readCommitted() {
         String sql = "insert into csc_sns_dev.tbl_b (id,val) values(?,?);";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -78,8 +78,8 @@ public class TestTransaction {
     @Test
     public void repeatableRead() {
         String sql = "insert into csc_sns_dev.tbl_b (id,val) values(?,?);";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -104,8 +104,8 @@ public class TestTransaction {
     @Test
     public void serializable() {
         String sql = "insert into csc_sns_dev.tbl_b (id,val) values(?,?);";
-        Connection con = JdbcUtil.getConnection(url, username, password);
-        JdbcUtil.beginTransaction(con);
+        Connection con = JdbcPrepare.getConnection(url, username, password);
+        JdbcPrepare.beginTransaction(con);
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {

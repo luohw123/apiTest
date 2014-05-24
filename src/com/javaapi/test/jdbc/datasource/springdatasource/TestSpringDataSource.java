@@ -14,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.javaapi.test.jdbc.JdbcExe;
-import com.javaapi.test.jdbc.JdbcHelper;
+import com.javaapi.test.jdbc.JdbcPrepare;
 
 /**
  * http://blog.csdn.net/kunkun378263/article/details/8506355
@@ -33,7 +33,7 @@ public class TestSpringDataSource {
 	try {
 		con = datasource.getConnection();
 		String sql = "SELECT * FROM csc_sns_dev.tbl_b";
-		PreparedStatement ps=JdbcHelper.getPrepareStatement(con, sql);
+		PreparedStatement ps=JdbcPrepare.getPrepareStatement(con, sql);
 		ResultSet rs=JdbcExe.executeQuery(ps);
 		while (rs.next()) {
 			Integer id=rs.getInt("Id");

@@ -22,7 +22,7 @@ import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import com.javaapi.test.jdbc.JdbcExe;
-import com.javaapi.test.jdbc.JdbcHelper;
+import com.javaapi.test.jdbc.JdbcPrepare;
 
 /**
  * 1 spring 事务 2 PlatformTransactionManager
@@ -162,7 +162,7 @@ public class Client {
 		String bet007_id = "595959";
 		String sql = "update matchs set league_name='斯伐乙西1'  where bet007_id="+ bet007_id;
 		Connection connection = DataSourceUtils.getConnection(datasource);
-		PreparedStatement ps = JdbcHelper.getPrepareStatement(connection, sql);
+		PreparedStatement ps = JdbcPrepare.getPrepareStatement(connection, sql);
 		int result = JdbcExe.executeUpdate(ps);
 		System.out.println(result);
 		System.out.println("-----------");
