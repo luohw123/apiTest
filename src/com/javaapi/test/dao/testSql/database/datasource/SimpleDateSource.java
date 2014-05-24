@@ -1,4 +1,4 @@
-package com.javaapi.test.testSql.database.datasource;
+package com.javaapi.test.dao.testSql.database.datasource;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
