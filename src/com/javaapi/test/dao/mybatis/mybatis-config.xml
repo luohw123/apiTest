@@ -20,8 +20,8 @@
     </environments>  
   
     <mappers>  
-        <mapper resource="com\\javaapi\\test\\mybatis\\UserMapper.xml" />  
-        <mapper resource="com\\javaapi\\test\\mybatis\\SocialMapper.xml" />  
+        <mapper resource="com\\javaapi\\test\\dao\\mybatis\\UserMapper.xml" />  
+        <mapper resource="com\\javaapi\\test\\dao\\mybatis\\SocialMapper.xml" />  
     </mappers>  
   
 </configuration>

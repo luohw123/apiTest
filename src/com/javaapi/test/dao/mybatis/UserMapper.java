@@ -1,4 +1,4 @@
-package com.javaapi.test.mybatis;
+package com.javaapi.test.dao.mybatis;
 
 
 public interface UserMapper {

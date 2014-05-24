@@ -5,9 +5,9 @@ import java.util.Collection;
 
 import org.junit.Test;
 
+import com.javaapi.test.dao.mybatis.User;
 import com.javaapi.test.genericType.Generic.GenericExtends;
 import com.javaapi.test.genericType.Generic.GenericSuper;
-import com.javaapi.test.mybatis.User;
 import com.javaapi.test.testlogic.testBranches.eg.PeopleI;
 
 public class TestGeneric4 {

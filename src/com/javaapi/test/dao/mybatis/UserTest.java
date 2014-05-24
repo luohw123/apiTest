@@ -1,4 +1,4 @@
-package com.javaapi.test.mybatis;
+package com.javaapi.test.dao.mybatis;
 
 import java.io.Reader;
 import java.util.UUID;
@@ -18,7 +18,7 @@ public class UserTest {
     public static void setUp() throws Exception {
         // create a SqlSessionFactory
         Reader reader = Resources
-                .getResourceAsReader("com\\javaapi\\test\\mybatis\\mybatis-config.xml");
+                .getResourceAsReader("com\\javaapi\\test\\dao\\mybatis\\mybatis-config.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         reader.close();
         // // populate in-memory database
