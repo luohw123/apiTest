@@ -17,8 +17,8 @@ public class TestPath {
 		// 静态代码块中如何获得,Object.class更通用一些,但是好像有些问题
 		// String path = Object.class.getResource("").getPath();
 		// 写自身得类不会报错，在junit下不会报错
-		String path = TestPath.class.getResource("").getPath();
-		System.out.println("static ==>" + path);
+//		String path = TestPath.class.getResource("").getPath();
+//		System.out.println("static ==>" + path);
 	}
 
 	@Test
@@ -36,7 +36,7 @@ public class TestPath {
 	}
 
 	@Test
-	public void getDiff() {
+	public void getDiffResourcePath() {
 		// 输出编译文件夹根目录
 		File f = new File(this.getClass().getResource("/").getPath());
 		System.out.println(f);
@@ -44,9 +44,24 @@ public class TestPath {
 		File f2 = new File(this.getClass().getResource("").getPath());
 		System.out.println(f2);
 	}
+	/**
+	 * 测试classloader 获取路径
+	 */
+	@Test
+	public void getDiffClassloaderResourcePath() {
+		// 类加载路径的根路径下
+		String path = TestPath.class.getClassLoader().getResource("test.txt").getPath();
+		System.out.println(path);
+		// classloader 获取path时候,前面加 / 是无效的
+		// String
+		// path2=TestPath.class.getClassLoader().getResource("/test.txt").getPath();
+		// System.out.println(path2);
+	}
+
 
 	@Test
 	public void getSymbol() throws IOException {
+		//分隔符   在win下是 \ 
 		System.out.println(File.separator);
 		System.out.println(File.separatorChar);
 

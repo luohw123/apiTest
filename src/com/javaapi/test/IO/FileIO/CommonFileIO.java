@@ -154,7 +154,6 @@ public class CommonFileIO {
 			if (os != null)
 				os.close();
 		}
-		File file = null;
-		file.delete();
+		
 	}
 }
