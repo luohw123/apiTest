@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Savepoint;
 
-public class JdbcUtil {
+public class JdbcAfter {
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -61,7 +61,7 @@ public class JdbcUtil {
      * @param con
      */
 
-    public static void resetConnection(Connection con) {
+    public static void resetAutoCommit(Connection con) {
         try {
             if (con != null) {
                 if (con.getAutoCommit()) {

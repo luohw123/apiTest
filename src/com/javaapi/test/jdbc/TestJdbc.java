@@ -29,7 +29,7 @@ public class TestJdbc {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JdbcUtil.commit(con);
+        JdbcAfter.commit(con);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class TestJdbc {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JdbcUtil.commit(con);
+        JdbcAfter.commit(con);
     }
 
     /**
@@ -114,7 +114,7 @@ public class TestJdbc {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JdbcUtil.commit(con);
+        JdbcAfter.commit(con);
     }
 
     /**
@@ -150,7 +150,7 @@ public class TestJdbc {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JdbcUtil.commit(con);
+        JdbcAfter.commit(con);
     }
 
     /**
@@ -200,7 +200,7 @@ public class TestJdbc {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JdbcUtil.rollback(con);
+        JdbcAfter.rollback(con);
     }
 
     /**
@@ -234,7 +234,7 @@ public class TestJdbc {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        JdbcUtil.commit(con);
+        JdbcAfter.commit(con);
     }
 
     /**
@@ -263,6 +263,6 @@ public class TestJdbc {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        JdbcUtil.commit(con);
+        JdbcAfter.commit(con);
     }
 }

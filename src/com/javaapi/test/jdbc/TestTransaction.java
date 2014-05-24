@@ -39,9 +39,9 @@ public class TestTransaction {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JdbcUtil.rollback(con);
+        JdbcAfter.rollback(con);
         System.out.println("这句设置断点");
-        JdbcUtil.close(con, ps, rs);
+        JdbcAfter.close(con, ps, rs);
     }
 
     /**
@@ -66,9 +66,9 @@ public class TestTransaction {
             e.printStackTrace();
         }
         // JdbcUtil.rollback(con);
-        JdbcUtil.commit(con);
+        JdbcAfter.commit(con);
         System.out.println("这句设置断点");
-        JdbcUtil.close(con, ps, rs);
+        JdbcAfter.close(con, ps, rs);
     }
 
     /**
@@ -92,9 +92,9 @@ public class TestTransaction {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JdbcUtil.rollback(con);
+        JdbcAfter.rollback(con);
         System.out.println("这句设置断点");
-        JdbcUtil.close(con, ps, rs);
+        JdbcAfter.close(con, ps, rs);
     }
 
     /**
@@ -118,8 +118,8 @@ public class TestTransaction {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JdbcUtil.rollback(con);
+        JdbcAfter.rollback(con);
         System.out.println("这句设置断点");
-        JdbcUtil.close(con, ps, rs);
+        JdbcAfter.close(con, ps, rs);
     }
 }
