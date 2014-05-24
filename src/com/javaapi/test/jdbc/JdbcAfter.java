@@ -7,13 +7,6 @@ import java.sql.SQLException;
 import java.sql.Savepoint;
 
 public class JdbcAfter {
-    static {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void commit(Connection con) {
         try {

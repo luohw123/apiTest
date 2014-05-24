@@ -6,7 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class JdbcPrepare {
-
+	 static {
+	        try {
+	            Class.forName("com.mysql.jdbc.Driver");
+	        } catch (ClassNotFoundException e) {
+	            e.printStackTrace();
+	        }
+	    }
     public static PreparedStatement getPrepareStatement(Connection con,
             String sql) {
         PreparedStatement ps = null;
