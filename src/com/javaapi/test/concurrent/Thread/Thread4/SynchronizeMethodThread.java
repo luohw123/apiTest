@@ -13,6 +13,8 @@ package com.javaapi.test.concurrent.Thread.Thread4;
 /**
  * 2 同步方法
  * 
+ * 3 Thread.sleep()得调用不会释放同步监听器
+ * 
  */
 public class SynchronizeMethodThread extends Thread {
 	private int threadNo;
@@ -22,16 +24,24 @@ public class SynchronizeMethodThread extends Thread {
 		this.threadNo = threadNo;
 		this.lock = lock;
 	}
-
+	
 	public void run() {
 		// 这样会串行执行,这代码
-		synchronizedMethod();
+		System.out.println("线程=>"+threadNo+"获取执行机会");
+		SynchronizeMethod.synchronizedMethod(threadNo);
 	}
-
-	private synchronized void synchronizedMethod() {
-		for (int i = 1; i < 10; i++) {
-			System.out.println("No." + threadNo + ":" + i);
-		}
-	}
+	
+//	private synchronized void synchronizedMethod() {
+//		for (int i = 1; i < 10; i++) {
+//			try {
+////				System.out.println("线程=>"+threadNo+"得到同步监听器");
+//				System.out.println("No." + threadNo + ":" + i);
+//				Thread.sleep(60000);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		
+//		}
+//	}
 
 }

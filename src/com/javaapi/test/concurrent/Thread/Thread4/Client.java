@@ -43,7 +43,12 @@ public class Client {
 				e.printStackTrace();
 			}
 		}
-
+		try {
+			Thread.sleep(1*60*60*1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
