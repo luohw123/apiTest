@@ -31,6 +31,11 @@ public class Client {
 	/**
 	 * 同步方法
 	 */
+	/**
+	 * 1 加了synchronized,这段代码肯定是串行的.
+	 * 2 Thread.sleep 是不会释放同步监听器的 
+	 * 另外suspend也不会释放,但是最好不要用.
+	 */
 	@Test
 	public void synchronizeMethod() {
 		String lock = new String("lock");

@@ -1,5 +1,6 @@
 package com.javaapi.test.concurrent.Thread.Thread4;
 
+
 /**
  * 1、对于同步的方法或者代码块来说，必须获得对象锁才能够进入同步方法或者代码块进行操作；
  * 
