@@ -4,8 +4,9 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * condition ,用于帮助lock实现同步监听机制
+/**http://blog.csdn.net/ghsau/article/details/7481142
+ * condition ,用于帮助lock实现同步监听机制</br>
+ *   在Condition中，用await()替换wait()，用signal()替换notify()，用signalAll()替换notifyAll()，传统线程的通信方式，Condition都可以实现，这里注意，Condition是被绑定到Lock上的，要创建一个Lock的Condition必须用newCondition()方法。
  *
  */
 public class ThreadTest2 {
