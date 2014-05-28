@@ -22,7 +22,6 @@ public class ThreadTest2 {
 		try {
 			TimeUnit.SECONDS.sleep(10);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		threadExecute(business, "main");
