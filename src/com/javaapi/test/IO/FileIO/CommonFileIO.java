@@ -156,4 +156,43 @@ public class CommonFileIO {
 		}
 		
 	}
+
+	/**
+	 * 输出文本文件到硬盘
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testWriteExample() throws IOException {
+		System.out.println(txtPath);
+
+		OutputStream is = null;
+		Writer w = null;
+		BufferedWriter bw = null;
+		try {
+			is = new FileOutputStream(new File(txtPath));
+			w = new OutputStreamWriter(is);
+			bw = new BufferedWriter(w);
+			for (int i = 0; i < 999999; i++) {
+				// bw.write("33");
+				bw.write("1:[3]/2:[1]/5:[0]/8:[3]");
+				bw.newLine();
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (bw != null) {
+				bw.close();
+			}
+			if (w != null) {
+				w.close();
+			}
+			if (is != null) {
+				is.close();
+			}
+		}
+
+	}
 }

@@ -163,4 +163,9 @@ public class TestMathFormat {
 
     }
 
+	@Test
+	public void otherTest() {
+		BigDecimal bi = new BigDecimal(112222);
+		System.out.println(bi.toString());
+	}
 }
