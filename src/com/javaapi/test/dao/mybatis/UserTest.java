@@ -1,7 +1,6 @@
 package com.javaapi.test.dao.mybatis;
 
 import java.io.Reader;
-import java.util.UUID;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -41,12 +40,12 @@ public class UserTest {
         try {
             SocialMapper mapper = sqlSession.getMapper(SocialMapper.class);
             Social social = mapper.getTop1User();
-            for (int i = 0, length = 70000; i < length; i++) {
-                social.setId(UUID.randomUUID().toString());
-                mapper.setUser(social);
-                if (i % 1000 == 0)
-                    System.out.println("已经插入" + (++l) + "千条数据");
-            }
+			// for (int i = 0, length = 70000; i < length; i++) {
+//                social.setId(UUID.randomUUID().toString());
+//                mapper.setUser(social);
+//                if (i % 1000 == 0)
+//                    System.out.println("已经插入" + (++l) + "千条数据");
+//            }
             // UserMapper mapper = sqlSession.getMapper(UserMapper.class);
             // User user = mapper.getUser(1);
             // mapper.getUserList();
