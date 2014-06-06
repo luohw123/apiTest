@@ -14,7 +14,7 @@ public class Client {
 	@Test
 	public void test() {
 		try {
-			// 休眠十分钟
+			// 休眠十小时
 			TimeUnit.HOURS.sleep(10);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
