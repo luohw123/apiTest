@@ -33,10 +33,10 @@ destroy-method="close"
     </bean>  
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
             <property name="dataSource" ref="dataSource" />  
-            <property name="configLocation" ref="classpath*:/com/javaapi/test/dao/mybatis/spring" />  
+            <property name="configLocation" value="classpath*:com/javaapi/test/dao/mybatis/spring/mybatis-config.xml" />  
     </bean>
 <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
- <constructor-arg index="0" ref="sqlSessionFactory" />  
+ <constructor-arg index="0" ref="sessionFactory" />  
  </bean>	
  <tx:annotation-driven transaction-manager="txManager" />   
 </beans>

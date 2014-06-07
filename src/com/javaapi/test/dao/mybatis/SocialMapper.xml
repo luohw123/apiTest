@@ -13,6 +13,9 @@
      <select id="setUser" resultType="com.javaapi.test.dao.mybatis.Social">  
         insert into  sns_social(id,name,phone,email)values(#{id},#{name},#{phone},#{email});
     </select>  
+    <select id="countUser" resultType="Integer">
+    	select count(1) from csc_sns_dev.tbl_b;
+    </select>
 </mapper> 
 
  

@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.mybatis;
+package com.javaapi.test.dao.mybatis.biz;
 
 import java.io.Reader;
 
@@ -9,6 +9,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.javaapi.test.dao.mybatis.Social;
+import com.javaapi.test.dao.mybatis.SocialMapper;
+
 public class UserTest {
 
     private static SqlSessionFactory sqlSessionFactory;
@@ -17,7 +20,7 @@ public class UserTest {
     public static void setUp() throws Exception {
         // create a SqlSessionFactory
         Reader reader = Resources
-                .getResourceAsReader("com\\javaapi\\test\\dao\\mybatis\\mybatis-config.xml");
+				.getResourceAsReader("com\\javaapi\\test\\dao\\mybatis\\biz\\mybatis-config.xml");
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
         reader.close();
         // // populate in-memory database
