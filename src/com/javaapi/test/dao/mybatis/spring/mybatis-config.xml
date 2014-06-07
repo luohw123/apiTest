@@ -5,8 +5,8 @@
   
 <configuration>  
     <mappers>  
-        <mapper resource="com\\javaapi\\test\\dao\\mybatis\\UserMapper.xml" />  
-        <mapper resource="com\\javaapi\\test\\dao\\mybatis\\SocialMapper.xml" />  
+        <mapper resource="com\\javaapi\\test\\dao\\mybatis\\spring\\UserMapper.xml" />  
+        <mapper resource="com\\javaapi\\test\\dao\\mybatis\\spring\\SocialMapper.xml" />  
     </mappers>  
     
 </configuration>

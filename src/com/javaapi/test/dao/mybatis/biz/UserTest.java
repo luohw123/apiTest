@@ -10,7 +10,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.javaapi.test.dao.mybatis.Social;
-import com.javaapi.test.dao.mybatis.SocialMapper;
 
 public class UserTest {
 

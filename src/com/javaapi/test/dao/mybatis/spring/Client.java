@@ -16,7 +16,7 @@ public class Client {
 
 	@Test
 	public void selectOne() {
-		String selectOne = "com.javaapi.test.dao.mybatis.SocialMapper.countUser";
+		String selectOne = "testNamespace.countUser";
 		Integer a = sqlSessionTemplate.selectOne(selectOne);
 		System.out.println(a);
 	}

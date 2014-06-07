@@ -2,8 +2,9 @@
 <!DOCTYPE mapper  
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
-  
-<mapper namespace="com.javaapi.test.dao.mybatis.SocialMapper">  
+<!--     如果要使用mapper接口方式则 namespace 一定要跟对应的接口一样 -->
+<mapper namespace="com.javaapi.test.dao.mybatis.biz.SocialMapper">  
+
    <select id="getUserList" resultType="com.javaapi.test.dao.mybatis.Social">  
         select * from sns_social  
     </select>  
