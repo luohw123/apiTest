@@ -4,9 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">  
   
 <configuration>  
+<typeHandlers>
+	<typeHandler handler="com.javaapi.test.dao.mybatis.MyTypeHandler" javaType="com.javaapi.test.dao.mybatis.TestTypeHandler" jdbcType="VARCHAR"/>
+</typeHandlers>
     <mappers>  
         <mapper resource="com\\javaapi\\test\\dao\\mybatis\\spring\\UserMapper.xml" />  
         <mapper resource="com\\javaapi\\test\\dao\\mybatis\\spring\\SocialMapper.xml" />  
     </mappers>  
-    
 </configuration>

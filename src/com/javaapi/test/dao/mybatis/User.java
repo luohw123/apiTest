@@ -4,6 +4,8 @@ public class User {
 
     private Integer id;
     private String  name;
+    
+	private TestTypeHandler	testTypeHandler;
 
     public Integer getId() {
         return id;
@@ -20,4 +22,13 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
+
+	public TestTypeHandler getTestTypeHandler() {
+		return testTypeHandler;
+	}
+
+	public void setTestTypeHandler(TestTypeHandler testTypeHandler) {
+		this.testTypeHandler = testTypeHandler;
+	}
+
 }

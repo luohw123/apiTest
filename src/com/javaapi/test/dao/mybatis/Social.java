@@ -38,4 +38,10 @@ public class Social {
         this.email = email;
     }
 
+	@Override
+	public String toString() {
+		return "Social [id=" + id + ", name=" + name + ", phone=" + phone
+				+ ", email=" + email + "]";
+	}
+
 }
