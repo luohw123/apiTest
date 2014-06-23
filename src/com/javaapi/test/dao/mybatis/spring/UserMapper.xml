@@ -6,11 +6,13 @@
 <mapper namespace="testNamespace">  
   <resultMap type="com.javaapi.test.dao.mybatis.User" id="userId">
   	<result property="id" column="id"/>
+  	<!--     相当于查找一个对象 -->
   	<result property="testTypeHandler" column="val" javaType="com.javaapi.test.dao.mybatis.TestTypeHandler" jdbcType="VARCHAR"/> 
   </resultMap>
     <select id="getUser" resultType="com.javaapi.test.dao.mybatis.User">  
         select * from users  
     </select>  
+<!--     相当于插入一个对象 -->
     <insert id="insertUserTypeHandler" parameterType="com.javaapi.test.dao.mybatis.User"  useGeneratedKeys="true" keyColumn="id" >
     	insert into csc_sns_dev.tbl_b(id,val) values(#{id},#{testTypeHandler,javaType=com.javaapi.test.dao.mybatis.TestTypeHandler,jdbcType=VARCHAR});
     </insert>
