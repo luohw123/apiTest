@@ -103,6 +103,11 @@
 		</dependency>
 		
 		<!-- mvc -->
+		 <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
@@ -231,5 +236,25 @@
 <!-- 		<version>1.0</version> -->
 <!-- 	</dependency> -->
 
+
+<!-- rpc start -->
+<!-- dubbo -->
+      <dependency>
+         <groupId>com.alibaba</groupId>
+         <artifactId>dubbo</artifactId>
+         <version>2.0.13</version>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.zookeeper</groupId>
+         <artifactId>zookeeper</artifactId>
+         <version>3.3.6</version>
+         <exclusions>
+            <exclusion>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+<!-- rpc end-->
 	</dependencies>
 </project>
