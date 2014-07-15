@@ -2,6 +2,10 @@ package com.javaapi.test.concurrent.Thread.Thread1;
 
 import java.util.List;
 
+/**测试消费
+ * @author Administrator
+ *
+ */
 public class Consume implements Runnable {
   private List container = null;
   private int  count;
