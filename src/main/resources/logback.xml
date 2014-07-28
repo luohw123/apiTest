@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 参考 http://aub.iteye.com/blog/1101260 -->
+<configuration>
+ <property name="APP_NAME" value="apiTest" />   
+<contextName>${APP_NAME}</contextName>
+<!-- 标准输出 -->
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%-4relative %date %contextName [%thread] %level %class{36} %message%n</pattern>
+    </encoder>
+<!--      <encoder> -->
+<!--       <pattern>{"date":%date,"app":%contextName,"thread":[%thread],"level":%level,"file":%class{36},"msg":%message%n}</pattern> -->
+<!--     </encoder> -->
+    <!-- 只输出level级别的日志 -->
+<!--     <filter class = "ch.qos.logback.classic.filter.LevelFilter"> -->
+<!--       <level>INFO</level> -->
+<!--       <onMatch>ACCEPT</onMatch> -->
+<!--       <onMismatch>DENY</onMismatch> -->
+<!--     </filter> -->
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <encoder>
+      <pattern>%-4relative %date %contextName [%thread] %level %class{36} %message%n</pattern>
+    </encoder>
+<!--     只输出level级别以上的日志 -->
+<!--     <filter class="ch.qos.logback.classic.filter.ThresholdFilter">  -->
+<!--       <level>INFO</level>  -->
+<!--     </filter> -->
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>log/${APP_NAME}.%d{yyyyMMddHH}.log</fileNamePattern>
+    </rollingPolicy>
+  </appender>
+  
+<!--   控制包或者类的日志输出,以及日志输出级别 -->
+  <logger name="com.javaapi.test.log.logback.TestLogback" level="INFO" />
+  
+  <root level="DEBUGE">
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="stdout"/>
+  </root>
+</configuration>
