@@ -6,19 +6,23 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
- *http://wenku.baidu.com/view/3e87250e844769eae009ed53.html 
- *http://mysun.iteye.com/blog/1581119
- *http://sammor.iteye.com/blog/1052055?page=2#comments
+ *http://wenku.baidu.com/view/3e87250e844769eae009ed53.html </br>
+ *http://mysun.iteye.com/blog/1581119</br>
+ *http://sammor.iteye.com/blog/1052055?page=2#comments</br>
+ * 1.反序列化时如果是减少或增加属性（包括枚举），方法，不会有问题  </br>
+ * 2.如果要反序列化枚举实例时，程序端有该枚举类型但没有该实例，则抛错。</br>
+ * 3.序列化版本号不对，抛错。
  * @project apiTest
  * @author kk
  * @date 2014年7月28日
  */
 public class Test {
-    private static String file = "/serialFile.txt";
+    private static String file = "/home/kk/program/serialFile.txt";
 
     public static void main(String[] args) throws Exception {
-        write();
-        //read();
+        //        write();
+        read();
+        System.out.println("done");
     }
 
     static void write() throws Exception {
@@ -27,7 +31,7 @@ public class Test {
         Student s = new Student();
         s.setAge(20);
         s.setName("test");
-        s.setState(State.TEST);
+        s.setState(State.COMMON);
         oos.writeObject(s);
         oos.close();
     }

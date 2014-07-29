@@ -1,22 +1,22 @@
 package com.javaapi.test.dao.constant.Game;
 
 
-public enum Game {
+public enum EnumGame {
     SJ(1, "射击游戏", null), CYHX(2, "穿越火线", SJ), NZ(3, "逆战", SJ), SMZH(4, "使命召唤", SJ);
 
     private Integer index;
 
     private String description;
 
-    private Game parent;
+    private EnumGame parent;
 
-    private Game(Integer index, String description, Game parent) {
+    private EnumGame(Integer index, String description, EnumGame parent) {
         this.index = index;
         this.description = description;
         this.parent = parent;
     }
 
-    public boolean equals(Game game) {
+    public boolean equals(EnumGame game) {
         if (game.getIndex() == this.getIndex()) {
             return true;
         }
@@ -39,11 +39,11 @@ public enum Game {
         this.description = description;
     }
 
-    public Game getParent() {
+    public EnumGame getParent() {
         return parent;
     }
 
-    public void setParent(Game parent) {
+    public void setParent(EnumGame parent) {
         this.parent = parent;
     }
 
