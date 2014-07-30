@@ -16,6 +16,7 @@ import java.util.Map;
  * 
  * HashMap 1 先判断hash 2再判断equals
  */
+
 public class HashTest {
     private static int j = 1;
     private int i;
