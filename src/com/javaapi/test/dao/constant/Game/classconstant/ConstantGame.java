@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ConstantGame implements Serializable {
     private static final long serialVersionUID = 1L;
     public static final ConstantGame SJ = new ConstantGame(1, "射击游戏", null);
-    //    public static final ConstantGame CYHX = new ConstantGame(2, "穿越火线", SJ);
+    public static final ConstantGame CYHX = new ConstantGame(2, "穿越火线", SJ);
     public static final ConstantGame NZ = new ConstantGame(3, "逆战", SJ);
     public static final ConstantGame SMZH = new ConstantGame(4, "使命召唤", SJ);
 
@@ -16,7 +16,6 @@ public class ConstantGame implements Serializable {
     private ConstantGame parent;
 
     private ConstantGame(Integer index, String description, ConstantGame parent) {
-        super();
         this.index = index;
         this.description = description;
         this.parent = parent;
@@ -71,6 +70,22 @@ public class ConstantGame implements Serializable {
         return true;
     }
 
+    private Object readResolve() {
+        if (this.getIndex().intValue() == ConstantGame.SJ.getIndex().intValue()) {
+            return ConstantGame.SJ;
+        }
+        if (this.getIndex().intValue() == ConstantGame.CYHX.getIndex().intValue()) {
+            return ConstantGame.CYHX;
+        }
+        if (this.getIndex().intValue() == ConstantGame.NZ.getIndex().intValue()) {
+            return ConstantGame.NZ;
+        }
+        if (this.getIndex().intValue() == ConstantGame.SMZH.getIndex().intValue()) {
+            return ConstantGame.SMZH;
+        }
+        return null;
+    }
+    //
     //    @Override
     //    public String toString() {
     //        return "ConstantGame [index=" + index + ", description=" + description + ", parent=" + parent + "]";

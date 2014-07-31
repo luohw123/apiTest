@@ -2,7 +2,7 @@ package com.javaapi.test.dao.constant.Game.classconstant;
 
 import java.io.Serializable;
 
-class Student implements Serializable {
+public class Student implements Serializable {
     private static final long serialVersionUID = 1L;
     ConstantGame constantGame;
     String name;

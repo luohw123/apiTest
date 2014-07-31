@@ -1,8 +1,10 @@
 package com.javaapi.test.dao.constant.Game.classconstant;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import org.junit.Test;
 
@@ -24,18 +26,18 @@ public class TestConstant {
         System.out.println(ConstantGame.SJ == ConstantGame.SJ.SJ.SJ);
     }
 
-    //    @Test
-    //    public void write() throws IOException {
-    //        FileOutputStream os = new FileOutputStream(file);
-    //        ObjectOutputStream oos = new ObjectOutputStream(os);
-    //        Student s = new Student();
-    //        s.setAge(20);
-    //        s.setName("test");
-    //        s.setConstantGame(ConstantGame.CYHX);
-    //        oos.writeObject(s);
-    //        oos.close();
-    //        System.out.println("done");
-    //    }
+    @Test
+    public void write() throws IOException {
+        FileOutputStream os = new FileOutputStream(file);
+        ObjectOutputStream oos = new ObjectOutputStream(os);
+        Student s = new Student();
+        s.setAge(20);
+        s.setName("test");
+        s.setConstantGame(ConstantGame.CYHX);
+        oos.writeObject(s);
+        oos.close();
+        System.out.println("done");
+    }
 
     @Test
     public void read() throws IOException, ClassNotFoundException {
@@ -43,7 +45,9 @@ public class TestConstant {
         ObjectInputStream ois = new ObjectInputStream(is);
         Student s = (Student) ois.readObject();
         System.out.println(s);
+        System.out.println(ConstantGame.CYHX.getDescription());
         System.out.println(s.getConstantGame().getDescription());
+        System.out.println(s.getConstantGame() == ConstantGame.CYHX);
         System.out.println("done");
     }
 }
