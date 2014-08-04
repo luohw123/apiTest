@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 
-/**
+/**第二种序列化方式
  * http://blog.csdn.net/p106786860/article/details/17953223
  * @project apiTest
  * @author kk

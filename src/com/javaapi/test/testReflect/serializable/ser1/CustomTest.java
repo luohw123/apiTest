@@ -7,6 +7,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+/**
+ * 测试序列化方式1
+ * @project apiTest
+ * @author kk
+ * @date 2014年8月4日
+ * @See ConstantGame
+ */
 public class CustomTest {
 
     public static void main(String[] args) {

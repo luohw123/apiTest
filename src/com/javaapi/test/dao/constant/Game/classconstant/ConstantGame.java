@@ -2,6 +2,15 @@ package com.javaapi.test.dao.constant.Game.classconstant;
 
 import java.io.Serializable;
 
+import com.javaapi.test.testReflect.serializable.ser1.CustomTest;
+
+/**
+ * 
+ * @project apiTest
+ * @author kk
+ * @date 2014年8月4日
+ * @see CustomTest
+ */
 public class ConstantGame implements Serializable {
     private static final long serialVersionUID = 1L;
     public static final ConstantGame SJ = new ConstantGame(1, "射击游戏", null);

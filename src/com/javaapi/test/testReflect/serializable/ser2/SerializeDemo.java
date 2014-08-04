@@ -7,7 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-/**http://blog.csdn.net/p106786860/article/details/17953223
+/**第一种序列化方式
+ * http://blog.csdn.net/p106786860/article/details/17953223
  * writeObject / readObject
  */
 public class SerializeDemo extends AbstractSerializeDemo implements Serializable {
