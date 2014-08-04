@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import org.junit.Test;
+
 /**
  *http://wenku.baidu.com/view/3e87250e844769eae009ed53.html </br>
  *http://mysun.iteye.com/blog/1581119</br>
@@ -16,16 +18,12 @@ import java.io.ObjectOutputStream;
  * @author kk
  * @date 2014年7月28日
  */
-public class Test {
+public class TestEnumSeril {
     private static String file = "/home/kk/program/serialFile.txt";
 
-    public static void main(String[] args) throws Exception {
-        //        write();
-        read();
-        System.out.println("done");
-    }
 
-    static void write() throws Exception {
+    @Test
+    public void write() throws Exception {
         FileOutputStream os = new FileOutputStream(file);
         ObjectOutputStream oos = new ObjectOutputStream(os);
         Student s = new Student();
@@ -36,10 +34,12 @@ public class Test {
         oos.close();
     }
 
-    static void read() throws Exception {
+    @Test
+    public void read() throws Exception {
         FileInputStream is = new FileInputStream(file);
         ObjectInputStream ois = new ObjectInputStream(is);
         Student s = (Student) ois.readObject();
         System.out.println(s);
+        System.out.println(State.COMMON == s.getState());
     }
 }

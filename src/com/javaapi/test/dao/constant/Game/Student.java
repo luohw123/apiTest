@@ -3,9 +3,6 @@ package com.javaapi.test.dao.constant.Game;
 import java.io.Serializable;
 
 class Student implements Serializable {
-    /**
-    *
-    */
     private static final long serialVersionUID = 1L;
     State state;
     String name;
@@ -39,5 +36,17 @@ class Student implements Serializable {
         str.append("age:" + age).append(" ");
         str.append("id:" + id);
         return str.toString();
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
