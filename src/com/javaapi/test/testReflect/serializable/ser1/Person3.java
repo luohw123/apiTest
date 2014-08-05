@@ -5,6 +5,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+/**
+ * 这四个方法的执行顺序是writeReplace->writeObject->readObject->readResolve
+ * @project apiTest
+ * @author kk
+ * @date 2014年8月5日
+ * Copyright (C) 2010-2012 www.2caipiao.com Inc. All rights reserved.
+ */
 public class Person3 implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
@@ -36,13 +43,25 @@ public class Person3 implements Serializable {
 
     private void writeObject(ObjectOutputStream out) throws IOException {
         // 将name Field值反转后写入二进制流 
+        System.out.println("writeObject");
         out.writeObject(new StringBuffer(name).reverse());
         out.writeInt(age);
     }
 
     private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
         // 将去读的字符串反转后赋值给name Field 
+        System.out.println("readObject");
         this.name = ((StringBuffer) in.readObject()).reverse().toString();
         this.age = in.readInt();
+    }
+
+    private Object readResolve() {
+        System.out.print("readResolve");
+        return new Person3("123", 11);
+    }
+
+    private Object writeReplace() {
+        System.out.print("writeReplace");
+        return new Person3("123", 11);
     }
 }
