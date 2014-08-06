@@ -1,4 +1,4 @@
-package com.javaapi.test.dataTrans.json;
+package com.javaapi.test.dataTrans.json.fastjson;
 
 import java.util.HashMap;
 import java.util.Map;

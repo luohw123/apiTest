@@ -1,4 +1,4 @@
-package com.javaapi.test.dataTrans.json;
+package com.javaapi.test.dataTrans.json.fastjson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,6 +6,8 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.javaapi.test.dataTrans.json.CompanyInfo;
+import com.javaapi.test.dataTrans.json.CompanyName;
 
 public class JsonTransForm {
 
