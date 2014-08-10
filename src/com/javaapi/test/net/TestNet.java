@@ -37,7 +37,7 @@ public class TestNet {
 		urlConn.setRequestProperty("Content-Type",
 				"application/x-www-form-urlencode");
 		// 开始连接
-		urlConn.connect();
+		// urlConn.connect();
 		// 判断请求是否成功
 		if (urlConn.getResponseCode() == HttpURLConnection.HTTP_OK) {
 			// 获取返回的数据
