@@ -8,8 +8,6 @@ import java.util.Map;
 
 import net.rubyeye.xmemcached.XMemcachedClient;
 
-import org.junit.Test;
-
 class Name implements Serializable {
 	String	firstName;
 	String	lastName;
@@ -32,10 +30,7 @@ class Name implements Serializable {
 }
 
 public class MemClient {
-	@Test
-	public void test() {
-		// }
-		// public static void main(String[] args) {
+	public static void main(String[] args) {
 		try {
 			String ip = "127.0.0.1";
 
