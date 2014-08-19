@@ -35,8 +35,12 @@
 <!--   控制包或者类的日志输出,以及日志输出级别 -->
   <logger name="com.javaapi.test.log.logback.TestLogback" level="INFO" />
   
-  <root level="DEBUGE">
+  <logger name="net.rubyeye.xmemcached" level="INFO" />
+  <logger name="com.google.code.yanf4j" level="INFO" />
+  <logger name="com.google.code.yanf4j.core" level="INFO" />
+  <logger name="com.javaapi.test" level="INFO" />
+  	
+  <root level="INFO">
     <appender-ref ref="FILE"/>
-    <appender-ref ref="stdout"/>
   </root>
 </configuration>
