@@ -26,63 +26,76 @@ public class MemClient {
 		}
 	}
 	@Test
+	public void set() throws TimeoutException, InterruptedException,
+	MemcachedException {
+		if (!client.set("hello", 0, "dennis")) {
+			System.err.println(" set error ");
+		}
+	}
+
+	@Test
 	public void add() throws TimeoutException, InterruptedException,
 			MemcachedException {
 		client.add("hello", 0, "dennis");
 	}
 
-	public static void main(String[] args) {
-		try {
-			// 存储操作
-			if (!client .set("hello", 0, "dennis")) {
-				System.err.println(" set error ");
-			}
-			client .add("hello", 0, "dennis");
-			client .replace("hello", 0, "dennis");
+	@Test
+	public void replace() throws TimeoutException, InterruptedException,
+			MemcachedException {
+		client.replace("hello", 0, "dennis");
+	}
 
-			// get操作
-			String name = (String) client .get("hello");
-			System.out.println(name);
+	@Test
+	public void get() throws TimeoutException, InterruptedException,
+			MemcachedException {
+		// 批量获取
+		List<String> keys = new ArrayList<String>();
+		keys.add("hello");
+		keys.add("test");
+		Map<String, Object> map = client.get(keys);
+		System.out.println(map);
+	}
 
-			// 批量获取
-			List<String> keys = new ArrayList<String>();
-			keys.add("hello");
-			keys.add("test");
-			Map<String, Object> map = client .get(keys);
-			System.out.println(" map size: " + map.size());
-
-			// delete操作
-			if (!client .delete("hello", 1000)) {
-				System.err.println(" delete error ");
-			}
-
-			// incr,decr
-			client .incr("a", 4);
-			client .decr("a", 4);
-
-			// version
-			// String version = client.version();
-			// System.out.println(version);
-			// 增删改查自定义对象
-			Name dennis = new Name("dennis", "zhuang", 26, -1);
-			System.out.println("dennis: " + dennis);
-			client .set("dennis", 0, dennis);
-
-			Name cachedPerson = (Name) client .get("dennis");
-			System.out.println("cachedPerson: " + cachedPerson);
-			cachedPerson.money = -10000;
-
-			client .replace("dennis", 0, cachedPerson);
-			Name cachedPerson2 = (Name) client .get("dennis");
-			System.out.println(" cachedPerson2: " + cachedPerson2);
-
-			// delete
-			client .delete("dennis");
-			System.out.println(" after delete: " + client .get("dennis"));
-			client .shutdown();
-		} catch (Exception e) {
-			e.printStackTrace();
+	@Test
+	public void delete() throws TimeoutException, InterruptedException,
+			MemcachedException {
+		// delete操作
+		if (!client.delete("hello", 1000)) {
+			System.err.println(" delete error ");
 		}
+	}
 
+	@Test
+	public void incr() throws TimeoutException, InterruptedException,
+			MemcachedException {
+		client.incr("a", 4);
+	}
+
+	@Test
+	public void decr() throws TimeoutException, InterruptedException,
+			MemcachedException {
+		client.decr("a", 4);
+	}
+
+	@Test
+	public void selfdefine() throws TimeoutException, InterruptedException,
+			MemcachedException, IOException {
+		// 增删改查自定义对象
+		Name dennis = new Name("dennis", "zhuang", 26, -1);
+		System.out.println("dennis: " + dennis);
+		client.set("dennis", 0, dennis);
+
+		Name cachedPerson = (Name) client.get("dennis");
+		System.out.println("cachedPerson: " + cachedPerson);
+		cachedPerson.money = -10000;
+
+		client.replace("dennis", 0, cachedPerson);
+		Name cachedPerson2 = (Name) client.get("dennis");
+		System.out.println(" cachedPerson2: " + cachedPerson2);
+
+		// delete
+		client.delete("dennis");
+		System.out.println(" after delete: " + client.get("dennis"));
+		client.shutdown();
 	}
 }
