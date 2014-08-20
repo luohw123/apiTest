@@ -18,7 +18,7 @@ import org.junit.Test;
  */
 public class SocketHttpKK {
 
-	private static final String	host	= "61.146.152.57";
+	private static final String	host	= " 180.97.33.108";
 	private static final int			port	= 80;
 	private String				path	= "/";
 
@@ -32,7 +32,7 @@ public class SocketHttpKK {
 			BufferedWriter bufferedWriter = new BufferedWriter(
 					new OutputStreamWriter(outputStream));
 			bufferedWriter.write("GET " + path + " HTTP/1.1\r\n");
-			bufferedWriter.write("Host: www.aicai.com\r\n");
+			bufferedWriter.write("Host: www.baidu.com\r\n");
 			bufferedWriter.write("\r\n");
 			bufferedWriter.flush();
 			BufferedInputStream streamReader = new BufferedInputStream(
