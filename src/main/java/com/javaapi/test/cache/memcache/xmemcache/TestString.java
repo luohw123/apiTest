@@ -14,6 +14,7 @@ public class TestString {
 
 	@Test
 	public void test() {
+		System.out.println(TestString.GET[0]);
 		System.out.println(TestString.GET.length);
 	}
 }
