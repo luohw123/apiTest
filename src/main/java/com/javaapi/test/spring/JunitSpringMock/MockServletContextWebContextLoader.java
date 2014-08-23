@@ -12,11 +12,13 @@ import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
 /**
- *未完成 
+ * 未完成,这个例子是不生效的
+ * 
  * @project JavaApiSample
  * @author kk
  * @date 2014年7月4日
  */
+@Deprecated
 public class MockServletContextWebContextLoader extends AbstractContextLoader {
 
     @Override

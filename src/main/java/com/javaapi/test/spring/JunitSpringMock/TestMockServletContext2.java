@@ -5,6 +5,10 @@ import org.springframework.mock.web.MockServletContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
+/**
+ * 这个例子是生效的
+ * 
+ */
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration
 public class TestMockServletContext2 {

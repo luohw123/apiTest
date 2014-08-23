@@ -3,7 +3,6 @@ package com.javaapi.test.exception.howtodeal;
 
 /**
  * 错误信息
- * @author dongdong.xiang
  *
  */
 public class ErrorCauseInfo {
