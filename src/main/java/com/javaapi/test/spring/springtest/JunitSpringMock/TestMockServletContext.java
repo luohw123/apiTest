@@ -16,7 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
  * @date 2014年7月4日
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "file:target/classes/com/javaapi/test/spring/JunitSpringMock/applicationContext.xml")
+@ContextConfiguration(locations = "file:target/classes/com/javaapi/test/spring/springtest/JunitSpringMock/applicationContext.xml")
 @Deprecated
 public class TestMockServletContext {
 

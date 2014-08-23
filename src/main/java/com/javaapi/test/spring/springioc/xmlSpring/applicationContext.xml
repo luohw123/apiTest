@@ -3,10 +3,10 @@
 
 <beans>
 <!-- 测试name属性bean,name属性是对id属性的扩充 ,可以允许重复值等 -->
-	<bean name="school" class="com.javaapi.test.spring.xmlSpring.School">
+	<bean name="school" class="com.javaapi.test.spring.springioc.xmlSpring.School">
 		<property name="teacher" ref="teacher"/>
 	</bean>
-	<bean id="teacher" class="com.javaapi.test.spring.xmlSpring.TeacherImp">
+	<bean id="teacher" class="com.javaapi.test.spring.springioc.xmlSpring.TeacherImp">
 		<property name="name" value="wk-xml"/>
 	</bean>
 </beans>
