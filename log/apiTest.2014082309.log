@@ -1,0 +1,88 @@
+1311 2014-08-23 09:51:04,405 apiTest [main] ERROR o.s.test.context.TestContextManager Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@bdb6c8c] to prepare test instance [com.javaapi.test.spring.JunitSpringMock.TestMockServletContext@72b36168]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:122) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:105) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:74) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:312) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:284) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197) [.cp/:na]
+Caused by: java.lang.IllegalArgumentException: ApplicationContext must not be null
+	at org.springframework.util.Assert.notNull(Assert.java:112) ~[spring-core-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.ContextCache.put(ContextCache.java:169) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:96) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	... 25 common frames omitted
+663  2014-08-23 09:51:54,312 apiTest [main] INFO o.s.t.c.s.AbstractContextLoader Could not detect default resource locations for test class [com.javaapi.test.spring.JunitSpringMock.TestMockServletContext]: class path resource [com/javaapi/test/spring/JunitSpringMock/TestMockServletContext-context.xml] does not exist.
+671  2014-08-23 09:51:54,320 apiTest [main] INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils Could not detect default configuration classes for test class [com.javaapi.test.spring.JunitSpringMock.TestMockServletContext]: TestMockServletContext does not declare any static, non-private, non-final, inner classes annotated with @Configuration.
+929  2014-08-23 09:52:27,943 apiTest [main] INFO o.s.b.f.xml.XmlBeanDefinitionReader Loading XML bean definitions from URL [file:target/classes/com/javaapi/test/spring/JunitSpringMock/applicationContext.xml]
+1763 2014-08-23 09:52:28,777 apiTest [main] INFO o.s.c.s.AbstractApplicationContext Refreshing org.springframework.context.support.GenericApplicationContext@7fab6600: startup date [Sat Aug 23 09:52:28 CST 2014]; root of context hierarchy
+2009 2014-08-23 09:52:29,023 apiTest [main] INFO o.s.b.f.s.DefaultListableBeanFactory Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c32777a: defining beans [testMock,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+2095 2014-08-23 09:52:29,109 apiTest [Thread-0] INFO o.s.c.s.AbstractApplicationContext Closing org.springframework.context.support.GenericApplicationContext@7fab6600: startup date [Sat Aug 23 09:52:28 CST 2014]; root of context hierarchy
+2097 2014-08-23 09:52:29,111 apiTest [Thread-0] INFO o.s.b.f.s.DefaultSingletonBeanRegistry Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c32777a: defining beans [testMock,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+897  2014-08-23 09:53:06,475 apiTest [main] INFO o.s.b.f.xml.XmlBeanDefinitionReader Loading XML bean definitions from URL [file:target/classes/com/javaapi/test/spring/JunitSpringMock/applicationContext.xml]
+1226 2014-08-23 09:53:06,804 apiTest [main] INFO o.s.c.s.AbstractApplicationContext Refreshing org.springframework.context.support.GenericApplicationContext@1950ad73: startup date [Sat Aug 23 09:53:06 CST 2014]; root of context hierarchy
+1336 2014-08-23 09:53:06,914 apiTest [main] INFO o.s.b.f.s.DefaultListableBeanFactory Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@39775d54: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+1397 2014-08-23 09:53:06,975 apiTest [main] ERROR o.s.test.context.TestContextManager Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@98b1fdb] to prepare test instance [com.javaapi.test.spring.JunitSpringMock.TestMockServletContext@cd867c2]
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.javaapi.test.spring.JunitSpringMock.TestMockServletContext': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: com.javaapi.test.spring.JunitSpringMock.TestMock com.javaapi.test.spring.JunitSpringMock.TestMockServletContext.testMock; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.javaapi.test.spring.JunitSpringMock.TestMock] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:288) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1116) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:376) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:110) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:312) ~[spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:284) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:88) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174) [spring-test-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390) [.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197) [.cp/:na]
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: com.javaapi.test.spring.JunitSpringMock.TestMock com.javaapi.test.spring.JunitSpringMock.TestMockServletContext.testMock; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.javaapi.test.spring.JunitSpringMock.TestMock] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:514) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:285) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	... 26 common frames omitted
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.javaapi.test.spring.JunitSpringMock.TestMock] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:986) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:856) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:768) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:486) ~[spring-beans-3.2.3.RELEASE.jar:3.2.3.RELEASE]
+	... 28 common frames omitted
+1417 2014-08-23 09:53:06,995 apiTest [Thread-0] INFO o.s.c.s.AbstractApplicationContext Closing org.springframework.context.support.GenericApplicationContext@1950ad73: startup date [Sat Aug 23 09:53:06 CST 2014]; root of context hierarchy
+1418 2014-08-23 09:53:06,996 apiTest [Thread-0] INFO o.s.b.f.s.DefaultSingletonBeanRegistry Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@39775d54: defining beans [org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+809  2014-08-23 09:53:56,044 apiTest [main] INFO o.s.c.s.AbstractApplicationContext Refreshing Root WebApplicationContext: startup date [Sat Aug 23 09:53:56 CST 2014]; root of context hierarchy
+951  2014-08-23 09:53:56,186 apiTest [main] INFO o.s.b.f.xml.XmlBeanDefinitionReader Loading XML bean definitions from URL [file:/D:/workspace2012-11-12/apiTest/target/classes/com/javaapi/test/spring/JunitSpringMock/applicationContext.xml]
+1480 2014-08-23 09:53:56,715 apiTest [main] INFO o.s.b.f.s.DefaultListableBeanFactory Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6dd1d6: defining beans [testMock,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
