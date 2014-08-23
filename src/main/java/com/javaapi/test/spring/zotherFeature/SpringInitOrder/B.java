@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.SpringInitOrder;
+package com.javaapi.test.spring.zotherFeature.SpringInitOrder;
 
 public class B {
 	protected IE e;// 实现的类和实例由Spring容器注入

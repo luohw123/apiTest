@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.SpringInitOrder;
+package com.javaapi.test.spring.zotherFeature.SpringInitOrder;
 
 public class C extends B {
 	static {

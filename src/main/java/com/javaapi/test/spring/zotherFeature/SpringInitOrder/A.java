@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.SpringInitOrder;
+package com.javaapi.test.spring.zotherFeature.SpringInitOrder;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
