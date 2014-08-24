@@ -1,6 +1,0 @@
-583  2014-08-17 19:58:02,747 apiTest [main] WARN n.r.xmemcached.XMemcachedClient XMemcachedClient use Text protocol
-680  2014-08-17 19:58:02,844 apiTest [main] INFO c.g.c.y.nio.impl.SelectorManager Creating 4 reactors...
-724  2014-08-17 19:58:02,888 apiTest [main] WARN c.g.c.y.core.impl.AbstractController The Controller started at localhost/127.0.0.1:0 ...
-746  2014-08-17 19:58:02,910 apiTest [Xmemcached-Reactor-0] WARN n.r.x.impl.MemcachedConnector Add a session: 127.0.0.1:11211
-883  2014-08-17 19:58:03,047 apiTest [Thread-5] WARN n.r.x.impl.MemcachedConnector Remove a session: 127.0.0.1:11211
-886  2014-08-17 19:58:03,050 apiTest [Thread-5] INFO c.g.c.y.core.impl.AbstractController Controller has been stopped.
