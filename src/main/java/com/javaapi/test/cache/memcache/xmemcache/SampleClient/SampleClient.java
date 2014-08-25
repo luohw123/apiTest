@@ -31,9 +31,18 @@ public class SampleClient {
 					outputStream);
 			BufferedWriter bufferedWriter = new BufferedWriter(
 					outputStreamWriter);
+			String key;
+			String expireTime;
+			String value;
+			String valueLength;
+			key = null;
+			valueLength = null;
+			expireTime = null;
+			value = null;
 			// 枚举输入值
-			bufferedWriter.write("set hello 0 0 5 \r\n");
-			bufferedWriter.write("12345\r\n");
+			bufferedWriter.write("set " + key + " 0 " + expireTime + " "
+					+ valueLength + " \r\n");
+			bufferedWriter.write(value + "\r\n");
 			// bufferedWriter.write("\r\n");
 			bufferedWriter.flush();
 			InputStream inputStream = socket.getInputStream();
