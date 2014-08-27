@@ -23,7 +23,8 @@ public class SampleClient {
 	private String	host	= "127.0.0.1";
 
 	@Test
-	public void SampleClient() {
+	public void SampleClient(String key, String expireTime, String value,
+			String valueLength, String flag) {
 		try {
 			Socket socket = new Socket(host, port);
 			OutputStream outputStream = socket.getOutputStream();
@@ -31,19 +32,10 @@ public class SampleClient {
 					outputStream);
 			BufferedWriter bufferedWriter = new BufferedWriter(
 					outputStreamWriter);
-			String key;
-			String expireTime;
-			String value;
-			String valueLength;
-			key = null;
-			valueLength = null;
-			expireTime = null;
-			value = null;
 			// 枚举输入值
-			bufferedWriter.write("set " + key + " 0 " + expireTime + " "
-					+ valueLength + " \r\n");
+			String command = getCommand(key, flag, expireTime, valueLength);
+			bufferedWriter.write(command);
 			bufferedWriter.write(value + "\r\n");
-			// bufferedWriter.write("\r\n");
 			bufferedWriter.flush();
 			InputStream inputStream = socket.getInputStream();
 			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -83,6 +75,16 @@ public class SampleClient {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private String getCommand(String key, String flag,
+			String expireTime, String valueLength) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(Command.GET.getName()).append(CharMark.BLANK).append(flag)
+				.append(CharMark.BLANK).append(expireTime)
+				.append(CharMark.BLANK).append(valueLength)
+				.append(CharMark.RETURN);
+		return sb.toString();
 	}
 
 	@Test
