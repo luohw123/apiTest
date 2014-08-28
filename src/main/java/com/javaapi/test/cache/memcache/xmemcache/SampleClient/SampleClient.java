@@ -23,8 +23,13 @@ public class SampleClient {
 	private String	host	= "127.0.0.1";
 
 	@Test
-	public void SampleClient(String key, String expireTime, String value,
-			String valueLength, String flag) {
+	public void testGET() {
+		sampleClient("hello", "0", "0", "123", "3");
+	}
+
+	public void sampleClient(String key, String flag, String expireTime,
+			String value,
+			String valueLength) {
 		try {
 			Socket socket = new Socket(host, port);
 			OutputStream outputStream = socket.getOutputStream();
@@ -43,25 +48,10 @@ public class SampleClient {
 					inputStreamReader);
 			String tempString;
 			tempString = bufferedReader.readLine();
-			// StringBuilder sb = new StringBuilder();
-			// while ((tempString = bufferedReader.readLine()) != null) {
-			// if (tempString.indexOf("\r\n") != -1
-			// || tempString.indexOf("\n") != -1) {
-			// break;
-			// }
-			// sb.append(tempString);
-			// }
 			// 枚举所有响应值
-			if ("ERROR".equals(tempString)) {
-				System.out.println("false");
-			}
-			if ("STORED".equals(tempString)) {
+			if (MemResponse.STORED.getMsg().equals(tempString)) {
 				System.out.println("true");
 			}
-			// while((tempString = bufferedReader.readLine()) != null){
-			// sb.append(tempString);
-			// System.out.println("==>" + tempString);
-			// }
 			System.out.println(tempString);
 			bufferedWriter.close();
 			outputStreamWriter.close();
@@ -80,7 +70,8 @@ public class SampleClient {
 	private String getCommand(String key, String flag,
 			String expireTime, String valueLength) {
 		StringBuilder sb = new StringBuilder();
-		sb.append(Command.GET.getName()).append(CharMark.BLANK).append(flag)
+		sb.append(Command.GET.getName()).append(CharMark.BLANK).append(key)
+				.append(CharMark.BLANK).append(flag)
 				.append(CharMark.BLANK).append(expireTime)
 				.append(CharMark.BLANK).append(valueLength)
 				.append(CharMark.RETURN);

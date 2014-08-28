@@ -18,10 +18,10 @@ public class NotifyThread implements Runnable {
 	   // 同步访问 event 
 	   synchronized (tester.getEvent()) { 
 	    // 通知等在event上的一个线程 
-	    tester.getEvent().notify();
+				// tester.getEvent().notify();
 
 	    // 通知等在event上的所有线程 
-	    // tester.getEvent().notifyAll(); 
+				tester.getEvent().notifyAll();
 	    // 打印 "fire event" 信息。 
 	    Calendar now = Calendar.getInstance(); 
 	    System.out.println(now.getTime() + " N " + Thread.currentThread() + " fire event."); 
