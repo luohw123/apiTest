@@ -10,9 +10,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * 
  */
 public class TestArrayBlockingQueueforList {
-	public ReentrantLock	lock	= new ReentrantLock();
+	public ReentrantLock	lock		= new ReentrantLock();
 	public Condition		condition	= lock.newCondition();
-	public List<Integer>	list	= new ArrayList<Integer>();
+	public List<Integer>	list		= new ArrayList<Integer>();
 	boolean					isEmpty		= true;
 
 	public static void main(String[] args) {
@@ -20,8 +20,7 @@ public class TestArrayBlockingQueueforList {
 		Resource res = new Resource();
 		new Thread(new ProducerThread(test.getCondition(), test.getLock(), res))
 				.start();
-		new Thread(
-new ConsumerThread(test.getCondition(), test.getLock(), res))
+		new Thread(new ConsumerThread(test.getCondition(), test.getLock(), res))
 				.start();
 	}
 

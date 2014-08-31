@@ -28,8 +28,7 @@ public class SampleClient {
 	}
 
 	public void sampleClient(String key, String flag, String expireTime,
-			String value,
-			String valueLength) {
+			String value, String valueLength) {
 		try {
 			Socket socket = new Socket(host, port);
 			OutputStream outputStream = socket.getOutputStream();
@@ -40,10 +39,10 @@ public class SampleClient {
 			// 枚举输入值
 			String command = getCommand(key, flag, expireTime, valueLength);
 			bufferedWriter.write(command);
-			bufferedWriter.write(value + "\r\n");
 			bufferedWriter.flush();
 			InputStream inputStream = socket.getInputStream();
-			InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+			InputStreamReader inputStreamReader = new InputStreamReader(
+					inputStream);
 			BufferedReader bufferedReader = new BufferedReader(
 					inputStreamReader);
 			String tempString;
@@ -67,13 +66,10 @@ public class SampleClient {
 		}
 	}
 
-	private String getCommand(String key, String flag,
-			String expireTime, String valueLength) {
+	private String getCommand(String key, String flag, String expireTime,
+			String valueLength) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(Command.GET.getName()).append(CharMark.BLANK).append(key)
-				.append(CharMark.BLANK).append(flag)
-				.append(CharMark.BLANK).append(expireTime)
-				.append(CharMark.BLANK).append(valueLength)
 				.append(CharMark.RETURN);
 		return sb.toString();
 	}

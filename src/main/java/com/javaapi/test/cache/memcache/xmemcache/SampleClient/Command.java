@@ -1,11 +1,11 @@
 package com.javaapi.test.cache.memcache.xmemcache.SampleClient;
 
 public class Command {
-	public static final Command	SET	= new Command("1", "SET");
-	public static final Command	GET	= new Command("2", "GET");
-	public static final Command	GETS	= new Command("3", "GETS");
-	public static final Command	ADD		= new Command("4", "ADD");
-	public static final Command	DELETE	= new Command("5", "DELETE");
+	public static final Command	SET	= new Command("1", "set");
+	public static final Command	GET	= new Command("2", "get");
+	public static final Command	GETS	= new Command("3", "gets");
+	public static final Command	ADD		= new Command("4", "add");
+	public static final Command	DELETE	= new Command("5", "delete");
 
 	private String	id;
 	private String	name;
