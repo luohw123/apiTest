@@ -5,7 +5,9 @@ import java.util.Map;
 
 public class ThreadParamUtil {
     private static ThreadLocal<Map<String, Object>> local = new ThreadLocal<Map<String, Object>>();
-
+    static {
+        local.set(new HashMap<String, Object>());
+    }
     public static Map<String, Object> getLocal() {
         if (local.get() == null) {
             HashMap<String, Object> map = new HashMap<>();
@@ -18,7 +20,7 @@ public class ThreadParamUtil {
         local.set(map);
     }
 
-    public static <T> void setLocalMap(String key, T value) {
+    public static <T> void setLocalKeyValue(String key, T value) {
         if (local.get() == null) {
             HashMap<String, Object> map = new HashMap<String, Object>();
             local.set(map);
@@ -27,7 +29,7 @@ public class ThreadParamUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> T getLocalMap(String key) {
+    public static <T> T getLocalKeyValue(String key) {
         if (local.get() == null) {
             HashMap<String, Object> map = new HashMap<String, Object>();
             local.set(map);

@@ -21,8 +21,8 @@ public class TestThreadLocal extends Thread {
             HashMap<String, Object> map = new HashMap<>();
             map.put("term", "140606==>" + getThreadId());
             ThreadParamUtil.setLocal(map);
-            ThreadParamUtil.setLocalMap(getThreadId(), getThreadId());
-            ThreadParamUtil.setLocalMap(getThreadId(), 12356);
+            ThreadParamUtil.setLocalKeyValue(getThreadId(), getThreadId());
+            ThreadParamUtil.setLocalKeyValue(getThreadId(), 12356);
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
@@ -35,7 +35,7 @@ public class TestThreadLocal extends Thread {
     private void getparam() {
         Map<String, Object> resultmap = ThreadParamUtil.getLocal();
         System.out.println(resultmap.get("term"));
-        Integer term = ThreadParamUtil.getLocalMap(getThreadId());
+        Integer term = ThreadParamUtil.getLocalKeyValue(getThreadId());
         System.out.println(term);
     }
     public String getThreadId() {
