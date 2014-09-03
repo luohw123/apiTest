@@ -12,28 +12,31 @@ public class TestThreadLocal extends Thread {
         TestThreadLocal test1 = new TestThreadLocal("1");
         TestThreadLocal test2 = new TestThreadLocal("2");
         test1.start();
-        test2.start();
+        //        test2.start();
 
     }
     @Override
     public void run() {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("term", "140606==>" + getThreadId());
-        ThreadParamUtil.setLocal(map);
         if ("1".equals(getThreadId())) {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("term", "140606==>" + getThreadId());
+            ThreadParamUtil.setLocal(map);
+            ThreadParamUtil.setLocalKeyValue(getThreadId(), getThreadId());
+            ThreadParamUtil.setLocalKeyValue(getThreadId(), 12356);
             try {
-                TimeUnit.SECONDS.sleep(60);
+                TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-
         getparam();
     }
 
     private void getparam() {
         Map<String, Object> resultmap = ThreadParamUtil.getLocal();
         System.out.println(resultmap.get("term"));
+        Integer term = ThreadParamUtil.getLocalKeyValue(getThreadId());
+        System.out.println(term);
     }
     public String getThreadId() {
         return ThreadId;
