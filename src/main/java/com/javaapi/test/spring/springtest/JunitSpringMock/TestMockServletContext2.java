@@ -25,7 +25,10 @@ public class TestMockServletContext2 {
         context.refresh();
         msc.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, context);
         System.out.println(context.getBean("testMock"));
-        context.getBean("testMock");
+		TestMock testMock = (TestMock) context.getBean("testMock");
+		System.out.println(testMock.getServletContext());
+		System.out.println(testMock.getServletContext().getContextPath());
+		System.out.println(testMock.getServletContext().getRealPath("/"));
     }
 
 }
