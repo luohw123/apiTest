@@ -13,7 +13,8 @@ public class SpringTest {
 	public void test() {
 		String path=SpringTest.class.getResource("").getPath();
 		String filename = path+"applicationContext.xml";
-		ApplicationContext app=new FileSystemXmlApplicationContext(filename);
+        System.out.println(filename);
+        ApplicationContext app = new FileSystemXmlApplicationContext("file:" + filename);
 		School school=(School)app.getBean("school");
 		school.haveClass();//上课
 	}
