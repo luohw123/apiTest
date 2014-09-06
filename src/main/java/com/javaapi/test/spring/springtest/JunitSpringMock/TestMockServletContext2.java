@@ -2,6 +2,7 @@ package com.javaapi.test.spring.springtest.JunitSpringMock;
 
 import org.junit.Test;
 import org.springframework.mock.web.MockServletContext;
+import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
@@ -17,7 +18,7 @@ public class TestMockServletContext2 {
     //    TestMock testMock;
     @Test
     public void test() {
-        MockServletContext msc = new MockServletContext("/home/kk/www/webclient/ROOT");
+		MockServletContext msc = new MockServletContext("file:D:\\program");
         String[] config = { "file:" + TestMockServletContext2.class.getResource("").getPath() + "applicationContext.xml" };
         XmlWebApplicationContext context = new XmlWebApplicationContext();
         context.setConfigLocations(config);
@@ -31,4 +32,20 @@ public class TestMockServletContext2 {
 		System.out.println(testMock.getServletContext().getRealPath("/"));
     }
 
+	@Test
+    public void test2() {
+		String name = "file:"
+				+ TestMockServletContext2.class.getResource("").getPath()
+				+ "applicationContext.xml";
+		MockServletContext msc = new MockServletContext("file:D:\\program");
+		System.out.println(msc);
+		msc.setInitParameter("contextConfigLocation", name);
+		ContextLoader context = new ContextLoader();
+		context.initWebApplicationContext(msc);
+		WebApplicationContext currentWebApplicationContext = ContextLoader
+				.getCurrentWebApplicationContext();
+		System.out.println(currentWebApplicationContext.getServletContext());
+		System.out.println(currentWebApplicationContext.getServletContext()
+				.getRealPath(""));
+    }
 }
