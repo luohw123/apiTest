@@ -38,7 +38,6 @@ public class TestMockServletContext2 {
 				+ TestMockServletContext2.class.getResource("").getPath()
 				+ "applicationContext.xml";
 		MockServletContext msc = new MockServletContext("file:D:\\program");
-		System.out.println(msc);
 		msc.setInitParameter("contextConfigLocation", name);
 		ContextLoader context = new ContextLoader();
 		context.initWebApplicationContext(msc);
