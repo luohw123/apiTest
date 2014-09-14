@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.javaapi.test.dao.mybatis.Social;
 import com.javaapi.test.dao.mybatis.TestTypeHandler;
@@ -15,7 +16,7 @@ import com.javaapi.test.dao.mybatis.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")
-// @Transactional
+@Transactional
 public class Client {
 
 	@Autowired
