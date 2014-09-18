@@ -15,8 +15,9 @@ public class InsertImp implements IinsertService{
 	@Autowired
 	IupdateService iupdateService;
 	
-	private static final String sql = "insert csc_sns_dev.tbl_b (id,val) values(3,'kk')";
-//	private static final String sql = "update matchs set league_name='斯伐乙西1'  where bet007_id=595959";
+    private static final String sql = "insert csc_sns_dev.tbl_b (id,val) values(3,'kk')";
+
+    //	private static final String sql = "update matchs set league_name='斯伐乙西1'  where bet007_id=595959";
 	
 	@Override
 	public void insert() {

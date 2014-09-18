@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 通过annotation实现事务
@@ -19,8 +20,16 @@ public class Client {
 	@Autowired
 	IinsertService  insertService;
 	
+    @Autowired
+    IupdateService iupdateService;
 	@Test
 	public void test(){
 		insertService.insert();
 	}
+
+    @Test
+    @Transactional
+    public void testUpdate() {
+        iupdateService.update();
+    }
 }

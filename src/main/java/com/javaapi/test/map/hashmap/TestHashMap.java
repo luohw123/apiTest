@@ -1,6 +1,7 @@
 package com.javaapi.test.map.hashmap;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -20,5 +21,18 @@ public class TestHashMap {
 		map.put("1", "2");
 		System.out.println(map.get("1"));
 	}
+
+    @Test
+    public void testHashMapMerge() {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map1 = new HashMap<String, Integer>();
+        map.put("1", 1);
+        map.put("2", 2);
+        map1.put("2", 22);
+        map1.put("3", 3);
+        map1.put("4", 4);
+        map.putAll(map1);
+        System.out.println(map);
+    }
 
 }
