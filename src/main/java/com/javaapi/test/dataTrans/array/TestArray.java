@@ -7,7 +7,7 @@ import org.junit.Test;
 /**
  * http://www.cnblogs.com/chenssy/p/3466092.html 
  *不错
- *
+ *  所以在性能要求较高的场景中请优先考虑数组。
  */
 public class TestArray {
 
