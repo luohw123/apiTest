@@ -10,7 +10,7 @@
     <context:component-scan base-package="com.javaapi.test.spring.aop.springaop3"/>
 	<!-- 配置一个切面 -->
 <!-- 除了 RegexpMethodPointcutAdvisor 以外，在 Spring AOP 中还提供了几个切面类，比如： -->
-<!-- DefaultPointcutAdvisor：默认切面（可扩展它来自定义切面） -->
+<!-- DefaultPointcutAdvisor：默认切面（可扩展它来自定义切面,比如传入advice） -->
 <!-- NameMatchMethodPointcutAdvisor：根据方法名称进行匹配的切面 -->
 <!-- StaticMethodMatcherPointcutAdvisor：用于匹配静态方法的切面 -->
     <bean id="greetingAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">

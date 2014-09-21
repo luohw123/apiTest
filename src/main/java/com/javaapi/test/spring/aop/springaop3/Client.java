@@ -16,10 +16,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("applicationContext.xml")
+@ContextConfiguration("applicationContext3.xml")
 public class Client {
 	@Autowired
-	@Qualifier("greetingProxy")
+//	@Qualifier("greetingProxy")
 	Greeting greeting;
 
 	@Test

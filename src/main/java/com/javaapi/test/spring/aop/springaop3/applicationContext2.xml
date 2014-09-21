@@ -9,6 +9,7 @@
 
     <context:component-scan base-package="com.javaapi.test.spring.aop.springaop3"/>
 	<!-- 为指定bean名字配置aop-->
+<!-- 	AbstractAutowireCapableBeanFactory 会回调 BeanNameAutoProxyCreator  得 getAdvicesAndAdvisorsForBean方法,达到自动处理的原理 -->
 	 <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
         <property name="beanNames" value="*Impl"/>                       <!-- 只为后缀是“Impl”的 Bean 生成代理 -->
         <property name="interceptorNames" value="greetingAroundAdvice"/> <!-- 增强 -->
