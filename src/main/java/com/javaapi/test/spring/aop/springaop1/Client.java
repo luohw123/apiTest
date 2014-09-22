@@ -25,6 +25,6 @@ public class Client {
 	@Test
 	public void test() {
 		greeting.sayHello("Jack");
-		greeting.sayGoodBy("Jack");
+        //		greeting.sayGoodBy("Jack");
 	}
 }
