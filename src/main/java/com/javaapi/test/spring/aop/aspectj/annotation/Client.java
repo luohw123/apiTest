@@ -20,6 +20,7 @@ import com.javaapi.test.spring.aop.aspectj.CustomerBo;
 public class Client {
 	@Autowired
 	CustomerBo customerBo;
+
 	@Test
 	public void test(){
 		customerBo.addCustomer();

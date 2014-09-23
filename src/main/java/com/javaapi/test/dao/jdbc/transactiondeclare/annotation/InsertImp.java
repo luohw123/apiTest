@@ -2,10 +2,8 @@ package com.javaapi.test.dao.jdbc.transactiondeclare.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-@Service("targetInsertService")
-@Transactional
+//@Service("targetInsertService")
+//@Transactional
 public class InsertImp implements IinsertService{
 
 

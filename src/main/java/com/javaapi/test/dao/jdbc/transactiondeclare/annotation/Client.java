@@ -17,15 +17,16 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration("applicationContext.xml")
 public class Client {
 
-	@Autowired
-	IinsertService  insertService;
+    //	@Autowired
+    //	IinsertService  insertService;
 	
     @Autowired
     IupdateService iupdateService;
-	@Test
-	public void test(){
-		insertService.insert();
-	}
+
+    //	@Test
+    //	public void test(){
+    //		insertService.insert();
+    //	}
 
     @Test
     @Transactional

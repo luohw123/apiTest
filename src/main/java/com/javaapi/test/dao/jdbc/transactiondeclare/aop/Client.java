@@ -16,11 +16,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("applicationContext.xml")
 public class Client {
 
-	@Autowired
-	IinsertService  insertService;
+    //	@Autowired
+    //	IinsertService  insertService;
+
+    @Autowired
+    IupdateService iupdateService;
 	
-	@Test
-	public void test(){
-		insertService.insert();
-	}
+    //	@Test
+    //	public void test(){
+    //		insertService.insert();
+    //	}
+
+    @Test
+    public void testUpdate() {
+        iupdateService.update();
+    }
 }
