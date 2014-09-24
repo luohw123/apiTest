@@ -12,7 +12,8 @@ import javax.jms.TextMessage;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 /**
- * http://www.cnblogs.com/xwdreamer/archive/2012/02/21/2360818.html 
+ * http://www.cnblogs.com/xwdreamer/archive/2012/02/21/2360818.html </br>
+ * http://blog.csdn.net/kongxx/article/details/6230576
  * **/
 public class Sender {
     private static final int SEND_NUMBER = 5;
@@ -40,7 +41,7 @@ public class Sender {
             // 获取操作连接
             session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
             // 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在ActiveMq的console配置
-            destination = session.createQueue("FirstQueue");
+            destination = session.createQueue("FirstQueue2");
             // 得到消息生成者【发送者】
             producer = session.createProducer(destination);
             // 设置不持久化，此处学习，实际根据项目决定

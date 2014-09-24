@@ -1,9 +1,14 @@
 package com.javaapi.test.jms.jmssample1;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
 import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
@@ -32,17 +37,11 @@ public class Receiver {
             // 获取操作连接
             session = connection.createSession(Boolean.FALSE, Session.AUTO_ACKNOWLEDGE);
             // 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在ActiveMq的console配置
-            destination = session.createQueue("FirstQueue");
+            destination = session.createQueue("FirstQueue2");
             consumer = session.createConsumer(destination);
-            while (true) {
-                //设置接收者接收消息的时间，为了便于测试，这里谁定为100s
-                TextMessage message = (TextMessage) consumer.receive(100000);
-                if (null != message) {
-                    System.out.println("收到消息" + message.getText());
-                } else {
-                    break;
-                }
-            }
+            getMsgByListener(consumer);  
+            
+//            getMsgWayOne(consumer);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -53,4 +52,37 @@ public class Receiver {
             }
         }
     }
+
+	private static void getMsgByListener(MessageConsumer consumer)
+			throws JMSException {
+		consumer.setMessageListener(new MessageListener() {  
+		    public void onMessage(Message message) {  
+		        TextMessage tm = (TextMessage) message;  
+		        try {  
+		            System.out.println("Received message: " + tm.getText());  
+		        } catch (JMSException e) {  
+		            e.printStackTrace();  
+		        }  
+		    }  
+		});
+		try {
+			TimeUnit.SECONDS.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void getMsgWayOne(MessageConsumer consumer)
+			throws JMSException {
+		while (true) {
+		    //设置接收者接收消息的时间，为了便于测试，这里谁定为100s
+		    TextMessage message = (TextMessage) consumer.receive(100000);
+		    if (null != message) {
+		        System.out.println("收到消息" + message.getText());
+		    } else {
+		        break;
+		    }
+		}
+	}
 }
