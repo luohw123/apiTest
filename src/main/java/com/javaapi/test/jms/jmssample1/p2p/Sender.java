@@ -1,4 +1,4 @@
-package com.javaapi.test.jms.jmssample1;
+package com.javaapi.test.jms.jmssample1.p2p;
 
 
 import javax.jms.Connection;
