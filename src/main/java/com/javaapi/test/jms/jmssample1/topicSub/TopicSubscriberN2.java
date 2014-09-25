@@ -36,7 +36,6 @@ public class TopicSubscriberN2 {
         try {
 			TimeUnit.SECONDS.sleep(100);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
       session.close();  
