@@ -13,7 +13,8 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 /**
  * http://www.cnblogs.com/xwdreamer/archive/2012/02/21/2360818.html </br>
- * http://blog.csdn.net/kongxx/article/details/6230576
+ * http://blog.csdn.net/kongxx/article/details/6230576</br>
+ * http://wangzeggg.iteye.com/blog/327950(好)</br>
  * **/
 public class Sender {
     private static final int SEND_NUMBER = 5;

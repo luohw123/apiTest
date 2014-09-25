@@ -23,16 +23,17 @@ public class TopicSubscriber {
         Topic topic = session.createTopic("myTopic.messages");  
   
         MessageConsumer consumer = session.createConsumer(topic);  
-        consumer.setMessageListener(new MessageListener() {  
-            public void onMessage(Message message) {  
-                TextMessage tm = (TextMessage) message;  
-                try {  
-                    System.out.println("Received message: " + tm.getText());  
-                } catch (JMSException e) {  
-                    e.printStackTrace();  
-                }  
-            }  
-        });  
+        getMsgWayOne(consumer);
+//        consumer.setMessageListener(new MessageListener() {  
+//            public void onMessage(Message message) {  
+//                TextMessage tm = (TextMessage) message;  
+//                try {  
+//                    System.out.println("Received message: " + tm.getText());  
+//                } catch (JMSException e) {  
+//                    e.printStackTrace();  
+//                }  
+//            }  
+//        });  
         try {
 			TimeUnit.SECONDS.sleep(100);
 		} catch (InterruptedException e) {
@@ -43,4 +44,21 @@ public class TopicSubscriber {
       connection.stop();  
       connection.close();  
     }  
+    
+	/**同步消费。通过调用消费者的receive方法从目的地中显式提取消息。receive方法可以一直阻塞到消息到达。
+	 * @param consumer
+	 * @throws JMSException
+	 */
+	private static void getMsgWayOne(MessageConsumer consumer)
+			throws JMSException {
+		while (true) {
+		    //设置接收者接收消息的时间，为了便于测试，这里谁定为100s
+		    TextMessage message = (TextMessage) consumer.receive(100000);
+		    if (null != message) {
+		        System.out.println("收到消息" + message.getText());
+		    } else {
+		        break;
+		    }
+		}
+	}
 }  

@@ -53,6 +53,10 @@ public class Receiver {
         }
     }
 
+	/** 异步消费。客户可以为消费者注册一个消息监听器，以定义在消息到达时所采取的动作。 
+	 * @param consumer
+	 * @throws JMSException
+	 */
 	private static void getMsgByListener(MessageConsumer consumer)
 			throws JMSException {
 		consumer.setMessageListener(new MessageListener() {  
@@ -73,6 +77,10 @@ public class Receiver {
 		}
 	}
 
+	/**同步消费。通过调用消费者的receive方法从目的地中显式提取消息。receive方法可以一直阻塞到消息到达。
+	 * @param consumer
+	 * @throws JMSException
+	 */
 	private static void getMsgWayOne(MessageConsumer consumer)
 			throws JMSException {
 		while (true) {
