@@ -9,7 +9,7 @@
  
  	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location">
-            <value>classpath:com/javaapi/test/jms/jmssample1/spring/application.properties</value>
+            <value>classpath:com/javaapi/test/jms/jmssample1/spring/p2p/application.properties</value>
         </property>
     </bean>
  
@@ -32,10 +32,11 @@
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
         <property name="connectionFactory" ref="connectionFactory"/>
         <property name="defaultDestination" ref="defaultDestination"/>
+<!--         <property name="deliveryPersistent" value="true"/> -->
     </bean>
     
       <!-- Message Sender Definition -->
-    <bean id="messageSender" class="com.javaapi.test.jms.jmssample1.spring.MessageSender">
+    <bean id="messageSender" class="com.javaapi.test.jms.jmssample1.spring.p2p.MessageSender">
         <constructor-arg index="0" ref="jmsTemplate"/>
     </bean>
 </beans>

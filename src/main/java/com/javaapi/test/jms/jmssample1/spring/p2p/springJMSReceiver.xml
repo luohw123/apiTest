@@ -7,7 +7,7 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd ">
   <!-- Message Receiver Definition -->
-    <bean id="messageReceiver" class="com.javaapi.test.jms.jmssample1.spring.MessageReceiver" >  </bean>
+    <bean id="messageReceiver" class="com.javaapi.test.jms.jmssample1.spring.p2p.MessageReceiver" >  </bean>
     
     <bean class="org.springframework.jms.listener.SimpleMessageListenerContainer">
         <property name="connectionFactory" ref="connectionFactory"/>

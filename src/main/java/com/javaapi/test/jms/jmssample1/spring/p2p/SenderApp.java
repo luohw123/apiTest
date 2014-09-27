@@ -11,6 +11,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 public class SenderApp {
     public static void main(String[] args) throws IOException {
         MessageSender sender = getMessageSender();
+        System.out.println("please input your message:");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String text = br.readLine();
 
