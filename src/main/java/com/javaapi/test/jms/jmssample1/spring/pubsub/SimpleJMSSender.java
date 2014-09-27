@@ -11,6 +11,10 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
+/**
+ * http://nettm.iteye.com/blog/1828268</br>
+ *
+ */
 public class SimpleJMSSender {  
 	  
     public static void main(String[] args) {  
@@ -29,5 +33,6 @@ public class SimpleJMSSender {
                 }  
             });  
         }  
+        System.out.println("message send!");
     }  
 }  
