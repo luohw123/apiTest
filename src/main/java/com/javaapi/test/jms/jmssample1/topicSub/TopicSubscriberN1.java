@@ -14,6 +14,11 @@ import javax.jms.TopicSubscriber;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+/**
+ * 订阅,和持久化订阅</br>
+ * 单凭Client Id还不足以唯一标志某一个Durable Subscription，就跟我凭一个身份证，可以预定多个房间一样。 同一个连接里，你可以创建多个MessageConsumer去订阅不同Topic的消息，如果下回回来，你只想继续接受某一个Topic消息的话，JMS Provider如何知道是哪一个？ 所以，为了区分同一个Connection中不同的Durable Subscription，我们还需要进一步的标志物，这就是Subscriber Name！ 
+ *
+ */
 public class TopicSubscriberN1 {  
     public static void main(String[] args) throws JMSException {  
         ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory("tcp://localhost:61616");  
