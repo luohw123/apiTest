@@ -39,9 +39,9 @@ public class Receiver {
             // 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在ActiveMq的console配置
             destination = session.createQueue("FirstQueue2");
             consumer = session.createConsumer(destination);
-            getMsgByListener(consumer);  
+//            getMsgByListener(consumer);  
             
-//            getMsgWayOne(consumer);
+            getMsgWayOne(consumer);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
