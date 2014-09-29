@@ -8,7 +8,8 @@ import java.nio.channels.FileLock;
 
 /**
  * http://blog.csdn.net/xhh198781/article/details/6525781</br>
- * 每次运行一下main程序就会产生一个java进程.
+ * 每次运行一下main程序就会产生一个java进程.</br>
+ * 由于Java的文件锁是 直接映射操作系统的锁机制的，因此其它进程也能看到文件锁。</br>
  *
  */
 public class TestRandomAccessFile {
