@@ -48,7 +48,7 @@ import java.util.Date;
 	一次性申请所有需要的资源，并且在申请不成功的情况下放弃已申请到的资源;
  *
  */
-public class FileLockTest {
+public class FileLockWriteTest {
 	/**
 	 * 如代码所示，需要进行互斥的进程只要将自己的代码替换掉//互斥操作即可，
 	 * 每个进程在运行实际逻辑功能代码之前，会尝试获取锁文件锁，
