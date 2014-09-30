@@ -1,8 +1,12 @@
 package com.javaapi.test.String.testString.toolString;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Date;
 
 import org.junit.Test;
 
@@ -70,7 +74,7 @@ public class StringUtil {
 
     @Test
     public void testDecode() {
-        String plan = "79%3D3%2C80%3D1%2C81%3D0%7C3%2A1%3A1%5E79%3D3%2C80%3D1%2C81%3D0%7C3%2A1%3A1";
+        String plan = "ddd^=";
         try {
             String decode = URLDecoder.decode(plan, "UTF-8");
             System.out.println(decode);
@@ -78,6 +82,33 @@ public class StringUtil {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testFile() throws IOException, InterruptedException {
+        long tempRunCount = 1200;
+        long tempSleep = 200;
+        String path = "/mfs/ShareFile/news/0/33/10001/test-ssi-sinanba.shtml";
+        File pathFile = new File(path);
+        String tmpPath = path + ".tmp";
+        File tmp = new File(tmpPath);
+        for (long i = 0; i < tempRunCount; i++) {
+            FileOutputStream fos = new FileOutputStream(tmp, false);
+            fos.write(new String(new Date().getTime() + "aaaaa" + i).getBytes());
+            fos.close();
+            if (tmp != null) {
+                if (!tmp.renameTo(pathFile)) {
+                    //we may want to retry if move fails
+                    tmp.delete();
+                    FileOutputStream ff = new FileOutputStream(pathFile, false);
+                    ff.write(new String(new Date().getTime() + "aaaaa" + i).getBytes());
+                    ff.close();
+                }
+            }
+
+            Thread.sleep(tempSleep);
+        }
+
     }
 
 }
