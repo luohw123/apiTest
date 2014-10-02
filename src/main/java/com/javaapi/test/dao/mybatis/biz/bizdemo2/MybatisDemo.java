@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 /**参考见
  * http://blog.csdn.net/bk76873063/article/details/24603305</br>
+ * 如果不用这个mapper,则每个dao实现类都要自己调用下sqltemplate的方法
  *
  */
 public class MybatisDemo
