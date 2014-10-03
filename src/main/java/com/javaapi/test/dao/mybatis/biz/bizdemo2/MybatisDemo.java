@@ -9,9 +9,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 /**参考见
+ * http://www.cnblogs.com/david-rui/p/3603645.html</br>
  * http://blog.csdn.net/bk76873063/article/details/24603305</br>
- * 如果不用这个mapper,则每个dao实现类都要自己调用下sqltemplate的方法
- *
+ * 如果不用这个mapper,则每个dao实现类都要自己调用下sqltemplate的方法</br>
+ *  如果自己的dao实现没有其他逻辑 而只单纯调用sqltemplate的方法.则可以直接使用方式二当做dao的实现</br>
+ * 这个例子暂时不能跑</br>
  */
 public class MybatisDemo
 {
