@@ -58,7 +58,7 @@ public class MockitoSampleTest {
 
 		assertNotNull(user);
 		assertEquals(user.getUserName(), "tom");
-		assertEquals(isMatch, true);
+		assertEquals(false, isMatch);
 	}
 
 	// ② 模拟实现类UserServiceImpl测试
@@ -79,9 +79,9 @@ public class MockitoSampleTest {
 	// ③ 模拟User类测试
 	@Test
 	public void testMockUser() {
-		when(mockUser.getUserId()).thenReturn(1 + "");
+		when(mockUser.getUserId()).thenReturn(String.valueOf(1));
 		when(mockUser.getUserName()).thenReturn("tom");
-		assertEquals(mockUser.getUserId(), 1);
+		assertEquals(mockUser.getUserId(), String.valueOf(1));
 		assertEquals(mockUser.getUserName(), "tom");
 	}
 }  
