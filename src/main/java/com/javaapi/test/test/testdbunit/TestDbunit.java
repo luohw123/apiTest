@@ -12,7 +12,8 @@ package com.javaapi.test.test.testdbunit;
  * 
  * @see http://stamen.iteye.com/blog/1480316</br>
  *      http://ttitfly.iteye.com/blog/248680</br>
- *      http://blog.csdn.net/fenglibing/article/details/16856363
+ *      http://blog.csdn.net/fenglibing/article/details/16856363</br>
+ *      dbunit与h2数据库:http://yugouai.iteye.com/blog/1876827</br>
  * 
  */
 public class TestDbunit {
