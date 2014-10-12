@@ -19,7 +19,7 @@ public class Client {
 		String path=Client.class.getResource("").getPath();
 		String filename = path+"applicationContext.xml";
 		ApplicationContext app=new FileSystemXmlApplicationContext(filename);
-//		School school=(School)app.getBean("school");
-//		school.haveClass();//上课
+		School school = (School) app.getBean("school");
+		school.haveClass();// 上课
 	}
 }
