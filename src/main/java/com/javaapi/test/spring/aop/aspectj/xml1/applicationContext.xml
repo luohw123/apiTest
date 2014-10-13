@@ -7,11 +7,11 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 	<aop:config>
 		<aop:aspect id="MyAspect" ref="aspectBean">
 			<aop:pointcut id="bisService"
-				expression="execution(* com.javaapi.test.spring.aop.aspectj..*.*(..))" />
+				expression="execution(* com.javaapi.test.spring.aop.aspectj.xml1..*.*(..))" />
 			<aop:before pointcut-ref="bisService" method="doBefore" />
 			<aop:after pointcut-ref="bisService" method="doAfter" />
 		</aop:aspect>
 	</aop:config>
-	<bean id="aspectBean" class="com.javaapi.test.spring.aop.aspectj.MyAspect" />
-	<bean id="mybservice" class="com.javaapi.test.spring.aop.aspectj.MyBService" />
+	<bean id="aspectBean" class="com.javaapi.test.spring.aop.aspectj.xml1.MyAspect" />
+	<bean id="mybservice" class="com.javaapi.test.spring.aop.aspectj.xml1.MyBService" />
 </beans>
