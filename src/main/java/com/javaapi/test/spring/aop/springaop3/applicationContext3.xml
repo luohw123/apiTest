@@ -13,6 +13,7 @@
         <property name="pattern" value="com.javaapi.test.spring.aop.springaop3.GreetingImpl.good.*"/>
         <property name="advice" ref="greetingAroundAdvice"/>
     </bean>
+<!--     可以自动生成代理,并且可以拦截指定方法 -->
 <!--     这里无需再配置代理了，因为代理将会由 DefaultAdvisorAutoProxyCreator 自动生成。也就是说，这个类可以扫描所有的切面类，并为其自动生成代理 -->
 <!-- 	AbstractAutowireCapableBeanFactory 会回调 DefaultAdvisorAutoProxyCreator  得 getAdvicesAndAdvisorsForBean方法,达到自动处理的原理 -->
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
