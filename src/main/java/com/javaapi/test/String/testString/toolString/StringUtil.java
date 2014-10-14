@@ -83,6 +83,17 @@ public class StringUtil {
             e.printStackTrace();
         }
     }
+    @Test
+    public void testDecodeChineseLang() {
+        String plan = "你好";
+        try {
+            String decode = URLDecoder.decode(plan, "UTF-8");
+            System.out.println(decode);
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
     @Test
     public void testFile() throws IOException, InterruptedException {
