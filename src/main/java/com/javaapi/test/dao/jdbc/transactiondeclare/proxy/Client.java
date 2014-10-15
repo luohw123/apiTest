@@ -17,12 +17,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("applicationContext.xml")
 public class Client {
 
+	// @Autowired
+	// @Qualifier("proxyInsertService")
+	// IinsertService insertService;
 	@Autowired
-	@Qualifier("proxyInsertService")
-	IinsertService  insertService;
+	@Qualifier("proxyUpdateService")
+	IupdateService	updateService;
 	
 	@Test
 	public void test(){
-		insertService.insert();
+		updateService.update();
 	}
 }

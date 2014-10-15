@@ -11,9 +11,9 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd 
 	http://www.springframework.org/schema/tx 
-	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd" default-lazy-init="true">
 <!--  只有一个扫描也是支持spring注解的 -->
- <context:component-scan base-package="com.javaapi.test.dao.jdbc"/>
+ <context:component-scan base-package="com.javaapi.test.dao.jdbc.transactiondeclare.proxy"/>
 <!-- 注意一个xml中写 " & "  需要 抓换成"&amp" 符号的问题 @see http://hi.baidu.com/zhy65991/item/b316bf2eb4d30ecbdcf69ad0 -->
 <bean id="dataSource"
 class="org.apache.commons.dbcp.BasicDataSource"
@@ -57,9 +57,9 @@ destroy-method="close"
 		</property>
 	</bean>
 <!-- 	如果这样子，每个service都要配置,那样会很冗余 -->
-	<bean id="proxyInsertService" parent="transactionProxyParent">
-		<property name="target" ref="targetInsertService" />
-	</bean>  
+<!-- 	<bean id="proxyInsertService" parent="transactionProxyParent"> -->
+<!-- 		<property name="target" ref="targetInsertService" /> -->
+<!-- 	</bean>   -->
 	<bean id="proxyUpdateService" parent="transactionProxyParent">
 		<property name="target" ref="targetUpdateService" />
 	</bean>  

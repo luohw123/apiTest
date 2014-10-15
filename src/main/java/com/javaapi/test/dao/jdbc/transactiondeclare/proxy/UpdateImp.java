@@ -12,7 +12,7 @@ public class UpdateImp implements IupdateService {
 	
 	@Override
 	public void update() {
-		String sql = "insert csc_sns_dev.tbl_b (id,val) values(4,'kk')";
+		String sql = "update csc_sns_dev.tbl_b set val='kk' where id=4";
 		jdbcTemplate.update(sql);
 	}
 
