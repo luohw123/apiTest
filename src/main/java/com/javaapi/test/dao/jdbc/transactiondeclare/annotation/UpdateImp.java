@@ -10,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class UpdateImp implements IupdateService {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
-    //        private static final String sql = "insert csc_sns_dev.tbl_b (id,val) values(4,'kk')";
+	private static final String	sql	= "update csc_sns_dev.tbl_b set val='kk' where id=4";
 
-    private static final String sql = "update matchs set league_name='斯伐乙西2'  where bet007_id=595959";
+	// private static final String sql =
+	// "update matchs set league_name='斯伐乙西2'  where bet007_id=595959";
 	
 	@Override
 	public void update() {
