@@ -6,12 +6,14 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 public class StringUtil {
-
     @Test
     public void testEncode() {
         // 上下单双 ,标准形式
@@ -121,4 +123,24 @@ public class StringUtil {
         }
 
     }
+    @Test
+    public void testArrayString() {
+        List<String> list = new ArrayList<>();
+        list.add("你好");
+        list.add("世界");
+        String join = StringUtils.join(list.toArray(), "，");
+        System.out.println(join);
+    }
+
+    /**
+     * 
+     * http://blog.csdn.net/lonely_fireworks/article/details/7962171
+     */
+    @Test
+    public void testStringFormat() {
+        String format = String.format("%s:", "nihao");
+        System.out.println(format);
+
+    }
+    
 }
