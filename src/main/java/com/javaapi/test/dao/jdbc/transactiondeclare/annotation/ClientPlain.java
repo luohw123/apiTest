@@ -6,6 +6,9 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class ClientPlain {
 
+	/**
+	 * 
+	 */
 	@Test
 	public void test() {
 		String path = ClientPlain.class.getResource("")
