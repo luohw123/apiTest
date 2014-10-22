@@ -11,7 +11,6 @@ public class InnerClassTest {
 		InnerClassTest.StaticInner staticInner = new InnerClassTest.StaticInner();
 		staticInner.show();
 	}
-
 	private class Inner {
 		public void show() {
 			System.out.println("inner class show");
