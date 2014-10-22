@@ -7,13 +7,18 @@ import org.junit.Test;
  * 
  * 
  */
-public class Client {
+public class ClientOuterReadInner {
+
+	/**
+	 * 
+	 */
 	@Test
-	public void testPrivate() {
-		ClientInnerPrivate clientInner = new ClientInnerPrivate();
-		clientInner.setName("testPrivate");
-		System.out.println(clientInner.getName());
-		System.out.println(clientInner.name);
+	public void testInitInOuter() {
+		ClientInnerPrivate outer = new ClientOuterReadInner.ClientInnerPrivate();
+		System.out.println(outer.getName());
+		ClientInnerPrivate inner = new ClientInnerPrivate();
+		System.out.println(inner.getName());
+		System.out.println(outer == inner);
 	}
 
 	@Test
@@ -25,6 +30,30 @@ public class Client {
 	}
 
 	private class ClientInnerPrivate {
+		private String	name;
+		private String	age;
+		{
+			name = "ClientInnerPrivate";
+		}
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getAge() {
+			return age;
+		}
+
+		public void setAge(String age) {
+			this.age = age;
+		}
+
+	}
+
+	protected class ClientInnerProtected {
 		private String	name;
 		private String	age;
 
@@ -46,7 +75,7 @@ public class Client {
 
 	}
 
-	protected class ClientInnerProtected {
+	public class ClientInnerPublic {
 		private String	name;
 		private String	age;
 
