@@ -30,8 +30,9 @@ public class CommonFileIO {
 			+ S + "JavaApiSample" + S + "src" + S + "com" + S + "javaapi" + S
 			+ "test" + S + "testRuntime" + S + "TestCmd.txt";
 	private static final String STRING = txtPath;
-	private static final String imagePath = "C:" + S + "Users" + S + "hncw" + S
-			+ "Desktop" + S;
+//	private static final String imagePath = "C:" + S + "Users" + S + "hncw" + S
+//			+ "Desktop" + S;
+	private static final String imagePath = "/home/kk/program/" + S;
 
 	private static final String IMAGEPATH = imagePath;
 
@@ -133,14 +134,16 @@ public class CommonFileIO {
 			bo = new BufferedOutputStream(os);
 			int length = 0;
 			byte[] buf = new byte[1024];
-			// while ((length = br.read(buf)) > 0) {
-			// System.out.println(length);
-			// os.write(buf, 0, length);
-			// }
-			while ((length = br.read(buf)) > 0) {
-				System.out.println(length);
-				os.write(buf);
-			}
+			//与下面一样
+            while ((length = br.read(buf)) > 0) {
+                System.out.println(length);
+                os.write(buf, 0, length);
+            }
+          //与上面一样
+//			while ((length = br.read(buf)) > 0) {
+//				System.out.println(length);
+//				bo.write(buf);
+//			}
 
 		} catch (IOException io) {
 			throw io;
