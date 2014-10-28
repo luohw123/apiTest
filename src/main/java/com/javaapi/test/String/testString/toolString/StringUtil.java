@@ -143,6 +143,37 @@ public class StringUtil {
         System.out.println(format);
 
     }
+
+  
+
+    @Test
+    public void testRegx() {
+        String content = "sss^sss";
+        content = content.replaceAll("\\^", "\r\n");
+        System.out.println(content);
+    }
     
+    @Test
+    public void testContains() {
+        String string = "FloatL kong";
+        String string2 = "FloatL dan";
+        String string3 = "FloatL closed";
+        String cssClass = "sss FloatL kong";
+        String cssClass2 = "sss FloatL dan";
+        String cssClass3 = "sss FloatL closed";
+        System.out.println(cssClass.contains(string));
+        System.out.println(cssClass2.contains(string2));
+        System.out.println(cssClass3.contains(string3));
+
+    }
+
+    @Test
+    public void testSplit() {
+        String string = "200.0-8.00-18.00-12.00-55.00-38.00-42.00-150.0-120.0-150.0-500.0-400.0-600.0-500.0-6.50-6.20-17.00-80.00-80.00-5.30-6.75-7.50-14.00-15.00-27.00-34.00-36.00-70.00-100.0-100.0-200.0";
+        String[] split = string.split("-");
+        for (String string2 : split) {
+            System.out.println(string2);
+        }
+    }
 
 }
