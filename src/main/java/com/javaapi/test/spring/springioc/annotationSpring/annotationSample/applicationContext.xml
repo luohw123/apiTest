@@ -16,15 +16,5 @@
 	http://www.springframework.org/schema/aop  
 	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" default-lazy-init="true">
 <!-- 测试name属性bean,name属性是对id属性的扩充 ,可以允许重复值等 -->
-	<bean name="school" class="com.javaapi.test.spring.springioc.xmlSpring.School">
-		<property name="teacher" ref="teacher"/>
-	</bean>
-	<bean id="teacher" class="com.javaapi.test.spring.springioc.xmlSpring.TeacherImp">
-		<property name="name" value="wk-xml"/>
-		<property name="student" ref="student"/>
-	</bean>
-	<bean id="student" class="com.javaapi.test.spring.springioc.xmlSpring.Student">
-		<property name="name" value="kk" />
-		<property name="age" value="18" />
-	</bean>
+	<context:component-scan base-package="com.javaapi.test.spring.springioc.annotationSpring.annotationSample" />
 </beans>

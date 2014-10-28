@@ -61,18 +61,16 @@ public class Client {
 	public void test(){
 		
 	}
+	
+	/**
+	 * Spring管理的事务是逻辑事务(在基础事务上实现了一些逻辑功)
+	 */
 	/**
 	 * 
 	 * 模板类：使用Spring提供的模板类，如JdbcTemplate、HibernateTemplate和JpaTemplate模板类等，
 	 * 而这些模板类内部其实是使用了低级别解决方案中的工具类来管理连接或会话；</br> Spring提供两种编程式事务支持：
 	 * 直接使用PlatformTransactionManager实现和使用TransactionTemplate模板类
 	 * ，用于支持逻辑事务管理。</br> 如果采用编程式事务推荐使用TransactionTemplate模板类和高级别解决方案。
-	 */
-	/**
-	 * Spring管理的事务是逻辑事务 ???
-	 */
-	/**
-	 * 用于查询的sql
 	 */
 	@Test
 	public void testProgramTransaction() {

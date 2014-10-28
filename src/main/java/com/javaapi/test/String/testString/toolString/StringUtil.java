@@ -123,7 +123,6 @@ public class StringUtil {
         }
 
     }
-
     @Test
     public void testArrayString() {
         List<String> list = new ArrayList<>();

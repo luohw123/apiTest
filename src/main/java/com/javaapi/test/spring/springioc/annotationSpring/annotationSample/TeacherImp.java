@@ -1,8 +1,12 @@
-package com.javaapi.test.spring.springioc.xmlSpring;
+package com.javaapi.test.spring.springioc.annotationSpring.annotationSample;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TeacherImp implements WorkerI {
-	private String name;
+	private String	name	= "wk";
+	@Autowired
 	private Student	student;
 	
 	public Student getStudent() {
