@@ -5,14 +5,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Test;
 
-public class Test {
+
+public class TestFreeMarker {
+	@Test
+	public void testOutPut() {
+
+	}
 
      public static void main(String[] args) {
      String freemarkerName="test.ftl";
      String freemarkerHtml="test.shtml";
 //     String path=Thread.currentThread().getContextClassLoader().getResource("").getPath()+"com/javaapi/test/freemarker";
-     String path2=Test.class.getResource("").getPath();
+		String path2 = TestFreeMarker.class.getResource("").getPath();
      System.out.println(path2);
      Map<String, Object> map = new HashMap<String, Object>();
      Map<String, Object> map2 = new HashMap<String, Object>();
