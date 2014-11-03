@@ -1,4 +1,4 @@
-package com.javaapi.test.testPath;
+package com.javaapi.test.test.testPath;
 
 import java.io.BufferedWriter;
 import java.io.File;

@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
+import org.springframework.util.AntPathMatcher;
 
 public class StringUtil {
     @Test
@@ -173,6 +174,26 @@ public class StringUtil {
         for (String string2 : split) {
             System.out.println(string2);
         }
+    }
+    @Test
+    public void testAntMatcher(){
+        AntPathMatcher antPathMatcher = new AntPathMatcher();
+        String pattern = "/*/*pigeon=1";
+        String pattern2 = "/*?*pigeon=1";
+        String pattern3 = "/*?**pigeon=1";
+        String pattern4 = "/**pigeon=1";
+        String pattern5 = "/**/*.do*pigeon=1";
+        String path = "/pigeon/manager.do?version=1.0&pigeon=1";
+        boolean match = antPathMatcher.match(pattern, path);
+        boolean match2 = antPathMatcher.match(pattern2, path);
+        boolean match3 = antPathMatcher.match(pattern3, path);
+        boolean match4 = antPathMatcher.match(pattern4, path);
+        boolean match5 = antPathMatcher.match(pattern5, path);
+        System.out.println(match);
+        System.out.println(match2);
+        System.out.println(match3);
+        System.out.println(match4);
+        System.out.println(match5);
     }
 
 }
