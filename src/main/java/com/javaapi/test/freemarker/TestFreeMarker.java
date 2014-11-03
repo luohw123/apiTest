@@ -9,18 +9,42 @@ import org.junit.Test;
 
 
 public class TestFreeMarker {
+	/**
+	 * mapInner只能为number, sequence, or string.
+	 */
 	@Test
-	public void testMap() {
+	public void testMapString() {
 		String freemarkerName = "testmap.ftl";
 		String freemarkerHtml = "testmap.shtml";
 		String path2 = TestFreeMarker.class.getResource("").getPath();
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("number1", 1);
-		map.put("number2", 2);
-		map.put("number3", 3);
-		// 输出到path变量
+		Map<String, Map<String, Integer>> map = new HashMap<String, Map<String, Integer>>();
+		Map<String, Integer> mapInner = new HashMap<String, Integer>();
+		mapInner.put("number1", 1);
+		mapInner.put("number2", 2);
+		mapInner.put("number3", 3);
+		map.put("mapInner", mapInner);
 		FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
+		// 输出到path变量
 	}
+
+	/**
+	 * mapInner只能为number, sequence, or string. </br>TODO 其他?
+	 */
+	@Test
+	public void testMapInteger() {
+		String freemarkerName = "testmapinteger.ftl";
+		String freemarkerHtml = "testmapinteger.shtml";
+		String path2 = TestFreeMarker.class.getResource("").getPath();
+		Map<Integer, Integer> mapInner = new HashMap<Integer, Integer>();
+		mapInner.put(1, 1);
+		mapInner.put(2, 2);
+		mapInner.put(3, 3);
+		Map<String, Map<Integer, Integer>> map = new HashMap<String, Map<Integer, Integer>>();
+		map.put("mapInner", mapInner);
+		FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
+		// 输出到path变量
+	}
+
 	@Test
 	public void testList() {
 		String freemarkerName = "testlist.ftl";
@@ -43,7 +67,9 @@ public class TestFreeMarker {
 		String freemarkerHtml = "testToString.shtml";
 		String path2 = TestFreeMarker.class.getResource("").getPath();
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("number2", 2);
+		map.put("number2", 20000);
+		map.put("foo1", true);
+		map.put("foo2", false);
 		// 输出到path变量
 		FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
 	}
@@ -71,16 +97,6 @@ public class TestFreeMarker {
 		FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
 	}
 
-	@Test
-	public void testBooleanToString() {
-		String freemarkerName = "testNumberToString.ftl";
-		String freemarkerHtml = "testNumberToString.shtml";
-		String path2 = TestFreeMarker.class.getResource("").getPath();
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("number2", 2);
-		map.put("foo1", true);
-		map.put("foo2", false);
-		// 输出到path变量
-		FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
-	}
+	// TODO 属性值存在得时候
+
 }

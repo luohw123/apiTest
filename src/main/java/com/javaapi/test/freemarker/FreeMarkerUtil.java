@@ -49,6 +49,7 @@ public class FreeMarkerUtil {
             freemarker_cfg.setTemplateUpdateDelay(0);
             Template template = freemarker_cfg.getTemplate(vsource);
             template.setEncoding("UTF-8");
+			template.setClassicCompatible(true);
             creatDirs(vpath);
             File afile = new File(vpath + vtarget);
             fos = new FileOutputStream(afile);
