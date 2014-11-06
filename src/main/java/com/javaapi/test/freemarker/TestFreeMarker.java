@@ -97,6 +97,24 @@ public class TestFreeMarker {
 		FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
 	}
 
-	// TODO 属性值存在得时候
+	// TODO 1 属性值存在得时候 2 map值是否存在
 
+	@Test
+    public void testExists() {
+        String freemarkerName = "testif.ftl";
+        String freemarkerHtml = "testif.shtml";
+        String path2 = TestFreeMarker.class.getResource("").getPath();
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("number2", 2);
+        map.put("number3", "3");
+        map.put("booleanTrue", true);
+        map.put("booleanFalse", false);
+        Map<Object, Object> mapInner = new HashMap<>();
+        mapInner.put("booleanTrue", true);
+        mapInner.put("booleanFalse", false);
+        map.put("mapInner", mapInner);
+        // 输出到path变量
+        FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
+    }
+	//TODO 检验非空
 }
