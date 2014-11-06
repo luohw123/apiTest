@@ -117,4 +117,12 @@ public class TestFreeMarker {
         FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
     }
 	//TODO 检验非空
+	@Test
+	public void testNull() {
+		String freemarkerName = "testnull.ftl";
+		String freemarkerHtml = "testnull.shtml";
+		String path2 = TestFreeMarker.class.getResource("").getPath();
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
+	}
 }
