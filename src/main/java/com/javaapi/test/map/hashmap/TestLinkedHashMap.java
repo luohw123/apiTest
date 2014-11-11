@@ -9,6 +9,10 @@ import org.junit.Test;
 
 public class TestLinkedHashMap {
 
+	/**LinkedHashMap insertion-ordered
+	 * 
+	 * 
+	 */
 	@Test
 	public void test() {
 		System.out
@@ -37,7 +41,8 @@ public class TestLinkedHashMap {
 
 	/**
 	 * http://www.cnblogs.com/yejg1212/archive/2013/04/01/2992921.html</br>
-	 * 基于访问顺序 accessOrder
+	 * 基于访问顺序 accessOrder</br>
+	 * accessOrder the ordering mode - true for access-order, false for insertion-order
 	 */
 	@Test
 	public void testaccessOrder() {

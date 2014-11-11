@@ -1,7 +1,10 @@
 package com.javaapi.test.dataTrans.array;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 /**
@@ -48,4 +51,39 @@ public class TestArray {
 		int[] afterCopy = Arrays.copyOf(ids, 20);
 		System.out.println(Arrays.toString(afterCopy));
 	}
+	@Test
+	public void testArraysSortStringWrong() {
+	    String[] strArr = {"0","4","2","5","3","10","1024"};
+	    Arrays.sort(strArr);
+	    System.out.println(Arrays.asList(strArr));
+	}
+	@Test
+	public void testArraysSortString() {
+	    String[] strArr = {"0","4","2","5","3","10","1024"};
+        Arrays.sort(strArr, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                int parseInt = Integer.parseInt(o1);
+                int parseInt2 = Integer.parseInt(o2);
+                return parseInt-parseInt2;
+            }
+        });
+        System.out.println(Arrays.asList(strArr));
+	}
+	@Test
+    public void testArraysSortString2() {
+        String paramsForUpload = "dc_spf?136,139,142?3,1,0?";
+        String[] strArr = paramsForUpload.split("\\?");
+        String[] raceNoArr = strArr[1].trim().split(",");
+        Arrays.sort(raceNoArr, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                int parseInt = Integer.parseInt(o1);
+                int parseInt2 = Integer.parseInt(o2);
+                return parseInt - parseInt2;
+            }
+        });
+        System.out.println(StringUtils.join(raceNoArr, ","));
+        
+    }
 }

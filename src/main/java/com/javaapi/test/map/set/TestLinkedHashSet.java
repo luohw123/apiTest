@@ -1,4 +1,4 @@
-package com.javaapi.test.map.hashmap;
+package com.javaapi.test.map.set;
 
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -11,6 +11,10 @@ import org.junit.Test;
  */
 public class TestLinkedHashSet {
 
+	/**
+	 * 
+	 * 迭代得时候以插入顺序输出
+	 */
 	@Test
 	public void testLinkedHashSet() {
 		LinkedHashSet<Integer> set = new LinkedHashSet<>();
