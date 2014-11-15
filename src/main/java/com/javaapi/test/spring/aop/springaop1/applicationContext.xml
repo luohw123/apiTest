@@ -15,5 +15,20 @@
         <property name="target" ref="greetingImpl"/>                    <!-- 目标类 -->
         <property name="interceptorNames" value="greetingAroundAdvice"/> <!-- 引入增强 -->
     </bean>
+    <bean id="greetingProxy2" class="org.springframework.aop.framework.ProxyFactoryBean">
+    	<property name="interfaces" value ="com.javaapi.test.spring.aop.springaop1.Greeting"/>
+    	<property name="target" ref="greetingImpl" />
+    	<property name="interceptorNames" value="greetingAroundAdvice2"/> <!-- 引入增强 -->
+    </bean>
+     <bean id="greetingProxy3" class="org.springframework.aop.framework.ProxyFactoryBean">
+    	<property name="interfaces" value ="com.javaapi.test.spring.aop.springaop1.Greeting"/>
+    	<property name="target" ref="greetingImpl" />
+    	<property name="interceptorNames" value="greetingAroundAdvice3"/> <!-- 引入增强 -->
+    </bean>
+      <bean id="commonInteceptorPerformence" class="org.springframework.aop.framework.ProxyFactoryBean">
+    	<property name="interfaces" value ="com.javaapi.test.spring.aop.springaop1.Greeting"/>
+    	<property name="target" ref="greetingImpl" />
+    	<property name="interceptorNames" value="commonInteceptor"/> <!-- 引入增强 -->
+    </bean>
 
 </beans>

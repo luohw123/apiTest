@@ -19,7 +19,7 @@ public class Client {
 		String path=Client.class.getResource("").getPath();
 		String filename = path+"applicationContext.xml";
 		ApplicationContext app=new FileSystemXmlApplicationContext(filename);
-		Greeting school = (Greeting) app.getBean("greetingProxy");
+		Greeting school = (Greeting) app.getBean("commonInteceptorPerformence");
 		school.sayHello("kk");
 	}
 }
