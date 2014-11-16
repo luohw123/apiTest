@@ -15,9 +15,12 @@ public class ClientPlain {
 		String path = ClientPlain.class.getResource("")
 				.getPath();
 		System.out.println(path);
-		String apppath = "file:" + path + "applicationContext2.xml";
+		String apppath = "file:" + path + "applicationContext3.xml";
 		ApplicationContext app = new FileSystemXmlApplicationContext(apppath);
 		GreetingImpl bean = (GreetingImpl) app.getBean("greetingImpl");
 		bean.goodMorning("kk");
+		System.out.println("----------------");
+		Greeting2Impl bean2 = (Greeting2Impl) app.getBean("greeting2Impl");
+		bean2.goodMorning("kk2");
 	}
 }

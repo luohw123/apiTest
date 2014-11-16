@@ -45,7 +45,10 @@
 	<logger name="com.javaapi.test.spring.aop.springaop1">
 		<level value="TRACE" />
 	</logger>
+	<logger name="com.javaapi.test.spring.aop.springaop3">
+		<level value="TRACE" />
+	</logger>
 	<root level="INFO">
-		<appender-ref ref="stdout" />
+		<appender-ref ref="FILE" />
 	</root>
 </configuration>
