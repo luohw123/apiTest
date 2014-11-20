@@ -71,8 +71,6 @@ public class TestLock {
 			// 模拟其他处理，这里假设休眠一下
 			Thread.sleep(500);
 
-		} catch (Exception e) {
-			e.printStackTrace();
 		} finally {
 			// 解锁
 			lock.unlock();

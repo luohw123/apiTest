@@ -46,9 +46,15 @@ public class TestNumber {
 		System.out.println(new BigDecimal(1332.124));
 		// 原样获取值
 		System.out.println(BigDecimal.valueOf(1332.124));
-		System.out.println(new BigDecimal(1332.124).setScale(2,
+		System.out.println(BigDecimal.valueOf(1332.124).setScale(2,
 				RoundingMode.HALF_UP));
 		System.out.println(new BigDecimal(1332.125).setScale(2,
 				RoundingMode.HALF_UP));
+	}
+
+	@Test
+	public void test() {
+		String testhalf = "aaa";
+
 	}
 }
