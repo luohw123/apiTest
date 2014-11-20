@@ -1,4 +1,4 @@
-package com.javaapi.test.testMath;
+package com.javaapi.test.testMath.MathFormat;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -43,6 +43,9 @@ public class TestNumber {
 	@Test
 	public void testHalfUp() {
 		System.out.println("---------------------");
+		System.out.println(new BigDecimal(1332.124));
+		// 原样获取值
+		System.out.println(BigDecimal.valueOf(1332.124));
 		System.out.println(new BigDecimal(1332.124).setScale(2,
 				RoundingMode.HALF_UP));
 		System.out.println(new BigDecimal(1332.125).setScale(2,

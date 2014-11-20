@@ -1,4 +1,4 @@
-package com.javaapi.test.testMath;
+package com.javaapi.test.testMath.MathFormat;
 import java.math.BigDecimal; 
 
 /** @see http://jie2workjava.iteye.com/blog/345224

@@ -3,11 +3,11 @@ package com.javaapi.test.testMath.MathFormat;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
-public class Math {
+public class MathUtil {
 
 	// 这个类不能实例化
 
-	private Math() {
+	private MathUtil() {
 	}
 
 	/**
