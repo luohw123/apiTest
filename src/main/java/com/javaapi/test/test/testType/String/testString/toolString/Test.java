@@ -1,4 +1,4 @@
-package com.javaapi.test.String.testString.toolString;
+package com.javaapi.test.test.testType.String.testString.toolString;
 
 
 
