@@ -1,4 +1,4 @@
-package com.javaapi.test.String.testString;
+package com.javaapi.test.test.testType.String.testString;
 
 public class TestString3 {
     public static void main(String args[]) {

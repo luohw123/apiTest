@@ -14,7 +14,7 @@ public class SingletonSerializiable implements Serializable {
 	 */
 	private static final long serialVersionUID = -1858691508958538649L;
 
-	private SingletonSerializiable instance = new SingletonSerializiable();
+	private final SingletonSerializiable	instance			= new SingletonSerializiable();
 
 	private SingletonSerializiable() {
 	}

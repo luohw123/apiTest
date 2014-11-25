@@ -1,4 +1,4 @@
-package com.javaapi.test.String.testString;
+package com.javaapi.test.test.testType.String.testString;
 
 import java.util.Arrays;
 import java.util.List;

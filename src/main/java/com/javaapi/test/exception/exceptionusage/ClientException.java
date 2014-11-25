@@ -24,7 +24,7 @@ public class ClientException {
 			try {
 				throw new IOException("文件相关异常");
 			} catch (IOException e) {
-				new RuntimeException("文件相关异常",e.getCause());
+			throw new RuntimeException("文件相关异常", e.getCause());
 			}
 //		}catch(Exception e){
 //			e.printStackTrace();

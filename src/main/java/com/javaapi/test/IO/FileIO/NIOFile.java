@@ -97,7 +97,7 @@ public class NIOFile {
 			ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 			CharBuffer charBuffer = CharBuffer.allocate(1024);
 			int bytes = fileChannel.read(byteBuffer);
-			while (bytes != -1) {
+			while (bytes > -1) {
 				byteBuffer.flip();
 				decoder.decode(byteBuffer, charBuffer, false);
 				charBuffer.flip();
