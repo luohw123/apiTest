@@ -1,5 +1,7 @@
 package com.javaapi.test.String.testString.toolString;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Formatter;
 
 import org.junit.Test;
@@ -30,5 +32,13 @@ public class StringFormat {
 //		System.out.printf("上面价格的指数和浮点数结果的长度较短的是：%g %n", 50 * 0.85);
 //		System.out.printf("上面的折扣是%d%% %n", 85);
 //		System.out.printf("字母A的散列码是：%h %n", 'A');
+	}
+	
+	@Test
+	public void testSimpleDateFormat(){
+	    SimpleDateFormat sf = new SimpleDateFormat("E");
+	    String format = sf.format(new Date());
+	    System.out.println(format);
+	    
 	}
 }
