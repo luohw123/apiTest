@@ -5,6 +5,10 @@ import java.util.List;
 
 import org.junit.Test;
 
+/**
+ * 有点像是递归
+ *
+ */
 public class Client {
 	
 	@Test
