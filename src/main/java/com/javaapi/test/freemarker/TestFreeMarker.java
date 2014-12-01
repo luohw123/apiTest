@@ -81,8 +81,8 @@ public class TestFreeMarker {
 	 */
 	@Test
 	public void testIf() {
-		String freemarkerName = "testif.ftl";
-		String freemarkerHtml = "testif.shtml";
+		String freemarkerName = "testIf.ftl";
+		String freemarkerHtml = "testIf.shtml";
 		String path2 = TestFreeMarker.class.getResource("").getPath();
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("number2", 2);

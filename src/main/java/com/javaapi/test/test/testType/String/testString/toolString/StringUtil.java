@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -132,6 +133,23 @@ public class StringUtil {
         String join = StringUtils.join(list.toArray(), "，");
         System.out.println(join);
     }
+    @Test
+    public void parseFixedForbiddenLotteryTypes() {
+        String specialHint = "未开玩法:全场比分,让球胜平负";
+        List<String> forbiddenLotteryTypeList = new ArrayList<String>();
+
+        if (specialHint == null || specialHint.trim().length() < 1) {
+            return;
+        }
+        if (specialHint.trim().contains("未开")) {
+            specialHint = specialHint.trim().replaceAll("未开.*:", "").trim();
+            specialHint = specialHint.replaceAll("让球胜平负", "4051").replaceAll("上下单双", "4052").replaceAll("总进球数", "4053")
+                    .replaceAll("全场比分", "4054").replaceAll("半全场", "4055");
+            forbiddenLotteryTypeList.addAll( Arrays.asList(specialHint.split(",")));
+        }
+        System.out.println(forbiddenLotteryTypeList);
+    }
+
 
     /**
      * 

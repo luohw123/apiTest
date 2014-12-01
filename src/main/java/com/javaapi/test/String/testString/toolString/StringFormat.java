@@ -41,4 +41,14 @@ public class StringFormat {
 	    System.out.println(format);
 	    
 	}
+	@Test
+	public void testEqual(){
+	    String string = "*";
+	    if("*".equals(string)){
+	        System.out.println("yes");
+	    }else{
+	        System.out.println("no");
+	    }
+	    
+	}
 }
