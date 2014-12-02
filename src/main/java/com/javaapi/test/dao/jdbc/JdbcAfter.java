@@ -1,5 +1,6 @@
 package com.javaapi.test.dao.jdbc;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,15 +39,7 @@ public class JdbcAfter {
         }
     }
 
-    public static void close(Connection con) {
-        if (con != null) {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+   
 
     /**
      * reset autocommit to
@@ -67,7 +60,15 @@ public class JdbcAfter {
             e.printStackTrace();
         }
     }
-
+    public static void close(Connection con) {
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     public static void close(PreparedStatement pstmt) {
         if (pstmt != null) {
             try {
@@ -76,6 +77,15 @@ public class JdbcAfter {
                 e.printStackTrace();
             }
         }
+    }
+    public static void close(CallableStatement callstmt) {
+    	if (callstmt != null) {
+    		try {
+    			callstmt.close();
+    		} catch (SQLException e) {
+    			e.printStackTrace();
+    		}
+    	}
     }
 
     public static void close(ResultSet rs) {
@@ -93,5 +103,11 @@ public class JdbcAfter {
         close(rs);
         close(pstmt);
         close(con);
+    }
+    public static void close(Connection con, CallableStatement pstmt,
+    		ResultSet rs) {
+    	close(rs);
+    	close(pstmt);
+    	close(con);
     }
 }

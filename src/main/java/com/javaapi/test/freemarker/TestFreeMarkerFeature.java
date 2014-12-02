@@ -19,4 +19,12 @@ public class TestFreeMarkerFeature {
         Map<String, Map<String, Integer>> map = new HashMap<String, Map<String, Integer>>();
         FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
     }
+    @Test
+    public void testStop(){
+    	String freemarkerName = "teststop.ftl";
+    	String freemarkerHtml = "teststop.shtml";
+    	String path2 = TestFreeMarker.class.getResource("").getPath();
+    	Map<String, Map<String, Integer>> map = new HashMap<String, Map<String, Integer>>();
+    	FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
+    }
 }
