@@ -3,6 +3,7 @@ package com.javaapi.test.test.testType.String.testString;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 public class TestRegulerExpression {
@@ -27,5 +28,12 @@ public class TestRegulerExpression {
 		List<String> asList = Arrays.asList(forbiddenLotteryTypes);
 		System.out.println("-----------");
 		System.out.println(asList.contains("4074"));
+	}
+	@Test
+	public void testS() {
+        String thisMatchName ="  你  好  "; 
+        System.out.println(thisMatchName.replaceAll("\\s*", ""));
+        System.out.println("----------");
+        System.out.println(StringUtils.deleteWhitespace(thisMatchName));
 	}
 }
