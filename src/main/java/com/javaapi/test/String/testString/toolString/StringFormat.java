@@ -51,4 +51,9 @@ public class StringFormat {
 	    }
 	    
 	}
+	@Test
+	public void testValueOf(){
+	    int i  =1 ;
+	    System.out.println(String.valueOf(i));
+	}
 }
