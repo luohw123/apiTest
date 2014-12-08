@@ -1,6 +1,7 @@
 package com.javaapi.test.map.list.list;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -95,6 +96,20 @@ public class TestArrayList {
         }
         System.out.println(set + "   " + list);
 
+    }
+    @Test
+    public void testListAdd(){
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("2");
+        HashMap<String, List<String>> hashMap = new HashMap<>();
+        hashMap.put("list", arrayList);
+        hashMap.get("list").add("3");
+        printList(hashMap);
+    }
+
+    private void printList(HashMap<String, List<String>> hashMap) {
+        List<String> list =  hashMap.get("list");
+        System.out.println(list);
     }
 
 

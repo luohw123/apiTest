@@ -35,4 +35,29 @@ public class TestHashMap {
         map.putAll(map1);
         System.out.println(map);
     }
+    @Test
+    public void testHashMapRemove() {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map1 = new HashMap<String, Integer>();
+        map.put("1", 1);
+        map.put("2", 2);
+        map1.put("2", 22);
+        map1.put("3", 3);
+        map1.put("4", 4);
+        map.putAll(map1);
+        map.remove("2");
+        System.out.println(map);
+    }
+    @Test
+    public void testHashMapPutAll() {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map1 = new HashMap<String, Integer>();
+        map.put("1", 1);
+        map.put("2", 2);
+        map1.put("2", 22);
+        map1.put("3", 3);
+        map1.put("4", 4);
+        map.putAll(map1);
+        System.out.println(map);
+    }
 }

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URL;
 
 import org.junit.Test;
 
@@ -45,17 +46,30 @@ public class TestPath {
 		System.out.println(f2);
 	}
 	/**
-	 * 测试classloader 获取路径
+	 * 测试classloader 获取路径</br>
+	 * classloader 获取path时候,前面加 / 是会报错的(返回的url对象是null).</br>
+	 * 需要将该包下的text.txt，放到根路径下测试
+	 * 
 	 */
 	@Test
 	public void getDiffClassloaderResourcePath() {
 		// 类加载路径的根路径下
-		String path = TestPath.class.getClassLoader().getResource("test.txt").getPath();
-		System.out.println(path);
-		// classloader 获取path时候,前面加 / 是无效的
-		// String
-		// path2=TestPath.class.getClassLoader().getResource("/test.txt").getPath();
-		// System.out.println(path2);
+	    URL resourcePath = TestPath.class.getClassLoader().getResource("");
+	    URL resourceFile = TestPath.class.getClassLoader().getResource("test.txt");
+	    URL resWrongPath = TestPath.class.getClassLoader().getResource("/");
+	    URL resWrongFile = TestPath.class.getClassLoader().getResource("/test.txt");
+	    System.out.println(resourcePath);
+	    System.out.println(resWrongPath);
+	    System.out.println(resourceFile);
+	    System.out.println(resWrongFile);
+	    String resourcePathString = resourcePath.getPath();
+	    String resourceFileString = resourceFile.getPath();
+//	    String resWrongPathString = resWrongPath.getPath();
+//	    String resWrongFileString = resWrongFile.getPath();
+		System.out.println(resourcePathString);
+		System.out.println(resourceFileString);
+//		System.out.println(resWrongPathString);
+//		System.out.println(resWrongFileString);
 	}
 
 
