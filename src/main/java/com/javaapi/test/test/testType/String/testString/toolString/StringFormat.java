@@ -1,5 +1,7 @@
 package com.javaapi.test.test.testType.String.testString.toolString;
 
+import java.math.BigDecimal;
+import java.text.MessageFormat;
 import java.util.Formatter;
 
 import org.junit.Test;
@@ -31,4 +33,43 @@ public class StringFormat {
 //		System.out.printf("上面的折扣是%d%% %n", 85);
 //		System.out.printf("字母A的散列码是：%h %n", 'A');
 	}
+	 /**
+     * 
+     * http://blog.csdn.net/lonely_fireworks/article/details/7962171
+     */
+    @Test
+    public void testStringFormat() {
+        String format = String.format("%s:", "nihao");
+        System.out.println(format);
+    }
+    
+    @Test
+    public void testStringFormatPerfm() {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++) {
+//            String format = String.format("%s:", "nihao");
+            String format = String.format("%s:%s:%s:%s:%s:", "nihao", "nihao", "nihao", "nihao", "nihao");
+        }
+        long end =System.currentTimeMillis();
+        System.out.println("done"+((end-start)));
+    }
+    @Test
+    public void testMessageFormat() {
+        String format = MessageFormat.format("nihao:{0},{1},{2},{3},{4}", "1", "1", "1", "1", "1");
+        System.out.println(format);
+    }
+    /**
+     * 
+     * messageFormat得性能优于stringformat
+     */
+    @Test
+    public void testMessageFormatPerfm() {
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++) {
+            String format = MessageFormat.format("nihao:{0},{1},{2},{3},{4}", "nihao", "nihao", "nihao", "nihao", "nihao");
+        }
+        long end =System.currentTimeMillis();
+        System.out.println("done"+((end-start)));
+    }
+
 }

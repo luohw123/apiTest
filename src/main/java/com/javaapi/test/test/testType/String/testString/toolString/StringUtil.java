@@ -1,17 +1,9 @@
 package com.javaapi.test.test.testType.String.testString.toolString;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.springframework.util.AntPathMatcher;
 
@@ -99,68 +91,6 @@ public class StringUtil {
         }
     }
 
-    @Test
-    public void testFile() throws IOException, InterruptedException {
-        long tempRunCount = 1200;
-        long tempSleep = 200;
-        String path = "/mfs/ShareFile/news/0/33/10001/test-ssi-sinanba.shtml";
-        File pathFile = new File(path);
-        String tmpPath = path + ".tmp";
-        File tmp = new File(tmpPath);
-        for (long i = 0; i < tempRunCount; i++) {
-            FileOutputStream fos = new FileOutputStream(tmp, false);
-            fos.write(new String(new Date().getTime() + "aaaaa" + i).getBytes());
-            fos.close();
-            if (tmp != null) {
-                if (!tmp.renameTo(pathFile)) {
-                    //we may want to retry if move fails
-                    tmp.delete();
-                    FileOutputStream ff = new FileOutputStream(pathFile, false);
-                    ff.write(new String(new Date().getTime() + "aaaaa" + i).getBytes());
-                    ff.close();
-                }
-            }
-
-            Thread.sleep(tempSleep);
-        }
-
-    }
-    @Test
-    public void testArrayString() {
-        List<String> list = new ArrayList<>();
-        list.add("你好");
-        list.add("世界");
-        String join = StringUtils.join(list.toArray(), "，");
-        System.out.println(join);
-    }
-    @Test
-    public void parseFixedForbiddenLotteryTypes() {
-        String specialHint = "未开玩法:全场比分,让球胜平负";
-        List<String> forbiddenLotteryTypeList = new ArrayList<String>();
-
-        if (specialHint == null || specialHint.trim().length() < 1) {
-            return;
-        }
-        if (specialHint.trim().contains("未开")) {
-            specialHint = specialHint.trim().replaceAll("未开.*:", "").trim();
-            specialHint = specialHint.replaceAll("让球胜平负", "4051").replaceAll("上下单双", "4052").replaceAll("总进球数", "4053")
-                    .replaceAll("全场比分", "4054").replaceAll("半全场", "4055");
-            forbiddenLotteryTypeList.addAll( Arrays.asList(specialHint.split(",")));
-        }
-        System.out.println(forbiddenLotteryTypeList);
-    }
-
-
-    /**
-     * 
-     * http://blog.csdn.net/lonely_fireworks/article/details/7962171
-     */
-    @Test
-    public void testStringFormat() {
-        String format = String.format("%s:", "nihao");
-        System.out.println(format);
-
-    }
 
   
 

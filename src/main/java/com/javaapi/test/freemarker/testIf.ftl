@@ -2,6 +2,9 @@
 	<#if number2 == 2  >
 	判断数字
 	</#if>
+	<#if 2 == "2"?number  >
+	判断数字
+	</#if>
 	<#if number3 == 3?c  >
 	判断字符串
 	</#if>
