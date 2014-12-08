@@ -2,7 +2,7 @@ package com.javaapi.test.spring.zotherFeature.scheduler;
 
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class TaskJobXml {
 
 	public void job1() {

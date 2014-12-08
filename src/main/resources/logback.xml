@@ -48,6 +48,9 @@
 	<logger name="com.javaapi.test.spring.aop.springaop3">
 		<level value="TRACE" />
 	</logger>
+	<logger name="org.springframework">
+		<level value="INFO" />
+	</logger>
 	<root level="INFO">
 		<appender-ref ref="FILE" />
 	</root>
