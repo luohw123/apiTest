@@ -26,7 +26,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  * 
  * 5.数组或对象之中的字符串必须使用双引号，不能使用单引号。</br>
  * 
- * 6.对象的成员名称必须使用<span style="color:red">双引号</span>。</br>
+ * 6.<span style="color:red">对象的成员名称</span>必须使用<span style="color:red">双引号</span>。</br>
  * </br>
  * 主要api
  * <code>
@@ -41,13 +41,21 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 public class TestFastJson {
 	@Test
 	public void serialize() {
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("1", "2");
 		map.put("2", "2");
 		map.put("3", "2");
+		map.put("number", 1);
+		map.put("number2", 2);
+		map.put("number3", 3);
+		map.put("null", 1);
+		map.put("booleanTrue", true);
+		map.put("booleanFalse", false);
+		System.out.println("默认情况下");
+		System.out.println(JSON.toJSON(map).toString());
+		System.out.println("UseSingleQuotes");
 		System.out.println(JSON.toJSONString(map,
 				SerializerFeature.UseSingleQuotes));
-		System.out.println(JSON.toJSON(map).toString());
 	}
 
 	@Test
