@@ -1,8 +1,13 @@
 package com.javaapi.test.dataTrans.json.fastjson;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import jodd.io.FileUtil;
+
+import org.apache.commons.lang.CharEncoding;
+import org.apache.commons.lang.time.StopWatch;
 import org.junit.Test;
 
 import com.alibaba.fastjson.JSON;
@@ -22,6 +27,15 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  * 5.数组或对象之中的字符串必须使用双引号，不能使用单引号。</br>
  * 
  * 6.对象的成员名称必须使用<span style="color:red">双引号</span>。</br>
+ * </br>
+ * 主要api
+ * <code>
+ * public abstract class JSON {
+        public static final String toJSONString(Object object);
+        public static final <T> T parseObject(String text, Class<T> clazz, Feature... features);
+  }
+ * </code>
+ * 
  * 
  */
 public class TestFastJson {
@@ -52,4 +66,50 @@ public class TestFastJson {
 				}, Feature.AllowUnQuotedFieldNames);
 		System.out.println(hashmap);
 	}
+	/**
+	 处理带范型参数
+	 */
+	@Test
+    public void deserializeToMap() throws IOException {
+	    StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        int times = 1;
+        for (int i = 0; i < times; i++) {
+            String jsonString = FileUtil.readString("/home/kk/static/no_cache/jc/dcsf/data/conf_470.js",CharEncoding.UTF_8);
+            // 传入类型参数
+            Map<String, String> hashmap = JSON.parseObject(jsonString,
+                    new TypeReference<Map<String, String>>() {
+            }, Feature.AllowUnQuotedFieldNames);
+        }
+        stopWatch.stop();
+        System.out.println(stopWatch.getTime());
+    }
+	@Test
+	public void deserializeToMapDeep() throws IOException {
+	    StopWatch stopWatch = new StopWatch();
+	    stopWatch.start();
+	    String jsonString = FileUtil.readString("/home/kk/static/no_cache/jc/dcsf/data/conf_470.js",CharEncoding.UTF_8);
+//        JSONObject.parseObject(jsonString,Map.class);
+        Map<String, Object> hashmap = JSON.parseObject(jsonString, new TypeReference<Map<String, Object>>() {
+        },Feature.AllowUnQuotedFieldNames);
+	   
+	    stopWatch.stop();
+	    System.out.println(stopWatch.getTime());
+	}
+	
+	
+	@Test
+    public void deserializeToMapJsonLib() throws IOException {
+//        StopWatch stopWatch = new StopWatch();
+//        stopWatch.start();
+//        for (int i = 0; i < 5000; i++) {
+//            String jsonString = FileUtil.readString("/home/kk/static/no_cache/jc/dcsf/data/conf_470.js",CharEncoding.UTF_8);
+//            // 传入类型参数
+//            JSONObject hashmap = JSONObject.fromObject(jsonString);
+////            hashmap.toString();
+////            System.out.println(i);
+//        }
+//        stopWatch.stop();
+//        System.out.println(stopWatch.getTime());
+    }
 }

@@ -2,6 +2,8 @@ package com.javaapi.test.test.testType.String.testString.toolString;
 
 import java.math.BigDecimal;
 import java.text.MessageFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Formatter;
 
 import org.junit.Test;
@@ -33,6 +35,29 @@ public class StringFormat {
 //		System.out.printf("上面的折扣是%d%% %n", 85);
 //		System.out.printf("字母A的散列码是：%h %n", 'A');
 	}
+	   
+    @Test
+    public void testSimpleDateFormat(){
+        SimpleDateFormat sf = new SimpleDateFormat("E");
+        String format = sf.format(new Date());
+        System.out.println(format);
+        
+    }
+    @Test
+    public void testEqual(){
+        String string = "*";
+        if("*".equals(string)){
+            System.out.println("yes");
+        }else{
+            System.out.println("no");
+        }
+        
+    }
+    @Test
+    public void testValueOf(){
+        int i  =1 ;
+        System.out.println(String.valueOf(i));
+    }
 	 /**
      * 
      * http://blog.csdn.net/lonely_fireworks/article/details/7962171
