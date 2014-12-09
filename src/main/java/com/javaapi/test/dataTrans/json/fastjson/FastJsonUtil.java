@@ -18,7 +18,13 @@ public class FastJsonUtil {
         if(object == null){
             return "{}";
         }
-        String jsonString = JSON.toJSONString(object);
+        
+        String jsonString = "";
+        try {
+            jsonString = JSON.toJSONString(object);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return jsonString;
     }
     
