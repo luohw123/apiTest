@@ -17,7 +17,6 @@ public class Client {
 			// 休眠十小时
 			TimeUnit.HOURS.sleep(10);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

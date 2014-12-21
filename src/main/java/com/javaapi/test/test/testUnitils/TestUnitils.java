@@ -27,9 +27,11 @@ public class TestUnitils {
 	@Test
 	public void testReflectionComparatorModeIGNORE_DEFAULTS() {
 		// Ignore Null / 0 values in the expected object
-		assertReflectionEquals(new Person("John", null, new Address(
-				"New street", 0, null)), new Person("John", "Doe", new Address(
-				"New street", 5, "Brussels")),
+		Person expected = new Person("John", null, new Address("New street", 0,
+				null));
+		Person actual = new Person("John", "Doe", new Address("New street", 5,
+				"Brussels"));
+		assertReflectionEquals(expected, actual,
 				ReflectionComparatorMode.IGNORE_DEFAULTS);
 	}
 

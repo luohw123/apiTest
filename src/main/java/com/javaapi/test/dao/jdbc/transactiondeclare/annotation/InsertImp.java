@@ -1,15 +1,18 @@
 package com.javaapi.test.dao.jdbc.transactiondeclare.annotation;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-//@Service("targetInsertService")
-//@Transactional
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+@Service("targetInsertService")
+@Transactional
 public class InsertImp implements IinsertService{
 
 
-	// @Autowired
+	 @Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	// @Autowired
+	 @Autowired
 	IupdateService iupdateService;
 	
     private static final String sql = "insert csc_sns_dev.tbl_b (id,val) values(3,'kk')";

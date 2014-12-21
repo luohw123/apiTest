@@ -1,5 +1,7 @@
 package com.javaapi.test.test.testdbunit;
 
+import org.junit.Test;
+
 /**
  * <p>
  * 1 扩展子junit</br> Dbunit是一个基于JUnit扩展的数据库测试框架。它提供了大量的类，对数据库相关的操作进行了抽象和封装。
@@ -18,5 +20,10 @@ package com.javaapi.test.test.testdbunit;
  * 
  */
 public class TestDbunit {
+	
+	@Test
+	public void test() {
+		
+	}
 
 }
