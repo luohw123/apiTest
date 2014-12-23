@@ -2,6 +2,7 @@ package com.javaapi.test.map.hashmap;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
@@ -59,5 +60,23 @@ public class TestHashMap {
         map1.put("4", 4);
         map.putAll(map1);
         System.out.println(map);
+    }
+    @Test
+    public void testHashMapInit() {
+        List<String> input =new ArrayList<>();
+        input.add("nihao");
+        input.add("nihao");
+        input.add("nihao");
+        input.add("nihao");
+        input.add("nihao");
+        input.add("nihao");
+        input.add("nihao");
+        int mapSize = (int)Math.ceil(input.size() / 0.7);
+        
+        Map<String,String> map = new HashMap<String, String>(mapSize); 
+        for(String f: input)
+        {
+            map.put("key", f);
+        }
     }
 }

@@ -27,12 +27,6 @@ destroy-method="close"
         p:username="root"
         p:password="root"/>
         
-<!--         <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" -->
-<!-- 		destroy-method="close" -->
-<!--         p:driverClassName="com.mysql.jdbc.Driver" -->
-<!--         p:url="jdbc:mysql://192.168.66.13:3306/leaguelib?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=GBK" -->
-<!--         p:username="leaguelib" -->
-<!--         p:password="leaguelib789"/> -->
  	<bean id="txManager"  
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  

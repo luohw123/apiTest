@@ -19,12 +19,14 @@
 	
 	
  <context:component-scan base-package="com.javaapi.test.dao.jdbc.transactiondeclare.aop"/>
-<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close"
+<bean id="dataSource"
+class="org.apache.commons.dbcp.BasicDataSource"
+destroy-method="close"
         p:driverClassName="com.mysql.jdbc.Driver"
-        p:url="jdbc:mysql://192.168.66.13:3306/leaguelib?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=GBK"
-        p:username="leaguelib"
-        p:password="leaguelib789"/>
+        p:url="jdbc:mysql://127.0.0.1:3306/csc_sns_dev?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=GBK"
+        p:username="root"
+        p:password="root"/>
+        
         
  	<bean id="txManager"  
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  

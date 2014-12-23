@@ -18,9 +18,9 @@ import com.javaapi.test.freemarker.FreeMarkerUtil;
 public class TestJdbcForMatchName {
     // ------------------
     private static final String NAME         = "name";
-    private static final String LEAGUELIB789 = "leaguelib789";
-    private static final String LEAGUELIB    = "leaguelib";
-    private static final String leaguePath   = "jdbc:mysql://192.168.66.13:3306/leaguelib?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8";
+    private static final String username = "test";
+    private static final String password    = "test";
+    private static final String leaguePath   = "jdbc:mysql://192.168.66.13:3306/test?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf8";
 
     // ------------------
 
@@ -36,10 +36,9 @@ public class TestJdbcForMatchName {
     @Test
     public void jdbc() {
         String path = leaguePath;
-        String username = LEAGUELIB;
-        String password = LEAGUELIB789;
+        String username = password;
+        String password = username;
         String colomun = NAME;
-        String sql = "SELECT * FROM leaguelib.league limit 0,1000;";
         String sqlString = "SELECT * FROM bk_league where bk_league.name not in ("
                 + "SELECT  league.name_cn FROM league inner join bk_league ON league.name_cn = bk_league.name);";
         try {
