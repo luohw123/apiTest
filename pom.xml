@@ -229,6 +229,12 @@
 			<version>1.7.0</version>
 		</dependency>
 		<!-- 		为了引入json-lib -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.6</version>
+		</dependency>
+		
 		<!-- util结束 -->
 		<dependency>
 			<groupId>cglib</groupId>
