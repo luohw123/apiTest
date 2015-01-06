@@ -29,6 +29,7 @@ public class Client2 {
 //		list = dcList;
 //		list = zcList;
 	}
+	
 	@Test
 	public void test21() {
 		List<? extends Race> list = new ArrayList<>();
@@ -36,6 +37,7 @@ public class Client2 {
 //		list.add(new ZcRace());
 //		list.add(new DcRace());
 	}
+	
 	@Test
 	public void test22() {
 		List<? extends Race> list  =null;
@@ -48,6 +50,7 @@ public class Client2 {
 		list = dcList;
 		list = zcList;
 	}
+	
 	@Test
 	public void test31() {
 		List<?> list = new ArrayList<>();
