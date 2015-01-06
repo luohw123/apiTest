@@ -10,8 +10,6 @@
        <result column="phone" property="phone" />
        <result column="email" property="email"  />
 </resultMap>
-
-
    <select id="getUserList" resultType="com.javaapi.test.dao.mybatis.Social">  
         select * from sns_social  
     </select>  

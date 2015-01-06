@@ -39,7 +39,7 @@ public class GenericExtends {
 			System.out.println(a);
 		}
 		// 2
-		// c.add("1");
+//		 c.add("1");
 		// 3
 		// c.add(new Object());
 		// 4

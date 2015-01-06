@@ -7,7 +7,7 @@ public class ActionInvocation {
 	 Iterator<Interceptor> iterator;
 	 private Action action;
 	 private Object returnValue ;
-	  public Object invoke() {
+	 public Object invoke() {
 	        if(iterator == null ){
 	        	return action.invoke();
 	        }
@@ -20,7 +20,6 @@ public class ActionInvocation {
 	            }
 	        } else{
 	        	 returnValue = action.invoke();
-	        	
 	        }
 			return returnValue;
 	    }

@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 测试泛型super关键字
- *
+ * 1 测试泛型super关键字 </br>
+ * 2 extends 可用于的返回类型限定，不能用于参数类型限定。 </br> 
+ *  super 可用于参数类型限定，不能用于返回类型限定。 </br>
+ *  带有super超类型限定的通配符可以向泛型对易用写入，带有extends子类型限定的通配符可以向泛型对象读取
+ * 
  */
 public class GenericSuper {
     public static void main(String[] args) {
