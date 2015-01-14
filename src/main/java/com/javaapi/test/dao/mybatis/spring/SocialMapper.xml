@@ -13,6 +13,9 @@
    <select id="getUserList" resultType="com.javaapi.test.dao.mybatis.Social">  
         select * from sns_social  
     </select>  
+   <select id="getPageUser" parameterType="map" resultType="com.javaapi.test.dao.mybatis.Social">  
+        select * from sns_social  order by #{page.orderBy} #{page.order}  limit #{start},#{end}
+    </select>  
    <select id="getTop1User" resultType="com.javaapi.test.dao.mybatis.Social">  
        SELECT *  FROM csc_sns_dev.sns_social where id='0013399d-1392-4c2a-b196-0f8119e15bad';
     </select>  

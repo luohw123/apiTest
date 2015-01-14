@@ -1,6 +1,8 @@
 package com.javaapi.test.dao.mybatis.spring;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.javaapi.test.dao.domain.DataPage;
 import com.javaapi.test.dao.mybatis.Social;
 import com.javaapi.test.dao.mybatis.TestTypeHandler;
 import com.javaapi.test.dao.mybatis.User;
@@ -50,6 +53,21 @@ public class Client {
 	public void selectListObject() {
 		String selectOne = "testNamespace.getTop1UserResultMap";
 		List<Social> a = sqlSessionTemplate.selectList(selectOne);
+		System.out.println(a);
+	}
+	@Test
+	public void selectPageObject() {
+		String selectOne = "testNamespace.getPageUser";
+		Map<String,Object> map = new HashMap<>();
+		DataPage<Social> page = new DataPage<>();
+		page.setPageNo(1);
+		page.setPageSize(10);
+		page.setOrder(DataPage.DESC);
+		page.setOrderBy("phone");
+		map.put("page", page);
+		map.put("start", page.getFirst());
+		map.put("end", page.getEndIndex());
+		List<Social> a = sqlSessionTemplate.selectList(selectOne,map);
 		System.out.println(a);
 	}
 
