@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class JodaTimeUtil {
 
-    @SuppressWarnings("static-access")
     @Test
     public void test() {
         Instant in = new Instant();
