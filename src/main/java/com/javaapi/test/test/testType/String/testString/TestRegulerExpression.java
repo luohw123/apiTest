@@ -2,6 +2,8 @@ package com.javaapi.test.test.testType.String.testString;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
@@ -35,5 +37,29 @@ public class TestRegulerExpression {
         System.out.println(thisMatchName.replaceAll("\\s*", ""));
         System.out.println("----------");
         System.out.println(StringUtils.deleteWhitespace(thisMatchName));
+	}
+	@Test
+	public void testFenZu() {
+		String thisMatchName ="<title>nihao</title><body>nihaoa</body>"; 
+		Pattern compile = Pattern.compile("(?<=<title>).*(?=</title>)");
+		Matcher matcher = compile.matcher(thisMatchName);
+		boolean find = matcher.find();
+		int groupCount = matcher.groupCount();
+		System.out.println(groupCount);
+		System.out.println(matcher.group(0));
+		System.out.println(find);
+	}
+	@Test
+	public void testFenZu2() {
+		String thisMatchName ="150104001(3-1.2) {4076}"; 
+		String regex = "\\{(\\d+)\\}";
+		Pattern compile = Pattern.compile(regex);
+		Matcher matcher = compile.matcher(thisMatchName);
+		boolean find = matcher.find();
+		int groupCount = matcher.groupCount();
+		System.out.println(groupCount);
+		System.out.println(matcher.group(0));
+		System.out.println(matcher.group(1));
+		System.out.println(find);
 	}
 }
