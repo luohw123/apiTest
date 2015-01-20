@@ -15,10 +15,10 @@ public class HtmlPage {
         this.list = list;
     }
 
-//    @Override
-//    public String toString() {
-//        return "HtmlPage [list=" + list + "]";
-//    }
+    @Override
+    public String toString() {
+        return "HtmlPage [list=" + list + "]";
+    }
 
     public List<People> getPeoplelist() {
         return peoplelist;
