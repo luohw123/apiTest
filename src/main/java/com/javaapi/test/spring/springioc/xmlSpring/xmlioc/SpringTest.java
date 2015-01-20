@@ -23,4 +23,34 @@ public class SpringTest {
         System.out.println(htmlPage.getPeoplelist().get(0).getName());
         System.out.println(htmlPage.getPeoplelist().get(1).getName());
 	}
+	@Test
+	public void testSingleton() {
+		String path=SpringTest.class.getResource("").getPath();
+		String filename = path+"applicationContext.xml";
+		ApplicationContext app=new FileSystemXmlApplicationContext("file:"+filename);
+		HtmlPage htmlPage = (HtmlPage) app.getBean("htmlPage");
+		HtmlPage htmlPage2 = (HtmlPage) app.getBean("htmlPage");
+		HtmlPage htmlPage3 = (HtmlPage) app.getBean("htmlPage2");
+		HtmlPage htmlPage4 = (HtmlPage) app.getBean("htmlPage2");
+		System.out.println(htmlPage);
+		System.out.println(htmlPage3);
+		System.out.println(htmlPage == htmlPage3);
+		System.out.println(htmlPage == htmlPage2);
+		System.out.println(htmlPage3 == htmlPage4);
+	}
+	@Test
+	public void testPrototype() {
+		String path=SpringTest.class.getResource("").getPath();
+		String filename = path+"applicationContext_prototype.xml";
+		ApplicationContext app=new FileSystemXmlApplicationContext("file:"+filename);
+		HtmlPage htmlPage = (HtmlPage) app.getBean("htmlPage");
+		HtmlPage htmlPage2 = (HtmlPage) app.getBean("htmlPage");
+		HtmlPage htmlPage3 = (HtmlPage) app.getBean("htmlPage2");
+		HtmlPage htmlPage4 = (HtmlPage) app.getBean("htmlPage2");
+		System.out.println(htmlPage);
+		System.out.println(htmlPage3);
+		System.out.println(htmlPage == htmlPage3);
+		System.out.println(htmlPage == htmlPage2);
+		System.out.println(htmlPage3 == htmlPage4);
+	}
 }

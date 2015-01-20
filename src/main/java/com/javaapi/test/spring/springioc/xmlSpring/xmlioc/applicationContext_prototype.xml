@@ -3,7 +3,7 @@
 
 <beans>
 <!-- 测试name属性bean,name属性是对id属性的扩充 ,可以允许重复值等 -->
-	<bean name="htmlPage" class="com.javaapi.test.spring.springioc.xmlSpring.xmlioc.HtmlPage">
+	<bean name="htmlPage" class="com.javaapi.test.spring.springioc.xmlSpring.xmlioc.HtmlPage" singleton="false">
 		<property name="list">
 			<list>
 				<value>text/html;charset=UTF-8</value>
@@ -18,7 +18,7 @@
 		</property>
 	</bean>
 								  
-	<bean name="htmlPage2" class="com.javaapi.test.spring.springioc.xmlSpring.xmlioc.HtmlPage">
+	<bean name="htmlPage2" class="com.javaapi.test.spring.springioc.xmlSpring.xmlioc.HtmlPage" singleton="false">
 		<property name="list">
 			<list>
 				<value>text/html;charset=UTF-8</value>
