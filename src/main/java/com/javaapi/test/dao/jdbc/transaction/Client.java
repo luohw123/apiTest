@@ -167,6 +167,18 @@ public class Client {
 		dataSourceTransactionManager.rollback(status);
 		DataSourceUtils.releaseConnection(connection, datasource);
 	}
+	@Test
+	public void testDataSourceTransaction2() {
+		System.out.println("-----------");
+		String bet007_id = "595959";
+		String sql = "update matchs set league_name='斯伐乙西1'  where bet007_id="+ bet007_id;
+		Connection connection = DataSourceUtils.getConnection(datasource);
+		PreparedStatement ps = JdbcPrepare.getPrepareStatement(connection, sql);
+		int result = JdbcExe.executeUpdate(ps);
+		System.out.println(result);
+		System.out.println("-----------");
+		DataSourceUtils.releaseConnection(connection, datasource);
+	}
 	
 	/**
 	 * TODO 测试jta分布式事物
