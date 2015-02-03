@@ -1,13 +1,10 @@
 package com.javaapi.test.spring.springioc.xmlSpring.xmlioc;
 
-import java.nio.charset.Charset;
-
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.http.MediaType;
 
-import com.zeroturnaround.javarebel.i;
 
 /**
  *测试spring注入默认对象 
