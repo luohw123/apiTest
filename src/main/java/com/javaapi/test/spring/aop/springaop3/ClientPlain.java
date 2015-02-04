@@ -19,6 +19,7 @@ public class ClientPlain {
 		ApplicationContext app = new FileSystemXmlApplicationContext(apppath);
 		GreetingImpl bean = (GreetingImpl) app.getBean("greetingImpl");
 		bean.goodMorning("kk");
+		System.out.println(bean);
 		System.out.println("----------------");
 		Greeting2Impl bean2 = (Greeting2Impl) app.getBean("greeting2Impl");
 		bean2.goodMorning("kk2");
