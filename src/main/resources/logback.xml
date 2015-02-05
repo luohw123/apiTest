@@ -43,10 +43,10 @@
 	<logger name="com.google.code.yanf4j.core" level="INFO" />
 	<logger name="com.javaapi.test" level="INFO" />
 	<logger name="com.javaapi.test.spring.aop.springaop1">
-		<level value="TRACE" />
+		<level value="INFO" />
 	</logger>
 	<logger name="com.javaapi.test.spring.aop.springaop3">
-		<level value="TRACE" />
+		<level value="INFO" />
 	</logger>
 	<logger name="org.springframework">
 		<level value="INFO" />
@@ -61,6 +61,6 @@
     <logger name="java.sql.PreparedStatement" level="DEBUG" />
 	
 	<root level="INFO">
-		<appender-ref ref="stdout" />
+		<appender-ref ref="FILE" />
 	</root>
 </configuration>
