@@ -23,6 +23,7 @@ public class Client {
 		animalList.add(new Cat("cat1"));
 		animalList.add(new Bird("bird1"));
 		
+		
 		animalTrainer.act(animalList);	//可以通过编译
 		
 		//Test 2

@@ -10,7 +10,6 @@ import java.io.Serializable;
  * @project apiTest
  * @author kk
  * @date 2014年8月5日
- * Copyright (C) 2010-2012 www.2caipiao.com Inc. All rights reserved.
  */
 public class Person3 implements Serializable {
     private static final long serialVersionUID = 1L;

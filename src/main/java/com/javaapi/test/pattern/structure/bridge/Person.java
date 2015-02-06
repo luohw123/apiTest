@@ -13,6 +13,9 @@ public abstract class Person {
 	public void setClothing() {
 		this.clothing = new Trouser();
 	}
+	public void setClothing(Clothing clothing) {
+	    this.clothing = clothing;
+	}
 
 	public void setType(String type) {
 		this.type = type;
