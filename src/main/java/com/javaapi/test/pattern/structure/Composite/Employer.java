@@ -18,13 +18,13 @@ public abstract class Employer {
 
 	public abstract void delete(Employer employer);
 
-	public List employers;
+	public List<Employer> employers;
 
 	public void printInfo() {
 		System.out.println(name);
 	}
 
-	public List getEmployers() {
+	public List<Employer> getEmployers() {
 		return this.employers;
 	}
 }
