@@ -8,7 +8,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<dep.jackson-core.version>2.1.3</dep.jackson-core.version>
 		<dep.jackson-databind.version>2.1.3</dep.jackson-databind.version>
-		<spring.version>3.2.3.RELEASE</spring.version>
+		<spring.version>3.2.6.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<java.version>1.7</java.version>
 		<plugin.clean.version>2.6.1</plugin.clean.version>
@@ -67,13 +67,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
-			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -134,7 +132,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -171,6 +168,8 @@
 		<!-- <artifactId>slf4j-log4j12</artifactId> -->
 		<!-- <version>1.6.1</version> -->
 		<!-- </dependency> -->
+		
+		
 		<!-- logback -->
 		<!-- 自动引入 slf4j,logback core -->
 		<dependency>
@@ -217,6 +216,8 @@
 		<!-- <artifactId>jackson-databind</artifactId> -->
 		<!-- <version>${dep.jackson-databind.version}</version> -->
 		<!-- </dependency> -->
+		
+		
 		<!-- 		为了引入json-lib -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
@@ -304,8 +305,20 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jms</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<!-- jms end -->
 	</dependencies>
+	<dependencyManagement> 
+	    <dependencies> 
+	        <dependency> 
+	            <groupId>org.springframework</groupId> 
+	            <artifactId>spring-framework-bom</artifactId> 
+	            <version>${spring.version}</version> 
+	            <type>pom</type> 
+	            <scope>import</scope> 
+	        </dependency> 
+	    </dependencies> 
+	</dependencyManagement> 
+	
+	
 </project>
