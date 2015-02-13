@@ -11,7 +11,8 @@ import org.junit.Test;
  *  http://alaric.iteye.com/blog/1942517</br>
  *  
  *  迭代器处理同一个集合中相同类型
- *  访问者处理同一个集合中不同类型
+ *  访问者处理同一个集合中不同类型</br>
+ *  用于处理一个list中，相同接口不同实际类型情况,避免了if判断实际类型，以及可以将变化封装出去(封装到visitor中)；
  *  
  */  
 public class Client {  
