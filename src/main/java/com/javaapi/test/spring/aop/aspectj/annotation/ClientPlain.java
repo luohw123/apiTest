@@ -19,7 +19,7 @@ public class ClientPlain {
 	@Test
 	public void test() {
 		String path=ClientPlain.class.getResource("").getPath();
-		String filename = path+"applicationContext.xml";
+		String filename = "file:" +path+"applicationContext.xml";
 		ApplicationContext app=new FileSystemXmlApplicationContext(filename);
 		CustomerBo customerBo = (CustomerBo) app.getBean("customerBoImp");
 		customerBo.addCustomer();

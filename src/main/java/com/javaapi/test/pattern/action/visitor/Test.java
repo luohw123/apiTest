@@ -13,7 +13,7 @@ public class Test {
 		FloatElement fe = new FloatElement(new Float(1.5));
 		fe.accept(visitor);
 		System.out.println("===========");
-		List result = new ArrayList();
+		List<Visitable> result = new ArrayList<>();
 		result.add(new StringElement("abc"));
 		result.add(new StringElement("abc"));
 		result.add(new StringElement("abc"));
