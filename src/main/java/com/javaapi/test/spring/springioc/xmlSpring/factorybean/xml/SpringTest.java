@@ -7,7 +7,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import com.javaapi.test.spring.springioc.xmlSpring.factorybean.School;
 
 /**
- *
+ *测试如何在xml中注入factorybean原始bean
  */
 public class SpringTest {
 	@Test
@@ -15,8 +15,7 @@ public class SpringTest {
 		String path=SpringTest.class.getResource("").getPath();
 		String filename = path+"applicationContext.xml";
 		ApplicationContext app=new FileSystemXmlApplicationContext("file:"+filename);
-		System.out.println(app);
-		School school=(School)app.getBean("school");
-		school.haveClass();//上课
+		TeacherImp teacher = (TeacherImp) app.getBean("teacher");
+		System.out.println(teacher.getStudent());
 	}
 }
