@@ -16,6 +16,8 @@ public class SpringTest {
 		System.out.println(app);
 		School school=(School)app.getBean("school");
 		school.haveClass();//上课
+		System.out.println("------");
+		School school2=(School)app.getBean("school");
 	}
 	@Test
 	public void testGetFactoryOriginBean() {
@@ -26,5 +28,7 @@ public class SpringTest {
 		System.out.println(bean);
 		Object bean2 = app.getBean("&studentFactory");
 		System.out.println(bean2);
+		System.out.println("---------");
+		Object bean3 = app.getBean("studentFactory");
 	}
 }
