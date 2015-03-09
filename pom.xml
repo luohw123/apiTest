@@ -16,20 +16,6 @@
 		<plugin.war.version>2.5</plugin.war.version>
 	</properties>
 	<build>
-		<!-- <sourceDirectory>src</sourceDirectory> -->
-		<!-- <resources> -->
-		<!-- <resource> -->
-		<!-- <directory>src/main/resources</directory> -->
-		<!-- </resource> -->
-		<!-- </resources> -->
-		<!-- <resources> -->
-		<!-- <resource> -->
-		<!-- <directory>src</directory> -->
-		<!-- <excludes> -->
-		<!-- <exclude>**/*.java</exclude> -->
-		<!-- </excludes> -->
-		<!-- </resource> -->
-		<!-- </resources> -->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -308,6 +294,8 @@
 		</dependency>
 		<!-- jms end -->
 	</dependencies>
+	
+	<!-- spring 版本管理 -->
 	<dependencyManagement> 
 	    <dependencies> 
 	        <dependency> 
