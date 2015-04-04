@@ -15,8 +15,9 @@
 	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 	http://www.springframework.org/schema/aop  
 	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd" default-lazy-init="true">
-	<bean id="teacher" class="com.javaapi.test.spring.springioc.xmlSpring.factorybean.TeacherImp">
+	<bean id="teacher" class="com.javaapi.test.spring.springioc.xmlSpring.factorybean.xml.TeacherImp">
 		<property name="name" value="wk-xml"/>
+		<!-- 注意在xml中得转译 -->
 		<property name="student" ref="&amp;studentFactory"/>
 	</bean>
 	<bean id="studentFactory" class="com.javaapi.test.spring.springioc.xmlSpring.factorybean.StudentFactory">

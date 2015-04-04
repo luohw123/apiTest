@@ -5,59 +5,54 @@
 	<artifactId>JavaApiSample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<dep.jackson-core.version>2.1.3</dep.jackson-core.version>
 		<dep.jackson-databind.version>2.1.3</dep.jackson-databind.version>
 		<spring.version>3.2.6.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<java.version>1.7</java.version>
-		<plugin.clean.version>2.6.1</plugin.clean.version>
-		<plugin.compiler.version>3.2</plugin.compiler.version>
-		<plugin.war.version>2.5</plugin.war.version>
+<!-- 		<plugin.clean.version>2.6.1</plugin.clean.version> -->
+<!-- 		<plugin.compiler.version>3.2</plugin.compiler.version> -->
+<!-- 		<plugin.war.version>2.5</plugin.war.version> -->
+		<!-- 		编译版本  maven 内置-->
+		<maven.compiler.source>${java.version}</maven.compiler.source>       
+        <maven.compiler.target>${java.version}</maven.compiler.target>       
+        <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>     
+        <!-- 文件拷贝时的编码用于处理resources得编码  maven 内置-->  
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>  
+        <!-- 编译时的编码 maven 内置-->  
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>  
 	</properties>
 	<build>
-		<!-- <sourceDirectory>src</sourceDirectory> -->
-		<!-- <resources> -->
-		<!-- <resource> -->
-		<!-- <directory>src/main/resources</directory> -->
-		<!-- </resource> -->
-		<!-- </resources> -->
-		<!-- <resources> -->
-		<!-- <resource> -->
-		<!-- <directory>src</directory> -->
-		<!-- <excludes> -->
-		<!-- <exclude>**/*.java</exclude> -->
-		<!-- </excludes> -->
-		<!-- </resource> -->
-		<!-- </resources> -->
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.8</version>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>false</downloadJavadocs>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${plugin.compiler.version}</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.4.3</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
+<!-- 		根eclipse自带得插件有冲突 -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-eclipse-plugin</artifactId> -->
+<!-- 				<version>2.8</version> -->
+<!-- 				<configuration> -->
+<!-- 					<downloadSources>true</downloadSources> -->
+<!-- 					<downloadJavadocs>false</downloadJavadocs> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-compiler-plugin</artifactId> -->
+<!-- 				<version>${plugin.compiler.version}</version> -->
+<!-- 				<configuration> -->
+<!-- 					<source>${java.version}</source> -->
+<!-- 					<target>${java.version}</target> -->
+<!-- 					<encoding>${project.build.sourceEncoding}</encoding> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-resources-plugin</artifactId> -->
+<!-- 				<version>2.4.3</version> -->
+<!-- 				<configuration> -->
+<!-- 					<encoding>${project.build.sourceEncoding}</encoding> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 
 		</plugins>
 	</build>
@@ -163,20 +158,20 @@
 			<scope>compile</scope>
 		</dependency>
 		<!-- 加入这个slf4j-log4j12 会自动引入log4j -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.slf4j</groupId> -->
-		<!-- <artifactId>slf4j-log4j12</artifactId> -->
-		<!-- <version>1.6.1</version> -->
-		<!-- </dependency> -->
+		<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>1.6.1</version>
+		</dependency>
 		
 		
 		<!-- logback -->
 		<!-- 自动引入 slf4j,logback core -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>0.9.29</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>ch.qos.logback</groupId> -->
+<!-- 			<artifactId>logback-classic</artifactId> -->
+<!-- 			<version>0.9.29</version> -->
+<!-- 		</dependency> -->
 		<!-- util开始 -->
 		<!-- jod -->
 		<dependency>
@@ -308,6 +303,8 @@
 		</dependency>
 		<!-- jms end -->
 	</dependencies>
+	
+	<!-- spring 版本管理 -->
 	<dependencyManagement> 
 	    <dependencies> 
 	        <dependency> 
