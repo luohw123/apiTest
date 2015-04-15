@@ -21,6 +21,7 @@ public class XmemcacheClient {
 	@Test
 	public void testGet() {
 		try {
+			
 			String value = xMemcachedClient.get("hello");
 			System.out.println(value);
 		} catch (TimeoutException e) {
