@@ -10,9 +10,9 @@
 		<spring.version>3.2.6.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<java.version>1.7</java.version>
-<!-- 		<plugin.clean.version>2.6.1</plugin.clean.version> -->
-<!-- 		<plugin.compiler.version>3.2</plugin.compiler.version> -->
-<!-- 		<plugin.war.version>2.5</plugin.war.version> -->
+		<plugin.clean.version>2.6.1</plugin.clean.version>
+		<plugin.compiler.version>3.2</plugin.compiler.version>
+		<plugin.war.version>2.5</plugin.war.version>
 		<!-- 		编译版本  maven 内置-->
 		<maven.compiler.source>${java.version}</maven.compiler.source>       
         <maven.compiler.target>${java.version}</maven.compiler.target>       
@@ -35,24 +35,24 @@
 <!-- 					<downloadJavadocs>false</downloadJavadocs> -->
 <!-- 				</configuration> -->
 <!-- 			</plugin> -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-compiler-plugin</artifactId> -->
-<!-- 				<version>${plugin.compiler.version}</version> -->
-<!-- 				<configuration> -->
-<!-- 					<source>${java.version}</source> -->
-<!-- 					<target>${java.version}</target> -->
-<!-- 					<encoding>${project.build.sourceEncoding}</encoding> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-resources-plugin</artifactId> -->
-<!-- 				<version>2.4.3</version> -->
-<!-- 				<configuration> -->
-<!-- 					<encoding>${project.build.sourceEncoding}</encoding> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${plugin.compiler.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
 
 		</plugins>
 	</build>
@@ -214,11 +214,11 @@
 		
 		
 		<!-- 		为了引入json-lib -->
-		<dependency>
-			<groupId>net.sf.json-lib</groupId>
-			<artifactId>json-lib</artifactId>
-			<version>2.1</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>net.sf.json-lib</groupId> -->
+<!-- 			<artifactId>json-lib</artifactId> -->
+<!-- 			<version>2.1</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>net.sf.ezmorph</groupId>
 			<artifactId>ezmorph</artifactId>
@@ -235,6 +235,40 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.6</version>
 		</dependency>
+		
+		<!-- poi -->
+			<dependency>
+			<groupId>fakepath</groupId>
+			<artifactId>poi-3.5-FINAL-20090928</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>fakepath</groupId>
+			<artifactId>poi-contrib</artifactId>
+			<version>3.5-FINAL-20090928</version>
+		</dependency>
+		<dependency>
+			<groupId>fakepath</groupId>
+			<artifactId>poi-ooxml-3.5-FINAL-20090928</artifactId>
+			<version>1.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.poi</groupId>
+					<artifactId>ooxml-schemas</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>fakepath</groupId>
+			<artifactId>poi-ooxml-schemas-3.8-20120326</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>fakepath</groupId>
+			<artifactId>poi-scratchpad-3.5-FINAL-20090928</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- poi 结束 -->
 		<!-- util结束 -->
 		<dependency>
 			<groupId>cglib</groupId>
