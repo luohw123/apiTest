@@ -30,31 +30,23 @@ public class ConstantGame implements Serializable {
         this.parent = parent;
     }
 
+  
     public Integer getIndex() {
-        return index;
-    }
+		return index;
+	}
 
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
-    public ConstantGame getParent() {
-        return parent;
-    }
+	public ConstantGame getParent() {
+		return parent;
+	}
 
-    public void setParent(ConstantGame parent) {
-        this.parent = parent;
-    }
 
-    @Override
+	@Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;

@@ -17,6 +17,15 @@ import org.junit.Test;
 public class TestConstant {
     private static final String file = "/home/kk/program/serialFile.txt";
 
+    /**
+     * 应该不提供set方法,否则外部能修改常量值
+     */
+    @Test
+    public void testConstantModify() {
+//    	ConstantGame.SJ.setIndex(2);
+    	System.out.println(ConstantGame.SJ.getIndex());
+    }
+    
     @Test
     public void testConstant() {
         System.out.println(ConstantGame.SJ.getIndex());
