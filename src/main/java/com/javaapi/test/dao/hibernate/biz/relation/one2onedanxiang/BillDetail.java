@@ -1,10 +1,10 @@
-package com.javaapi.test.dao.hibernate.biz;
+package com.javaapi.test.dao.hibernate.biz.relation.one2onedanxiang;
 
 import java.io.Serializable;
 
 public class BillDetail implements Serializable {
 	private static final long	serialVersionUID	= 1L;
-	private String				id;
+	private int				id;
 	private String				create_user;
 	private Bill bill;
 	
@@ -16,11 +16,12 @@ public class BillDetail implements Serializable {
 		this.bill = bill;
 	}
 
-	public String getId() {
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

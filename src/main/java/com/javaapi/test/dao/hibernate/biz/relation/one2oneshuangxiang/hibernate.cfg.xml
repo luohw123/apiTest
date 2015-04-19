@@ -15,7 +15,8 @@
  		<!-- 是否创建表 create-drop,create,update,validate(校验)-->
 		<!-- <property name="hbm2ddl.auto">create</property> -->
  		<property name="show_sql">true</property>
- 		<mapping resource="com/javaapi/test/dao/hibernate/biz/Bill.hbm.xml"></mapping>
- 		<mapping resource="com/javaapi/test/dao/hibernate/biz/BillDetail.hbm.xml"></mapping>
+ 		
+ 		<mapping resource="com/javaapi/test/dao/hibernate/biz/relation/one2oneshuangxiang/Bill.hbm.xml"></mapping>
+ 		<mapping resource="com/javaapi/test/dao/hibernate/biz/relation/one2oneshuangxiang/BillDetail.hbm.xml"></mapping>
 	</session-factory>
 </hibernate-configuration>
