@@ -13,28 +13,28 @@
 		<plugin.clean.version>2.6.1</plugin.clean.version>
 		<plugin.compiler.version>3.2</plugin.compiler.version>
 		<plugin.war.version>2.5</plugin.war.version>
-		<!-- 		编译版本  maven 内置-->
-		<maven.compiler.source>${java.version}</maven.compiler.source>       
-        <maven.compiler.target>${java.version}</maven.compiler.target>       
-        <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>     
-        <!-- 文件拷贝时的编码用于处理resources得编码  maven 内置-->  
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>  
-        <!-- 编译时的编码 maven 内置-->  
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>  
+		<!-- 编译版本 maven 内置 -->
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
+		<!-- 文件拷贝时的编码用于处理resources得编码 maven 内置 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- 编译时的编码 maven 内置 -->
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 	</properties>
 	<build>
 		<plugins>
-<!-- 		根eclipse自带得插件有冲突 -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-eclipse-plugin</artifactId> -->
-<!-- 				<version>2.8</version> -->
-<!-- 				<configuration> -->
-<!-- 					<downloadSources>true</downloadSources> -->
-<!-- 					<downloadJavadocs>false</downloadJavadocs> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
+			<!-- 根eclipse自带得插件有冲突 -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-eclipse-plugin</artifactId> -->
+			<!-- <version>2.8</version> -->
+			<!-- <configuration> -->
+			<!-- <downloadSources>true</downloadSources> -->
+			<!-- <downloadJavadocs>false</downloadJavadocs> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -69,12 +69,18 @@
 			<artifactId>spring-aspects</artifactId>
 			<scope>compile</scope>
 		</dependency>
+		<!-- mybatis -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-
+		<!-- hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.1.Final</version>
+		</dependency>
 		<!-- mvc -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -159,19 +165,19 @@
 		</dependency>
 		<!-- 加入这个slf4j-log4j12 会自动引入log4j -->
 		<dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>slf4j-log4j12</artifactId>
-		<version>1.6.1</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
 		</dependency>
-		
-		
+
+
 		<!-- logback -->
 		<!-- 自动引入 slf4j,logback core -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>ch.qos.logback</groupId> -->
-<!-- 			<artifactId>logback-classic</artifactId> -->
-<!-- 			<version>0.9.29</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>ch.qos.logback</groupId> -->
+		<!-- <artifactId>logback-classic</artifactId> -->
+		<!-- <version>0.9.29</version> -->
+		<!-- </dependency> -->
 		<!-- util开始 -->
 		<!-- jod -->
 		<dependency>
@@ -211,14 +217,14 @@
 		<!-- <artifactId>jackson-databind</artifactId> -->
 		<!-- <version>${dep.jackson-databind.version}</version> -->
 		<!-- </dependency> -->
-		
-		
-		<!-- 		为了引入json-lib -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>net.sf.json-lib</groupId> -->
-<!-- 			<artifactId>json-lib</artifactId> -->
-<!-- 			<version>2.1</version> -->
-<!-- 		</dependency> -->
+
+
+		<!-- 为了引入json-lib -->
+		<!-- <dependency> -->
+		<!-- <groupId>net.sf.json-lib</groupId> -->
+		<!-- <artifactId>json-lib</artifactId> -->
+		<!-- <version>2.1</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>net.sf.ezmorph</groupId>
 			<artifactId>ezmorph</artifactId>
@@ -229,44 +235,18 @@
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.7.0</version>
 		</dependency>
-		<!-- 		为了引入json-lib -->
+		<!-- 为了引入json-lib -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>2.4</version>
 		</dependency>
-		
+
 		<!-- poi -->
-			<dependency>
-			<groupId>fakepath</groupId>
-			<artifactId>poi-3.5-FINAL-20090928</artifactId>
-			<version>1.0</version>
-		</dependency>
 		<dependency>
-			<groupId>fakepath</groupId>
-			<artifactId>poi-contrib</artifactId>
-			<version>3.5-FINAL-20090928</version>
-		</dependency>
-		<dependency>
-			<groupId>fakepath</groupId>
-			<artifactId>poi-ooxml-3.5-FINAL-20090928</artifactId>
-			<version>1.0</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.poi</groupId>
-					<artifactId>ooxml-schemas</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>fakepath</groupId>
-			<artifactId>poi-ooxml-schemas-3.8-20120326</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>fakepath</groupId>
-			<artifactId>poi-scratchpad-3.5-FINAL-20090928</artifactId>
-			<version>1.0</version>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.10-FINAL</version>
 		</dependency>
 		<!-- poi 结束 -->
 		<!-- util结束 -->
@@ -337,19 +317,19 @@
 		</dependency>
 		<!-- jms end -->
 	</dependencies>
-	
+
 	<!-- spring 版本管理 -->
-	<dependencyManagement> 
-	    <dependencies> 
-	        <dependency> 
-	            <groupId>org.springframework</groupId> 
-	            <artifactId>spring-framework-bom</artifactId> 
-	            <version>${spring.version}</version> 
-	            <type>pom</type> 
-	            <scope>import</scope> 
-	        </dependency> 
-	    </dependencies> 
-	</dependencyManagement> 
-	
-	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
 </project>
