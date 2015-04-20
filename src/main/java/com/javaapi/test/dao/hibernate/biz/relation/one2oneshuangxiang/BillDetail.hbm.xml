@@ -13,6 +13,6 @@
       <generator class="native" />
     </id>
     <property name="create_user" column="create_user" />
-    <many-to-one name="bill"  column="billid" unique="true" />
+    <many-to-one name="bill"  column="billid" unique="true" cascade="save-update"/>
   </class>
 </hibernate-mapping>

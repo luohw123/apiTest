@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
 import org.junit.Before;
@@ -67,5 +68,25 @@ public class One2OneShuangXiang {
 			System.out.println(billDetail.getBilldetail().getCreate_user());
 			System.out.println(billDetail.getBilldetail().getBill().getBillname());
 		}
+	}
+	/**
+	 * 正确
+	 * http://yangfei520.blog.51cto.com/1041581/274605/
+	 */
+	@Test
+	public void testInsert() throws Exception {
+		Bill bill = new Bill();
+		bill.setBillname("b_kk");
+		
+		BillDetail detail = new BillDetail();
+		detail.setCreate_user("kk");
+		detail.setBill(bill);
+		
+		Session openSession = sf.openSession();
+		Transaction beginTransaction = openSession.beginTransaction();
+		beginTransaction.begin();
+		openSession.save(detail);
+		beginTransaction.commit();
+		openSession.close();
 	}
 }

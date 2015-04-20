@@ -68,6 +68,11 @@ public class One2OneDanXiang {
 			System.out.println(billDetail.getCreate_user());
 		}
 	}
+	/**http://yangfei520.blog.51cto.com/1041581/274199 
+	 * 1 要在<many-to-one>中加上cascade="save-update",
+	 * 2 或者是在session.save(person)之前session.save(idCard)
+	 * 
+	 */
 	@Test
 	public void testInsert() throws Exception {
 		Bill b = new Bill();

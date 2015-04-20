@@ -14,6 +14,6 @@
       <generator class="native" />
     </id>
     <property name="billname" column="billname" />
-    <one-to-one name="billdetail" property-ref="bill"/>
+    <one-to-one name="billdetail" property-ref="bill" />
   </class>
 </hibernate-mapping>
