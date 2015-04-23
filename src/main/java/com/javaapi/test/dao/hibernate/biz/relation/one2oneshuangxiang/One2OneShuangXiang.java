@@ -89,4 +89,5 @@ public class One2OneShuangXiang {
 		beginTransaction.commit();
 		openSession.close();
 	}
+	
 }
