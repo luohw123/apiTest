@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.hibernate.biz.relation.one2onedanxiang;
+package com.javaapi.test.dao.hibernate.biz.relation.many2onedanxiang_code;
 
 import java.io.File;
 import java.util.List;
@@ -31,7 +31,7 @@ CREATE TABLE `billdetail` (
 
  *
  */
-public class One2OneDanXiang {
+public class Many2OneDanXiang {
 
 	private SessionFactory	sf;
 
@@ -79,16 +79,59 @@ public class One2OneDanXiang {
 	@Test
 	public void testInsert() throws Exception {
 		Bill b = new Bill();
-		b.setBillname("b_kk");
+		b.setBillname("b_kk_many2one");
 		
 		BillDetail bd = new BillDetail();
-		bd.setCreate_user("kk");
+		bd.setCreate_user("kk_many2one");
 		bd.setBill(b);
 		
 		Session openSession = sf.openSession();
 		Transaction beginTransaction = openSession.beginTransaction();
 		beginTransaction.begin();
+		// 这样会报错,因为b还未持久化到数据库
 		openSession.save(bd);
+		beginTransaction.commit();
+		openSession.close();
+	}
+	/**
+	 * 非XML下,正确得插入方式
+	 */
+	@Test
+	public void testInsertN_1() throws Exception {
+		Bill b = new Bill();
+		b.setBillname("b_kk_many2one");
+		
+		BillDetail bd = new BillDetail();
+		bd.setCreate_user("kk_many2one");
+		bd.setBill(b);
+		Session openSession = sf.openSession();
+		Transaction beginTransaction = openSession.beginTransaction();
+		beginTransaction.begin();
+		openSession.save(b);
+		openSession.save(bd);
+		beginTransaction.commit();
+		openSession.close();
+	}
+	/** 
+	 * 非XML下,不是非常正确得插入,因为会多产生一条update
+	 * Hibernate: insert into billdetail (create_user, billid) values (?, ?)
+Hibernate: insert into bill (billname) values (?)
+Hibernate: update billdetail set create_user=?, billid=? where id=?
+
+	 */
+	@Test
+	public void testInsertN_1_not_right() throws Exception {
+		Bill b = new Bill();
+		b.setBillname("b_kk_many2one");
+		
+		BillDetail bd = new BillDetail();
+		bd.setCreate_user("kk_many2one");
+		bd.setBill(b);
+		Session openSession = sf.openSession();
+		Transaction beginTransaction = openSession.beginTransaction();
+		beginTransaction.begin();
+		openSession.save(bd);
+		openSession.save(b);
 		beginTransaction.commit();
 		openSession.close();
 	}

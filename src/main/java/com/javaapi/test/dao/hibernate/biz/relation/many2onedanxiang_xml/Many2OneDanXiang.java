@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.hibernate.biz.relation.one2onedanxiang;
+package com.javaapi.test.dao.hibernate.biz.relation.many2onedanxiang_xml;
 
 import java.io.File;
 import java.util.List;
@@ -31,7 +31,7 @@ CREATE TABLE `billdetail` (
 
  *
  */
-public class One2OneDanXiang {
+public class Many2OneDanXiang {
 
 	private SessionFactory	sf;
 
@@ -79,10 +79,10 @@ public class One2OneDanXiang {
 	@Test
 	public void testInsert() throws Exception {
 		Bill b = new Bill();
-		b.setBillname("b_kk");
+		b.setBillname("b_kk_many2one");
 		
 		BillDetail bd = new BillDetail();
-		bd.setCreate_user("kk");
+		bd.setCreate_user("kk_many2one");
 		bd.setBill(b);
 		
 		Session openSession = sf.openSession();
