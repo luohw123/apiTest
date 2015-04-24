@@ -17,9 +17,10 @@ import org.junit.Test;
 
 /**
  *
- *
+ *http://lijiejava.iteye.com/blog/776587</br>
+ *在一对多关联中，在多的一方设置inverse="true",有助于性能的改善。通过上述分析可以发现少了update语句。 </br>
  *尽量不要用单向1-N,因为会多出update语句</br>
- *用双向1-N替代,注意1得一端无论是xml配置还是code配置都要给set加上inverse属性
+ *用双向1-N替代,注意1得一端无论是xml配置还是code配置都要给set加上inverse="true",让多得一端维护关联关系
  CREATE TABLE `bill` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `billname` varchar(45) DEFAULT NULL,
@@ -69,9 +70,8 @@ public class One2ManyShuangXiang {
           2、先设置两个持久化类（Department和Employee）的关系，再保存持久化从表对象（Employee）。如果顺序反过来，程序持久化Employee对象时，该对象还没有关联实体，所以Hibernate不能为对应记录的外键列指定值，等到设置关联关系时，Hibernate只能再次使用update语句来修改了。
           </br>
 	 * Hibernate: insert into bill (billname) values (?)
-Hibernate: insert into billdetail (create_user, billid) values (?, ?)
-Hibernate: insert into billdetail (create_user, billid) values (?, ?)
-
+	   Hibernate: insert into billdetail (create_user, billid) values (?, ?)
+	   Hibernate: insert into billdetail (create_user, billid) values (?, ?)
 	 */
 	@Test
 	public void testInsert() throws Exception {
@@ -83,12 +83,42 @@ Hibernate: insert into billdetail (create_user, billid) values (?, ?)
 		BillDetail bd2 = new BillDetail();
 		bd2.setCreate_user("kk2");
 		
-		
+		// 在多得一方要维护关联关系,所以java代码里也要跟着设置
 		bd.setBill(b);
 		bd2.setBill(b);
+		
 		Set<BillDetail> set = new HashSet<BillDetail>();
 		set.add(bd);
 		set.add(bd2);
+		// 1得一方设置级联,保存1得时候会级联保存多,所以这里要设置多.
+		b.setBilldetails(set);
+		Session openSession = sf.openSession();
+		Transaction beginTransaction = openSession.beginTransaction();
+		beginTransaction.begin();
+		openSession.save(b);
+		beginTransaction.commit();
+		openSession.close();
+	}
+	/**
+	 * wrong
+	 */
+	@Test
+	public void testInsert2() throws Exception {
+		Bill b = new Bill();
+		b.setBillname("b_kks");
+		
+		BillDetail bd = new BillDetail();
+		bd.setCreate_user("kk1");
+		BillDetail bd2 = new BillDetail();
+		bd2.setCreate_user("kk2");
+		
+//		bd.setBill(b);
+//		bd2.setBill(b);
+		
+		Set<BillDetail> set = new HashSet<BillDetail>();
+		set.add(bd);
+		set.add(bd2);
+		
 		b.setBilldetails(set);
 		Session openSession = sf.openSession();
 		Transaction beginTransaction = openSession.beginTransaction();
