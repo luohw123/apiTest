@@ -3,10 +3,10 @@ package com.javaapi.test.dao.hibernate.biz.relation.many2onedanxiang_code;
 import java.io.File;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.classic.Session;
 import org.junit.Before;
 import org.junit.Test;
 
