@@ -9,7 +9,7 @@ public interface PersistEnum<E extends Enum<?>> {
      *
      * @return 被持久化字段的值
      */
-    String getPersistedValue();
+	Integer getPersistedValue();
      
     /**
      * 由被持久化的字段的值获取枚举类型
@@ -17,12 +17,12 @@ public interface PersistEnum<E extends Enum<?>> {
      * @param persistedValue
      * @return
      */
-    E returnEnum(String persistedValue);
+    E returnEnum(Integer persistedValue);
      
     /**
      * 获取枚举的所有枚举项
      *
      * @return map
      */
-    Map<String, E> getAllValueMap();
+    Map<Integer, E> getAllValueMap();
 }
