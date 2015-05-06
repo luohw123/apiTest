@@ -89,7 +89,7 @@ Hibernate: update billdetail set billid=? where id=?
 		b.setBilldetails(set);
 		Session openSession = sf.openSession();
 		Transaction beginTransaction = openSession.beginTransaction();
-		beginTransaction.begin();
+//		beginTransaction.begin();
 		openSession.save(b);
 		beginTransaction.commit();
 		openSession.close();

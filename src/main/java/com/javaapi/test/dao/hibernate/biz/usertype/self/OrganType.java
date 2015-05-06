@@ -1,10 +1,11 @@
 package com.javaapi.test.dao.hibernate.biz.usertype.self;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
  
  
-public enum OrganType implements PersistEnum<OrganType>{
+public enum OrganType implements PersistEnum<OrganType> ,Serializable{
     // 利用构造函数传参
     ORGANTYPE_DEPARTMENT(13), // 部门
     ORGANTYPE_ORGANMANAGER(14), // 管理机构
