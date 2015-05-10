@@ -15,12 +15,12 @@ public class AddressUtil {
 		 str = str.trim();
 		if(str.indexOf("省") >=0 && str.indexOf("市") >=0) {
 			int sheng = str.indexOf("省")+1;
-			int shi = str.indexOf("市")+1;
+			int shi = str.indexOf("市");
 			String substring = str.substring(sheng, shi);
 			return substring;
 		}
 		if(str.indexOf("市") >=0) {
-			int shi = str.indexOf("市")+1;
+			int shi = str.indexOf("市");
 			String substring = str.substring(0,shi);
 			return substring;
 		}
