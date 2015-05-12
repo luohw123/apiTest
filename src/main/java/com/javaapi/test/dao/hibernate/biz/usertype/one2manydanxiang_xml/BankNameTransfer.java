@@ -11,8 +11,14 @@ import org.hibernate.engine.spi.SessionImplementor;
 import org.hibernate.type.StringType;
 import org.hibernate.usertype.UserType;
 
+/**
+ *http://blog.csdn.net/daryl715/article/details/1927502
+ *
+ */
 public class BankNameTransfer implements UserType{
-	  private   static   final   int [] TYPES  =   new   int [] {Types.VARCHAR};
+	  /**
+	 *  /* 有几个字段就有几个值，这里容易出错，要多注意 */
+	private   static   final   int [] TYPES  =   new   int [] {Types.VARCHAR};
 
 	@Override
 	public int[] sqlTypes() {
