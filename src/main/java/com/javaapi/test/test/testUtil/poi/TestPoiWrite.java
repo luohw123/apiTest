@@ -12,7 +12,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.junit.Test;
 
-import com.aicaipiao.common.utils.alipayws.StringUtil;
 
 public class TestPoiWrite {
 

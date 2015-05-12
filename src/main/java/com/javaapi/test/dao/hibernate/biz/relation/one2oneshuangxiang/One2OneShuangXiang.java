@@ -74,7 +74,7 @@ public class One2OneShuangXiang {
 	 * http://yangfei520.blog.51cto.com/1041581/274605/
 	 */
 	@Test
-	public void testInsert() throws Exception {
+	public void testInsertBillDetail() throws Exception {
 		Bill bill = new Bill();
 		bill.setBillname("b_kk");
 		
@@ -84,10 +84,42 @@ public class One2OneShuangXiang {
 		
 		Session openSession = sf.openSession();
 		Transaction beginTransaction = openSession.beginTransaction();
-		beginTransaction.begin();
 		openSession.save(detail);
 		beginTransaction.commit();
 		openSession.close();
 	}
-	
+	/**
+	 * 
+	 * http://yangfei520.blog.51cto.com/1041581/274605/
+	 * 可以正常生成单个billdetail,但是billid为空
+	 */
+	@Test
+	public void testInsertBillDetailOnly() throws Exception {
+//		Bill bill = new Bill();
+//		bill.setBillname("b_kk");
+		
+		BillDetail detail = new BillDetail();
+		detail.setCreate_user("kk");
+//		detail.setBill(bill);
+		
+		Session openSession = sf.openSession();
+		Transaction beginTransaction = openSession.beginTransaction();
+//		beginTransaction.begin();
+		openSession.save(detail);
+		beginTransaction.commit();
+		openSession.close();
+	}
+	/**
+	 * 可以正常生成单个bill.
+	 */
+	@Test
+	public void testInsertBill() throws Exception {
+		Bill bill = new Bill();
+		bill.setBillname("b_kk");
+		Session openSession = sf.openSession();
+		Transaction beginTransaction = openSession.beginTransaction();
+		openSession.save(bill);
+		beginTransaction.commit();
+		openSession.close();
+	}
 }
