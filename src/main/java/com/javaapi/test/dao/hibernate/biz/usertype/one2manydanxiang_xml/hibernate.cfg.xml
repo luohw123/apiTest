@@ -16,7 +16,7 @@
 		<!-- <property name="hbm2ddl.auto">create</property> -->
  		<property name="show_sql">true</property>
  		
- 		<mapping resource="com/javaapi/test/dao/hibernate/biz/usertype/one2manydanxiang_xml/Bill.hbm.xml"></mapping>
+<!--  		<mapping resource="com/javaapi/test/dao/hibernate/biz/usertype/one2manydanxiang_xml/Bill.hbm.xml"></mapping> -->
  		<mapping resource="com/javaapi/test/dao/hibernate/biz/usertype/one2manydanxiang_xml/BillDetail.hbm.xml"></mapping>
 	</session-factory>
 </hibernate-configuration>

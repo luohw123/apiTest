@@ -10,8 +10,14 @@
 		<id name="id" column="id">
 			<generator class="native" />
 		</id>
-		<property name="create_user" column="create_user" />
+<!-- 		<property name="create_user" column="create_user" /> -->
 <!-- 		<property name="billid" column="billid" type="java.lang.String" /> -->
-		<property name="billDesc"  column="billid" type="com.javaapi.test.dao.hibernate.biz.usertype.one2manydanxiang_xml.BillDesc" />
+		<property name="bankName"  column="billid" type="com.javaapi.test.dao.hibernate.biz.usertype.one2manydanxiang_xml.BankNameTransfer" />
+
+<!-- 		<property name="billDesc"  column="billid" type="com.javaapi.test.dao.hibernate.biz.usertype.one2manydanxiang_xml.BillDesc" /> -->
+<!-- 		<property name="billDesc" type="com.javaapi.test.dao.hibernate.biz.usertype.one2manydanxiang_xml.BillDesc"> -->
+<!-- 			<column name="create_user"></column> -->
+<!-- 			<column name="billid"></column> -->
+<!-- 		</property> -->
 	</class>
 </hibernate-mapping>

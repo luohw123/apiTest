@@ -8,12 +8,18 @@ import java.sql.Types;
 
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.type.StringType;
 import org.hibernate.usertype.UserType;
 
+/**
+ * @author hncw
+ * http://blog.csdn.net/daryl715/article/details/1927502 (好)
+ *
+ */
 public class BillDesc implements UserType {
 	private String index = "";
 	private String name = "";
-	  private   static   final   int [] TYPES  =   new   int [] {Types.VARCHAR};
+	  private   static   final   int [] TYPES  =   new   int [] {Types.VARCHAR,Types.VARCHAR};
 	@Override
 	public int[] sqlTypes() {
 		return TYPES;
@@ -56,9 +62,9 @@ public class BillDesc implements UserType {
 	public Object nullSafeGet(ResultSet resultset, String[] as,
 			SessionImplementor sessionimplementor, Object obj)
 			throws HibernateException, SQLException {
-		BillDesc billDesc = new BillDesc();
-		billDesc.setName("kkSelfConfig");
-		return billDesc;
+		String index =StringType.INSTANCE.nullSafeGet(resultset, as[0], sessionimplementor);
+		String name =StringType.INSTANCE.nullSafeGet(resultset, as[1], sessionimplementor);
+		return BankName.getByIndex(index);
 	}
 
 	@Override

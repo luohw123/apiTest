@@ -53,15 +53,19 @@ public class One2ManyDanXiang {
 	public void testSelectList() throws Exception {
 		Session openSession = sf.openSession();
 		@SuppressWarnings("unchecked")
-		List<Bill> list = openSession.createQuery("from Bill").list();
-		for (Bill bill : list) {
-			System.out.println(bill.getBillname());
-			Set<BillDetail> billdetails = bill.getBilldetails();
-			for (BillDetail billDetail : billdetails) {
-				System.out.println(billDetail.getCreate_user());
-				System.out.println(billDetail.getBillDesc().getName());
-			}
-			System.out.println("-----------");
+		List<BillDetail> list = openSession.createQuery("from BillDetail").list();
+		for (BillDetail billDetail : list) {
+			System.out.println(billDetail.getBillDesc().getIndex());
+			System.out.println(billDetail.getBillDesc().getName());
+		}
+	}
+	@Test
+	public void testSelectList2() throws Exception {
+		Session openSession = sf.openSession();
+		@SuppressWarnings("unchecked")
+		List<BillDetail> list = openSession.createQuery("from BillDetail").list();
+		for (BillDetail billDetail : list) {
+			System.out.println(billDetail.getBankName().getIndex());
 		}
 	}
 	/**能正确插入但是会多update语句
@@ -78,21 +82,11 @@ Hibernate: update billdetail set billid=? where id=?
 		
 		BillDetail bd = new BillDetail();
 		bd.setCreate_user("kk1");
-		BillDetail bd2 = new BillDetail();
-		bd.setCreate_user("kk2");
-		
-		Set<BillDetail> set = new HashSet<BillDetail>();
-		set.add(bd);
-		set.add(bd2);
-		
-		
-		Bill b = new Bill();
-		b.setBillname("b_kk");
-		b.setBilldetails(set);
+		bd.setBankName(BankName.ICBC);
 		Session openSession = sf.openSession();
 		Transaction beginTransaction = openSession.beginTransaction();
-		beginTransaction.begin();
-		openSession.save(b);
+//		beginTransaction.begin();
+		openSession.save(bd);
 		beginTransaction.commit();
 		openSession.close();
 	}
