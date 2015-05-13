@@ -1,5 +1,7 @@
 package com.javaapi.test.dataTrans.json.fastjson;
 
+import static org.junit.Assert.*;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +15,9 @@ import org.junit.Test;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.parser.Feature;
+import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.util.TypeUtils;
 
 /**
  * 1.数组或对象的每个成员的值，可以是简单值，也可以是复合值。</br>
@@ -120,4 +124,16 @@ public class TestFastJson {
 //        stopWatch.stop();
 //        System.out.println(stopWatch.getTime());
     }
+	
+	@Test
+	public void testLowerCase() throws Exception {
+		Map<String,String> map = new HashMap<>();
+		map.put("NIHAO", "NIHSS");
+		WithdrawVo<Map<String, String>> wo = new WithdrawVo<>();
+		wo.setDATA(map);
+		wo.setRESULT("success");
+//		System.out.println(JSON.toJSONString(wo));
+		TypeUtils.compatibleWithJavaBean = true;
+		System.out.println(JSON.toJSONString(wo));
+	}
 }
