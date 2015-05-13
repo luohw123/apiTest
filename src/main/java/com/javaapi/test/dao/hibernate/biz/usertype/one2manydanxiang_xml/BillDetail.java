@@ -8,6 +8,8 @@ public class BillDetail implements Serializable {
 	private String				create_user;
 	private String				billid;
 	private BillDesc billDesc;
+	
+	private BankName bankName;
 
 	public String getBillid() {
 		return billid;
@@ -39,6 +41,14 @@ public class BillDetail implements Serializable {
 
 	public void setBillDesc(BillDesc billDesc) {
 		this.billDesc = billDesc;
+	}
+
+	public BankName getBankName() {
+		return bankName;
+	}
+
+	public void setBankName(BankName bankName) {
+		this.bankName = bankName;
 	}
 
 }
