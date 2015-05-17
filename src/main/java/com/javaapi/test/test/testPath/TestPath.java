@@ -1,5 +1,7 @@
 package com.javaapi.test.test.testPath;
 
+import static org.junit.Assert.*;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -146,5 +148,10 @@ public class TestPath {
 	public static void main(String[] args) {
 		String path = Object.class.getResource("").getPath();
 		System.out.println(path);
+	}
+	@Test
+	public void testPath() throws Exception {
+		File file = new File("test.txt");
+		System.out.println(file.getAbsolutePath());
 	}
 }
