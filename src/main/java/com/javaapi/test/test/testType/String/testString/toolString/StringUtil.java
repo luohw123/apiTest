@@ -143,5 +143,11 @@ public class StringUtil {
         System.out.println(match4);
         System.out.println(match5);
     }
+    @Test
+    public void test() {
+    	String string = ",123,123";
+    	string = string.substring(1, string.length());
+    	System.out.println(string);
+    }
 
 }
