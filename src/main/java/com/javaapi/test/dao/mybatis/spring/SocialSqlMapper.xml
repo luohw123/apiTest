@@ -43,6 +43,7 @@
   	</set>
   	where id=1
   </update>
+  <!-- set 能处理,在后面得情况 -->
   <update id="updateSetAfter" parameterType="map">
   	update tbl_b 
   	<set>
