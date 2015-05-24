@@ -78,6 +78,16 @@
       		#{item}
 		</foreach>
 	</select>
+	<select id="selectForeachMap2" parameterType="map" resultType="map">
+		select * from tbl_b  t
+		where t.id in
+ 		<foreach collection="map" item="item" index="index"  open="(" separator="," close=")">
+      		#{item.key}
+		</foreach>
+	</select>
+	<select id="selectReturnMap" parameterType="map" resultType="map">
+		select * from tbl_b  
+	</select>
 <!-- 	if else -->
 	<sql id="onlyOne">
 		<choose>

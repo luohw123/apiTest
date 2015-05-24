@@ -6,7 +6,7 @@
 	<!-- 标准输出 -->
 	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>
-			<pattern>%-4relative %date %contextName [%thread] %level %class{36}
+			<pattern>%-4relative %date %contextName [%thread] %level %class{5}
 				%message%n</pattern>
 		</encoder>
 		<!-- <encoder> -->
@@ -52,15 +52,20 @@
 		<level value="INFO" />
 	</logger>
 	
-	<logger name="com.ibatis" level="DEBUG" />
-    <logger name="com.ibatis.common.jdbc.SimpleDataSource" level="DEBUG" />
-    <logger name="com.ibatis.common.jdbc.ScriptRunner" level="DEBUG" />
-    <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" />
-    <logger name="java.sql.Connection" level="DEBUG" />
-    <logger name="java.sql.Statement" level="DEBUG" />
-    <logger name="java.sql.PreparedStatement" level="DEBUG" />
+<!-- 	<logger name="com.ibatis" level="DEBUG" /> -->
+<!--     <logger name="com.ibatis.common.jdbc.SimpleDataSource" level="DEBUG" /> -->
+<!--     <logger name="com.ibatis.common.jdbc.ScriptRunner" level="DEBUG" /> -->
+<!--     <logger name="com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate" level="DEBUG" /> -->
+<!--     <logger name="java.sql.Connection" level="DEBUG" /> -->
+<!--     <logger name="java.sql.Statement" level="DEBUG" /> -->
+<!--     <logger name="java.sql.PreparedStatement" level="DEBUG" /> -->
+<!-- 	<logger name="java.sql.ResultSet" level="DEBUG" /> -->
 	
-	<root level="INFO">
+<!-- 	<logger name="com.javaapi.test.dao.mybatis" level="DEBUG" /> -->
+	<logger name="org.apache.ibatis" level="trace" />
+	
+	
+	<root level="DEBUG">
 		<appender-ref ref="stdout" />
 	</root>
 </configuration>

@@ -13,8 +13,16 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.javaapi.test.dao.mybatis.Social;
+import com.zeroturnaround.javarebel.se;
+
 /**
  * http://mybatis.github.io/mybatis-3/zh/dynamic-sql.html
+ * CREATE TABLE `tbl_b` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `val` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -94,7 +102,29 @@ public class ClientSql {
 		tmpList.add(3);
 		Map<String,Object> map = new HashMap<>();
 		map.put("ids", tmpList);
-		sqlSessionTemplate.selectList("testSqlNamespace.selectForeachMap", map);
+		List<Social> selectList = sqlSessionTemplate.selectList("testSqlNamespace.selectForeachMap", map);
+		System.out.println(selectList);
 	}
-	
+	/**
+	 * 暂时没测好
+	 */
+	@Test
+	public void testSelectForEachMap2() {
+		Map<String,Object> map = new HashMap<>();
+		map.put("1", 1);
+		map.put("1", 2);
+		map.put("1", 3);
+		List<Social> selectList = sqlSessionTemplate.selectList("testSqlNamespace.selectForeachMap2", map);
+		System.out.println(selectList);
+	}
+	/**mybatis 原生SqlSession支持 
+	 * 测试返回Map<指定字段, 实体> 
+	 */
+	@Test
+	public void testSelectForReturnMap() {
+		Map<String,Object> map = new HashMap<>();
+		Map<Integer, Social> selectMap = sqlSessionTemplate.selectMap("testSqlNamespace.selectReturnMap",map,"id");
+		System.out.println(selectMap);
+		System.out.println(selectMap.get(1));
+	}
 }
