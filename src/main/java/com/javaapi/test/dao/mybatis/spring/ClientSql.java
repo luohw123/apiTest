@@ -14,7 +14,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.javaapi.test.dao.mybatis.Social;
-import com.zeroturnaround.javarebel.se;
 
 /**
  * http://mybatis.github.io/mybatis-3/zh/dynamic-sql.html
