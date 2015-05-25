@@ -40,7 +40,9 @@ public class TestPath {
 
 	/**
 	 * 带/,是表示类加载路径得跟路径</br>
-	 *不带/,是相对路径,相对于当前类
+	 *不带/,是相对路径,相对于当前类</br>
+	 * http://www.cnblogs.com/yejg1212/p/3270152.html</br>
+	 * http://swiftlet.net/archives/868</br>
 	 */
 	@Test
 	public void getDiffResourcePath() {
@@ -55,7 +57,9 @@ public class TestPath {
 	 * 测试classloader 获取类加载路径</br>
 	 * classloader 获取path时候,直接写相对路径即可</br>
 	 * 前面加 / 是会报错的(返回的url对象是null).</br>
-	 * 需要将该包下的text.txt，放到根路径下测试
+	 * 需要将该包下的text.txt，放到根路径下测试</br>
+	 * http://www.cnblogs.com/yejg1212/p/3270152.html</br>
+	 * http://swiftlet.net/archives/868</br>
 	 * 
 	 */
 	@Test
