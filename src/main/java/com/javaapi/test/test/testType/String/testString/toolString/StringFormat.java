@@ -90,7 +90,8 @@ public class StringFormat {
     @Test
     public void testMessageFormatPerfm() {
         long start = System.currentTimeMillis();
-        for (int i = 0; i < 100000; i++) {
+        int j = 100000;
+		for (int i = 0; i < j; i++) {
             String format = MessageFormat.format("nihao:{0},{1},{2},{3},{4}", "nihao", "nihao", "nihao", "nihao", "nihao");
         }
         long end =System.currentTimeMillis();

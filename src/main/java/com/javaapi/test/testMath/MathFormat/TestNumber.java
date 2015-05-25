@@ -16,7 +16,7 @@ public class TestNumber {
 	public void testXiaoShu() {
 		NumberFormat nf = NumberFormat.getInstance();
 		float a = 0;
-		float b = 1.5f;
+		float b = 1.5000f;
 		System.out.println(nf.format(a));
 		System.out.println(nf.format(b));
 	}
