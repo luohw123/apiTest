@@ -154,6 +154,8 @@ filePath= string +nextInt+".xls";
 			createRow.createCell(0).setCellValue(String.valueOf(i));
 			if(i==5) {
 //				sheet.removeRow(createRow);
+				//从当前行，到最后行整体上移一行。
+				// 但是这么写不生效，新生成时候，当前行就是最后行 
 				sheet.shiftRows(i, sheet.getLastRowNum(), -1);
 			}
 			
