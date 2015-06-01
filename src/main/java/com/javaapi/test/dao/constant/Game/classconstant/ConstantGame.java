@@ -18,7 +18,7 @@ public class ConstantGame implements Serializable {
     public static final ConstantGame NZ = new ConstantGame(3, "逆战", SJ);
     public static final ConstantGame SMZH = new ConstantGame(4, "使命召唤", SJ);
 
-    private Integer index;
+    private int index;
 
     private String description;
 
@@ -46,32 +46,32 @@ public class ConstantGame implements Serializable {
 	}
 
 
-	@Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((index == null) ? 0 : index.hashCode());
-        return result;
-    }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        ConstantGame other = (ConstantGame) obj;
-        if (index == null) {
-            if (other.index != null)
-                return false;
-        } else if (!index.equals(other.index))
-            return false;
-        return true;
-    }
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + index;
+		return result;
+	}
 
-    private Object readResolve() {
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ConstantGame other = (ConstantGame) obj;
+		if (index != other.index)
+			return false;
+		return true;
+	}
+
+
+	private Object readResolve() {
         if (this.getIndex().intValue() == ConstantGame.SJ.getIndex().intValue()) {
             return ConstantGame.SJ;
         }

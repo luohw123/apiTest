@@ -38,6 +38,12 @@ public class TestPath {
 		System.out.println(cls == threadCls);
 	}
 
+	/**
+	 * 带/,是表示类加载路径得跟路径</br>
+	 *不带/,是相对路径,相对于当前类</br>
+	 * http://www.cnblogs.com/yejg1212/p/3270152.html</br>
+	 * http://swiftlet.net/archives/868</br>
+	 */
 	@Test
 	public void getDiffResourcePath() {
 		// 输出编译文件夹根目录
@@ -48,9 +54,12 @@ public class TestPath {
 		System.out.println(f2);
 	}
 	/**
-	 * 测试classloader 获取路径</br>
-	 * classloader 获取path时候,前面加 / 是会报错的(返回的url对象是null).</br>
-	 * 需要将该包下的text.txt，放到根路径下测试
+	 * 测试classloader 获取类加载路径</br>
+	 * classloader 获取path时候,直接写相对路径即可</br>
+	 * 前面加 / 是会报错的(返回的url对象是null).</br>
+	 * 需要将该包下的text.txt，放到根路径下测试</br>
+	 * http://www.cnblogs.com/yejg1212/p/3270152.html</br>
+	 * http://swiftlet.net/archives/868</br>
 	 * 
 	 */
 	@Test
@@ -64,14 +73,6 @@ public class TestPath {
 	    System.out.println(resWrongPath);
 	    System.out.println(resourceFile);
 	    System.out.println(resWrongFile);
-	    String resourcePathString = resourcePath.getPath();
-	    String resourceFileString = resourceFile.getPath();
-//	    String resWrongPathString = resWrongPath.getPath();
-//	    String resWrongFileString = resWrongFile.getPath();
-		System.out.println(resourcePathString);
-		System.out.println(resourceFileString);
-//		System.out.println(resWrongPathString);
-//		System.out.println(resWrongFileString);
 	}
 
 
