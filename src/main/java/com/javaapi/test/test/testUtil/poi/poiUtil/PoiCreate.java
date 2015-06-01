@@ -136,5 +136,36 @@ filePath= string +nextInt+".xls";
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * 删除行内容，以及删除整行
+	 */
+	@Test
+	public void testShiftRow() throws Exception {
+		Random rd = new Random();
+		int nextInt = rd.nextInt(1000);
+		String string = "/home/kk/git/apiTest/src/main/java/com/javaapi/test/test/testUtil/poi/poiUtil/";
+		String filePath = string + nextInt + ".xls";
+		HSSFWorkbook wb = new HSSFWorkbook();
+		// 创建Excel的工作sheet,对应到一个excel文档的tab
+		HSSFSheet sheet = wb.createSheet("sheet1");
+		int size =10;
+		for (int i = 0; i < size; i++) {
+			HSSFRow createRow = sheet.createRow( i);
+			createRow.createCell(0).setCellValue(String.valueOf(i));
+			if(i==5) {
+//				sheet.removeRow(createRow);
+				sheet.shiftRows(i, sheet.getLastRowNum(), -1);
+			}
+			
+		}
+		try {
+			FileOutputStream os = new FileOutputStream(filePath);
+			wb.write(os);
+			os.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
