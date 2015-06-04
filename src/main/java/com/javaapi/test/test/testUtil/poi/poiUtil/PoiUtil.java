@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +13,11 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
 
 public class PoiUtil {
+	private static final SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
 	public static HSSFWorkbook readDocument(String filePath) {
 		HSSFWorkbook hss = null;
 		FileInputStream s = null;
@@ -80,6 +85,11 @@ public class PoiUtil {
 		case Cell.CELL_TYPE_FORMULA:
 			break;
 		case Cell.CELL_TYPE_NUMERIC:
+			if(DateUtil.isCellDateFormatted(cell)) {
+				cellVal= sd.format(cell.getDateCellValue());
+			}else {
+				cellVal = new BigDecimal(cell.getNumericCellValue()).toString();
+			}
 			cellVal = String.valueOf(cell.getNumericCellValue());
 			break;
 		case Cell.CELL_TYPE_STRING:
