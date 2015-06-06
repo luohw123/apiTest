@@ -1,12 +1,15 @@
-package com.javaapi.test.log.log4j;
+package com.javaapi.test.log.slf4jApi;
 
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TestLog4j {
+/**
+ * SLF4J 1.6.0　以前的版本 ,如果msg含有变量，一般用String.format方法格式化msg.</br>
+ */
+public class TestSlf4j {
 	private static transient Logger	logger	= LoggerFactory
-												.getLogger(TestLog4j.class);
+												.getLogger(TestSlf4j.class);
 
 	@Test
 	public void testLog4jlogger() {
@@ -15,14 +18,14 @@ public class TestLog4j {
 	}
 	
 	/**
-	 * 异常不在占位符中,无论多少个占位符都会打印堆栈
+	 * 异常不在占位符中,无论多少个占位符号都可以打印完整堆栈
 	 */
 	@Test
 	public void testSlf4jException() {
 		logger.info("test replace in {}","exception", new RuntimeException("sss"));
 	}
 	/**
-	 * 异常在占位符中,1个占位符号可以正确执行
+	 * 异常在占位符中,1个占位符号可以打印完整堆栈
 	 */
 	@Test
 	public void testSlf4jException1() {
@@ -34,9 +37,6 @@ public class TestLog4j {
 	@Test
 	public void testSlf4jException2() {
 		logger.info("test replace in {} {}","exception", new RuntimeException("sss"));
-	}
-	@Test
-	public void testSlf4jException3() {
 	}
 	
 }
