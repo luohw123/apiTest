@@ -8,7 +8,10 @@ import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.junit.Test;
 
 public class TestTime {
-
+	
+	public static void main(String[] args) {
+		System.out.println("test kk");
+	}
     /**
      * 
      * 格式化间隔时间  ，使之可读

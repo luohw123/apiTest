@@ -53,7 +53,29 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
-
+			<!-- 打包时候,将依赖包一起打进去http://lvjun106.iteye.com/blog/1849803 -->
+<!-- 			    <plugin>   -->
+<!-- 			      <artifactId>maven-assembly-plugin</artifactId>   -->
+<!-- 			      <configuration>   -->
+<!-- 			        <descriptorRefs>   -->
+<!-- 			          <descriptorRef>jar-with-dependencies</descriptorRef>   -->
+<!-- 			        </descriptorRefs>   -->
+<!-- 			      <archive>   -->
+<!-- 			        <manifest>   -->
+<!-- 			          <mainClass>com.javaapi.test.Time.apache.TestTime</mainClass>   -->
+<!-- 			        </manifest>   -->
+<!-- 			      </archive>   -->
+<!-- 			      </configuration>   -->
+<!-- 			      <executions>   -->
+<!-- 			        <execution>   -->
+<!-- 			          <id>make-assembly</id>   -->
+<!-- 			          <phase>package</phase>   -->
+<!-- 			          <goals>   -->
+<!-- 			            <goal>single</goal>   -->
+<!-- 			          </goals>   -->
+<!-- 			       </execution>   -->
+<!-- 			      </executions>   -->
+<!-- 			    </plugin>   -->
 		</plugins>
 	</build>
 

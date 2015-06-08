@@ -1,3 +1,4 @@
+
 package com.javaapi.test.log.log4j;
 
 import org.junit.Test;
