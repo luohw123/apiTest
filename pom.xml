@@ -178,20 +178,20 @@
 			<scope>compile</scope>
 		</dependency>
 		<!-- 加入这个slf4j-log4j12 会自动引入log4j -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-log4j12</artifactId> -->
-<!-- 			<version>1.6.1</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.1</version>
+		</dependency>
 
 
 		<!-- logback -->
 		<!-- 自动引入 slf4j,logback core -->
-		<dependency>
-		<groupId>ch.qos.logback</groupId>
-		<artifactId>logback-classic</artifactId>
-		<version>0.9.29</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 		<groupId>ch.qos.logback</groupId> -->
+<!-- 		<artifactId>logback-classic</artifactId> -->
+<!-- 		<version>0.9.29</version> -->
+<!-- 		</dependency> -->
 		<!-- util开始 -->
 		<!-- jod -->
 		<dependency>
