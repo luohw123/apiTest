@@ -1,45 +1,26 @@
 package com.javaapi.test.test.Property;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.junit.Test;
+
 /**
- * 读取Properties文件的例子 File: TestProperties.java User: leizhimin Date: 2008-2-15
- * 18:38:40
+ * 中文写进去,虽然看properties文件中是乱码,但是程序读出来不是.</br>
+ * 所以处理properties 乱码.  先读取下看是不是乱码,如果不是乱码.</br>
+ 找个编辑器插件,在eclipse,properties文件中能查看中文就可以</br>
+ * http://jingyan.baidu.com/article/ed2a5d1f3381d709f6be17f8.html</br>
+ * 
  */
 public final class TestProperties {
-	private static String param1;
-	private static String param2;
-
-	static {
-		Properties prop = new Properties();
-		InputStream in = Object.class.getResourceAsStream("/test.properties");
-		try {
-			prop.load(in);
-			param1 = prop.getProperty("initYears1").trim();
-			param2 = prop.getProperty("initYears2").trim();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	@Test
+	public void testProperties() throws Exception {
+		InputStream resourceAsStream = TestProperties.class.getResourceAsStream("testProp.properties");
+		Properties p = new Properties();
+		p.load(resourceAsStream);
+		System.out.println(p);
+		p.getProperty("spname");
+		System.out.println(p.getProperty("spname"));
 	}
 
-	/**
-	 * 私有构造方法，不需要创建对象
-	 */
-	private TestProperties() {
-	}
-
-	public static String getParam1() {
-		return param1;
-	}
-
-	public static String getParam2() {
-		return param2;
-	}
-
-	public static void main(String args[]) {
-		System.out.println(getParam1());
-		System.out.println(getParam2());
-	}
 }
