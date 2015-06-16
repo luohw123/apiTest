@@ -149,6 +149,8 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- server -->
+		
+		<!-- cache memcache -->
 		<dependency>
 			<groupId>com.googlecode.xmemcached</groupId>
 			<artifactId>xmemcached</artifactId>
@@ -160,6 +162,13 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- cache redis -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.0.2.RELEASE</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>com.github.abel533</groupId>
 			<artifactId>mapper</artifactId>

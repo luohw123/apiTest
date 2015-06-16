@@ -110,6 +110,25 @@ public class TestFastJson {
 	    System.out.println(stopWatch.getTime());
 	}
 	
+	@Test
+	public void testMap2Object() throws Exception {
+		Map<String,String> map = new HashMap<>();
+		map.put("index", "2");
+		map.put("desc", "333");
+		JSONObject json = new JSONObject();
+		json.putAll(map);
+		Withdraw javaObject = JSONObject.toJavaObject(json, Withdraw.class);
+		System.out.println(javaObject);
+	}
+	@Test
+	public void testObject2Map() throws Exception {
+		Withdraw withdraw = new Withdraw();
+		withdraw.setIndex_index("222");
+		withdraw.setDesc("nihao");
+		String jsonString = JSONObject.toJSONString(withdraw);
+		Map<String,String> javaObject= JSON.parseObject(jsonString, Map.class);
+		System.out.println(javaObject);
+	}
 	
 	@Test
     public void deserializeToMapJsonLib() throws IOException {
