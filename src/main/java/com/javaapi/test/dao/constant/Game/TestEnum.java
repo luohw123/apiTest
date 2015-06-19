@@ -11,14 +11,13 @@ public class TestEnum {
     }
 
     @Test
-    public static void testEnum2() {
-        String chuanyuehuoxian = EnumGame.CYHX.name();
-        EnumGame game = EnumGame.valueOf(EnumGame.class, chuanyuehuoxian);
+    public  void testEnum2() {
+        String name = EnumGame.CYHX.name();
+        
+        //
+        EnumGame game = EnumGame.valueOf(EnumGame.class, name);
         System.out.println(game.getDescription());
     }
 
-    public static void main(String[] args) {
-        testEnum2();
-    }
 
 }
