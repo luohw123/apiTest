@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.javaapi.test.dao.domain.DataPage;
 import com.javaapi.test.dao.mybatis.Social;
-import com.javaapi.test.dao.mybatis.TestTypeHandler;
+import com.javaapi.test.dao.mybatis.UserInfo;
 import com.javaapi.test.dao.mybatis.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -76,7 +76,7 @@ public class Client {
 		String insertOne = "testNamespace.insertUserTypeHandler";
 		User user = new User();
 		user.setName("kk");
-		TestTypeHandler testTypeHandler = new TestTypeHandler();
+		UserInfo testTypeHandler = new UserInfo();
 		testTypeHandler.setPhone("12312312312");
 		testTypeHandler.setEmail("163.com");
 		user.setTestTypeHandler(testTypeHandler);

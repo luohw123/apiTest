@@ -1,6 +1,6 @@
 package com.javaapi.test.dao.mybatis;
 
-public class TestTypeHandler {
+public class UserInfo {
 
 	private String	email;
 	private String	phone;

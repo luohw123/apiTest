@@ -5,7 +5,7 @@ public class User {
     private Integer id;
     private String  name;
     
-	private TestTypeHandler	testTypeHandler;
+	private UserInfo	testTypeHandler;
 
     public Integer getId() {
         return id;
@@ -23,11 +23,11 @@ public class User {
         this.name = name;
     }
 
-	public TestTypeHandler getTestTypeHandler() {
+	public UserInfo getTestTypeHandler() {
 		return testTypeHandler;
 	}
 
-	public void setTestTypeHandler(TestTypeHandler testTypeHandler) {
+	public void setTestTypeHandler(UserInfo testTypeHandler) {
 		this.testTypeHandler = testTypeHandler;
 	}
 
