@@ -16,13 +16,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * cash_book | CREATE TABLE `cash_book` (
+ *
+ * 
+ * CREATE TABLE `cash_book` (
   `id` bigint(20) NOT NULL DEFAULT '0' COMMENT '主键ID',
   `account_id` bigint(20) DEFAULT NULL COMMENT 'account表id',
   `balance` decimal(12,2) DEFAULT NULL COMMENT '余额',
   `version` decimal(12,2) DEFAULT NULL COMMENT '乐观锁版本',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='现金表' 
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `account_id_UNIQUE` (`account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='现金表';
+
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -35,7 +39,9 @@ public class Client{
 	
 	@Autowired
 	CashBookService cashBookService;
-
+	@Autowired
+	CashBookForUpdateService cashBookForUpdateService;
+	
 	@Test
 	public void selectOne() {
 		CashBook cash  = new CashBook();
@@ -84,5 +90,27 @@ public class Client{
 			thread.start();
 		}
 		TimeUnit.HOURS.sleep(1);
+	}
+	/**
+	 * 注意一定要加上事务
+	 */
+	@Test
+	@Rollback(value=false)
+	public void testForUpdate() throws Exception {
+		for (int i = 0; i < 100; i++) {
+			Thread thread = new Thread(new Runnable() {
+				@Override
+				public void run() {
+					try {
+						cashBookForUpdateService.addBalance(1l, BigDecimal.valueOf(1l));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+			thread.start();
+		}
+		System.out.println("---------");
+//		TimeUnit.HOURS.sleep(1);
 	}
 }

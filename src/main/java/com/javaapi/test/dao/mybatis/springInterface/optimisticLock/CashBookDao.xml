@@ -20,4 +20,16 @@
 		</set>
 		WHERE c.account_id=#{accountId}  AND c.version =#{version}
 	</update>
+	
+	
+	<select id="selectOneForUpdate" parameterType="com.javaapi.test.dao.mybatis.springInterface.optimisticLock.CashBook" resultMap="CashBook">
+		SELECT * FROM cash_book  WHERE account_id =#{accountId}  FOR UPDATE
+	</select>
+	<update id="update" parameterType="com.javaapi.test.dao.mybatis.springInterface.optimisticLock.CashBook" >
+		UPDATE cash_book c 
+		<set>
+			c.balance = #{balance}
+		</set>
+		WHERE c.account_id=#{accountId} 
+	</update>
 </mapper>
