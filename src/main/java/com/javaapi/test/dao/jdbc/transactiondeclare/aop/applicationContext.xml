@@ -36,8 +36,9 @@ destroy-method="close"
 	</bean>
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 	    <tx:attributes>
-	        <tx:method name="save*" propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true"/>
-	        <tx:method name="*" propagation="REQUIRED" isolation="READ_COMMITTED" />
+<!-- 	        <tx:method name="save*" propagation="REQUIRED" isolation="READ_COMMITTED" read-only="true"/> -->
+	        <tx:method name="save*" propagation="REQUIRED" isolation="REPEATABLE_READ" read-only="true"/>
+	        <tx:method name="*" propagation="REQUIRED" isolation="REPEATABLE_READ" />
 	    </tx:attributes>
 	</tx:advice>
 	<aop:config>

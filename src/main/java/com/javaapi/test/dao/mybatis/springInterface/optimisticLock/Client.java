@@ -1,10 +1,14 @@
 package com.javaapi.test.dao.mybatis.springInterface.optimisticLock;
 
-import static org.junit.Assert.*;
-
 import java.math.BigDecimal;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CompletionService;
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang.time.StopWatch;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -91,6 +95,37 @@ public class Client{
 		}
 		TimeUnit.HOURS.sleep(1);
 	}
+	/**	 * 乐观锁，10次测试:并发5个线程，重试5次，5成功.
+	 * 乐观锁，10次测试:并发10个线程，重试5次，8-10成功.
+	 * 乐观锁，10次测试:并发50个线程，重试5次，10-25成功.
+	 * 乐观锁，10次测试:并发100个线程，重试5次，20~38成功.</br>
+	 *10次 ( 100次更新 )  平均执行了3296-3916毫秒
+	 */
+	@Test
+	@Rollback(value=false)
+	public void testConcurrenceCom() throws Exception {
+		StopWatch watch = new StopWatch();
+		watch.start();
+		int length = 100;
+		ExecutorService threadPool1 = Executors.newFixedThreadPool(length);
+		CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(
+				threadPool1);
+		
+		for (int i = 0; i < length; i++) {
+			completionService.submit(new Callable<Integer>() {
+				@Override
+				public Integer call() throws Exception {
+					cashBookService.addBalance(1l, BigDecimal.valueOf(1l));
+					return 1;
+				}
+			});
+		}
+		for (int i = 0; i < length; i++) {
+			System.out.println("打印返回值"+completionService.take().get());
+		}
+		watch.stop();
+		System.out.println("共执行了"+watch.getTime()+"毫秒");
+	}
 	/**
 	 * 注意一定要加上事务
 	 */
@@ -111,6 +146,35 @@ public class Client{
 			thread.start();
 		}
 		System.out.println("---------");
-//		TimeUnit.HOURS.sleep(1);
+		TimeUnit.HOURS.sleep(1);
+	}
+	
+	/**
+	 *10次 ( 100次更新 )  平均执行了2633-3284毫秒
+	 */
+	@Test
+	@Rollback(value=false)
+	public void testForUpdateCom() throws Exception {
+		StopWatch watch = new StopWatch();
+		watch.start();
+		int length = 100;
+		ExecutorService threadPool1 = Executors.newFixedThreadPool(length);
+		CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(
+				threadPool1);
+		
+		for (int i = 0; i < length; i++) {
+			completionService.submit(new Callable<Integer>() {
+				@Override
+				public Integer call() throws Exception {
+					cashBookForUpdateService.addBalance(1l, BigDecimal.valueOf(1l));
+					return 1;
+				}
+			});
+		}
+		for (int i = 0; i < length; i++) {
+			System.out.println("打印返回值"+completionService.take().get());
+		}
+		watch.stop();
+		System.out.println("共执行了"+watch.getTime()+"毫秒");
 	}
 }
