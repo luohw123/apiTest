@@ -1,6 +1,5 @@
 package com.javaapi.test.test.testType.String.testString.toolString;
 
-import java.math.BigDecimal;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

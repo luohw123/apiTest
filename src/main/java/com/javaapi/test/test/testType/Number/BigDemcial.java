@@ -1,7 +1,5 @@
 package com.javaapi.test.test.testType.Number;
 
-import static org.junit.Assert.*;
-
 import java.math.BigDecimal;
 
 import org.junit.Test;
@@ -30,5 +28,31 @@ public class BigDemcial {
 	public void testRegular() throws Exception {
 		BigDecimal bigDecimal = new BigDecimal("100.22..00");
 		System.out.println(bigDecimal);
+	}
+	@Test
+	public void RightDoubleToBigdecimal() throws Exception {
+		double val = 10.08;
+		BigDecimal value = new BigDecimal(String.valueOf(val));
+		System.out.println(value);
+	}
+	@Test
+	public void RightDoubleToBigdecimal2() throws Exception {
+		double val = 10.08;
+		BigDecimal value = BigDecimal.valueOf(val);
+		System.out.println(value);
+	}
+	@Test
+	public void RightBigdecimalCompare() throws Exception {
+		double val = 10.08;
+		BigDecimal value = new BigDecimal(String.valueOf(val));
+		BigDecimal value2 = BigDecimal.valueOf(val);
+		System.out.println(value.equals(value2) );
+		System.out.println(value.compareTo(value2));
+	}
+	@Test
+	public void WrongToBigdecimal() throws Exception {
+		double val = 10.08;
+		BigDecimal value = new BigDecimal(val);
+		System.out.println(value);
 	}
 }
