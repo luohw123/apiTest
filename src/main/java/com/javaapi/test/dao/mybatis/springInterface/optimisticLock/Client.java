@@ -31,6 +31,10 @@ import org.springframework.transaction.annotation.Transactional;
   UNIQUE KEY `account_id_UNIQUE` (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='现金表';
 
+INSERT INTO financialdb.cash_book(cash_book.id,cash_book.account_id,cash_book.balance,cash_book.version)value(1,1,0,0);
+SELECT * FROM financialdb.cash_book;
+UPDATE financialdb.cash_book set balance=0, version=0 WHERE id=1;
+
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
