@@ -13,9 +13,9 @@
 <!-- 		<task:scheduled ref="taskJob" method="job1" cron="0/5 * * * * ?" /> -->
 <!-- 		<task:scheduled ref="taskJobXml" method="job1" cron="0 0/10 * * * ?" /> -->
 
-			<!--注意cron表达式 不可以实现 每隔40秒  -->
-			<task:scheduled ref="taskJobXml" method="job1" cron="40/40 * * * * ?" />
-<!-- 		<task:scheduled ref="taskJobXml" method="job1" fixed-delay="600000"/> -->
+			<!--注意cron表达式 不可以实现 每隔40秒   fixed-delay可以实现-->
+<!-- 			<task:scheduled ref="taskJobXml" method="job1" cron="40/40 * * * * ?" /> -->
+		<task:scheduled ref="taskJobXml" method="job1" fixed-delay="40000"/>
 	</task:scheduled-tasks>
 	<task:scheduler id="myScheduler" pool-size="10"/>
 <!-- 	<bean id="taskJobXml" class="com.javaapi.test.spring.zotherFeature.scheduler.TaskJobXml" init-method="job1" /> -->
