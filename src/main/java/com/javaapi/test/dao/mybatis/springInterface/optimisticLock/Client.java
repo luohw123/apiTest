@@ -110,7 +110,7 @@ public class Client{
 	public void testConcurrenceCom() throws Exception {
 		StopWatch watch = new StopWatch();
 		watch.start();
-		int length = 100;
+		int length = 1;
 		ExecutorService threadPool1 = Executors.newFixedThreadPool(length);
 		CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(
 				threadPool1);

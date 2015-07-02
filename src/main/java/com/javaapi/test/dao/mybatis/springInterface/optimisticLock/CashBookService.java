@@ -62,12 +62,35 @@ public class CashBookService {
 	}
 
 	private void addBalanceSelf(long accountId, BigDecimal money) {
+		// 模拟业务更新 1 
 		CashBook cash  = new CashBook();
 		cash.setAccountId(accountId);
 		CashBook seletOne = sqlSessionTemplate.getMapper(CashBookDao.class).selectOne(cash);
 		seletOne.setBalance(seletOne.getBalance().add(money));
 		int result = sqlSessionTemplate.getMapper(CashBookDao.class).updateBalance(seletOne);
 		if(result ==0 ) {
+			throw new BusinessException(ErrorCode.needRetry3);
+		}else {
+			logger.info("success thread ={}",Thread.currentThread().getId());
+		}
+		// 模拟其他业务更新 2 
+		CashBook cash_2  = new CashBook();
+		cash_2.setAccountId(accountId);
+		CashBook seletOne_2 = sqlSessionTemplate.getMapper(CashBookDao.class).selectOne(cash_2);
+		seletOne_2.setBalance(seletOne_2.getBalance().add(money));
+		int result_2 = sqlSessionTemplate.getMapper(CashBookDao.class).updateBalance(seletOne_2);
+		if(result_2 ==0 ) {
+			throw new BusinessException(ErrorCode.needRetry3);
+		}else {
+			logger.info("success thread ={}",Thread.currentThread().getId());
+		}
+		// 模拟其他业务更新 3 
+		CashBook cash_3  = new CashBook();
+		cash_3.setAccountId(accountId);
+		CashBook seletOne_3 = sqlSessionTemplate.getMapper(CashBookDao.class).selectOne(cash_3);
+		seletOne_3.setBalance(seletOne_3.getBalance().add(money));
+		int result_3 = sqlSessionTemplate.getMapper(CashBookDao.class).updateBalance(seletOne_3);
+		if(result_3 ==0 ) {
 			throw new BusinessException(ErrorCode.needRetry3);
 		}else {
 			logger.info("success thread ={}",Thread.currentThread().getId());
