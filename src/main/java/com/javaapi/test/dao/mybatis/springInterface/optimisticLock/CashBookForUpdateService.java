@@ -71,6 +71,17 @@ public class CashBookForUpdateService {
 		}else {
 			logger.info("success thread ={}",Thread.currentThread().getId());
 		}
+		
+		CashBook cash_2  = new CashBook();
+		cash_2.setAccountId(accountId);
+		CashBook seletOne_2 = sqlSessionTemplate.getMapper(CashBookDao.class).selectOneForUpdate_2(cash_2);
+		seletOne_2.setBalance(seletOne_2.getBalance().add(money));
+		int result_2 = sqlSessionTemplate.getMapper(CashBookDao.class).update_2(seletOne_2);
+		if(result_2 ==0 ) {
+			throw new BusinessException(ErrorCode.needRetry3);
+		}else {
+			logger.info("success thread ={}",Thread.currentThread().getId());
+		}
 	}
 
 }

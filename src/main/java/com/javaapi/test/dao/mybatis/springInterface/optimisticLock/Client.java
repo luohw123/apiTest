@@ -31,9 +31,23 @@ import org.springframework.transaction.annotation.Transactional;
   UNIQUE KEY `account_id_UNIQUE` (`account_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='现金表';
 
-INSERT INTO financialdb.cash_book(cash_book.id,cash_book.account_id,cash_book.balance,cash_book.version)value(1,1,0,0);
-SELECT * FROM financialdb.cash_book;
-UPDATE financialdb.cash_book set balance=0, version=0 WHERE id=1;
+INSERT INTO cash_book(cash_book.id,cash_book.account_id,cash_book.balance,cash_book.version)value(1,1,0,0);
+SELECT * FROM cash_book;
+UPDATE cash_book set balance=0, version=0 WHERE id=1;
+
+
+ CREATE TABLE `cash_book_2` (
+  `id` bigint(20) NOT NULL DEFAULT '0' COMMENT '主键ID',
+  `account_id` bigint(20) DEFAULT NULL COMMENT 'account表id',
+  `balance` decimal(12,2) DEFAULT NULL COMMENT '余额',
+  `version` decimal(12,2) DEFAULT NULL COMMENT '乐观锁版本',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `account_id_UNIQUE` (`account_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='现金表';
+
+INSERT INTO cash_book_2(cash_book_2.id,cash_book_2.account_id,cash_book_2.balance,cash_book_2.version)value(1,1,0,0);
+SELECT * FROM cash_book_2;
+UPDATE cash_book_2 set balance=0, version=0 WHERE id=1;
 
  *
  */
@@ -110,7 +124,7 @@ public class Client{
 	public void testConcurrenceCom() throws Exception {
 		StopWatch watch = new StopWatch();
 		watch.start();
-		int length = 100;
+		int length = 10;
 		ExecutorService threadPool1 = Executors.newFixedThreadPool(length);
 		CompletionService<Integer> completionService = new ExecutorCompletionService<Integer>(
 				threadPool1);
