@@ -36,7 +36,7 @@
 	</appender>
 
 	<!-- 控制包或者类的日志输出,以及日志输出级别 -->
-	<logger name="com.javaapi.test.log.logback.TestLogback" level="INFO" />
+	<logger name="com.javaapi.test.test.testlog.log.logback.TestLogback" level="INFO" />
 
 	<logger name="net.rubyeye.xmemcached" level="INFO" />
 	<logger name="com.google.code.yanf4j" level="INFO" />

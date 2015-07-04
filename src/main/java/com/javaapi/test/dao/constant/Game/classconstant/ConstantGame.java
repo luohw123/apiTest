@@ -2,7 +2,7 @@ package com.javaapi.test.dao.constant.Game.classconstant;
 
 import java.io.Serializable;
 
-import com.javaapi.test.testReflect.serializable.ser1.CustomTest;
+import com.javaapi.test.test.testReflect.serializable.ser1.CustomTest;
 
 /**
  * 
