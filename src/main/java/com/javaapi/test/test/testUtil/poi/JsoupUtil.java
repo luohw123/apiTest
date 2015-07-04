@@ -11,7 +11,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.junit.Test;
 
-import com.javaapi.test.application.dataTrans.json.fastjson.FastJsonUtil;
+import com.javaapi.test.buisness.dataTrans.json.fastjson.FastJsonUtil;
 
 public class JsoupUtil{
 	@Test

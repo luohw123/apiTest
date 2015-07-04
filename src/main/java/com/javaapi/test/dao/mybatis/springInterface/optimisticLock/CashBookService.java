@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.javaapi.test.exception.bussiness.exception.BusinessException;
-import com.javaapi.test.exception.bussiness.exception.ErrorCode;
+import com.javaapi.test.buisness.exception.bussiness.exception.BusinessException;
+import com.javaapi.test.buisness.exception.bussiness.exception.ErrorCode;
 
 @Service
 @Transactional(propagation = Propagation.REQUIRED ,isolation=Isolation.REPEATABLE_READ)
