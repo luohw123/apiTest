@@ -13,7 +13,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.javaapi.test.freemarker.FreeMarkerUtil;
+import com.javaapi.test.application.freemarker.FreeMarkerUtil;
 
 public class TestJdbcForMatchName {
     // ------------------

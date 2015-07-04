@@ -62,7 +62,7 @@
 <!-- 			        </descriptorRefs>   -->
 <!-- 			      <archive>   -->
 <!-- 			        <manifest>   -->
-<!-- 			          <mainClass>com.javaapi.test.Time.apache.TestTime</mainClass>   -->
+<!-- 			          <mainClass>com.javaapi.test.testUtil.Time.apache.TestTime</mainClass>   -->
 <!-- 			        </manifest>   -->
 <!-- 			      </archive>   -->
 <!-- 			      </configuration>   -->
