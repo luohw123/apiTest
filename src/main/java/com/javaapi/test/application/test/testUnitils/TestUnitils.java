@@ -19,9 +19,12 @@ public class TestUnitils {
 	@Test
 	public void testassertReflectionEquals() {
 		// Exact field-by-field comparison
-		assertReflectionEquals(new Person("John", "Doe", new Address("New street", 5, "Brussels")), 
- new Person("John", "Doe",
-				new Address("New street", 5, "Brussels")));
+		Person person = new Person("John", "Doe", new Address("New street", 5, "Brussels"));
+		Person personNew = new Person("John", "Doe", new Address("New street", 5, "Brussels"));
+		assertReflectionEquals(person,  personNew);
+		Person person2 = new Person("John", "222", new Address("New street", 5, "Brussels"));
+		Person person2_new = new Person("John", "111",new Address("New street", 5, "Brussels"));
+		assertReflectionEquals(person2,  person2_new);
 	}
 
 	@Test

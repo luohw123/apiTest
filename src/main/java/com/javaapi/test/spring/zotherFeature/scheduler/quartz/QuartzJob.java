@@ -12,4 +12,11 @@ public class QuartzJob
 		String format = sd.format(new Date());
 		System.out.println("任务执行 == >" +format);
     }
+    
+    public void work2()
+    {
+    	SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String format = sd.format(new Date());
+		System.out.println("任务执行2222 == >" +format);
+    }
 }
