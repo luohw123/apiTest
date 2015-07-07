@@ -11,8 +11,9 @@
    
    
      <!-- 要调用的工作类 -->
-        <bean id="quartzJob" class="com.javaapi.test.spring.zotherFeature.scheduler.quartz.QuartzJob"></bean>
-        <!-- 定义调用对象和调用对象的方法 -->
+      <bean id="quartzJob" class="com.javaapi.test.spring.zotherFeature.scheduler.quartz.QuartzJob">
+        	  			<property name="selfService" ref="selfService"></property>
+        </bean>        <!-- 定义调用对象和调用对象的方法 -->
         <bean id="jobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
             <!-- 调用的类 -->
             <property name="targetObject">
@@ -41,5 +42,5 @@
                 </list>
             </property>
         </bean>    
-   
+        		<bean id="selfService" class="com.javaapi.test.spring.zotherFeature.scheduler.quartz.dynamicSpringAdd.SelfService"></bean>
    </beans>

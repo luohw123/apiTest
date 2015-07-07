@@ -1,5 +1,7 @@
 package com.javaapi.test.spring.zotherFeature.scheduler.quartz.dynamicSpringAdd;
 
+import static org.junit.Assert.*;
+
 import java.text.ParseException;
 import java.util.concurrent.TimeUnit;
 
@@ -39,7 +41,7 @@ public class ClientDynamic implements BeanFactoryAware{
 	public void testDynamic() throws Exception {
         addJob();  
         addJob2();
-        getJobList();
+//        getJobList();
 		try {
 			// 休眠十小时
 			TimeUnit.HOURS.sleep(10);
@@ -114,6 +116,11 @@ public class ClientDynamic implements BeanFactoryAware{
 	}
 
 
+	@Test
+	public void testGet() throws Exception {
+		Object bean = beanFactory.getBean("&jobtask");
+		System.out.println(bean);
+	}
 
 
 	@Override

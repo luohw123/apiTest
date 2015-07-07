@@ -15,4 +15,19 @@
         <bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         </bean>    
    
+   	
+   		     <!-- 定义调用对象和调用对象的方法 -->
+        <bean id="jobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+            <!-- 调用的类 -->
+<!--             <property name="targetObject"> -->
+<!--                 <ref bean="quartzJob"/> -->
+<!--             </property> -->
+            <!-- 调用类中的方法 -->
+<!--             <property name="targetMethod"> -->
+<!--                 <value>work</value> -->
+<!--             </property> -->
+<!--             作业不并发调度 -->
+            <property name="concurrent" value="false" />
+        </bean>
+   
    </beans>
