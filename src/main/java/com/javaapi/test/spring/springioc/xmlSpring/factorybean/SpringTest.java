@@ -30,5 +30,8 @@ public class SpringTest {
 		System.out.println(bean2);
 		System.out.println("---------");
 		Object bean3 = app.getBean("studentFactory");
+		System.out.println("------------");
+		Student bean4 = app.getBean("studentFactory",Student.class);
+		System.out.println(bean4);
 	}
 }

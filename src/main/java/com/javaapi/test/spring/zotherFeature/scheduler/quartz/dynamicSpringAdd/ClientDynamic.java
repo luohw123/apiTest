@@ -16,9 +16,13 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.quartz.CronTriggerBean;
+import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean.MethodInvokingJob;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.MethodInvoker;
 
 /**
  * 还未整完
@@ -67,7 +71,19 @@ public class ClientDynamic implements BeanFactoryAware{
 		}
 		
 	}
-
+	
+//	@SuppressWarnings("unused")
+//	private <T> boolean  addJob(Class<T> clazz,String method,String express) {
+//		Scheduler scheduler = SchedulerFactoryBean.getScheduler();
+//		CronTrigger trigger = new CronTrigger("cronTrigger_"+clazz.toString()+"_"+method, "triggerGroup");// 触发器名,触发器组
+//		try {
+//			trigger.setCronExpression(express);
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//			return false;
+//		}
+//		return true;
+//	}
 
 
 
@@ -120,6 +136,33 @@ public class ClientDynamic implements BeanFactoryAware{
 	public void testGet() throws Exception {
 		Object bean = beanFactory.getBean("&jobtask");
 		System.out.println(bean);
+		Object bean2 = beanFactory.getBean("jobtask");
+		System.out.println(bean2);
+		try {
+			// 休眠十小时
+			TimeUnit.HOURS.sleep(10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void getGetTrigger() throws Exception {
+		Scheduler scheduler = SchedulerFactoryBean.getScheduler();
+		CronTriggerBean bean = beanFactory.getBean("doTime", CronTriggerBean.class);
+		bean.setCronExpression("0,5,10,15,20,25,30,35,40,45,50,55 * * * * ?");
+		MethodInvokingJobDetailFactoryBean methodInvoker = beanFactory.getBean("&jobtask", MethodInvokingJobDetailFactoryBean.class);
+		JobDetail jobDetail = new JobDetail(bean.getJobDetail().getName(), bean.getJobDetail().getGroup(),  MethodInvokingJob.class);
+		jobDetail.setVolatility(true);
+		jobDetail.setDurability(true);
+		jobDetail.getJobDataMap().put("methodInvoker", methodInvoker);
+		scheduler.scheduleJob(jobDetail, bean);
+		try {
+			// 休眠十小时
+			TimeUnit.HOURS.sleep(10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 

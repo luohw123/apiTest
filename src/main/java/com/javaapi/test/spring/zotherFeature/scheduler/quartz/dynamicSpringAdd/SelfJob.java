@@ -14,8 +14,9 @@ public class SelfJob implements Job {
 	@Override
 	public void execute(JobExecutionContext context)
 			throws JobExecutionException {
-		SelfJob object = (SelfJob) context.getMergedJobDataMap().get("selfJob");
-		System.out.println("SelfJob回调SelfJob==>"+this+"========getSelfService==>"+object.getSelfService()+"===spring selfJob==>"+object);
+		System.out.println("nihao");
+//		SelfJob object = (SelfJob) context.getMergedJobDataMap().get("selfJob");
+//		System.out.println("SelfJob回调SelfJob==>"+this+"========getSelfService==>"+object.getSelfService()+"===spring selfJob==>"+object);
 //		extracted();
 	}
 
