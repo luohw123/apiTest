@@ -1,5 +1,7 @@
 package com.javaapi.test.testUtil.net;
 
+import static org.junit.Assert.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -80,5 +82,10 @@ public class TestNet {
 			System.out.println("ʧ��");
 		}
 		urlConn.disconnect();
+	}
+	@Test
+	public void testName() throws Exception {
+		URL url = new URL("file://home/kk/git/service/src/main/webapp/pages/");
+		System.out.println(url);
 	}
 }

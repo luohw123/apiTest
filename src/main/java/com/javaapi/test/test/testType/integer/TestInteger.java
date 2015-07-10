@@ -1,5 +1,7 @@
 package com.javaapi.test.test.testType.integer;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class TestInteger {
@@ -78,4 +80,5 @@ public class TestInteger {
 		System.out.println(b);
 		System.out.println(a == b);
 	}
+	
 }
