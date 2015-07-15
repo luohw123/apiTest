@@ -12,7 +12,7 @@ import org.unitils.reflectionassert.ReflectionComparatorMode;
 /**
  * unitils本身提供了很多断言的支持:http://stamen.iteye.com/blog/1480316</br>
  * 也可以集成spring,但是跟单独使用spring-test测试框架没多什么功能 - -</br> 集成dbunit</br>
- * 
+ * 这里只测试Unitils的断言部分
  */
 public class TestUnitils {
 
