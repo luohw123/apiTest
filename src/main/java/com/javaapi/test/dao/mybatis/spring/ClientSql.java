@@ -45,6 +45,9 @@ public class ClientSql {
 		}
 	}
 	
+	/**
+	 * where 标签无法去掉后面的and
+	 */
 	@Test
 	public void testWhereAfter() {
 		Map<String,String> map = new HashMap<>();
@@ -62,6 +65,7 @@ public class ClientSql {
 		Map<String,String> map = new HashMap<>();
 		map.put("param1", "1");
 		int update = sqlSessionTemplate.update("testSqlNamespace.updateSetBefore", map);
+		System.err.println(update);
 	}
 	/**
 	 * set 只能处理,逗号在后面得
@@ -71,28 +75,46 @@ public class ClientSql {
 		Map<String,String> map = new HashMap<>();
 		map.put("param1", "1");
 		int update = sqlSessionTemplate.update("testSqlNamespace.updateSetAfter", map);
+		System.err.println(update);
 	}
+	/**
+	 * 利用trim去掉前面的and 或者or
+	 */
 	@Test
 	public void testSelectTrimAndBefore() {
 		Map<String,String> map = new HashMap<>();
 		map.put("param1", "1");
-		sqlSessionTemplate.selectList("testSqlNamespace.selectTrimAndBefore", map);
+		List<Object> selectList = sqlSessionTemplate.selectList("testSqlNamespace.selectTrimAndBefore", map);
+		System.err.println(selectList);
 	}
+	/**
+	 * 利用trim去掉后面的 逗号
+	 */
 	@Test
 	public void testUpdateTrimAfter() {
 		Map<String,String> map = new HashMap<>();
 		map.put("param1", "1");
 		int update = sqlSessionTemplate.update("testSqlNamespace.updateTrimAfter", map);
+		System.err.println(update);
 	}
 //	------------
+	/**
+	 * 测试foreach 传入tmpList,
+	 * 但是xml里要用list接收
+	 */
 	@Test
 	public void testSelectForEachList() {
 		List<Integer> tmpList = new ArrayList<>();
 		tmpList.add(1);
 		tmpList.add(2);
 		tmpList.add(3);
-		sqlSessionTemplate.selectList("testSqlNamespace.selectForeachList", tmpList);
+		List<Object> selectList = sqlSessionTemplate.selectList("testSqlNamespace.selectForeachList", tmpList);
+		System.err.println(selectList);
 	}
+	/**
+	 * 测试foreach map 传入key为ids,
+	 * xml里用ids接受
+	 */
 	@Test
 	public void testSelectForEachMap() {
 		List<Integer> tmpList = new ArrayList<>();
@@ -126,4 +148,5 @@ public class ClientSql {
 		System.out.println(selectMap);
 		System.out.println(selectMap.get(1));
 	}
+	//-----------
 }

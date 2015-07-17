@@ -1,8 +1,10 @@
 package com.javaapi.test.dao.mybatis.springInterface.mapper;
 
 
-import com.javaapi.test.dao.mybatis.Social;
 import java.util.List;
+import java.util.Map;
+
+import com.javaapi.test.dao.mybatis.Social;
 
 public interface SocialMapper {
 	List<Social> getUserList();
@@ -14,4 +16,9 @@ public interface SocialMapper {
     int setUser(Social user);
 
     int countUser();
+    
+    Map<String,String> selectBill(long billid);
+    
+    
+    Map<String,String> selectBillMap(Map<String,Object> map);
 }

@@ -1,5 +1,6 @@
 package com.javaapi.test.dao.mybatis.springInterface;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,28 @@ public class ClientInterface {
 	@Test
 	public void selectOne() {
 		int countUser = sqlSessionTemplate.getMapper(SocialMapper.class).countUser();
+		System.err.println(countUser);
 		Assert.assertEquals(0, countUser);
+	}
+	/**
+	 * 测试对billid为数字类型时候,xml里有判断 billid!=null, 或者billid!='' 时候是否会报错.
+	 * 测试结果是会报错
+	 */
+	@Test
+	public void selectParam() {
+		 Map<String, String> selectBill = sqlSessionTemplate.getMapper(SocialMapper.class).selectBill(58l);
+		 System.err.println(selectBill);
+	}
+	/**
+	 * 测试对billid为数字类型时候,放入map,xml里判断 billid!=null, 或者billid!='' 时候是否会报错.
+	 * 测试结果是不会报错
+	 */
+	@Test
+	public void selectParamMap() {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("billid", 58l);
+		Map<String, String> selectBill = sqlSessionTemplate.getMapper(SocialMapper.class).selectBillMap(map);
+		System.err.println(selectBill);
 	}
 	
 	@Test
