@@ -13,5 +13,6 @@
 <!--     <mappers>   -->
 <!--         <mapper resource="com\\javaapi\\test\\dao\\mybatis\\springInterface\\UserMapper.xml" />   -->
 <!--         <mapper resource="com\\javaapi\\test\\dao\\mybatis\\springInterface\\SocialMapper.xml" /> -->
+<!--         <mapper resource="com/javaapi/test/dao/mybatis/springInterface/BillMapper.xml" /> -->
 <!--     </mappers>   -->
 </configuration>

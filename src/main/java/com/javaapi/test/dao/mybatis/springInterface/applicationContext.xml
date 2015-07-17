@@ -13,14 +13,20 @@
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
  <context:component-scan base-package="com.javaapi.test.dao.mybatis.spring"/>
+<!-- <bean id="dataSource" -->
+<!-- class="org.apache.commons.dbcp.BasicDataSource" -->
+<!-- destroy-method="close" -->
+<!--         p:driverClassName="com.mysql.jdbc.Driver" -->
+<!--         p:url="jdbc:mysql://127.0.0.1:3306/csc_sns_dev?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=GBK" -->
+<!--         p:username="root" -->
+<!--         p:password="root"/> -->
 <bean id="dataSource"
 class="org.apache.commons.dbcp.BasicDataSource"
 destroy-method="close"
         p:driverClassName="com.mysql.jdbc.Driver"
-        p:url="jdbc:mysql://127.0.0.1:3306/csc_sns_dev?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=GBK"
+        p:url="jdbc:mysql://127.0.0.1:3306/test?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=GBK"
         p:username="root"
-        p:password="root"/>
-        
+        p:password="root"/>        
  <bean id="txManager"  
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
@@ -28,13 +34,15 @@ destroy-method="close"
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
             <property name="dataSource" ref="dataSource" />  
             <property name="configLocation" value="classpath:com/javaapi/test/dao/mybatis/springInterface/mybatis-config.xml" />  
+			<property name="mapperLocations" value="classpath*:com/javaapi/test/dao/mybatis/springInterface/*Mapper.xml" />
     </bean>
-    	<!-- 使用自动扫描包的方式来注册各种Mapper ，配置如下： -->
+    	<!-- 这样配置后就可以将sql写进接口里，省去写xml了 -->
 <!--     	http://www.07net01.com/2014/09/124189.html -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="sqlSessionFactoryBeanName" value="sessionFactory" />
-		<property name="basePackage" value="com.javaapi.test.dao.mybatis.springInterface.**.mapper" />
-	</bean>
+<!-- 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
+<!-- 		<property name="sqlSessionFactoryBeanName" value="sessionFactory" /> -->
+<!-- 		<property name="basePackage" value="com.javaapi.test.dao.mybatis.springInterface.**.mapper" /> -->
+<!-- 		<property name="basePackage" value="com.javaapi.test.dao.mybatis.springInterface.mapper" /> -->
+<!-- 	</bean> -->
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 	<!--  <constructor-arg index="0" ref="sessionFactory" />   -->
 	 <constructor-arg name="sqlSessionFactory" ref="sessionFactory" />  
