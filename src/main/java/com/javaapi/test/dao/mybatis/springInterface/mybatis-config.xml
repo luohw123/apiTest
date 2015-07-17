@@ -10,8 +10,8 @@
 
 <!-- 	<package name=""/> -->
 </typeHandlers>
-    <mappers>  
-        <mapper resource="com\\javaapi\\test\\dao\\mybatis\\springInterface\\UserMapper.xml" />  
-        <mapper resource="com\\javaapi\\test\\dao\\mybatis\\springInterface\\SocialMapper.xml" />
-    </mappers>  
+<!--     <mappers>   -->
+<!--         <mapper resource="com\\javaapi\\test\\dao\\mybatis\\springInterface\\UserMapper.xml" />   -->
+<!--         <mapper resource="com\\javaapi\\test\\dao\\mybatis\\springInterface\\SocialMapper.xml" /> -->
+<!--     </mappers>   -->
 </configuration>

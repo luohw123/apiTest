@@ -29,9 +29,15 @@ destroy-method="close"
             <property name="dataSource" ref="dataSource" />  
             <property name="configLocation" value="classpath:com/javaapi/test/dao/mybatis/springInterface/mybatis-config.xml" />  
     </bean>
-<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-<!--  <constructor-arg index="0" ref="sessionFactory" />   -->
- <constructor-arg name="sqlSessionFactory" ref="sessionFactory" />  
- </bean>	
- <tx:annotation-driven transaction-manager="txManager" />   
+    	<!-- 使用自动扫描包的方式来注册各种Mapper ，配置如下： -->
+<!--     	http://www.07net01.com/2014/09/124189.html -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sessionFactory" />
+		<property name="basePackage" value="com.javaapi.test.dao.mybatis.springInterface.**.mapper" />
+	</bean>
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	<!--  <constructor-arg index="0" ref="sessionFactory" />   -->
+	 <constructor-arg name="sqlSessionFactory" ref="sessionFactory" />  
+	 </bean>	
+	 <tx:annotation-driven transaction-manager="txManager" />   
 </beans>
