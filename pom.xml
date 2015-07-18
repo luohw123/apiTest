@@ -5,8 +5,7 @@
 	<artifactId>JavaApiSample</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<dep.jackson-core.version>2.1.3</dep.jackson-core.version>
-		<dep.jackson-databind.version>2.1.3</dep.jackson-databind.version>
+		<dep.jackson-databind.version>2.4.4</dep.jackson-databind.version>
 		<spring.version>3.2.6.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<java.version>1.7</java.version>
@@ -162,17 +161,18 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!-- cache redis -->
 		<dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
-            <version>1.0.2.RELEASE</version>
+            <version>1.5.0.RELEASE</version>
         </dependency>
-		<!-- cache redis -->
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-redis</artifactId>
-			<version>1.0.2.RELEASE</version>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.6.3</version>
 		</dependency>
+		
 		
 		<dependency>
 			<groupId>com.github.abel533</groupId>
@@ -283,12 +283,11 @@
 			<version>1.1.39</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>com.fasterxml.jackson.core</groupId> -->
-		<!-- <artifactId>jackson-databind</artifactId> -->
-		<!-- <version>${dep.jackson-databind.version}</version> -->
-		<!-- </dependency> -->
-
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${dep.jackson-databind.version}</version>
+		</dependency>
 
 		<!-- 为了引入json-lib -->
 		<!-- <dependency> -->
