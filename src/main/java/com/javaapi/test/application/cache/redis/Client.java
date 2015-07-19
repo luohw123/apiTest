@@ -12,6 +12,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+/**
+ * @author hncw
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")
 public class Client {
@@ -41,6 +45,9 @@ public class Client {
 	}
 	
 	// jdk ser
+	/**
+	 * jdk序列化/反序列化 只能搭配  jdk 反序列化/序列化使用
+	 */
 	@Test
 	public void testJdkSet() {
 		User value = new User();
@@ -48,24 +55,31 @@ public class Client {
 		value.setCreateTime(new Date());
 		redisTemplateJdk.opsForValue().set("nihaojdk", value);
 	}
+	/**
+	 * jdk序列化/反序列化 只能搭配  jdk 反序列化/序列化使用
+	 */
 	@Test
 	public void testJdkGet() {
 		 User user = redisTemplateJdk.opsForValue().get("nihaojdk");
 		 System.err.println(user);
-		 User userJackson = redisTemplateJdk.opsForValue().get("nihaoJackson");
+		 User userJackson = redisTemplateJdk.opsForValue().get("nihaojdk");
 		 System.err.println(userJackson);
 	}
 	// jackson ser
 	@Test
 	public void testJacksonSet() {
 		User value = new User();
-		value.setName("nihaoJackson");
+		value.setName("nihaoJackson1");
 		value.setCreateTime(new Date());
-		redisTemplateJackson.opsForValue().set("nihaoJackson", value);
+		redisTemplateJackson.opsForValue().set("nihaoJackson1", value);
 	}
+	
+	/**暂时通过自定义的类来解决 类型问题
+	 * http://blog.csdn.net/neosmith/article/details/46800235
+	 */
 	@Test
 	public void testJacksonGet() {
-		 User user = redisTemplateJackson.opsForValue().get("nihaoJackson");
+		 User user = redisTemplateJackson.opsForValue().get("nihaoJackson1");
 		 System.err.println(user);
 	}
 }
