@@ -23,6 +23,7 @@ public class Client {
 	@Qualifier("redisTemplate")
 	private StringRedisTemplate redisTemplate;
 	
+	
 	@Autowired
 	@Qualifier("redisTemplateJdk")
 	private RedisTemplate<Serializable,User>  redisTemplateJdk;  
