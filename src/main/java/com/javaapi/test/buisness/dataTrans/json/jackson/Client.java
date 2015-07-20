@@ -1,6 +1,9 @@
 package com.javaapi.test.buisness.dataTrans.json.jackson;
 
+import static org.junit.Assert.*;
+
 import java.util.Date;
+import java.util.HashMap;
 
 import org.junit.Test;
 
@@ -49,4 +52,13 @@ public class Client {
 		User readValue = objectMapper.readValue(writeValueAsBytes,0,writeValueAsBytes.length,TypeFactory.defaultInstance().constructType(java.lang.Object.class));
 		System.err.println(readValue);
 	}
+	
+	@Test
+	public void testJson() throws Exception {
+		ObjectMapper objectMapper =new  ObjectMapper();
+		HashMap<String,String> map = new HashMap<>();
+		map.put("key", "value");
+		String writeValueAsString = objectMapper.writeValueAsString(map);
+		System.out.println(writeValueAsString);
+	}	
 }

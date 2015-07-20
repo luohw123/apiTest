@@ -58,28 +58,10 @@
 		<property name="keySerializer" ref="stringRedisSerializer"></property>
 	</bean>
 	
-<!-- 	jackson序列化方式 -->
-
-    <bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
-<!--     127.0.0.1:6379> get "nihaoJackson" -->
-<!-- "{\"name\":\"nihaoJackson\",\"createTime\":1437226003491}" -->
-	<bean id="redisTemplateJackson" class="org.springframework.data.redis.core.RedisTemplate">
-    	<property name="connectionFactory" ref="jedisConnectionFactory"/>
-    	<property name="defaultSerializer">
-<!--     		<bean class="org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer"> -->
-<!-- 		    	<constructor-arg name="type" value="java.lang.Object"/> -->
-<!-- 		    	<property name="objectMapper" ref="objectMapper"/> -->
-<!-- 		    </bean> -->
-			<bean
-				class="com.javaapi.test.application.cache.redis.GenericJackson2JsonRedisSerializer">
-<!-- 				<constructor-arg name="type" value="java.lang.Object" /> -->
-<!-- 				<property name="objectMapper" ref="objectMapper" /> -->
-			</bean>
-    	</property>
-    	<property name="keySerializer" ref="stringRedisSerializer"/>
-    	<property name="enableDefaultSerializer" value="true"/>
-<!--     	<property name="enableTransactionSupport" value="true"/> -->
-    </bean>
+	    <bean id="stringRedisSerializer" class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
 	
+	
+<!-- 	<import resource="applicationContext-jackson.xml"/> -->
+	<import resource="applicationContext-jackson-ObjectMapper.xml"/>		
 	
 </beans>
