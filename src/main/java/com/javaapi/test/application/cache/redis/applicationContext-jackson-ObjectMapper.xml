@@ -14,6 +14,7 @@
        <!-- 	jackson序列化方式 -->
 	<bean id="objectMapper" class="com.javaapi.test.application.cache.redis.config.MappingJackson" >
 	<constructor-arg name="useDefault" value="false"></constructor-arg>
+	<constructor-arg ></constructor-arg>
 <!-- 		<property name="useDefault" value="false"></property> -->
 	</bean>
 <!-- 	这么配置不能把类实例放进去 -->

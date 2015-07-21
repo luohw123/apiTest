@@ -30,7 +30,7 @@ public class Client {
 	
 	@Autowired
 	@Qualifier("redisTemplateJackson")
-	private RedisTemplate<Serializable,User>  redisTemplateJackson;  
+	private RedisTemplate<String, Object>  redisTemplateJackson;  
 	
 	// string ser
 	@Test
@@ -71,7 +71,7 @@ public class Client {
 	public void testJacksonSet() {
 		User value = new User();
 		value.setName("nihaoJackson1");
-		value.setCreateTime(new Date());
+//		value.setCreateTime(new Date());
 		redisTemplateJackson.opsForValue().set("nihaoJackson1", value);
 	}
 	
@@ -80,7 +80,7 @@ public class Client {
 	 */
 	@Test
 	public void testJacksonGet() {
-		 User user = redisTemplateJackson.opsForValue().get("nihaoJackson1");
+		 User user = (User) redisTemplateJackson.opsForValue().get("nihaoJackson1");
 		 System.err.println(user);
 	}
 }
