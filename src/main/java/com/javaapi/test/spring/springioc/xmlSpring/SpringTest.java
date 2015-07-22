@@ -18,4 +18,14 @@ public class SpringTest {
 		School school=(School)app.getBean("school");
 		school.haveClass();//上课
 	}
+	
+	@Test
+	public void testConstruct() {
+		String path=SpringTest.class.getResource("").getPath();
+		String filename = path+"applicationContext-construct.xml";
+		ApplicationContext app=new FileSystemXmlApplicationContext("file:"+filename);
+		System.out.println(app);
+		Student school=(Student)app.getBean("student");
+		System.err.println(school.getAge());
+	}
 }
