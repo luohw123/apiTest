@@ -12,12 +12,12 @@
 	    http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.0.xsd
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
        <!-- 	jackson序列化方式 -->
-	<bean id="objectMapper" class="com.javaapi.test.application.cache.redis.config.MappingJackson" >
+	<bean id="objectMapper" class="com.javaapi.test.application.cache.redis.config.MappingJackson"  init-method="configInit">
 	<constructor-arg name="useDefault" value="false"></constructor-arg>
-	<constructor-arg ></constructor-arg>
+<!-- 	<constructor-arg ></constructor-arg> -->
 <!-- 		<property name="useDefault" value="false"></property> -->
 	</bean>
-<!-- 	这么配置不能把类实例放进去 -->
+<!-- 	这么配置类成员变量是Date得时候会有问题 -->
 	<bean id="redisTemplateJackson" class="org.springframework.data.redis.core.RedisTemplate">
 	    	<property name="connectionFactory" ref="jedisConnectionFactory"/>
 	    	<property name="defaultSerializer">

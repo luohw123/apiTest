@@ -53,7 +53,7 @@ public class Client {
 	public void testJdkSet() {
 		User value = new User();
 		value.setName("nihaojdk");
-		value.setCreateTime(new Date());
+//		value.setCreateTime(new Date());
 		redisTemplateJdk.opsForValue().set("nihaojdk", value);
 	}
 	/**
@@ -72,7 +72,7 @@ public class Client {
 		User value = new User();
 		value.setName("nihaoJackson1");
 //		value.setCreateTime(new Date());
-		redisTemplateJackson.opsForValue().set("nihaoJackson1", value);
+		redisTemplateJackson.opsForValue().set("nihaoJackson3", value);
 	}
 	
 	/**暂时通过自定义的类来解决 类型问题
@@ -80,7 +80,7 @@ public class Client {
 	 */
 	@Test
 	public void testJacksonGet() {
-		 User user = (User) redisTemplateJackson.opsForValue().get("nihaoJackson1");
+		 User user = (User) redisTemplateJackson.opsForValue().get("nihaoJackson3");
 		 System.err.println(user);
 	}
 }

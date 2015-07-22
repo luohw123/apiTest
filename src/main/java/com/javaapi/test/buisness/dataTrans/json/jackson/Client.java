@@ -42,7 +42,7 @@ public class Client {
 	public void testName() throws Exception {
 		User value = new User();
 		value.setName("nihaoJackson1");
-		value.setCreateTime(new Date());
+//		value.setCreateTime(new Date());
 		ObjectMapper objectMapper = new ObjectMapper();
 		byte[] writeValueAsBytes = objectMapper.writeValueAsBytes(value);
 //		objectMapper.writeValueAsString(value);
