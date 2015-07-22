@@ -3,7 +3,7 @@ package com.javaapi.test.spring.springioc.xmlSpring;
 
 public class TeacherImp implements WorkerI {
 	private String name;
-	private Student	student;
+	private Student 	student;
 	
 	public Student getStudent() {
 		return student;
