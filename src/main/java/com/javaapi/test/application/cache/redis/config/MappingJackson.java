@@ -15,6 +15,9 @@ public class MappingJackson extends ObjectMapper {
 	
 //public MappingJackson() {
 //	}
+//	public void init() {
+//		System.err.println("init");
+//	}
 
 	//	@PostConstruct
 	public void configInit() throws Exception {
