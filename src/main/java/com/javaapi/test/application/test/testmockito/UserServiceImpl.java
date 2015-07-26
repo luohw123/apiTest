@@ -6,8 +6,9 @@ public class UserServiceImpl implements UserService {
 	public User findUserByUserName(String string) {
 		return null;
 	}
-
+	@Override
 	public boolean hasMatchUser(String string, String string2) {
+		System.err.println("hasMatchUser method");
 		return false;
 	}
 

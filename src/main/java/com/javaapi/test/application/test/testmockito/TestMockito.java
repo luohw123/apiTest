@@ -14,6 +14,7 @@ import org.junit.Test;
  */
 public class TestMockito {
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void test(){
 		//mock creation
