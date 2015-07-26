@@ -12,9 +12,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+/**
+ * http://blog.csdn.net/fireofjava/article/details/8687128</br>
+ * http://www.cnblogs.com/alphablox/archive/2013/04/06/3002152.html</br>
+ * 另外一种注入mock方式,(可能是以前的实现方式,现在的实现方式是@InjectMocks,或者xml配置)http://lvyanglin.iteye.com/blog/1025956</br>
+ * 测试controller,除了@InjectMocks ,另外可以利用配置xml ,实现mock注入
+ * http://www.tuicool.com/articles/vmEb6jq</br>
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)  
 @ContextConfiguration("applicationContext.xml")  
-public class RouteServiceTestCase{  
+public class Client{  
    @InjectMocks  
    @Autowired  
    private IRouteService service;  
