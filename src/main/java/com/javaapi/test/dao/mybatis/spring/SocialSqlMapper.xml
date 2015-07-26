@@ -88,6 +88,17 @@
 	<select id="selectReturnMap" parameterType="map" resultType="map">
 		select * from tbl_b  
 	</select>
+	
+	<select id="selectForNotNull" parameterType="map" resultType="map">
+		<if test="id!=0">
+			select * from tbl_b limit 1
+		</if>
+	</select>
+	<update id="updateForNotNull">
+		<if test="id!=0">
+			update  tbl_b set id=1 where id=1
+		</if>
+	</update>
 <!-- 	if else -->
 	<sql id="onlyOne">
 		<choose>

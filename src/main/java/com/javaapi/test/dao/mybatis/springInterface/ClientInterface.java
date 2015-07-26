@@ -13,6 +13,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.javaapi.test.dao.mybatis.springInterface.domain.Bill;
 import com.javaapi.test.dao.mybatis.springInterface.mapper.BillMapper;
 import com.javaapi.test.dao.mybatis.springInterface.mapper.SocialMapper;
 
@@ -31,13 +32,15 @@ public class ClientInterface {
 		Assert.assertEquals(0, countUser);
 	}
 	/**
-	 * 测试对billid为数字类型时候,xml里有判断 billid!=null, 或者billid!='' 时候是否会报错.
-	 * 测试结果是会报错
+	 * 测试对billid为数字类型时候,xml里有判断 billid!=null, 或者billid!='' 时候是否会报错.</br>
+	 * 1 测试结果是会报错 </br>
+	 * 加上@Param就可以了</br>
 	 */
 	@Test
 	public void selectParam() {
-		 Map<String, String> selectBill = sqlSessionTemplate.getMapper(SocialMapper.class).selectBill(58l);
-		 System.err.println(selectBill);
+		long billid = 58l;
+		Map<String, String> selectBill = sqlSessionTemplate.getMapper(BillMapper.class).selectBill(billid);
+		System.err.println(selectBill);
 	}
 	/**
 	 * 测试对billid为数字类型时候,放入map,xml里判断 billid!=null, 或者billid!='' 时候是否会报错.
@@ -47,7 +50,14 @@ public class ClientInterface {
 	public void selectParamMap() {
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("billid", 58l);
-		Map<String, String> selectBill = sqlSessionTemplate.getMapper(SocialMapper.class).selectBillMap(map);
+		Map<String, String> selectBill = sqlSessionTemplate.getMapper(BillMapper.class).selectBillMap(map);
+		System.err.println(selectBill);
+	}
+	@Test
+	public void selectParamObject() {
+		Bill bill = new Bill();
+		bill.setBillid(58l);
+		Bill selectBill = sqlSessionTemplate.getMapper(BillMapper.class).selectBillObject(bill);
 		System.err.println(selectBill);
 	}
 	

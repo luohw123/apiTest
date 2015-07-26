@@ -34,6 +34,7 @@ destroy-method="close"
     <bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
             <property name="dataSource" ref="dataSource" />  
             <property name="configLocation" value="classpath:com/javaapi/test/dao/mybatis/springInterface/mybatis-config.xml" />  
+            <property name="typeAliasesPackage" value="com.javaapi.test.dao.mybatis.springInterface.domain,com.javaapi.test.dao.mybatis.springInterface.domain"></property>
 			<property name="mapperLocations" value="classpath*:com/javaapi/test/dao/mybatis/springInterface/*Mapper.xml" />
     </bean>
     	<!-- 这样配置后就可以将sql写进接口里，省去写xml了 -->

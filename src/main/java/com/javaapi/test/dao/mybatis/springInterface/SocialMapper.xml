@@ -28,22 +28,6 @@
     <select id="countUser" resultType="Integer">
     	select count(1) from csc_sns_dev.tbl_b;
     </select>
-    
-    <select id="selectBill" parameterType="java.lang.Long" resultType="java.util.Map" >
-    	select * from billdetail 
-    	<if test="billid !=null">
-	    	where billid=#{billid}
-    	</if>
-    	
-    </select>
-    
-     <select id="selectBillMap" parameterType="java.util.Map" resultType="java.util.Map" >
-    	select * from billdetail 
-    	<if test="billid !=null and billid !='' ">
-	    	where billid=#{billid}
-    	</if>
-    	
-    </select>
 </mapper> 
 
  

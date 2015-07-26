@@ -1,5 +1,7 @@
 package com.javaapi.test.dao.mybatis.spring;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -132,6 +134,23 @@ public class ClientSql {
 		List<Social> selectList = sqlSessionTemplate.selectList("testSqlNamespace.selectForeachMap", map);
 		System.out.println(selectList);
 	}
+	
+	@Test
+	public void testSelectForNotNull() throws Exception {
+		Map<String,Object> map = new HashMap<>();
+		map.put("id", 0);
+		List<Map<String,Object>> result = sqlSessionTemplate.selectList("testSqlNamespace.selectForNotNull", map);
+		System.err.println(result);
+	}
+	@Test
+	public void testUpdateForNotNull() throws Exception {
+		Map<String,Object> map = new HashMap<>();
+		map.put("id", 0);
+		List<Map<String,Object>> result = sqlSessionTemplate.selectList("testSqlNamespace.updateForNotNull", map);
+		System.err.println(result);
+	}
+	
+	
 	/**
 	 * 暂时没测好
 	 */
