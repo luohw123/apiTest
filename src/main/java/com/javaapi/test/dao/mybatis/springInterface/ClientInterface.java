@@ -35,6 +35,7 @@ public class ClientInterface {
 	 * 测试对billid为数字类型时候,xml里有判断 billid!=null, 或者billid!='' 时候是否会报错.</br>
 	 * 1 测试结果是会报错 </br>
 	 * 加上@Param就可以了</br>
+	 * 另外加上@Param参数后,xml里定义任何类型的parameterType都是没有用的
 	 */
 	@Test
 	public void selectParam() {
