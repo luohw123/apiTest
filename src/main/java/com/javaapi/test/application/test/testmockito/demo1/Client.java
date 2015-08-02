@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.javaapi.test.application.test.testmockito.demo1.po.RouteMatrix;
+
 /**
  * http://blog.csdn.net/fireofjava/article/details/8687128</br>
  * http://www.cnblogs.com/alphablox/archive/2013/04/06/3002152.html</br>
@@ -55,6 +57,6 @@ public class Client{
    public void testGetAirlineCode2() {  
        String code = this.service.getAirlineCode("HKG", "AMM", this.brand, this.cInfo, true);  
        Assert.assertNotNull(code);  
-       Assert.assertEquals("kkk", code);  
+       Assert.assertEquals("nihao", code);  
    }  
 }  
