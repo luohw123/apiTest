@@ -26,6 +26,14 @@ import java.util.Map;
 
 import org.junit.Test;
 
+/**http://blog.csdn.net/hanpompy/article/details/7622251
+ * http://www.cnblogs.com/zemliu/p/3186557.html
+ * http://kinglixing.blog.51cto.com/3421535/748879
+ * 
+ * 常见漫游匹配器,http://yangzb.iteye.com/blog/299478
+ * @author hncw
+ *
+ */
 public class Client {
 	@Test
 	public void test() throws Exception {
