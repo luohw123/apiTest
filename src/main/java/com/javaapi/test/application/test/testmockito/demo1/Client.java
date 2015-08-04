@@ -1,16 +1,21 @@
 package com.javaapi.test.application.test.testmockito.demo1;
 
+import static org.mockito.Mockito.when;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.javaapi.test.application.test.testmockito.demo1.po.RouteMatrix;
 
 /**
  * http://blog.csdn.net/fireofjava/article/details/8687128</br>
@@ -53,8 +58,11 @@ public class Client{
   
    @Test  
    public void testGetAirlineCode2() {  
+	   RouteMatrix value = new RouteMatrix();
+	   value.setAirlineCode("kk_airCode");
+	   when(provider.getRevenueRoute(Matchers.anyString(), Matchers.anyString(), Matchers.anyBoolean())).thenReturn(value);
        String code = this.service.getAirlineCode("HKG", "AMM", this.brand, this.cInfo, true);  
        Assert.assertNotNull(code);  
-       Assert.assertEquals("kkk", code);  
+       Assert.assertEquals("nihao", code);  
    }  
 }  
