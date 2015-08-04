@@ -1,5 +1,7 @@
 package com.javaapi.test.buisness.dataTrans.json.jsonpath;
 
+import static org.junit.Assert.*;
+
 import java.util.List;
 
 import net.minidev.json.JSONObject;
@@ -7,6 +9,8 @@ import net.minidev.json.JSONObject;
 import org.junit.Test;
 
 import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.spi.JsonProvider;
+import com.jayway.jsonpath.spi.impl.JacksonProvider;
 
 /**
  *                     
@@ -68,5 +72,12 @@ public class Client {
 	    JsonPath path = JsonPath.compile("$.store.book[*]");
 	    List<Object> books3 = path.read(jsonPath); 
 		System.err.println(books3);
+	}
+	
+	@Test
+	public void testTransferObject() throws Exception {
+		JsonPath.using(new JacksonProvider());
+		Book bookObject = JsonPath.read(json, "$.store.book[1]");
+		System.err.println(bookObject);
 	}
 }
