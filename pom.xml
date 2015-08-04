@@ -289,6 +289,23 @@
 			<version>${dep.jackson-databind.version}</version>
 		</dependency>
 
+	<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<version>0.9.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>asm</artifactId>
+					<groupId>net.minidev</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>asm</groupId> -->
+<!-- 			<artifactId>asm</artifactId> -->
+<!-- 			<version>3.3</version> -->
+<!-- 		</dependency> -->
+
 		<!-- 为了引入json-lib -->
 		<!-- <dependency> -->
 		<!-- <groupId>net.sf.json-lib</groupId> -->
