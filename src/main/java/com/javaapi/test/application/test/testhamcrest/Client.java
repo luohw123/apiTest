@@ -19,11 +19,13 @@ import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
 import org.junit.Test;
 
 /**http://blog.csdn.net/hanpompy/article/details/7622251
@@ -74,5 +76,29 @@ public class Client {
 		assertThat( map, hasEntry( "bjsxt", "bjsxt" ) );
 		assertThat( map, hasKey ( "bjsxt" ) );
 		assertThat( map, hasValue ( "bjsxt" ) );
+	}
+	@Test
+	public void test5() throws Exception {
+		assertThat("t", new Matcher<String>() {
+			@Override
+			public void describeTo(Description description) {
+				description.appendText("this is describeTo");
+			}
+			@Override
+			public boolean matches(Object item) {
+				System.err.println("match");
+				return true;
+			}
+			@Override
+			public void describeMismatch(Object item,
+					Description mismatchDescription) {
+				mismatchDescription.appendText("append describeMismatch method");
+			}
+			@Override
+			public void _dont_implement_Matcher___instead_extend_BaseMatcher_() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 }
