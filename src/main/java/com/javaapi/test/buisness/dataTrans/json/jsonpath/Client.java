@@ -2,6 +2,7 @@ package com.javaapi.test.buisness.dataTrans.json.jsonpath;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.minidev.json.JSONObject;
@@ -78,6 +79,22 @@ public class Client {
 	public void testTransferObject() throws Exception {
 		JsonPath.using(new JacksonProvider());
 		Book bookObject = JsonPath.read(json, "$.store.book[1]");
+		System.err.println(bookObject);
+	}
+	/**
+	 *不好用 -_-
+	 */
+	@Test
+	public void testTransferObject2() throws Exception {
+		List<Book> list = new ArrayList<>();
+		Book e = new Book();
+		e.setCategory("category1");
+		
+		Book e2 = new Book();
+		e2.setCategory("category2");
+		list.add(e);
+		list.add(e2);
+		List<String> bookObject = JsonPath.read(list, "$..category");
 		System.err.println(bookObject);
 	}
 }
