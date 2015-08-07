@@ -93,22 +93,32 @@ public class TestRegex {
 	    	System.err.println(matcher.group());
 	    };
 	}
-	/**测试分组
+	/**测试分组1
+	 * 对于统一匹配matcher,分组group(0)和group()始终是一样得</br>
+	 * 对于匹配器 m、输入序列 s 和组索引 g，表达式 m.group(g) 和 s.substring(m.start(g), m.end(g)) 是等效的。</br>
+
+组零表示整个模式，因此表达式 m.group(0) 等效于 m.group()。捕获组是从 1 开始从左到右的索引。 </br>
 	 * @throws Exception
 	 */
 	@Test
-	public void testFenZu() throws Exception {
-		String thisMatchName ="sa sa"; 
-		String regex = "^(\\w{2})\\s(\\1)$";
+	public void testFenZu1() throws Exception {
+		String thisMatchName ="sa aa"; 
+		String regex = "^(\\w{2})\\s";
 		Matcher matcher= Pattern.compile(regex).matcher(thisMatchName);
 		System.err.println(matcher.find());
 		System.err.println(matcher.groupCount());
 		System.err.println(matcher.group());
 		System.err.println(matcher.group(0));
 		System.err.println(matcher.group(1));
-		System.err.println(matcher.group(2));
 	}
 	/**测试分组2
+	 * public int groupCount() </br>
+
+    返回此匹配器模式中的捕获组数。</br>
+
+    根据惯例，零组表示整个模式。它不包括在此计数中。</br>
+
+    任何小于等于此方法返回值的非负整数保证是此匹配器的有效组索引。 </br>
 	 * @throws Exception
 	 */
 	@Test
@@ -120,22 +130,25 @@ public class TestRegex {
 		System.err.println(matcher.groupCount());
 		System.err.println(matcher.group());
 		System.err.println(matcher.group(0));
+		System.err.println(matcher.group().equals(matcher.group(0)));
 		System.err.println(matcher.group(1));
 		System.err.println(matcher.group(2));
 	}
-	/**测试分组3
+	/**测试分组3</br>
+	 * 
 	 * @throws Exception
 	 */
 	@Test
 	public void testFenZu3() throws Exception {
-		String thisMatchName ="sa aa"; 
-		String regex = "^(\\w{2})\\s";
+		String thisMatchName ="sa sa"; 
+		String regex = "^(\\w{2})\\s(\\1)$";
 		Matcher matcher= Pattern.compile(regex).matcher(thisMatchName);
 		System.err.println(matcher.find());
 		System.err.println(matcher.groupCount());
 		System.err.println(matcher.group());
 		System.err.println(matcher.group(0));
 		System.err.println(matcher.group(1));
+		System.err.println(matcher.group(2));
 	}
 	/**
 	 *	Pattern.split(CharSequence input)
@@ -189,10 +202,11 @@ public class TestRegex {
 	public void test_find_start_end_group() throws Exception {
 		Pattern p=Pattern.compile("\\d+"); 
 		Matcher m=p.matcher("aaa2223bb"); 
+		System.err.println(m.groupCount());
 		m.find();//匹配2223 
 		m.start();//返回3 
 		m.end();//返回7,返回的是2223后的索引号 
-		m.group();//返回2223 
+		System.err.println(m.group());//返回2223 
 	}
 	@Test
 	public void test_lookingat_start_end_group() throws Exception {
