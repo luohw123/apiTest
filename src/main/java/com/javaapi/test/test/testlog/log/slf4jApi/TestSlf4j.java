@@ -16,12 +16,11 @@ public class TestSlf4j {
 		logger.info("this is log4j style");
 		logger.info("test replace in {}", "log4j");
 	}
-	
 	/**
 	 * 异常不在占位符中,无论多少个占位符号都可以打印完整堆栈
 	 */
 	@Test
-	public void testSlf4jException() {
+	public void testSlf4jException0() {
 		logger.info("test replace in {}","exception", new RuntimeException("sss"));
 	}
 	/**

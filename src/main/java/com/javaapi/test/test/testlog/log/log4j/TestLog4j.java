@@ -16,7 +16,8 @@ public class TestLog4j {
 	}
 	
 	/**
-	 * 异常不在占位符中,无论多少个占位符都会打印堆栈
+	 * 异常不在占位符中,无论多少个占位符都会打印堆栈</br>
+	 * 记住，别把异常放进占位符号里就可以打印完整堆栈
 	 */
 	@Test
 	public void testSlf4jException() {
