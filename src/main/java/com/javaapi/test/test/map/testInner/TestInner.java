@@ -10,6 +10,11 @@ import java.util.List;
 public class TestInner {
 	public static void main(String[] args) {
 		List<String> list = new ArrayList<String>() {
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
 			{
 				add("hello");
 				add("world");

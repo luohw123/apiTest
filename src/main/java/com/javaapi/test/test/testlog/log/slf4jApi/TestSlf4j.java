@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * SLF4J 1.6.0　以前的版本 ,如果msg含有变量，一般用String.format方法格式化msg.</br>
+ * 记住，别把异常放进占位符号里就可以打印完整堆栈</br>
  */
 public class TestSlf4j {
 	private static transient Logger	logger	= LoggerFactory
