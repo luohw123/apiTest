@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Book implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private String category;
 	private String author;
 	private String title;
@@ -41,10 +42,21 @@ public class Book implements Serializable {
 		this.price = price;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Book [category=");
+		builder.append("Book [id=");
+		builder.append(id);
+		builder.append(", category=");
 		builder.append(category);
 		builder.append(", author=");
 		builder.append(author);
@@ -55,5 +67,6 @@ public class Book implements Serializable {
 		builder.append("]");
 		return builder.toString();
 	}
+
 
 }

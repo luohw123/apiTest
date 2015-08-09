@@ -66,14 +66,26 @@ public class Client {
 	}
     @Test  
     public void convert_list_to_map_with_guava () {  
+        List<Movie> movies = Lists.newArrayList();  
+        movies.add(new Movie(1, "The Shawshank Redemption"));  
+        movies.add(new Movie(2, "The Godfather"));
+        movies.add(new Movie(3, "The Godfather22"));  
+        Map<Integer,Movie> mappedMovies = Maps.uniqueIndex(movies, new Function <Movie,Integer> () {  
+              public Integer apply(Movie from) {  
+                return from.getRank();   
+        }});  
+        System.err.println(mappedMovies);
+        assertTrue(mappedMovies.size() == movies.size());  
+        assertEquals("The Shawshank Redemption", mappedMovies.get(1).getDescription());  
+    }  
+    @Test  
+    public void convert_list_to_map_with_guava2 () {  
       
          
         List<Movie> movies = Lists.newArrayList();  
         movies.add(new Movie(1, "The Shawshank Redemption"));  
         movies.add(new Movie(2, "The Godfather"));
         movies.add(new Movie(2, "The Godfather22"));  
-          
-         
         Map<Integer,Movie> mappedMovies = Maps.uniqueIndex(movies, new Function <Movie,Integer> () {  
               public Integer apply(Movie from) {  
                 return from.getRank();   
@@ -82,22 +94,4 @@ public class Client {
         assertTrue(mappedMovies.size() == 2);  
         assertEquals("The Shawshank Redemption", mappedMovies.get(1).getDescription());  
     }  
-//    @Test  
-//    public void convert_list_to_map_with_guava2 () {  
-//      
-//         
-//        List<Movie> movies = Lists.newArrayList();  
-//        movies.add(new Movie(1, "The Shawshank Redemption"));  
-//        movies.add(new Movie(2, "The Godfather"));
-//        movies.add(new Movie(2, "The Godfather22"));  
-//        Maps.
-//         
-//        Map<Integer,Movie> mappedMovies = Maps.(movies, new Function <Movie,Integer> () {  
-//              public Integer apply(Movie from) {  
-//                return from.getRank();   
-//        }});  
-//        System.err.println(mappedMovies);
-//        assertTrue(mappedMovies.size() == 2);  
-//        assertEquals("The Shawshank Redemption", mappedMovies.get(1).getDescription());  
-//    }  
 }

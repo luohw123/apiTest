@@ -3,19 +3,24 @@ package com.javaapi.test.test.map.collectionutil;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Transformer;
-import org.apache.commons.collections4.TransformerUtils;
 import org.junit.Test;
+
+import com.google.common.base.Function;
+import com.google.common.collect.Maps;
 
 /**
  * http://www.ylzx8.cn/zonghe/open-source/248952.html</br>
+ * 收集属性
  *
  */
 public class Client {
+	/**
+	 *  获取List<Person> 里的 id 得list
+	 */
 	@Test
 	public void testName() throws Exception {
 		List<Book> list = new ArrayList<>();
@@ -34,5 +39,4 @@ public class Client {
 		}, category);
 		System.err.println(category);
 	}
-
 }
