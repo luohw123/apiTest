@@ -1,14 +1,10 @@
 package com.javaapi.test.test.testType.String.testString.toolString;
 
-import static org.junit.Assert.*;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 import org.junit.Test;
-import org.springframework.util.AntPathMatcher;
-import org.springframework.util.PatternMatchUtils;
 
 public class StringUtil {
     @Test
@@ -126,33 +122,6 @@ public class StringUtil {
             System.out.println(string2);
         }
     }
-    @Test
-    public void testAntMatcher(){
-        AntPathMatcher antPathMatcher = new AntPathMatcher();
-        String pattern = "/*/*pigeon=1";
-        String pattern2 = "/*?*pigeon=1";
-        String pattern3 = "/*?**pigeon=1";
-        String pattern4 = "/**pigeon=1";
-        String pattern5 = "/**/*.do*pigeon=1";
-        String path = "/pigeon/manager.do?version=1.0&pigeon=1";
-        boolean match = antPathMatcher.match(pattern, path);
-        boolean match2 = antPathMatcher.match(pattern2, path);
-        boolean match3 = antPathMatcher.match(pattern3, path);
-        boolean match4 = antPathMatcher.match(pattern4, path);
-        boolean match5 = antPathMatcher.match(pattern5, path);
-        System.out.println(match);
-        System.out.println(match2);
-        System.out.println(match3);
-        System.out.println(match4);
-        System.out.println(match5);
-    }
-    @Test
-	public void testPatternMatchUtils() throws Exception {
-    	String mappedName = "get*";
-		String methodName = "getBill";
-		boolean simpleMatch = PatternMatchUtils.simpleMatch(mappedName, methodName);
-		System.out.println(simpleMatch);
-	}
     @Test
     public void test() {
     	String string = ",123,123";

@@ -32,5 +32,5 @@
 	<bean id="taskJobXml" class="com.javaapi.test.spring.zotherFeature.propertyplaceholder.TaskJobXml" >
 		<property name="taskName" value="${nihao}"/>
 	</bean>
-	<context:property-placeholder location="classpath:com\\javaapi\\test\\spring\\zotherFeature\\propertyplaceholder\\config.properties"  file-encoding="UTF-8" ignore-resource-not-found="true" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:com\\javaapi\\test\\spring\\zotherFeature\\propertyplaceholder\\config.properties"  file-encoding="UTF-8" ignore-resource-not-found="true" ignore-unresolvable="true" />
 </beans>
