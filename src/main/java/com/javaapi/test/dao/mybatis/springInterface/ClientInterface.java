@@ -57,7 +57,7 @@ public class ClientInterface {
 	@Test
 	public void selectParamObject() {
 		Bill bill = new Bill();
-		bill.setBillid(58l);
+		bill.setBillid(9l);
 		Bill selectBill = sqlSessionTemplate.getMapper(BillMapper.class).selectBillObject(bill);
 		System.err.println(selectBill);
 	}
@@ -65,6 +65,6 @@ public class ClientInterface {
 	@Test
 	public void selectBillAll() {
 		List<Map<String, String>> countUser = sqlSessionTemplate.getMapper(BillMapper.class).selectAll();
-		System.err.println(countUser);
+//		System.err.println(countUser);
 	}
 }

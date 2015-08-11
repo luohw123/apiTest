@@ -61,7 +61,8 @@
     <logger name="java.sql.PreparedStatement" level="DEBUG" />
 	<logger name="java.sql.ResultSet" level="DEBUG" />
 	
-	<logger name="com.javaapi.test.dao.mybatis" level="DEBUG" />
+<!-- 	com.javaapi.test.dao  自己得dao层设置为Trace级别就能让mybatis打印所有返回值 -->
+	<logger name="com.javaapi.test.dao" level="ALL" />
 	<logger name="org.apache.ibatis" level="trace" />
 	
 	
