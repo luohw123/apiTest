@@ -1,4 +1,4 @@
-package com.javaapi.test.test.testlog.log.log4j;
+package com.javaapi.test.application.log.log.log4j;
 
 
 /**

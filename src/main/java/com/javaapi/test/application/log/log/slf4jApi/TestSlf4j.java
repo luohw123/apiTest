@@ -1,4 +1,4 @@
-package com.javaapi.test.test.testlog.log.slf4jApi;
+package com.javaapi.test.application.log.log.slf4jApi;
 
 import org.junit.Test;
 import org.slf4j.Logger;

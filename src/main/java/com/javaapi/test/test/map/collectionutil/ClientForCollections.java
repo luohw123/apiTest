@@ -65,11 +65,11 @@ public class ClientForCollections {
 //		}
 	}
 //    @SuppressWarnings("rawtypes")
-//	public static Collection collect(Collection collection, String propertyName) {  
+//	public static  Collection collecttmp(Collection collection, String propertyName) {  
 //        return CollectionUtils.collect(collection, new BeanToPropertyValueTransformer(propertyName));  
 //    }  
    	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static <T> Collection<T> collect(Collection collection, String propertyName) {  
-           return (Collection<T>)CollectionUtils.collect(collection, new BeanToPropertyValueTransformer(propertyName));  
+           return CollectionUtils.collect(collection, new BeanToPropertyValueTransformer(propertyName));  
        }  
 }
