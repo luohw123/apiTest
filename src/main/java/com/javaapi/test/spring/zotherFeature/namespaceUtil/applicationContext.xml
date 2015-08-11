@@ -11,22 +11,7 @@
 	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 	    http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.0.xsd
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>file:${appHome}/config.properties</value>
-			</list>
-		</property>
-		<property name="ignoreResourceNotFound" value="true" />
-		<property name="ignoreUnresolvablePlaceholders" value="true" />
-		<property name="properties">
-			<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-				<property name="locations">
-					<list>
-						<value>classpath:config.properties</value>
-					</list>
-				</property>
-			</bean>
-		</property>
-	</bean>
+       
+       		<util:properties id="selfPro" location="classpath:com/javaapi/test/spring/zotherFeature/propertyplaceholder/config.properties" ></util:properties>
+       		
 </beans>

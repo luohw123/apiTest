@@ -11,25 +11,26 @@
 	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 	    http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.0.xsd
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd" default-lazy-init="true">
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>file:${appHome}/config.properties</value>
-			</list>
-		</property>
-		<property name="ignoreResourceNotFound" value="true" />
-		<property name="ignoreUnresolvablePlaceholders" value="true" />
-		<property name="properties">
-			<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-				<property name="locations">
-					<list>
-						<value>classpath:com\\javaapi\\test\\spring\\zotherFeature\\propertyplaceholder\\config.properties</value>
-					</list>
-				</property>
-			</bean>
-		</property>
-	</bean>
-		<bean id="taskJobXml" class="com.javaapi.test.spring.zotherFeature.propertyplaceholder.TaskJobXml" >
+<!-- 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+<!-- 		<property name="locations"> -->
+<!-- 			<list> -->
+<!-- 				<value>file:${appHome}/config.properties</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 		<property name="ignoreResourceNotFound" value="true" /> -->
+<!-- 		<property name="ignoreUnresolvablePlaceholders" value="true" /> -->
+<!-- 		<property name="properties"> -->
+<!-- 			<bean class="org.springframework.beans.factory.config.PropertiesFactoryBean"> -->
+<!-- 				<property name="locations"> -->
+<!-- 					<list> -->
+<!-- 						<value>classpath:com\\javaapi\\test\\spring\\zotherFeature\\propertyplaceholder\\config.properties</value> -->
+<!-- 					</list> -->
+<!-- 				</property> -->
+<!-- 			</bean> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<bean id="taskJobXml" class="com.javaapi.test.spring.zotherFeature.propertyplaceholder.TaskJobXml" >
 		<property name="taskName" value="${nihao}"/>
-		</bean>
+	</bean>
+	<context:property-placeholder location="classpath:com\\javaapi\\test\\spring\\zotherFeature\\propertyplaceholder\\config.properties"  file-encoding="UTF-8" ignore-resource-not-found="true" ignore-unresolvable="true"/>
 </beans>
