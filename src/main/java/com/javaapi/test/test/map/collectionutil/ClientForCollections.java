@@ -56,10 +56,20 @@ public class ClientForCollections {
 		list.add(book);
 		list.add(book2);
 		Collection<Integer> collect = collect(list, "id");
+		Collection<String> collectString = collect(list, "id");
 		System.err.println(collect);
+		System.err.println(collectString);// 不会报错
+		//当解开的时候,会强制转换,所以会报错
+//		for (String string : collectString) {
+//			System.err.println(string);
+//		}
 	}
-    @SuppressWarnings("rawtypes")
-	public static Collection collect(Collection collection, String propertyName) {  
-        return CollectionUtils.collect(collection, new BeanToPropertyValueTransformer(propertyName));  
-    }  
+//    @SuppressWarnings("rawtypes")
+//	public static Collection collect(Collection collection, String propertyName) {  
+//        return CollectionUtils.collect(collection, new BeanToPropertyValueTransformer(propertyName));  
+//    }  
+   	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public static <T> Collection<T> collect(Collection collection, String propertyName) {  
+           return (Collection<T>)CollectionUtils.collect(collection, new BeanToPropertyValueTransformer(propertyName));  
+       }  
 }
