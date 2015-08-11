@@ -1,11 +1,9 @@
-package com.javaapi.test.application.test.testsuite;
+package com.javaapi.test.application.test.testmockito;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.javaapi.test.application.test.testmockito.MockitoSampleTest;
-import com.javaapi.test.application.test.testmockito.TestMockito;
 import com.javaapi.test.spring.springioc.annotationSpring.Client;
 
 /**
