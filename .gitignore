@@ -6,10 +6,9 @@
 .classpath
 .project
 .settings/
-/target
 /logContentFile.log
 /.gitignore
 
 #idea
-/.idea/*
-/JavaApiSample.iml
+.idea/
+*.iml
