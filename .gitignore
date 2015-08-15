@@ -1,3 +1,4 @@
+#eclipse
 /target/
 /bin/
 /log/
@@ -8,3 +9,7 @@
 /target
 /logContentFile.log
 /.gitignore
+
+#idea
+/.idea/*
+/JavaApiSample.iml
