@@ -2,9 +2,11 @@ package com.javaapi.test.test.testJavaFeature.Version_1_8.streams;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.DoubleSupplier;
 import java.util.function.Predicate;
 
 import static java.util.stream.Collectors.*;
@@ -12,6 +14,11 @@ import static java.util.stream.Collectors.*;
 /**
  * java8 lambda 初探
  * http://blog.csdn.net/renfufei/article/details/24600507</br>
+ * Lambda表达式的语法
+ 基本语法:
+ (parameters) -> expression
+ 或
+ (parameters) ->{ statements; }
  */
 public class Client {
 
@@ -191,6 +198,13 @@ public class Client {
         System.out.println("List中最小的数字 : " + stats.getMin());
         System.out.println("所有数字的总和   : " + stats.getSum());
         System.out.println("所有数字的平均值 : " + stats.getAverage());
+    }
+    /** 验证 **/
+    @Test
+    public void testLambda(){
+        DoubleSupplier doubleSupplier = () -> 5;
+        double asDouble = doubleSupplier.getAsDouble();
+        System.out.println(asDouble);
     }
 
 }
