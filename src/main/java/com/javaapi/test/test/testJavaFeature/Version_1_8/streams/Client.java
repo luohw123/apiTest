@@ -1,5 +1,6 @@
 package com.javaapi.test.test.testJavaFeature.Version_1_8.streams;
 
+import org.apache.poi.ss.formula.functions.T;
 import org.junit.Before;
 import org.junit.Test;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
@@ -14,11 +15,13 @@ import static java.util.stream.Collectors.*;
 /**
  * java8 lambda 初探
  * http://blog.csdn.net/renfufei/article/details/24600507</br>
+ *<p> 虽然看着很先进，其实Lambda表达式的本质只是一个"语法糖",由编译器推断并帮你转换包装为常规的代码,因此你可以使用更少的代码来实现同样的功能。本人建议不要乱用,因为这就和某些很高级的黑客写的代码一样,简洁,难懂,难以调试,维护人员想骂娘</p>
  * Lambda表达式的语法
  基本语法:
  (parameters) -> expression
  或
- (parameters) ->{ statements; }
+ (parameters) ->{ statements; }</br>
+ <p>总的来说,lambda表达式和 stream 是自Java语言添加泛型(Generics)和注解(annotation)以来最大的变化</p>
  */
 public class Client {
 

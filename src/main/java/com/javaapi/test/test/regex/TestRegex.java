@@ -17,22 +17,22 @@ public class TestRegex {
 	 */
 	@Test
 	public void testName0() throws Exception {
-		String thisMatchName ="food"; 
+		String thisMatchName = "food";
 		String regex = "oo";
-		Matcher matcher= Pattern.compile(regex).matcher(thisMatchName);
+		Matcher matcher = Pattern.compile(regex).matcher(thisMatchName);
 		System.err.println(matcher.find());
 		System.err.println(matcher.groupCount());
 		System.err.println(matcher.group());
 		System.err.println(matcher.group(0));
 	}
-	
+
 	/**
-	 * 测试 {}重复次数 
-	 * 
+	 * 测试 {}重复次数
+	 *
 	 */
 	@Test
 	public void test1() throws Exception {
-		String thisMatchName ="food"; 
+		String thisMatchName ="food";
 		String regex = "o{1,}";
 		Matcher matcher= Pattern.compile(regex).matcher(thisMatchName);
 		System.err.println(matcher.find());
@@ -40,14 +40,14 @@ public class TestRegex {
 		System.err.println(matcher.group());
 		System.err.println(matcher.group(0));
 	}
-	
+
 	/**
 	 * 测试 []用法 ,包含[]里的字符就匹配</br>
 	 * [^1,3] 匹配除了1和3
 	 */
 	@Test
 	public void test2() throws Exception {
-		String thisMatchName ="food"; 
+		String thisMatchName ="food";
 		String regex = "[f,o,d]";
 		Matcher matcher= Pattern.compile(regex).matcher(thisMatchName);
 		System.err.println(matcher.find());
