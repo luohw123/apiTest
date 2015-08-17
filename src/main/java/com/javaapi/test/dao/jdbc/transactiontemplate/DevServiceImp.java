@@ -11,10 +11,6 @@ public class DevServiceImp implements DevServiceI {
 
 	@Autowired
 	SnsUserDevDaoI	devDaoI;
-	@Autowired
-	SnsMemberDevDaoI			snsDevDaoI;
-	@Autowired
-	TransactionTemplate	transactionTemplate;
 	@Override
 	public int update() {
 		Integer result = transactionTemplate
@@ -50,5 +46,9 @@ public class DevServiceImp implements DevServiceI {
 				});
 		return result;
 	}
+	@Autowired
+	SnsMemberDevDaoI			snsDevDaoI;
+	@Autowired
+	TransactionTemplate	transactionTemplate;
 
 }

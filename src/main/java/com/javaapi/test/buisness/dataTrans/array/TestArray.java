@@ -8,21 +8,21 @@ import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
 /**
- * http://www.cnblogs.com/chenssy/p/3466092.html 
+ * http://www.cnblogs.com/chenssy/p/3466092.html
  *不错
  *  所以在性能要求较高的场景中请优先考虑数组。</br>
  *  java 中把数组也当做对象来用
  */
 public class TestArray {
 
-	
+
 	@Test
 	public void test() {
 		int[] a = new int[5];
 		System.out.println(a.toString());
 		System.out.println(Arrays.toString(a));
 	}
-	
+
 	/**
 	 * System.arraycopy 不会有任何附加功能.所以有可能产生越界等异常
 	 */
@@ -84,6 +84,6 @@ public class TestArray {
             }
         });
         System.out.println(StringUtils.join(raceNoArr, ","));
-        
+
     }
 }
