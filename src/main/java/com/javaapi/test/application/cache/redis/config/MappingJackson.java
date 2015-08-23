@@ -3,7 +3,6 @@ package com.javaapi.test.application.cache.redis.config;
 import javax.annotation.PostConstruct;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MappingJackson extends ObjectMapper {
@@ -14,11 +13,6 @@ public class MappingJackson extends ObjectMapper {
 		this.useDefault = useDefault;
 	}
 	
-//public MappingJackson() {
-//	}
-//	public void init() {
-//		System.err.println("init");
-//	}
 
 	@PostConstruct
 	public void afterPropertiesSet() throws Exception {
