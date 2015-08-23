@@ -15,7 +15,6 @@ import java.util.*;
 /**
  * java8 lambda 初探
  * http://blog.csdn.net/renfufei/article/details/24600507</br>
- *<p> 虽然看着很先进，其实Lambda表达式的本质只是一个"语法糖",由编译器推断并帮你转换包装为常规的代码,因此你可以使用更少的代码来实现同样的功能。本人建议不要乱用,因为这就和某些很高级的黑客写的代码一样,简洁,难懂,难以调试,维护人员想骂娘</p>
  * Lambda表达式的语法
  基本语法:
  (parameters) -> expression

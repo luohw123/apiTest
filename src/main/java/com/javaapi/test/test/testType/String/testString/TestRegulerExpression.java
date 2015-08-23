@@ -62,4 +62,12 @@ public class TestRegulerExpression {
 		System.out.println(matcher.group(1));
 		System.out.println(find);
 	}
+
+    @Test
+    public void testStringFormat() throws Exception {
+        String format = "contentToChannel%s";
+        Integer number = 11;
+        String format1 = String.format(format, number);
+        System.out.println("format1 = " + format1);
+    }
 }
