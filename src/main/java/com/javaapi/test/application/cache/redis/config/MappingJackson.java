@@ -16,6 +16,7 @@ public class MappingJackson extends ObjectMapper {
 
 	@PostConstruct
 	public void afterPropertiesSet() throws Exception {
+		System.out.println("commit2");
 		if(!useDefault) {
 			JacksonConfig.globalConfig(this);
 			this.enableDefaultTyping(DefaultTyping.NON_FINAL,As.WRAPPER_OBJECT);
