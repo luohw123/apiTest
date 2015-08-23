@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.util.Date;
 import java.util.HashMap;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.javaapi.test.application.cache.redis.config.JacksonConfig;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.JavaType;
@@ -37,18 +39,20 @@ public class Client {
 //			throw new SerializationException("Could not write JSON: " + ex.getMessage(), ex);
 //		}
 //	}
-	
+	// TODO 如此皮遏制必须设置createTime ，不设置createTime 反序列化会失败
 	@Test
 	public void testName() throws Exception {
+
 		User value = new User();
 		value.setName("nihaoJackson1");
-//		value.setCreateTime(new Date());
+		value.setCreateTime(new Date());
+        //
 		ObjectMapper objectMapper = new ObjectMapper();
+        JacksonConfig.globalConfig(objectMapper);
+        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_OBJECT);
 		byte[] writeValueAsBytes = objectMapper.writeValueAsBytes(value);
-//		objectMapper.writeValueAsString(value);
-		
-		System.err.println(writeValueAsBytes);
-		
+        //
+		System.err.println(new String(writeValueAsBytes));
 		User readValue = objectMapper.readValue(writeValueAsBytes,0,writeValueAsBytes.length,TypeFactory.defaultInstance().constructType(java.lang.Object.class));
 		System.err.println(readValue);
 	}
