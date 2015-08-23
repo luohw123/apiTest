@@ -3,6 +3,9 @@ package com.javaapi.test.test.testType.Number;
 import org.apache.commons.lang.math.NumberUtils;
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestNumber {
 
     /**
@@ -60,5 +63,21 @@ public class TestNumber {
         NumberUtils.isNumber("5.96");//结果是true
         NumberUtils.isNumber("s5");//结果是false
         NumberUtils.isNumber("0000000000596");//结果是true
+    }
+
+    @Test
+    public void testFloatToInt() throws Exception {
+        String s = "1.1";
+        Float v = Float.parseFloat(s);
+        int i = v.intValue();
+        System.out.println("i = " + i);
+    }
+
+    @Test
+    public void testInt() throws Exception {
+        Map<String,Object> map = new HashMap<>();
+        Float viewMod = 1.2f;
+//        Integer.valueOf(map.get("views")*(viewMod));
+
     }
 }
