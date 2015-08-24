@@ -18,7 +18,6 @@ public class ClientOuterReadInner {
 		System.out.println(outer.getName());
 		ClientInnerPrivate inner = new ClientInnerPrivate();
 		System.out.println(inner.getName());
-		System.out.println(outer == inner);
 	}
 
 	@Test
@@ -96,4 +95,25 @@ public class ClientOuterReadInner {
 		}
 
 	}
+    public static class ClientStaticInnerPublic {
+        private String	name;
+        private String	age;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getAge() {
+            return age;
+        }
+
+        public void setAge(String age) {
+            this.age = age;
+        }
+
+    }
 }

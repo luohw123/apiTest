@@ -20,7 +20,7 @@ public class ClientInnerReadOuter {
 	}
 
 	public class ClientInner {
-		// private static String innername; compile error!
+//		 private static String innername; compile error!
 		public void testReadOuterProperty(String[] args) {
 			System.out.println(instanceage);
 			System.out.println(instancename);
