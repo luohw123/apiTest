@@ -1,16 +1,12 @@
 package com.javaapi.test.application.cache.redis;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import java.io.Serializable;
 import java.util.Date;
 
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
-    private Date  createTime;
+	private Date  createTime;
 	public String getName() {
 		return name;
 	}

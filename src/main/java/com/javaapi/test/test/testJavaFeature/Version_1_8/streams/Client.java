@@ -6,11 +6,11 @@ import org.junit.Test;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.DoubleSupplier;
-import java.util.function.Predicate;
-
-import static java.util.stream.Collectors.*;
+//import java.util.function.Consumer;
+//import java.util.function.DoubleSupplier;
+//import java.util.function.Predicate;
+//
+//import static java.util.stream.Collectors.*;
 
 /**
  * java8 lambda 初探
