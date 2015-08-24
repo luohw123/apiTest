@@ -48,6 +48,7 @@ public class TestSharding {
      */
     @Before
     public void init() {
+
         initialPool();
         initialShardedPool();
         shardedJedis = shardedJedisPool.getResource();
