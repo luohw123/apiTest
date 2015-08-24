@@ -35,7 +35,7 @@ public class FastJsonSerializeUtil {
         }
     }
 
-    public static Object unserialize(byte[] bytes, Class<Person> personClass) {
+    public static <T> Object deserialize(byte[] bytes, Class<T> personClass) {
         Object parse = JSON.parseObject(bytes, personClass);
         return parse;
     }

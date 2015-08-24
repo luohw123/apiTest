@@ -7,12 +7,9 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.io.Serializable;
 import java.util.Date;
 
-@JsonTypeInfo(use= JsonTypeInfo.Id.CLASS, include= JsonTypeInfo.As.PROPERTY, property="class")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
-//    @JsonSerialize(as=Date.class)
-//    @JsonDeserialize(as = Date.class,contentAs = Date.class)
     private Date  createTime;
 	public String getName() {
 		return name;

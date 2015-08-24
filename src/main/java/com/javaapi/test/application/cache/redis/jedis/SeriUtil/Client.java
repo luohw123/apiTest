@@ -1,7 +1,5 @@
 package com.javaapi.test.application.cache.redis.jedis.SeriUtil;
 
-import com.alibaba.fastjson.JSON;
-import com.javaapi.test.application.cache.redis.jedis.RedisUtil;
 import org.junit.Before;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
@@ -36,7 +34,7 @@ public class Client {
         }
         byte[] bytes = jedis.get("jdkser".getBytes());
         Person unserialize = (Person) SerializeUtil.unserialize(bytes);
-        System.out.println("unserialize = " + unserialize);
+        System.out.println("deserialize = " + unserialize);
     }
 
     @Test
@@ -49,8 +47,8 @@ public class Client {
     @Test
     public void testFastJsonDser() throws Exception {
         byte[] bytes = jedis.get("fastjson".getBytes());
-        Person unserialize = (Person) FastJsonSerializeUtil.unserialize(bytes,Person.class);
-        System.out.println("unserialize = " + unserialize);
+        Person unserialize = (Person) FastJsonSerializeUtil.deserialize(bytes, Person.class);
+        System.out.println("deserialize = " + unserialize);
 
     }
 }

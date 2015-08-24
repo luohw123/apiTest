@@ -26,8 +26,8 @@ public class LuncherConsumer  {
 		String [] names=context.getBeanDefinitionNames();
 		System.out.print("Beans:");
 		for (String string : names) {
-			System.out.print(string);
-			System.out.print(",");
+			System.out.println(string);
+			System.out.println(",");
 		}
 		System.out.println();
 		

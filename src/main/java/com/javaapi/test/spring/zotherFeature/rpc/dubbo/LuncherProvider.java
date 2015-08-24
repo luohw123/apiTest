@@ -16,8 +16,10 @@ public class LuncherProvider  {
         ApplicationContext context = new FileSystemXmlApplicationContext("file:" + configLocation);
 		String [] names=context.getBeanDefinitionNames();
 		System.out.print("Beans:");
-		for (String string : names)
-			System.out.print(string+",");
+		for (String string : names){
+            System.out.println(string);
+            System.out.println(",");
+        }
         System.out.println("=============end===========");
 	}
 }
