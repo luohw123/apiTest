@@ -1,11 +1,18 @@
 package com.javaapi.test.testUtil.apache.commonsLang;
 
+import com.google.common.base.Objects;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import java.util.List;
+
 /**
  * Created by user on 15/8/16.
  */
 public class Person {
     private String name;
     private String age;
+    private List<Person> list ;
 
     public String getName() {
         return name;
@@ -21,5 +28,34 @@ public class Person {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public List<Person> getList() {
+        return list;
+    }
+
+    public void setList(List<Person> list) {
+        this.list = list;
+    }
+//    @Override
+//    public String toString() {
+//        return new ToStringBuilder(this)
+//                .append("name", name)
+//                .append("age", age)
+//                .toString();
+//    }
+
+//    @Override
+//    public String toString() {
+//        return Objects.toStringHelper(this)
+//                .add("name", name)
+//                .add("age", age)
+//                .toString();
+//    }
+
+    @Override
+    public String toString() {
+        String s = ReflectionToStringBuilder.toString(this);
+        return s;
     }
 }

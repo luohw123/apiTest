@@ -80,4 +80,17 @@ public class TestNumber {
 //        Integer.valueOf(map.get("views")*(viewMod));
 
     }
+
+    @Test
+    public void testInt2() throws Exception {
+        String[] subColumnArr = {"0", "1", "2", "50001", "100001"};
+        for (String subColumnValue : subColumnArr) {
+            Integer value = Integer.parseInt(subColumnValue.toString());
+            Integer threshold = 50000 ;
+            int position = (value / threshold) + 1;//获得数据的插入位置
+            System.out.println("subColumnValue = "+subColumnValue+",position = " + position);
+        }
+
+
+    }
 }

@@ -44,6 +44,16 @@ public class FastJsonUtil {
         }
         return parseObject;
     }
+
+    public static <T> T getObject(String jsonString) {
+        T parseObject = null;
+        try {
+            parseObject = (T) JSON.parseObject(jsonString);
+        } catch (Exception e) {
+            return null;
+        }
+        return parseObject;
+    }
     
     /**
      *
@@ -108,6 +118,16 @@ public class FastJsonUtil {
         System.out.println("-------------");
         String json = FastJsonUtil.json(mapMap);
         System.out.println(json);
+    }
+
+    private static class InnerTest{
+        public static void main(String[] args) {
+            Map<String,String> map = FastJsonUtil.getObject("{\"nihao\":123}");
+            System.out.println("map = " + map);
+            Withdraw with = FastJsonUtil.getObject("{\"index\":123}");
+            System.out.println("with = " + with);
+        }
+
     }
 
 }
