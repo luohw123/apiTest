@@ -10,7 +10,8 @@ import org.springframework.jdbc.support.JdbcUtils;
 import java.sql.*;
 
 /**
- * Created by user on 15/8/27.
+ *http://maimode.iteye.com/blog/1415644 内存运行方式不错
+ * http://www.cnblogs.com/kenkofox/archive/2010/12/01/1893782.html 这个做了解
  */
 public class TestHsqlDb {
     @Before
