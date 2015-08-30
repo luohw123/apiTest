@@ -67,4 +67,17 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Person{");
+        sb.append("firstName='").append(firstName).append('\'');
+        sb.append(", lastName='").append(lastName).append('\'');
+        sb.append(", job='").append(job).append('\'');
+        sb.append(", gender='").append(gender).append('\'');
+        sb.append(", salary=").append(salary);
+        sb.append(", age=").append(age);
+        sb.append('}');
+        return sb.toString();
+    }
 }

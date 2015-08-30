@@ -1,15 +1,9 @@
 package com.javaapi.test.application.cache.redis.jedis.SeriUtil;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.parser.deserializer.JSONObjectDeserializer;
 import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.SerializeWriter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 /**
  * Created by user on 15/8/23.
@@ -35,8 +29,8 @@ public class FastJsonSerializeUtil {
         }
     }
 
-    public static <T> Object deserialize(byte[] bytes, Class<T> personClass) {
-        Object parse = JSON.parseObject(bytes, personClass);
+    public static <T> Object deserialize(byte[] bytes, Class<T> clazz) {
+        Object parse = JSON.parseObject(bytes, clazz);
         return parse;
     }
 }
