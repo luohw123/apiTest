@@ -7,14 +7,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class MappingJackson extends ObjectMapper {
 	private static final long serialVersionUID = -4609954020844770555L;
-	private boolean useDefault = true;
-	
-	public MappingJackson (boolean useDefault) {
-		this.useDefault = useDefault;
-	}
+	private boolean useDefault = false;
 	
 
-	@PostConstruct
+
 	public void afterPropertiesSet() throws Exception {
 		if(!useDefault) {
 			JacksonConfig.globalConfig(this);

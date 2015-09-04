@@ -5,6 +5,8 @@ import com.alibaba.fastjson.serializer.JSONSerializer;
 import com.alibaba.fastjson.serializer.SerializeWriter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
+import java.util.List;
+
 /**
  * Created by user on 15/8/23.
  */
@@ -31,6 +33,10 @@ public class FastJsonSerializeUtil {
 
     public static <T> Object deserialize(byte[] bytes, Class<T> clazz) {
         Object parse = JSON.parseObject(bytes, clazz);
+        return parse;
+    }
+    public static <T> List<T> deserializeArray(byte[] bytes, Class<T> clazz) {
+        List<T> parse = JSON.parseArray(new String(bytes), clazz);
         return parse;
     }
 }

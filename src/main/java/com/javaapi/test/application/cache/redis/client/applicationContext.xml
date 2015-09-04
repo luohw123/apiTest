@@ -12,7 +12,7 @@
 	    http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.0.xsd
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
        
-       <context:component-scan base-package="com.javaapi.test.application.cache.redis"></context:component-scan>
+       <!--<context:component-scan base-package="com.javaapi.test.application.cache.redis"></context:component-scan>-->
 <!--        util获得的properties,无法用于spring配置文件中的占位符替换 -->
 <!--     <util:properties id="redisCfg" location="classpath:com/javaapi/test/application/cache/redis/redis.cfg.properties" /> -->
     

@@ -1,8 +1,13 @@
 package com.javaapi.test.application.cache.redis.jedis.SeriUtil;
 
+import com.alibaba.fastjson.JSON;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.BeanUtils;
 import redis.clients.jedis.Jedis;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by user on 15/8/23.
@@ -49,6 +54,38 @@ public class Client {
         byte[] bytes = jedis.get("fastjson".getBytes());
         Person unserialize = (Person) FastJsonSerializeUtil.deserialize(bytes, Person.class);
         System.out.println("deserialize = " + unserialize);
+    }
 
+    /**
+     * wrong
+     * @throws Exception
+     */
+    @Test
+    public void testName() throws Exception {
+        List<Person> list = new ArrayList<>();
+        Person e = new Person();
+        e.setId(1);
+        e.setName("kk");
+        Person e2 = new Person();
+        BeanUtils.copyProperties(e,e2);
+        list.add(e);
+        list.add(e2);
+        byte[] serialize = FastJsonSerializeUtil.serialize(list);
+        Object deserialize = FastJsonSerializeUtil.deserialize(serialize, List.class);
+        System.out.println("deserialize = " + deserialize);
+    }
+
+    @Test
+    public void testSerArray() throws Exception {
+        List<Person> list = new ArrayList<>();
+        Person e = new Person();
+        e.setName("kk");
+        Person e2 = new Person();
+        BeanUtils.copyProperties(e, e2);
+        list.add(e);
+        list.add(e2);
+        byte[] serialize = FastJsonSerializeUtil.serialize(list);
+        List<Person> persons = FastJsonSerializeUtil.deserializeArray(serialize, Person.class);
+        System.out.println("persons = " + persons);
     }
 }

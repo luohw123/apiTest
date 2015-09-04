@@ -30,12 +30,11 @@ public class Client {
 		User value = new User();
 		value.setName("nihaoJackson1");
 		value.setCreateTime(new Date());
+        value.setEndTime(new Date());
 		redisTemplateJackson.opsForValue().set("nihaoJackson1", value);
 	}
 	
-	/**暂时通过自定义的类来解决 类型问题
-	 * http://blog.csdn.net/neosmith/article/details/46800235
-	 */
+
 	@Test
 	public void testJacksonGet() {
 		 User user = (User) redisTemplateJackson.opsForValue().get("nihaoJackson1");

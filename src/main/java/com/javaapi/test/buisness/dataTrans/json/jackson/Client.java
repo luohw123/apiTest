@@ -48,8 +48,8 @@ public class Client {
 		value.setCreateTime(new Date());
         //
 		ObjectMapper objectMapper = new ObjectMapper();
-        JacksonConfig.globalConfig(objectMapper);
-        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_OBJECT);
+//        JacksonConfig.globalConfig(objectMapper);
+//        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.WRAPPER_OBJECT);
 		byte[] writeValueAsBytes = objectMapper.writeValueAsBytes(value);
         //
 		System.err.println(new String(writeValueAsBytes));

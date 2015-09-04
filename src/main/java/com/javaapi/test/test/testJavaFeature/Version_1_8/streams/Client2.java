@@ -3,9 +3,7 @@ package com.javaapi.test.test.testJavaFeature.Version_1_8.streams;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -52,7 +50,7 @@ public class Client2 {
                 add(new Person("Rosalind", "Layla", "PHP programmer", "female", 25, 1300));
                 add(new Person("Fraser", "Hewie", "PHP programmer", "male", 36, 1100));
                 add(new Person("Quinn", "Tamara", "PHP programmer", "female", 21, 1000));
-                add(new Person("Alvin", "Lance", "PHP programmer", "male", 38, 1600));
+                add(new Person("Evonne", "Lance", "PHP programmer", "male", 38, 1600));
                 add(new Person("Evonne", "Shari", "PHP programmer", "female", 40, 1800));
             }
         };
@@ -118,6 +116,24 @@ public class Client2 {
     }
 
     @Test
+    public void testToMap() throws Exception {
+        long start = System.currentTimeMillis();
+        Map<String, Person> collect = phpProgrammers.stream().collect(Collectors.toMap((p) -> p.getFirstName(), (p) -> p, (oldVal, newVal) -> newVal));
+        long end = System.currentTimeMillis();
+        System.out.println("(end-start) = " + (end - start));
+    }
+    @Test
+    public void testToMap2() throws Exception {
+        long start = System.currentTimeMillis();
+        Map<String, Person> map = new HashMap<>();
+        for (Person phpProgrammer : phpProgrammers) {
+            map.put(phpProgrammer.getFirstName(), phpProgrammer);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("(end-start) = " + (end - start));
+    }
+
+    @Test
     public void testReduce() throws Exception {
         int sum = javaProgrammers.stream()
                 .mapToInt(p -> p.getFirstName().length())
@@ -156,7 +172,6 @@ public class Client2 {
      */
     @Test
     public void testMapReduce() throws Exception {
-
 
     }
 }

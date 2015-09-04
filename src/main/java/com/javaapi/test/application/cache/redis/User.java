@@ -7,6 +7,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String name;
 	private Date  createTime;
+	private Date  endTime;
 	public String getName() {
 		return name;
 	}
@@ -19,15 +20,22 @@ public class User implements Serializable {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("User [name=");
-		builder.append(name);
-		builder.append(", createTime=");
-		builder.append(createTime);
-		builder.append("]");
-		return builder.toString();
-	}
-	
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", createTime=").append(createTime);
+        sb.append(", endTime=").append(endTime);
+        sb.append('}');
+        return sb.toString();
+    }
 }
