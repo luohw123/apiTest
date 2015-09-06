@@ -123,6 +123,13 @@ public class Client2 {
         System.out.println("(end-start) = " + (end - start));
     }
     @Test
+    public void testToMapList() throws Exception {
+        long start = System.currentTimeMillis();
+        Map<String, List<Person>> collect = null;
+        long end = System.currentTimeMillis();
+        System.out.println("(end-start) = " + (end - start));
+    }
+    @Test
     public void testToMap2() throws Exception {
         long start = System.currentTimeMillis();
         Map<String, Person> map = new HashMap<>();

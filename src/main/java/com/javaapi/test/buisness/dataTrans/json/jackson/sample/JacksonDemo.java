@@ -1,15 +1,51 @@
 package com.javaapi.test.buisness.dataTrans.json.jackson.sample;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Test;
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
-
 public class JacksonDemo {
+    public static final ObjectMapper MAPPER = new ObjectMapper();
+
+    public static <T> T deserialize(byte[] bytes, Class<T> clazz) {
+        if (bytes == null) {
+            return null;
+        }
+        if (clazz == null) {
+            return null;
+        }
+        T parse = null;
+        try {
+            parse = MAPPER.readValue(bytes, clazz);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return parse;
+    }
+
+    public static <T> List<T> deserializeArray(byte[] bytes,Class<T> clazz) {
+        if (bytes == null) {
+            return null;
+        }
+        List<T> parse = null;
+        try {
+            parse = MAPPER.readValue(bytes,getCollectionType(ArrayList.class,clazz));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return parse;
+    }
+
+    public static JavaType getCollectionType(Class<?> collectionClass, Class<?>... elementClasses) {
+        return MAPPER.getTypeFactory().constructParametricType(collectionClass, elementClasses);
+    }
 
     @Test
     public void objectToJson() throws ParseException, IOException {
@@ -59,6 +95,7 @@ public class JacksonDemo {
     /**
      * 目前想要使用jackson的反序列化，
      * 反序列化的时候必须传入具体java类型
+     *
      * @throws Exception
      */
     @Test
@@ -72,5 +109,45 @@ public class JacksonDemo {
         System.out.println("bytes = " + new String(bytes));
         User user1 = mapper.readValue(bytes, User.class);
         System.out.println("user1 = " + user1);
+    }
+
+    @Test
+    public void testSerDeser2() throws Exception {
+        User user = new User();
+        user.setName("小民");
+        user.setEmail("xiaomin@sina.com");
+        user.setAge(20);
+        ObjectMapper mapper = new ObjectMapper();
+        byte[] bytes = mapper.writeValueAsBytes(user);
+        System.out.println("bytes = " + new String(bytes));
+        User deserialize = deserialize(bytes, User.class);
+        System.out.println("deserialize = " + deserialize);
+        System.out.println("deserialize = " + deserialize.getEmail());
+    }
+
+    @Test
+    public void testSerDeserList() throws Exception {
+        User user = new User();
+        user.setName("小民");
+        user.setEmail("xiaomin@sina.com");
+        user.setAge(20);
+        User user2 = new User();
+        user2.setName("小民");
+        user2.setEmail("xiaomin@sina.com");
+        user2.setAge(20);
+
+        List<User> list = new ArrayList<>();
+        list.add(user);
+        list.add(user2);
+
+
+        ObjectMapper mapper = new ObjectMapper();
+        byte[] bytes = mapper.writeValueAsBytes(list);
+        System.out.println("bytes = " + new String(bytes));
+        List<User> deserialize = deserializeArray(bytes,User.class);
+        System.out.println("deserialize = " + deserialize);
+        for (User user1 : deserialize) {
+            System.out.println("user1.getEmail() = " + user1.getEmail());
+        }
     }
 }

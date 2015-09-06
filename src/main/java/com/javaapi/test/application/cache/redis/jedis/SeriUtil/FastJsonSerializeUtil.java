@@ -7,9 +7,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import java.util.List;
 
-/**
- * Created by user on 15/8/23.
- */
+
 public class FastJsonSerializeUtil {
     public static byte[] serialize(Object object) {
         if(object == null){
