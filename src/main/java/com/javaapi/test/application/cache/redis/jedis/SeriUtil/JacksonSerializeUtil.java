@@ -29,6 +29,12 @@ public class JacksonSerializeUtil {
         return  bytes;
     }
     public static <T> Object deserialize(byte[] bytes, Class<T> clazz) {
+        if (bytes == null) {
+            return null;
+        }
+        if(clazz == null){
+            return null;
+        }
         Object parse = null;
         try {
             parse = MAPPER.readValue(bytes, clazz);
@@ -39,6 +45,9 @@ public class JacksonSerializeUtil {
     }
     public static <T> List<T> deserializeArray(byte[] bytes,Class<T> clazz) {
         if (bytes == null) {
+            return null;
+        }
+        if(clazz == null){
             return null;
         }
         List<T> parse = null;
