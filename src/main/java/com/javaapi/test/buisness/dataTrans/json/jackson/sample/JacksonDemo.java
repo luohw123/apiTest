@@ -125,6 +125,10 @@ public class JacksonDemo {
         System.out.println("deserialize = " + deserialize.getEmail());
     }
 
+    /**
+     * http://www.cnblogs.com/quanyongan/archive/2013/04/16/3024993.html
+     * @throws Exception
+     */
     @Test
     public void testSerDeserList() throws Exception {
         User user = new User();
