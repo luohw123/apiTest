@@ -38,7 +38,7 @@ public class TestRedis {
         jedis.del("name");  //删除某个键
         System.out.println(jedis.get("name"));
         //设置多个键值对
-        jedis.mset("name", "liuling", "age", "23", "qq", "476777389");
+        jedis.mset("name", "111111", "age", "23", "qq", "476777389");
         jedis.incr("age"); //进行加1操作
         System.out.println(jedis.get("name") + "-" + jedis.get("age") + "-" + jedis.get("qq"));
 

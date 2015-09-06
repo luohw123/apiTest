@@ -40,5 +40,10 @@ public class Client {
 		 User user = (User) redisTemplateJackson.opsForValue().get("nihaoJackson1");
 		 System.err.println(user);
 	}
+    @Test
+    public void testJacksonGetIsNotExist() {
+        Object nihaoJackson12222 = redisTemplateJackson.opsForValue().get("nihaoJackson12222");
+        System.err.println(nihaoJackson12222);
+    }
 }
 
