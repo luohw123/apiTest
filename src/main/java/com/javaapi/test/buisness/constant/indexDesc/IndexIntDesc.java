@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.constant.indexDesc;
+package com.javaapi.test.buisness.constant.indexDesc;
 
 /**
  * 枚举通用接口

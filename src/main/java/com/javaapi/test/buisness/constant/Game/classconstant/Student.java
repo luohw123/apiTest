@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.constant.Game.classconstant;
+package com.javaapi.test.buisness.constant.Game.classconstant;
 
 import java.io.Serializable;
 

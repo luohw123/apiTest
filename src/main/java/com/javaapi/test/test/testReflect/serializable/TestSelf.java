@@ -11,7 +11,7 @@ import java.io.OutputStream;
 
 import org.junit.Test;
 
-import com.javaapi.test.dao.constant.Game.classconstant.Student;
+import com.javaapi.test.buisness.constant.Game.classconstant.Student;
 
 /**http://blog.csdn.net/p106786860/article/details/17953223
  * 测试JDK序列化 

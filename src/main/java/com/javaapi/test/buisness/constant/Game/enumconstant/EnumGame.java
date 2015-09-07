@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.constant.Game;
+package com.javaapi.test.buisness.constant.Game.enumconstant;
 
 
 public enum EnumGame {
