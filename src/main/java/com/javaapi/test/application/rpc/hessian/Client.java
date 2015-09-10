@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.zotherFeature.rpc.hessian;
+package com.javaapi.test.application.rpc.hessian;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

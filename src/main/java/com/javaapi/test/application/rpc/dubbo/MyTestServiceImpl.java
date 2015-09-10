@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.zotherFeature.rpc.dubbo;
+package com.javaapi.test.application.rpc.dubbo;
 
 public class MyTestServiceImpl implements MyTestService {
 

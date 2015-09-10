@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.zotherFeature.rpc.dubbo;
+package com.javaapi.test.application.rpc.dubbo;
 public interface DemoService {
 	
     public void sayHello();
