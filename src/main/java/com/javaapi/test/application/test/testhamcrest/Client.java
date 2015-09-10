@@ -20,11 +20,15 @@ import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
+import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 
@@ -52,22 +56,22 @@ public class Client {
 		String str = "bjsxt";
 		String n = "";
 		String nExpected = "";
-		assertThat( str, containsString( "bjsxt" ) );
-		assertThat( str, endsWith("bjsxt" ) ); 
-		assertThat( str, startsWith( "bjsxt" ) ); 
+		assertThat( str, containsString("bjsxt") );
+		assertThat( str, endsWith("bjsxt") );
+		assertThat( str, startsWith("bjsxt") );
 		assertThat( n, equalTo( nExpected ) ); 
-		assertThat( str, equalToIgnoringCase( "bjsxt" ) ); 
-		assertThat( str, equalToIgnoringWhiteSpace( "bjsxt" ) );
+		assertThat( str, equalToIgnoringCase("bjsxt") );
+		assertThat( str, equalToIgnoringWhiteSpace("bjsxt") );
 	}
 	@Test
 	public void test3() throws Exception {
 		Double d = 3.1d;
 		assertThat( d, closeTo( 3.0, 0.3 ) );
 		assertThat( d, greaterThan(3.0) );
-		assertThat( d, lessThan (10.0) );
+		assertThat(d, lessThan(10.0));
 		 d = 6.1d;
-		assertThat( d, greaterThanOrEqualTo (5.0) );
-		assertThat( d, lessThanOrEqualTo (16.0) );
+		assertThat( d, greaterThanOrEqualTo(5.0) );
+		assertThat( d, lessThanOrEqualTo(16.0) );
 	}
 	@Test
 	public void test4() throws Exception {
@@ -79,26 +83,62 @@ public class Client {
 	}
 	@Test
 	public void test5() throws Exception {
-		assertThat("t", new Matcher<String>() {
-			@Override
-			public void describeTo(Description description) {
-				description.appendText("this is describeTo");
-			}
-			@Override
-			public boolean matches(Object item) {
-				System.err.println("match");
-				return true;
-			}
-			@Override
-			public void describeMismatch(Object item,
-					Description mismatchDescription) {
-				mismatchDescription.appendText("append describeMismatch method");
-			}
-			@Override
-			public void _dont_implement_Matcher___instead_extend_BaseMatcher_() {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-	}
+        assertThat("t", IsEqual.equalTo("2"));
+    }
+
+    public static class IsEqual<T> extends BaseMatcher<T> {
+        private final Object expectedValue;
+
+        public IsEqual(T equalArg) {
+            expectedValue = equalArg;
+        }
+
+        @Override
+        public boolean matches(Object actualValue) {
+            return areEqual(actualValue, expectedValue);
+        }
+
+        @Override
+        public void describeTo(Description description) {
+            description.appendValue(expectedValue);
+        }
+
+        private static boolean areEqual(Object actual, Object expected) {
+            if (actual == null) {
+                return expected == null;
+            }
+
+            if (expected != null && isArray(actual)) {
+                return isArray(expected) && areArraysEqual(actual, expected);
+            }
+
+            return actual.equals(expected);
+        }
+
+        private static boolean areArraysEqual(Object actualArray, Object expectedArray) {
+            return areArrayLengthsEqual(actualArray, expectedArray) && areArrayElementsEqual(actualArray, expectedArray);
+        }
+
+        private static boolean areArrayLengthsEqual(Object actualArray, Object expectedArray) {
+            return Array.getLength(actualArray) == Array.getLength(expectedArray);
+        }
+
+        private static boolean areArrayElementsEqual(Object actualArray, Object expectedArray) {
+            for (int i = 0; i < Array.getLength(actualArray); i++) {
+                if (!areEqual(Array.get(actualArray, i), Array.get(expectedArray, i))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private static boolean isArray(Object o) {
+            return o.getClass().isArray();
+        }
+
+        @Factory
+        public static <T> Matcher<T> equalTo(T operand) {
+            return new IsEqual<T>(operand);
+        }
+    }
 }

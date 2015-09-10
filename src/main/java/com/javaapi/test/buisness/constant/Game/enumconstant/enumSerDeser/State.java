@@ -1,4 +1,4 @@
-package com.javaapi.test.buisness.constant.Game.enumconstant;
+package com.javaapi.test.buisness.constant.Game.enumconstant.enumSerDeser;
 
 public enum State {
     COMMON(1);

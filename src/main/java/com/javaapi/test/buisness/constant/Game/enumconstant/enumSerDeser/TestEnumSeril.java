@@ -1,4 +1,4 @@
-package com.javaapi.test.buisness.constant.Game.enumconstant;
+package com.javaapi.test.buisness.constant.Game.enumconstant.enumSerDeser;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,7 +19,7 @@ import org.junit.Test;
  * @date 2014年7月28日
  */
 public class TestEnumSeril {
-    private static String file = "/home/kk/program/serialFile.txt";
+    private static String file = "~/program/serialFile.txt";
 
 
     @Test
@@ -32,6 +32,7 @@ public class TestEnumSeril {
         s.setState(State.COMMON);
         oos.writeObject(s);
         oos.close();
+        os.close();
     }
 
     @Test
