@@ -1,11 +1,11 @@
 package com.javaapi.test.test.testType.String.testString.toolString;
 
+import org.junit.Test;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.*;
-
-import org.junit.Test;
+import java.util.Arrays;
 
 public class StringUtil {
     @Test
@@ -130,15 +130,15 @@ public class StringUtil {
     	System.out.println(string);
     }
 
-    @Test
-    public void testStringJoiner() throws Exception {
-        StringJoiner sj = new StringJoiner(",");
-        List<String> list = new ArrayList<>();
-        list.add("a");
-        list.add("b");
-        list.forEach((str) -> sj.add(str));
-        System.out.println("sj = " + sj.toString());
-    }
+//    @Test
+//    public void testStringJoiner() throws Exception {
+//        StringJoiner sj = new StringJoiner(",");
+//        List<String> list = new ArrayList<>();
+//        list.add("a");
+//        list.add("b");
+//        list.forEach((str) -> sj.add(str));
+//        System.out.println("sj = " + sj.toString());
+//    }
 
     @Test
     public void testStringSpliter() throws Exception {
