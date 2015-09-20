@@ -15,7 +15,8 @@ public class MainTest {
     @Autowired
     private ApplicationContext context;
 
-    // 在xml里配置了    <aop:aspectj-autoproxy  proxy-target-class="true"/>,通过获取原bean的名字就可以获取到代理对象
+    // 在xml里配置了    <aop:aspectj-autoproxy  proxy-target-class="true"/>,通过AnnotationAwareAspectJAutoProxyCreator自动生成代理对象 ，
+    // 通过获取原bean的名字就可以获取到代理对象
 
     @Test
     public void testNameBook() throws Exception {
