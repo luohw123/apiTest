@@ -15,7 +15,8 @@ public class Client {
         notSureParam(ids);
     }
     public void notSureParam(Integer... ids){
-        for (Integer id : ids) {
+        Integer[] tmp = ids;
+        for (Integer id : tmp) {
             System.out.println("id = " + id);
         }
     }
