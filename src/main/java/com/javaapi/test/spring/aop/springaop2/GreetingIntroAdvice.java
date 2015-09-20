@@ -9,6 +9,7 @@ public class GreetingIntroAdvice extends DelegatingIntroductionInterceptor imple
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
+        System.out.println("invocation = 引入增强" );
         return super.invoke(invocation);
     }
 
