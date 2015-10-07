@@ -45,5 +45,5 @@
                 </list>
             </property>
         </bean>    
-     		<bean id="selfService" class="com.javaapi.test.spring.zotherFeature.scheduler.quartz.dynamicSpringAdd.SelfService"></bean>
+     		<bean id="selfService" class="com.javaapi.test.spring.zotherFeature.scheduler.quartz.SelfService"></bean>
    </beans>

@@ -3,8 +3,6 @@ package com.javaapi.test.spring.zotherFeature.scheduler.quartz;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.javaapi.test.spring.zotherFeature.scheduler.quartz.dynamicSpringAdd.SelfService;
-
 public class QuartzJob
 {
 	
