@@ -8,7 +8,7 @@
 		<dep.jackson-databind.version>2.4.4</dep.jackson-databind.version>
 		<spring.version>3.2.6.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 		<plugin.clean.version>2.6.1</plugin.clean.version>
 		<plugin.compiler.version>3.2</plugin.compiler.version>
 		<plugin.war.version>2.5</plugin.war.version>
@@ -227,28 +227,40 @@
 			<artifactId>unitils-core</artifactId>
 			<version>3.4.2</version>
 		</dependency>
-		<!-- log log4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.6.1</version>
-			<scope>compile</scope>
-		</dependency>
-		<!-- 加入这个slf4j-log4j12 会自动引入log4j -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.6.1</version>
-		</dependency>
+		<!-- 加入这个slf4j-log4j12 会自动引入log4。 这样可以使用slf4j api ,但是底层实现为log4j -->
+		<!--<dependency>-->
+			<!--<groupId>org.slf4j</groupId>-->
+			<!--<artifactId>slf4j-log4j12</artifactId>-->
+			<!--<version>1.6.1</version>-->
+		<!--</dependency>-->
 
 
 		<!-- logback -->
 		<!-- 自动引入 slf4j,logback core -->
- 		<!--<dependency>-->
- 		<!--<groupId>ch.qos.logback</groupId>-->
- 		<!--<artifactId>logback-classic</artifactId>-->
- 		<!--<version>0.9.29</version>-->
- 		<!--</dependency>-->
+ 		<dependency>
+ 		<groupId>ch.qos.logback</groupId>
+ 		<artifactId>logback-classic</artifactId>
+ 		<version>0.9.29</version>
+ 		</dependency>
+        <!--jul to slf4j-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>1.6.6</version>
+        </dependency>
+        <!-- jcl to slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.6.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- log4j to slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.7.12</version>
+        </dependency>
 		<!-- util开始 -->
 		<dependency>
 			<groupId>org.hibernate</groupId>

@@ -1,14 +1,8 @@
 package com.javaapi.test.application.jms.jmssample1.topicSub;
 
-import javax.jms.Connection;
-import javax.jms.DeliveryMode;
-import javax.jms.JMSException;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
-
 import org.apache.activemq.ActiveMQConnectionFactory;
+
+import javax.jms.*;
 
 public class TopicPublisher {  
     private static int	SEND_NUMBER = 5;
@@ -18,7 +12,7 @@ public class TopicPublisher {
         connection.start();  
           
         Session session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);  
-        Topic topic = session.createTopic("myTopic.messages");  
+        Topic topic = session.createTopic("myTopic.messages");
   
         MessageProducer producer = session.createProducer(topic);  
 //        producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);  

@@ -4,14 +4,14 @@ package com.javaapi.test.application.cache.redis.jedis;
  * Created by user on 15/8/23.
  */
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.*;
 
 public class TestRedis {
     private Jedis jedis;
@@ -115,6 +115,43 @@ public class TestRedis {
         System.out.println(jedis.srandmember("user"));
         System.out.println(jedis.scard("user"));//返回集合的元素个数
     }
+    @Test
+    public  void sortedSet() {
+        System.out.println("==SoretedSet==");
+//        Jedis jedis = RedisUtil.getJedis();
+        try {
+            jedis.zadd("hackers", 1940, "Alan Kay");
+            jedis.zadd("hackers", 1953, "Richard Stallman");
+            jedis.zadd("hackers", 1965, "Yukihiro Matsumoto");
+            jedis.zadd("hackers", 1916, "Claude Shannon");
+            jedis.zadd("hackers", 1969, "Linus Torvalds");
+            jedis.zadd("hackers", 1912, "Alan Turing");
+            Set<String> setValues = jedis.zrange("hackers", 0, -1);
+            System.out.println(setValues);
+            Set<String> setValues2 = jedis.zrevrange("hackers", 0, -1);
+            System.out.println(setValues2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // 清空数据
+        System.out.println(jedis.flushDB());
+        // 添加数据
+        jedis.zadd("zset", 10.1, "hello");
+        jedis.zadd("zset", 10.0, ":");
+        jedis.zadd("zset", 9.0, "zset");
+        jedis.zadd("zset", 11.0, "zset!");
+        // 元素个数
+        System.out.println(jedis.zcard("zset"));
+        // 元素下标
+        System.out.println(jedis.zscore("zset", "zset"));
+        // 集合子集
+        System.out.println(jedis.zrange("zset", 0, -1));
+        // 删除元素
+        System.out.println(jedis.zrem("zset", "zset!"));
+        System.out.println(jedis.zcount("zset", 9.5, 10.5));
+        // 整个集合值
+        System.out.println(jedis.zrange("zset", 0, -1));
+    }
 
     @Test
     public void test() throws InterruptedException {
@@ -135,4 +172,32 @@ public class TestRedis {
         RedisUtil.getJedis().set("newname", "中文测试");
         System.out.println(RedisUtil.getJedis().get("newname"));
     }
+     @Test
+    public void test2() {
+
+         int ipLoginTimes = limitIpUserIdTimes(null, "127.0.0.1", 111, "ipLoginTimes");
+         System.out.println("ipLoginTimes = " + ipLoginTimes);
+
+     }
+    private int limitIpUserIdTimes(Jedis jedis2, String ip, int userId,String key) {
+        if(StringUtils.isBlank(ip)){
+            System.out.println("IP is blank.");
+        }
+        int times = jedis.hincrBy(key,ip+":"+userId,1).intValue();
+        if(times == 1 ){
+            jedis.expireAt(key, getTomorrowTime());
+        }
+        return times;
+    }
+
+    /**
+     * 获得明天0点的UNIX TIMESTAMP
+     *
+     * @return
+     */
+    public static long getTomorrowTime() {
+        return LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
+    }
+
+
 }

@@ -1,11 +1,13 @@
 package com.javaapi.test.testUtil.Time.javajdk;
 
+import org.junit.Test;
+
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
-import org.junit.Test;
 
 public class TestCalendar {
 
@@ -31,7 +33,24 @@ public class TestCalendar {
 	public void testOrigin() {
 		Calendar instance = Calendar.getInstance();
 		String day = String.valueOf(instance.get(
-				Calendar.DAY_OF_WEEK) - 1);
+                Calendar.DAY_OF_WEEK) - 1);
 		System.out.println(day);
 	}
+    @Test
+    public void testJdk8() {
+        long l = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
+        System.out.println("l = " + l);
+        System.out.println("l = " + System.currentTimeMillis());
+        String s = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toLocalDateTime().toString();
+        System.out.println("s = " + s);
+
+    }
+
+    public static void main(String[] args) {
+        long l = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
+        System.out.println("l = " + l);
+        System.out.println("l = " + System.currentTimeMillis());
+        String s = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toLocalDateTime().toString();
+        System.out.println("s = " + s);
+    }
 }

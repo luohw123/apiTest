@@ -5,7 +5,10 @@ import org.junit.Test;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.StringJoiner;
 
 public class StringUtil {
     @Test
@@ -130,15 +133,44 @@ public class StringUtil {
     	System.out.println(string);
     }
 
-//    @Test
-//    public void testStringJoiner() throws Exception {
-//        StringJoiner sj = new StringJoiner(",");
-//        List<String> list = new ArrayList<>();
-//        list.add("a");
-//        list.add("b");
-//        list.forEach((str) -> sj.add(str));
-//        System.out.println("sj = " + sj.toString());
-//    }
+    @Test
+    public void testStringJoiner() throws Exception {
+        StringJoiner sj = new StringJoiner(",");
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.forEach((str) -> sj.add(str));
+        System.out.println("sj = " + sj.toString());
+    }
+    @Test
+    public void testStringJoiner2() throws Exception {
+        StringJoiner sj = new StringJoiner(",");
+        sj.add("a");
+        sj.add("b");
+        System.out.println("sj = " + sj);
+    }
+
+    /**
+     * param 1 分隔符
+     * param 2 开始符号
+     * param 3 结束符号
+     * @throws Exception
+     */
+    @Test
+    public void testUrlParam() throws Exception {
+        StringJoiner sj = new StringJoiner("&","?","");
+        sj.add("a=123");
+        sj.add("b=32");
+        sj.add("c=13");
+        System.out.println("sj = " + sj);
+        // merge 忽略起始和结束
+        StringJoiner sj2 = new StringJoiner("^","*","*");
+        sj2.add("key = value");
+        sj2.add("key2 = value2");
+        sj.merge(sj2);
+        System.out.println("sj merge = " + sj);
+
+    }
 
     @Test
     public void testStringSpliter() throws Exception {

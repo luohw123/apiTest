@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.zotherFeature.scheduler;
+package com.javaapi.test.spring.zotherFeature.scheduler.springscheduler;
 
 import java.util.concurrent.TimeUnit;
 
