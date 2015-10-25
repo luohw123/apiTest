@@ -139,8 +139,8 @@ public class StringUtil {
         List<String> list = new ArrayList<>();
         list.add("a");
         list.add("b");
-        list.forEach((str) -> sj.add(str));
-        System.out.println("sj = " + sj.toString());
+//        list.forEach((str) -> sj.add(str));
+//        System.out.println("sj = " + sj.toString());
     }
     @Test
     public void testStringJoiner2() throws Exception {

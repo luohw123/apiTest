@@ -1,14 +1,7 @@
 package com.javaapi.test.spring.zotherFeature.scheduler.quartz.dynamicSpringAdd;
 
-import static org.junit.Assert.*;
-
-import java.text.ParseException;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.quartz.CronTrigger;
-import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
@@ -17,12 +10,12 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.CronTriggerBean;
-import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
-import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean.MethodInvokingJob;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.util.MethodInvoker;
+
+import java.text.ParseException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 还未整完
@@ -42,30 +35,39 @@ public class ClientDynamicNew implements BeanFactoryAware{
 	@Test
 	public void getGetTrigger() throws Exception {
 //		String cronExpression = "0,5,10,15,20,25,30,35,40,45,50,55 * * * * ?";
-		addJob("0,5,10,15,20,25,30,35,40,45,50,55 * * * * ?");
-		addJob("0,1,2,3,4,6,7,8,9,40,45,50,55 * * * * ?");
-		addJob("0,1,2,3,4,6,7,8,9,40,45,50,55 * * * * ?");
-		try {
-			// 休眠十小时
-			TimeUnit.HOURS.sleep(10);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+        String jobName = "11";
+        addJob(jobName, "0,5,10,15,20,25,30,35,40,45,50,55 * * * * ?");
+        addJob(jobName, "0,1,2,3,4,6,7,8,9,40,45,50,55 * * * * ?");
+//		addJob("0,1,2,3,4,6,7,8,9,40,45,50,55 * * * * ?");
+        try {
+            // 休眠十小时
+            TimeUnit.HOURS.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
-
-	private void addJob(String cronExpression) throws ParseException,
+    /**
+     * 多个定时任务共享相同实例, 任务中可以使用spring来注入成员变量
+     * @param jobName
+     * @param cronExpression
+     * @throws ParseException
+     * @throws SchedulerException
+     */
+	private void addJob(String jobName, String cronExpression) throws ParseException,
 			SchedulerException {
 		Scheduler scheduler = SchedulerFactoryBean.getScheduler();
 		CronTriggerBean trigger = beanFactory.getBean("doTime", CronTriggerBean.class);
 		trigger.setCronExpression(cronExpression);
-		JobDetail job  =  beanFactory.getBean("jobtask",JobDetail.class);
-		System.err.println(job);
-		String name = String.valueOf(System.currentTimeMillis());
-		job.setName(name);
-		trigger.setName(name);
+		JobDetail job  =  beanFactory.getBean("jobtask", JobDetail.class);
+		job.setName(jobName);
+		trigger.setName(jobName);
 		scheduler.scheduleJob( job, trigger);
 	}
+
+    private void pauseJob(){
+
+    }
 
 
 	@Override

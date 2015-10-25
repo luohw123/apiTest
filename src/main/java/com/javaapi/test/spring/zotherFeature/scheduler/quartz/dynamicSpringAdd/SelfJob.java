@@ -1,22 +1,25 @@
 package com.javaapi.test.spring.zotherFeature.scheduler.quartz.dynamicSpringAdd;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class SelfJob implements Job {
 
-	SelfService SelfService;
+	SelfService selfService;
 	
 	@Override
 	public void execute(JobExecutionContext context)
 			throws JobExecutionException {
 		System.out.println("nihao");
-//		SelfJob object = (SelfJob) context.getMergedJobDataMap().get("selfJob");
-//		System.out.println("SelfJob回调SelfJob==>"+this+"========getSelfService==>"+object.getSelfService()+"===spring selfJob==>"+object);
+		SelfJob object = (SelfJob) context.getMergedJobDataMap().get("selfJob");
+        Object var = (Object) context.getMergedJobDataMap().get("var");
+
+		System.out.println("SelfJob回调SelfJob==>"+this+"========getSelfService==>"+object.getSelfService()+"===spring selfJob==>"+object+"==var==>"+var);
+        System.out.println("SelfService = " + selfService+"==var==>"+var);
 //		extracted();
 	}
 
@@ -27,15 +30,15 @@ public class SelfJob implements Job {
 	}
 	
 	public String getService() {
-		return SelfService.getBussiness();
+		return selfService.getBussiness();
 	}
 
 	public SelfService getSelfService() {
-		return SelfService;
+		return selfService;
 	}
 
 	public void setSelfService(SelfService selfService) {
-		SelfService = selfService;
+		this.selfService = selfService;
 	}
 
 	

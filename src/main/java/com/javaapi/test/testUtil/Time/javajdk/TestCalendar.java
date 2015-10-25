@@ -45,6 +45,11 @@ public class TestCalendar {
         System.out.println("s = " + s);
 
     }
+    @Test
+    public void testTime(){
+        long l = System.currentTimeMillis();
+        System.out.println("l = " + l);
+    }
 
     public static void main(String[] args) {
         long l = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();

@@ -1,28 +1,21 @@
 package com.javaapi.test.spring.zotherFeature.scheduler.quartz.dynamicSpringAdd;
 
-import static org.junit.Assert.*;
-
-import java.text.ParseException;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.quartz.CronTrigger;
-import org.quartz.JobDataMap;
-import org.quartz.JobDetail;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
+import org.quartz.*;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.CronTriggerBean;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
-import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean.MethodInvokingJob;
+import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.util.MethodInvoker;
+
+import java.text.ParseException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 还未整完
@@ -86,7 +79,11 @@ public class ClientDynamic implements BeanFactoryAware{
 //	}
 
 
-
+    /**
+     * 这样只能将成员变量实例  通过    jobDataMap 传入,不能通过spring注入
+     * @throws ParseException
+     * @throws SchedulerException
+     */
 	private void addJob() throws ParseException, SchedulerException {
 		Scheduler scheduler = SchedulerFactoryBean.getScheduler();
 		CronTrigger trigger = new CronTrigger("cronTrigger", "triggerGroup");// 触发器名,触发器组
@@ -100,6 +97,8 @@ public class ClientDynamic implements BeanFactoryAware{
 		//----
 		JobDataMap jobDataMap = new JobDataMap();
 		jobDataMap.put("selfJob", bean);
+        jobDataMap.put("var", 1);
+
 		jobDetail.setJobDataMap(jobDataMap);
 		//----
 		scheduler.scheduleJob(jobDetail, trigger);
@@ -108,6 +107,11 @@ public class ClientDynamic implements BeanFactoryAware{
 			scheduler.start();
 		}
 	}
+    /**1 没跑一次产生一个SelfJob
+     * 2 这样只能将成员变量实例  通过    jobDataMap 传入,不能通过spring注入
+     * @throws ParseException
+     * @throws SchedulerException
+     */
 	private void addJob2() throws ParseException, SchedulerException {
 		Scheduler scheduler = SchedulerFactoryBean.getScheduler();
 		CronTrigger trigger = new CronTrigger("cronTriggerTmp", "triggerGroup");// 触发器名,触发器组
@@ -121,6 +125,7 @@ public class ClientDynamic implements BeanFactoryAware{
 		//----
 		JobDataMap jobDataMap = new JobDataMap();
 		jobDataMap.put("selfJob", bean);
+        jobDataMap.put("var", 2);
 		jobDetail.setJobDataMap(jobDataMap);
 		//----
 		scheduler.scheduleJob(jobDetail, trigger);
