@@ -8,6 +8,7 @@ function taillog(){
 }
 #下面的方法暂时不好用
 function testtailwhile(){
+echo 'test'
 while(true)
 do	
 			tail -n 1 tail.txt | grep -q 'tomcat started' &&exit 0
