@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
+//import java.time.LocalDate;
+//import java.time.ZoneId;
 import java.util.*;
 
 public class TestRedis {
@@ -172,32 +172,32 @@ public class TestRedis {
         RedisUtil.getJedis().set("newname", "中文测试");
         System.out.println(RedisUtil.getJedis().get("newname"));
     }
-     @Test
-    public void test2() {
-
-         int ipLoginTimes = limitIpUserIdTimes(null, "127.0.0.1", 111, "ipLoginTimes");
-         System.out.println("ipLoginTimes = " + ipLoginTimes);
-
-     }
-    private int limitIpUserIdTimes(Jedis jedis2, String ip, int userId,String key) {
-        if(StringUtils.isBlank(ip)){
-            System.out.println("IP is blank.");
-        }
-        int times = jedis.hincrBy(key,ip+":"+userId,1).intValue();
-        if(times == 1 ){
-            jedis.expireAt(key, getTomorrowTime());
-        }
-        return times;
-    }
-
-    /**
-     * 获得明天0点的UNIX TIMESTAMP
-     *
-     * @return
-     */
-    public static long getTomorrowTime() {
-        return LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
-    }
+//     @Test
+//    public void test2() {
+//
+//         int ipLoginTimes = limitIpUserIdTimes(null, "127.0.0.1", 111, "ipLoginTimes");
+//         System.out.println("ipLoginTimes = " + ipLoginTimes);
+//
+//     }
+//    private int limitIpUserIdTimes(Jedis jedis2, String ip, int userId,String key) {
+//        if(StringUtils.isBlank(ip)){
+//            System.out.println("IP is blank.");
+//        }
+//        int times = jedis.hincrBy(key,ip+":"+userId,1).intValue();
+//        if(times == 1 ){
+//            jedis.expireAt(key, getTomorrowTime());
+//        }
+//        return times;
+//    }
+//
+//    /**
+//     * 获得明天0点的UNIX TIMESTAMP
+//     *
+//     * @return
+//     */
+//    public static long getTomorrowTime() {
+//        return LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
+//    }
 
 
 }

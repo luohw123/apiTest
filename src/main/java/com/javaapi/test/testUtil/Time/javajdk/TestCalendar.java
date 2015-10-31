@@ -3,8 +3,8 @@ package com.javaapi.test.testUtil.Time.javajdk;
 import org.junit.Test;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
+//import java.time.LocalDate;
+//import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -36,26 +36,26 @@ public class TestCalendar {
                 Calendar.DAY_OF_WEEK) - 1);
 		System.out.println(day);
 	}
-    @Test
-    public void testJdk8() {
-        long l = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
-        System.out.println("l = " + l);
-        System.out.println("l = " + System.currentTimeMillis());
-        String s = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toLocalDateTime().toString();
-        System.out.println("s = " + s);
-
-    }
-    @Test
-    public void testTime(){
-        long l = System.currentTimeMillis();
-        System.out.println("l = " + l);
-    }
-
-    public static void main(String[] args) {
-        long l = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
-        System.out.println("l = " + l);
-        System.out.println("l = " + System.currentTimeMillis());
-        String s = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toLocalDateTime().toString();
-        System.out.println("s = " + s);
-    }
+//    @Test
+//    public void testJdk8() {
+//        long l = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
+//        System.out.println("l = " + l);
+//        System.out.println("l = " + System.currentTimeMillis());
+//        String s = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toLocalDateTime().toString();
+//        System.out.println("s = " + s);
+//
+//    }
+//    @Test
+//    public void testTime(){
+//        long l = System.currentTimeMillis();
+//        System.out.println("l = " + l);
+//    }
+//
+//    public static void main(String[] args) {
+//        long l = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toEpochSecond();
+//        System.out.println("l = " + l);
+//        System.out.println("l = " + System.currentTimeMillis());
+//        String s = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toLocalDateTime().toString();
+//        System.out.println("s = " + s);
+//    }
 }
