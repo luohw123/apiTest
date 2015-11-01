@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread5.exception2;
+package com.javaapi.test.concurrent.Thread.Thread5Exception.exception2ThreadUncaughtExceptionHandler;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

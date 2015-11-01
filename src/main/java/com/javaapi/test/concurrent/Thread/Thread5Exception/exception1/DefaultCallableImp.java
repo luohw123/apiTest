@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread5.exception1;
+package com.javaapi.test.concurrent.Thread.Thread5Exception.exception1;
 
 import java.util.concurrent.Callable;
 
