@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread4.lock;
+package com.javaapi.test.concurrent.Thread.Thread4Lock.lock;
 
 import java.util.Calendar;
 import java.util.concurrent.locks.ReentrantLock;

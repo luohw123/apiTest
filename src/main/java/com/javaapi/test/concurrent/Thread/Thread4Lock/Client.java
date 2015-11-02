@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread4;
+package com.javaapi.test.concurrent.Thread.Thread4Lock;
 
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -11,22 +11,39 @@ import org.junit.Test;
 public class Client {
 
 	/**
-	 * 同步代码块
+	 * 同步代码块,10个线程持有相同对象锁
 	 */
 	@Test
 	public void synchronzeBlock() {
 		String lock = new String("lock");
 		for (int i = 1; i < 10; i++) {
 			new SynchronizeBlockThread(i, lock).start();
-			try {
-				Thread.sleep(1);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//			try {
+//				Thread.sleep(1);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}
 
 	}
+    /**
+     * 同步代码块,每个线程对象锁不同
+     */
+    @Test
+    public void synchronzeBlockTmp() {
+//        String lock = new String("lock");
+        for (int i = 1; i < 10; i++) {
+            new SynchronizeBlockThreadTmp(i, null).start();
+//            try {
+//                Thread.sleep(1);
+//            } catch (InterruptedException e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//            }
+        }
+
+    }
 
 	/**
 	 * 同步方法

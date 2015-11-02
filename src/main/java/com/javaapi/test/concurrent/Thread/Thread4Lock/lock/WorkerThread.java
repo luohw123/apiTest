@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread4.lock;
+package com.javaapi.test.concurrent.Thread.Thread4Lock.lock;
 
 //工作线程，调用TestServer.testRun
 public class WorkerThread implements Runnable {

@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread4;
+package com.javaapi.test.concurrent.Thread.Thread4Lock;
 
 
 /**
@@ -31,18 +31,4 @@ public class SynchronizeMethodThread extends Thread {
 		System.out.println("线程=>"+threadNo+"获取执行机会");
 		SynchronizeMethod.synchronizedMethod(threadNo);
 	}
-	
-//	private synchronized void synchronizedMethod() {
-//		for (int i = 1; i < 10; i++) {
-//			try {
-////				System.out.println("线程=>"+threadNo+"得到同步监听器");
-//				System.out.println("No." + threadNo + ":" + i);
-//				Thread.sleep(60000);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//		
-//		}
-//	}
-
 }

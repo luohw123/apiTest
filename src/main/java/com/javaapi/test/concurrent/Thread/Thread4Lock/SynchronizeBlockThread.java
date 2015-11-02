@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread4;
+package com.javaapi.test.concurrent.Thread.Thread4Lock;
 
 /**
  * 1、对于同步的方法或者代码块来说，必须获得对象锁才能够进入同步方法或者代码块进行操作；
@@ -24,7 +24,7 @@ public class SynchronizeBlockThread extends Thread {
 	}
 
 	public void run() {
-		// 这样会串行执行,这代码
+		// 这样会串行执行,这代码,感觉不到cpu切换造成的影响
 		synchronized (lock) {
 			for (int i = 1; i < 10; i++) {
 				System.out.println("No." + threadNo + ":" + i);

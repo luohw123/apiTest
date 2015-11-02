@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * 关于线程池中的线程产生异常后,如果不调用future.get,异常会被淹没的问题.
+ * 关于jdk线程池中的线程产生异常后,如果不调用future.get,异常会被淹没的问题.
  *
  */
 public class Test {
@@ -36,6 +36,8 @@ private static void secondMethod() throws Exception {
 			throw e;
 		}
 	}
+    System.out.println("此处不会被执行");
+
 }
 
 private static ArrayList<Future<String>> getResult() throws Exception {

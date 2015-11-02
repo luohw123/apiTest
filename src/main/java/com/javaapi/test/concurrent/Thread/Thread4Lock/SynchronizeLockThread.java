@@ -1,9 +1,14 @@
-package com.javaapi.test.concurrent.Thread.Thread4;
+package com.javaapi.test.concurrent.Thread.Thread4Lock;
 
 import java.util.concurrent.locks.Lock;
 
 /**
- * 1 同步锁,思索的例子, 2 线程通信 :wait,condition,阻塞队列
+ * 1 同步锁,思索的例子, 2 线程通信 :wait,condition,阻塞队列<br>
+ * Lock 支持更细粒得锁操作</br>
+ * Lock是无阻塞锁,synchronize是阻塞锁
+ * Lock可实现公平锁,synchronize只能是非公平锁
+ * Lock是代码级别实现的,synchronize是jvm级别实现的
+ *
  * 
  */
 public class SynchronizeLockThread extends Thread {
