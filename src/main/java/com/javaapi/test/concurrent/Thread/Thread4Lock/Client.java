@@ -83,12 +83,12 @@ public class Client {
 	public void synchronizeLock() {
 		ReentrantLock lock = new ReentrantLock();
 		for (int i = 1; i < 10; i++) {
-			new SynchronizeLockThread(i, lock).start();
-			try {
-				Thread.sleep(1);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+            new SynchronizeLockThread(i, lock).start();
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 	}
 }

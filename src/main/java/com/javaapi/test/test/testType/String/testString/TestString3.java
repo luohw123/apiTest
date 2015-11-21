@@ -1,7 +1,90 @@
 package com.javaapi.test.test.testType.String.testString;
 
+import org.junit.Test;
+
 public class TestString3 {
-    public static void main(String args[]) {
+    /** intern方法
+     *         // 将堆中字符串放进常量池中,然后返回堆中字符串
+     * @throws Exception
+     */
+    @Test
+    public void testIntern() throws Exception {
+        StringBuilder sb = new StringBuilder();
+        sb.append("a");
+        sb.append("b");
+        //在堆中生成一个 ab 字符串
+        String a = sb.toString();
+        // 将堆中字符串放进常量池中,然后返回堆中字符串
+        String b = a.intern();
+        // 此时ab都为堆中字符串 所以相等
+        System.out.println(a == b);
+
+        // intern第二次调用后就直接从常量池里返回ab字符串,所以与 常量 ab 字符串指向同一引用
+        System.out.println("ab" == a.intern());
+    }
+
+    /**
+     * "a"+"b"  这种+号俩边是字面量相加会提前优化好 将a,b,ab放入常量池
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testStringpool() throws Exception {
+        String a = "a" + "b";
+        String b = a.intern();
+        System.out.println(a == b);
+
+        System.out.println("ab" == a.intern());
+    }
+    /**
+     * + 号俩边有变量就在堆中生成
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testStringpool2() throws Exception {
+        String a0 = "b";
+        String a = "a" + a0;
+        System.out.println("ab" == a);
+    }
+
+    @Test
+    public void testStringpool3() throws Exception {
+        StringBuilder a = new StringBuilder();
+        a.append("a");
+        a.append("b");
+        String s = a.toString();
+        // ab已经有值了,说明
+        System.out.println("ab" == s.intern());
+    }
+
+    /**
+     * concat都在堆中操作
+     * @throws Exception
+     */
+    @Test
+    public void testStringpoolConcat() throws Exception {
+        String a = "a".concat("b");
+        System.out.println("ab" == a);
+    }
+    /**
+     * concat都在堆中操作
+     * @throws Exception
+     */
+    @Test
+    public void testStringpoolConca2() throws Exception {
+        String a0 = "b";
+        String a = "a".concat(a0);
+        System.out.println("ab" == a);
+    }
+
+
+    /**
+     * 测试全部,但是太过复杂
+     */
+    @Test
+    @Deprecated
+    public  void testAll() {
         // 在池中和堆中分别创建String对象"abc",s1指向堆中对象
         String s1 = new String("abc");
         // s2直接指向池中对象"abc"

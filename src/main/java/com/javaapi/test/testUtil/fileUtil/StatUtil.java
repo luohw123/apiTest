@@ -4,18 +4,108 @@ import org.junit.Test;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- 根据帝联url生成sql
+ *
  */
-public class TestFile {
+public class StatUtil {
     private Set set = new HashSet();
+
+    Map<Integer, Integer> map = new HashMap<>();
+
+    @Test
+    public void test() throws IOException {
+        InputStream in = new FileInputStream(new File("/Users/user/program/shell/transdata/20151116/music-20151113.txt"));
+        InputStreamReader reader = new InputStreamReader(in);
+        BufferedReader bufferedInputStream = new BufferedReader(reader);
+        String temp = null;
+        while ((temp = bufferedInputStream.readLine()) != null) {
+            int videoId = getVideoId(temp);
+            if (map.get(videoId) == null) {
+                map.put(videoId, 1);
+            }else {
+                Integer time = map.get(videoId);
+                time++;
+                map.put(videoId, time);
+            }
+        }
+        createSql();
+    }
+
+    private void createSql() throws FileNotFoundException {
+        try {
+            InputStream in = new FileInputStream(new File("/Users/user/program/shell/transdata/20151116/music-20151113.txt"));
+            InputStreamReader reader = new InputStreamReader(in);
+            BufferedReader bufferedInputStream = new BufferedReader(reader);
+            String temp = null;
+
+            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/transdata/20151116/insertSql.list.sql"));
+            OutputStreamWriter writer = new OutputStreamWriter(out);
+            BufferedWriter bw = new BufferedWriter(writer);
+
+            FileOutputStream out2 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20151116/insertSql_RollBack.list.sql"));
+            OutputStreamWriter writer2 = new OutputStreamWriter(out2);
+            BufferedWriter bw2 = new BufferedWriter(writer2);
+
+
+            FileOutputStream out3 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20151116/ac_new_video_update.list.sql"));
+            OutputStreamWriter writer3 = new OutputStreamWriter(out3);
+            BufferedWriter bw3 = new BufferedWriter(writer3);
+
+            FileOutputStream out4 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20151116/ac_new_video_update_RollBack.list.sql"));
+            OutputStreamWriter writer4 = new OutputStreamWriter(out4);
+            BufferedWriter bw4 = new BufferedWriter(writer4);
+
+
+            while ((temp = bufferedInputStream.readLine()) != null) {
+                int videoId = getVideoId(temp);
+                if(map.get(videoId) == null || map.get(videoId) <4) {
+                    continue;
+                }
+                String sqlByUrl = getSqlByUrl(temp);
+                String deleteSql = getSqlDelete(temp);
+//                String updateSql = getSqlUpdate(temp);
+//                String updateSqlRollback = getSqlUpdateRollBack(temp);
+                set.add(videoId);
+                bw.write(sqlByUrl);
+                bw2.write(deleteSql);
+//                bw3.write(updateSql);
+//                bw4.write(updateSqlRollback);
+            }
+            // 更新sql
+            createUpdateSql(bw3);
+            // 更新sql
+            createUpdateSqlRollback(bw4);
+            in.close();
+            reader.close();
+            bufferedInputStream.close();
+
+            bw.close();
+            writer.close();
+            out.close();
+
+            bw2.close();
+            writer2.close();
+            out2.close();
+
+            bw3.close();
+            writer3.close();
+            out3.close();
+
+            bw4.close();
+            writer4.close();
+            out4.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     private static int getVideoId(String url) {
         Pattern pattern = Pattern.compile("(\\d+)_mp4/.*_?\\1_(.*)\\.");
@@ -128,75 +218,6 @@ public class TestFile {
         return tableName;
     }
 
-    @Test
-    public void test() {
-        try {
-            InputStream in = new FileInputStream(new File("/Users/user/program/shell/transdata/20151119/acf-64.txt"));
-            InputStreamReader reader = new InputStreamReader(in);
-            BufferedReader bufferedInputStream = new BufferedReader(reader);
-            String temp = null;
-
-            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/transdata/20151119/insertSql.list.sql"));
-            OutputStreamWriter writer = new OutputStreamWriter(out);
-            BufferedWriter bw = new BufferedWriter(writer);
-
-            FileOutputStream out2 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20151119/insertSql_RollBack.list.sql"));
-            OutputStreamWriter writer2 = new OutputStreamWriter(out2);
-            BufferedWriter bw2 = new BufferedWriter(writer2);
-
-
-            FileOutputStream out3 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20151119/ac_new_video_update.list.sql"));
-            OutputStreamWriter writer3 = new OutputStreamWriter(out3);
-            BufferedWriter bw3 = new BufferedWriter(writer3);
-
-            FileOutputStream out4 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20151119/ac_new_video_update_RollBack.list.sql"));
-            OutputStreamWriter writer4 = new OutputStreamWriter(out4);
-            BufferedWriter bw4 = new BufferedWriter(writer4);
-
-
-            while ((temp = bufferedInputStream.readLine()) != null) {
-                String sqlByUrl = getSqlByUrl(temp);
-                String deleteSql = getSqlDelete(temp);
-//                String updateSql = getSqlUpdate(temp);
-//                String updateSqlRollback = getSqlUpdateRollBack(temp);
-                int videoId = getVideoId(temp);
-                set.add(videoId);
-                bw.write(sqlByUrl);
-                bw2.write(deleteSql);
-//                bw3.write(updateSql);
-//                bw4.write(updateSqlRollback);
-            }
-            // 更新sql
-            createUpdateSql(bw3);
-            // 更新sql
-            createUpdateSqlRollback(bw4);
-            in.close();
-            reader.close();
-            bufferedInputStream.close();
-
-            bw.close();
-            writer.close();
-            out.close();
-
-            bw2.close();
-            writer2.close();
-            out2.close();
-
-            bw3.close();
-            writer3.close();
-            out3.close();
-
-            bw4.close();
-            writer4.close();
-            out4.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     private void createUpdateSqlRollback(BufferedWriter bw4) {
         Iterator iterator = set.iterator();
@@ -225,65 +246,6 @@ public class TestFile {
             }
 
         }
-
-    }
-
-    @Test
-    public void testPattern() {
-        String url = "http://vplay.aixifan.com/des/acf-2/1523110_mp4/1523110_360p_43.mp4";
-//        String url = "http://vplay.aixifan.com/des/acf-2/1663357_mp4/1663357_lvbr.mp4";
-//        String url = "http://vplay.aixifan.com/des/20150902/test_2285615_mp4/test_2285615_360p.mp4";
-        System.out.println("url = " + getSqlByUrl(url));
-    }
-
-    @Test
-    public void testVideoRate() {
-        System.out.println(mapDilianProfile("360"));
-        System.out.println(mapDilianProfile("480"));
-        System.out.println(mapDilianProfile("720"));
-        System.out.println(mapDilianProfile("1080"));
-        System.out.println(mapDilianProfile("222"));
-        System.out.println(mapDilianProfile("lvbr"));
-    }
-
-    @Test
-    public void testTableName() {
-        System.out.println(getTablename("500000"));
-        System.out.println(getTablename("499999"));
-        System.out.println(getTablename("600000"));
-        System.out.println(getTablename("1100000"));
-        System.out.println(getTablename("1600000"));
-        System.out.println(getTablename("2100000"));
-        System.out.println(getTablename("2600000"));
-        System.out.println(getTablename("3100000"));
-        System.out.println(getTablename("3600000"));
-        System.out.println(getTablename("4100000"));
-        System.out.println(getTablename("4600000"));
-    }
-
-    @Test
-    public void testUpdate() {
-        Set set = new HashSet();
-        set.add(1);
-        set.add(1);
-        System.out.println("set = " + set);
-    }
-
-    @Test
-    public void testPlus() {
-        int nihao = 1;
-        if (++nihao == 2) {
-            System.out.println("yes");
-        } else {
-            System.out.println("no");
-        }
-        nihao = 1;
-        if (nihao++ == 2) {
-            System.out.println("yes");
-        } else {
-            System.out.println("no");
-        }
-
 
     }
 }

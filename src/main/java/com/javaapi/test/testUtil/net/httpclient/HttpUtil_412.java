@@ -1,14 +1,5 @@
 package com.javaapi.test.testUtil.net.httpclient;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import org.apache.commons.collections.MapUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -16,11 +7,17 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * httpclient 4.1.2代码
@@ -49,7 +46,8 @@ public class HttpUtil_412 {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		// 创建httpget.
 		HttpPost httpPost = new HttpPost(url);
-		HttpEntity setPostParams = setPostParams( param);
+        commonHeader(httpPost);
+        HttpEntity setPostParams = setPostParams( param);
 		httpPost.setEntity(setPostParams);
 		String result = null;
 		HttpResponse response = null;
@@ -89,8 +87,9 @@ public class HttpUtil_412 {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		// 创建httpget.
 		 url = setGetParams(url,param);
-		HttpGet httpget = new HttpGet(url);
-		String result = null;
+        HttpRequestBase httpget = new HttpGet(url);
+        commonHeader(httpget);
+        String result = null;
 		HttpResponse response = null;
 		try {
 			response = httpclient.execute(httpget);
@@ -110,6 +109,13 @@ public class HttpUtil_412 {
 		return result;
 
 	}
+    private static void  commonHeader(HttpRequestBase httpget ){
+        HashMap<String, String> headers = new HashMap<String, String>();
+        httpget.setHeader("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9.2.6) Gecko/20100625 Firefox/3.6.6 Greatwqs");
+        httpget.setHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+        httpget.setHeader("Accept-Language", "zh-cn,zh;q=0.5");
+        httpget.setHeader("Accept-Charset", "ISO-8859-1,utf-8;q=0.7,*;q=0.7");
+    }
 
 
 
