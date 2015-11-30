@@ -1,21 +1,17 @@
 package com.javaapi.test.test.map.list.list;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.junit.Test;
+
+import java.util.*;
 
 public class TestArrayList {
     /**
      * 
-     *    原样添加
+     *   求并集
      */
     @Test
     public void testListAddAll() {
-        ArrayList<Integer> list1 = new ArrayList<Integer>();
+        ArrayList<Integer> list1 = new ArrayList<>();
         list1.add(13);
         list1.add(23);
         list1.add(33);
@@ -40,6 +36,8 @@ public class TestArrayList {
     public void testListMerge() {
         ArrayList<Integer> list1 = new ArrayList<Integer>();
         list1.add(13);
+        list1.add(13);
+        list1.add(13);
         list1.add(23);
         list1.add(33);
         list1.add(43);
@@ -57,7 +55,7 @@ public class TestArrayList {
     }
 
     /**
-     * 找出相同得值
+     * 求交集
      * @create_time 2014年9月18日 下午5:31:13 
      */
     @Test
@@ -78,6 +76,30 @@ public class TestArrayList {
         System.out.println(list1);
 
     }
+
+    /**
+     * 求差集 求list1 中有,但是list2中没有
+     * @create_time 2014年9月18日 下午5:31:13
+     */
+    @Test
+    public void testListRemoveAll() {
+        ArrayList<Integer> list1 = new ArrayList<Integer>();
+        list1.add(13);
+        list1.add(23);
+        list1.add(33);
+        list1.add(43);
+        list1.add(53);
+        ArrayList<Integer> list2 = new ArrayList<Integer>();
+        list2.add(14);
+        list2.add(24);
+        list2.add(34);
+        list2.add(43);
+        list2.add(53);
+        list1.removeAll(list2);
+        System.out.println(list1);
+
+    }
+
     /**
      * 
      * list 得remove(int i) 这个重载方法遍历时候不能正确的删除，相应位置得元素.

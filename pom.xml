@@ -63,28 +63,67 @@
 				</configuration>
 			</plugin>
 			<!-- 打包时候,将依赖包一起打进去http://lvjun106.iteye.com/blog/1849803 -->
-<!-- 			    <plugin>   -->
-<!-- 			      <artifactId>maven-assembly-plugin</artifactId>   -->
-<!-- 			      <configuration>   -->
-<!-- 			        <descriptorRefs>   -->
-<!-- 			          <descriptorRef>jar-with-dependencies</descriptorRef>   -->
-<!-- 			        </descriptorRefs>   -->
-<!-- 			      <archive>   -->
-<!-- 			        <manifest>   -->
-<!-- 			          <mainClass>com.javaapi.test.testUtil.Time.apache.TestTime</mainClass>   -->
-<!-- 			        </manifest>   -->
-<!-- 			      </archive>   -->
-<!-- 			      </configuration>   -->
-<!-- 			      <executions>   -->
-<!-- 			        <execution>   -->
-<!-- 			          <id>make-assembly</id>   -->
-<!-- 			          <phase>package</phase>   -->
-<!-- 			          <goals>   -->
-<!-- 			            <goal>single</goal>   -->
-<!-- 			          </goals>   -->
-<!-- 			       </execution>   -->
-<!-- 			      </executions>   -->
-<!-- 			    </plugin>   -->
+            <!--mvn package 会多打出一个带依赖得所有包-->
+ 			    <!--<plugin>-->
+ 			      <!--<artifactId>maven-assembly-plugin</artifactId>-->
+ 			      <!--<configuration>-->
+ 			        <!--<descriptorRefs>-->
+ 			          <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+ 			        <!--</descriptorRefs>-->
+ 			      <!--<archive>-->
+ 			        <!--<manifest>-->
+ 			          <!--<mainClass>com.javaapi.test.testUtil.Time.apache.TestTime</mainClass>-->
+ 			        <!--</manifest>-->
+ 			      <!--</archive>-->
+ 			      <!--</configuration>-->
+ 			      <!--<executions>-->
+ 			        <!--<execution>-->
+ 			          <!--<id>make-assembly</id>-->
+ 			          <!--<phase>package</phase>-->
+ 			          <!--<goals>-->
+ 			            <!--<goal>single</goal>-->
+ 			          <!--</goals>-->
+ 			       <!--</execution>-->
+ 			      <!--</executions>-->
+ 			    <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.javaapi.test.testUtil.Time.apache.TestTime</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- 拷贝依赖的jar包到lib目录 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.build.directory}/lib
+                            </outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
 		</plugins>
 	</build>
 
