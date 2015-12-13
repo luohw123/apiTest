@@ -6,6 +6,7 @@ import java.util.Random;
 
 /**
  * http://blog.csdn.net/ethanq/article/details/7383387
+ *
  */
 public class WeightRandom {
     static List<WeightCategory> categorys = new ArrayList<WeightCategory>();
