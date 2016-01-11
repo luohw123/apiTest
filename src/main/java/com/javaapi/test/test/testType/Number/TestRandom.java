@@ -13,5 +13,4 @@ public class TestRandom {
         UUID uuid = UUID.randomUUID();
         System.out.println("uuid = " + uuid.toString());
     }
-
 }

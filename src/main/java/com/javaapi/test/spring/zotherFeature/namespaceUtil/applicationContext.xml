@@ -13,5 +13,4 @@
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
        
        		<util:properties id="selfPro" location="classpath:com/javaapi/test/spring/zotherFeature/propertyplaceholder/config.properties" ></util:properties>
-       		
 </beans>

@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class TestTime {
@@ -43,5 +44,12 @@ public class TestTime {
         long end = System.currentTimeMillis();
 
         System.out.println(DurationFormatUtils.formatPeriod(start, end, "HH-mm-ss"));
+    }
+    @Test
+    public void test(){
+        long unixTime=1450592982;
+        Date date = new Date(unixTime * 1000);
+        String yyyyMMddHHmmss = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+        System.out.println("yyyyMMddHHmmss = " + yyyyMMddHHmmss);
     }
 }

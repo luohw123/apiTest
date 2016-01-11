@@ -16,17 +16,25 @@ import java.util.regex.Pattern;
  根据帝联url生成sql
  */
 public class TestFile {
+
+    private boolean a;
     private Map<String, String> map = new HashMap<>();
 
+    @Test
+    public void test2() {
+        int i = -1605692111;
+        System.out.println("i = " + i);
+        System.out.println("i = " + a);
 
+    }
     @Test
     public void test() {
         loadData();
         try {
-            InputStream in = new FileInputStream(new File("/Users/user/program/shell/todilian/20151211/vid.txt"));
+            InputStream in = new FileInputStream(new File("/Users/user/program/shell/todilian/20151229/vid.txt"));
             InputStreamReader reader = new InputStreamReader(in);
             BufferedReader bufferedInputStream = new BufferedReader(reader);
-            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/todilian/20151211/afterTransVideoId.csv"));
+            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/todilian/20151229/afterTransVideoId.csv"));
             OutputStreamWriter writer = new OutputStreamWriter(out);
             BufferedWriter bw = new BufferedWriter(writer);
 
@@ -64,7 +72,7 @@ public class TestFile {
     @Test
     public void loadData(){
         try {
-            InputStream in = new FileInputStream(new File("/Users/user/program/shell/todilian/20151211/ac_video_map.csv"));
+            InputStream in = new FileInputStream(new File("/Users/user/program/shell/todilian/20151229/ac_video_map.csv"));
             InputStreamReader reader = new InputStreamReader(in);
             BufferedReader bufferedInputStream = new BufferedReader(reader);
             String temp = null;
