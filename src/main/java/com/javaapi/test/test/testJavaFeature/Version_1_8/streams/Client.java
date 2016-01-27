@@ -1,11 +1,5 @@
 package com.javaapi.test.test.testJavaFeature.Version_1_8.streams;
 
-//import java.util.function.Consumer;
-//import java.util.function.DoubleSupplier;
-//import java.util.function.Predicate;
-//
-//import static java.util.stream.Collectors.*;
-
 /**
  * java8 lambda 初探
  * http://blog.csdn.net/renfufei/article/details/24600507</br>
@@ -17,7 +11,7 @@ package com.javaapi.test.test.testJavaFeature.Version_1_8.streams;
  <p>总的来说,lambda表达式和 stream 是自Java语言添加泛型(Generics)和注解(annotation)以来最大的变化</p>
  */
 public class Client {
-////
+//
 //    private List<Person> phpProgrammers;
 //    private List<Person> javaProgrammers;
 //
@@ -193,6 +187,12 @@ public class Client {
 //                .map(Person::getFirstName)
 //                .collect(toSet());
 //
+//        Set<String> javaDevFirstName2 = javaProgrammers
+//                .stream()
+//                .map((e) -> e.getFirstName())
+//                .collect(toSet());
+//        System.out.println("javaDevFirstName2 = " + javaDevFirstName2);
+//        //=======
 //        System.out.println("将 Java programmers 的 first name 存放到 TreeSet:");
 //        TreeSet<String> javaDevLastName = javaProgrammers
 //                .stream()

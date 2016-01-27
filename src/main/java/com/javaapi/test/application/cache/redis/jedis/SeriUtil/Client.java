@@ -1,6 +1,8 @@
 package com.javaapi.test.application.cache.redis.jedis.SeriUtil;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.JSONSerializer;
+import com.alibaba.fastjson.serializer.SerializeWriter;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
@@ -47,7 +49,38 @@ public class Client {
         Person fastjson1 = new Person();
         fastjson1.setId(1);
         fastjson1.setName("fastjsonBytes");
-        String fastjson = jedis.set("fastjson".getBytes(),FastJsonSerializeUtil.serialize(fastjson1) );
+        jedis.set("fastjson".getBytes(), serialize(fastjson1));
+        jedis.set(FastJsonSerializeUtil.serialize("fastjson2"), serialize(fastjson1));
+
+    }
+    public static byte[] serialize(Object object) {
+        if (object == null) {
+            return null;
+        }
+        SerializerFeature[] features = new SerializerFeature[0];
+        SerializeWriter out = new SerializeWriter();
+
+        try {
+            JSONSerializer serializer = new JSONSerializer(out);
+            for (com.alibaba.fastjson.serializer.SerializerFeature feature : features) {
+                serializer.config(feature, true);
+            }
+
+            serializer.write(object);
+            return out.toBytes("UTF-8");
+        } finally {
+            out.close();
+        }
+    }
+    @Test
+    public void testFastJsonSer2() throws Exception {
+        Person fastjson1 = new Person();
+        fastjson1.setId(1);
+        fastjson1.setName("fastjsonBytes");
+        byte[] serialize = FastJsonSerializeUtil.serialize(fastjson1);
+        System.out.println("serialize = " + serialize);
+        String s = new String(serialize);
+        System.out.println("s = " + s);
     }
     @Test
     public void testFastJsonDser() throws Exception {

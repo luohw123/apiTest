@@ -21,4 +21,8 @@ public class TestLogback {
 		logger.warn("this is {}", "logback");
 		logger.error("this is {}", "logback");
 	}
+    @Test
+    public void testLogadditivity(){
+        logger.info("this is {}", "logback");
+    }
 }

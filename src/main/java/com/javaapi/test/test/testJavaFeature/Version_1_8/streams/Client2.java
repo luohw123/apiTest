@@ -1,11 +1,5 @@
 package com.javaapi.test.test.testJavaFeature.Version_1_8.streams;
 
-//import java.util.function.Consumer;
-//import java.util.function.DoubleSupplier;
-//import java.util.function.Predicate;
-//
-//import static java.util.stream.Collectors.*;
-
 /**
  *    http://blog.csdn.net/dm_vincent/article/details/40340291
  */
@@ -88,7 +82,7 @@ public class Client2 {
 //    public void testOptinal() throws Exception {
 //        List<String> collect = javaProgrammers.stream().map((person -> {
 //            return person.getFirstName();
-//        })).collect(toList());
+//        })).collect(Collectors.toList());
 //        String sindyNew = pickName(collect, "Sindy");
 //        System.out.println("sindy = " + sindyNew);
 //        //---

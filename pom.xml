@@ -7,10 +7,9 @@
 
 
 
-
     <properties>
         <dep.jackson-databind.version>2.4.4</dep.jackson-databind.version>
-        <spring.version>3.2.6.RELEASE</spring.version>
+        <spring.version>3.2.7.RELEASE</spring.version>
         <junit.version>4.11</junit.version>
         <java.version>1.7</java.version>
         <plugin.clean.version>2.6.1</plugin.clean.version>
@@ -164,11 +163,11 @@
         <!-- <artifactId>hibernate-core</artifactId> -->
         <!-- <version>3.6.1.Final</version> -->
         <!-- </dependency> -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>4.3.1.Final</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-core</artifactId>-->
+            <!--<version>4.3.1.Final</version>-->
+        <!--</dependency>-->
         <!-- mvc -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -206,6 +205,37 @@
             <version>2.2.9</version>
             <!--<scope>test</scope>-->
         </dependency>
+
+
+        <!-- jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.4.2.RELEASE</version>
+        </dependency>
+
+        <!-- hibernate begin -->
+        <!--     <dependency> -->
+        <!--     	<groupId>org.hibernate</groupId> -->
+        <!--     	<artifactId>hibernate-core</artifactId> -->
+        <!--     	<version>4.1.12.Final</version> -->
+        <!--     </dependency> -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.1.9.Final</version>
+        </dependency>
+        <!--     <dependency> -->
+        <!--     	<groupId>org.hibernate.common</groupId> -->
+        <!--     	<artifactId>hibernate-commons-annotations</artifactId> -->
+        <!--     	<version>4.0.1.Final</version> -->
+        <!--     </dependency> -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.0.0.Final</version>
+        </dependency>
+        <!-- hibernate end -->
         <!-- server -->
 
         <!-- cache memcache -->
@@ -305,11 +335,11 @@
             <version>1.7.12</version>
         </dependency>
         <!-- util开始 -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>5.1.0.Final</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.hibernate</groupId>-->
+            <!--<artifactId>hibernate-validator</artifactId>-->
+            <!--<version>5.1.0.Final</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
@@ -346,6 +376,11 @@
             <artifactId>commons-collections4</artifactId>
             <version>4.0</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -503,6 +538,12 @@
             <artifactId>spring-jms</artifactId>
         </dependency>
         <!-- jms end -->
+        <!-- es-->
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>2.1.1</version>
+        </dependency>
     </dependencies>
 
     <!-- spring 版本管理 -->

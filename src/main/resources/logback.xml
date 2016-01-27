@@ -36,7 +36,9 @@
 	</appender>
 
 	<!-- 控制包或者类的日志输出,以及日志输出级别 -->
-	<logger name="com.javaapi.test.application.log.log.logback.TestLogback" level="INFO" />
+	<logger name="com.javaapi.test.application.log.log.logback.TestLogback" level="INFO"  additivity="false">
+        <appender-ref ref="stdout" />
+    </logger>
 
 	<logger name="net.rubyeye.xmemcached" level="INFO" />
 	<logger name="com.google.code.yanf4j" level="INFO" />
@@ -66,7 +68,7 @@
 	<logger name="org.apache.ibatis" level="trace" />
 	
 	
-	<root level="INFO">
+	<root level="DEBUG">
 		<appender-ref ref="stdout" />
 	</root>
 </configuration>

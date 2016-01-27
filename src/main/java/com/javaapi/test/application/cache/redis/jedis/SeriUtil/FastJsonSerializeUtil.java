@@ -29,6 +29,7 @@ public class FastJsonSerializeUtil {
         }
     }
 
+
     public static <T> Object deserialize(byte[] bytes, Class<T> clazz) {
         Object parse = JSON.parseObject(bytes, clazz);
         return parse;

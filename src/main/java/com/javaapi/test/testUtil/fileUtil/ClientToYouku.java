@@ -12,9 +12,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- 根据帝联url生成sql
+ * Created by user on 16/1/21.
  */
-public class TestFile {
+public class ClientToYouku {
+
     private Set set = new HashSet();
 
     private static int getVideoId(String url) {
@@ -71,15 +72,18 @@ public class TestFile {
         return sb.toString();
     }
 
-    public static String getSqlByUrl(String url) {
+    public static String getSqlByUrl(String temp) {
         String now = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        Pattern pattern = Pattern.compile("(\\d+)_flv/.*_?\\1_(.*)\\.");
-        Matcher matcher = pattern.matcher(url);
-        if (!matcher.find()) {
-            return "#" + url + "\r\n";
-        }
-        String videoId = matcher.group(1);
-        String rate = mapDilianProfile(matcher.group(2));
+        //1004 38825 CMTU1MzAw
+        String[] split = temp.split(" ");
+        String videoId = split[0];
+//        if(NumberUtils.isNumber(videoId)){
+//            return "" ;
+//
+//        }
+        String url = split[2];
+
+        String rate ="99";
         String tablename = getTablename(videoId);
 
         StringBuilder sb = new StringBuilder();
@@ -88,7 +92,7 @@ public class TestFile {
         sb.append("(video_id,url,source,bit_rate,creater,create_time,updater,update_time) VALUES (");
         sb.append(videoId + ",");
         sb.append("'" + url + "',");
-        sb.append("'D_LIAN' ,");
+        sb.append("'youku' ,");
         sb.append(rate + ",");
         sb.append("1,'" + now + "',1,'" + now + "');\r\n");
         return sb.toString();
@@ -131,40 +135,33 @@ public class TestFile {
     @Test
     public void test() {
         try {
-            InputStream in = new FileInputStream(new File("/Users/user/program/shell/transdata/20160118-sina/sina_url_50000.txt"));
+            InputStream in = new FileInputStream(new File("/Users/user/program/shell/youkutransdata/acfun_30T_part1.txt"));
             InputStreamReader reader = new InputStreamReader(in);
             BufferedReader bufferedInputStream = new BufferedReader(reader);
             String temp = null;
 
-            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160118-sina/insertSql.list.sql"));
+            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/insertSql.list.sql"));
             OutputStreamWriter writer = new OutputStreamWriter(out);
             BufferedWriter bw = new BufferedWriter(writer);
 
-            FileOutputStream out2 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160118-sina/insertSql_RollBack.list.sql"));
+            FileOutputStream out2 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/insertSql_RollBack.list.sql"));
             OutputStreamWriter writer2 = new OutputStreamWriter(out2);
             BufferedWriter bw2 = new BufferedWriter(writer2);
 
 
-            FileOutputStream out3 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160118-sina/ac_new_video_update.list.sql"));
+            FileOutputStream out3 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/ac_new_video_update.list.sql"));
             OutputStreamWriter writer3 = new OutputStreamWriter(out3);
             BufferedWriter bw3 = new BufferedWriter(writer3);
 
-            FileOutputStream out4 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160118-sina/ac_new_video_update_RollBack.list.sql"));
+            FileOutputStream out4 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/ac_new_video_update_RollBack.list.sql"));
             OutputStreamWriter writer4 = new OutputStreamWriter(out4);
             BufferedWriter bw4 = new BufferedWriter(writer4);
 
 
             while ((temp = bufferedInputStream.readLine()) != null) {
+
                 String sqlByUrl = getSqlByUrl(temp);
-                String deleteSql = getSqlDelete(temp);
-//                String updateSql = getSqlUpdate(temp);
-//                String updateSqlRollback = getSqlUpdateRollBack(temp);
-                int videoId = getVideoId(temp);
-                set.add(videoId);
                 bw.write(sqlByUrl);
-                bw2.write(deleteSql);
-//                bw3.write(updateSql);
-//                bw4.write(updateSqlRollback);
             }
             // 更新sql
             createUpdateSql(bw3);
@@ -246,7 +243,7 @@ public class TestFile {
 
     @Test
     public void testPattern() {
-        String url = "http://vplay.aixifan.com/des/acf-2/1523110_flv/1523110_360p_43.mp4";
+        String url = "1004 38825 CMTU1MzAw";
 //        String url = "http://vplay.aixifan.com/des/acf-2/1663357_flv/1663357_lvbr.mp4";
 //        String url = "http://vplay.aixifan.com/des/20150902/test_2285615_flv/test_2285615_360p.mp4";
         System.out.println("url = " + getSqlByUrl(url));
