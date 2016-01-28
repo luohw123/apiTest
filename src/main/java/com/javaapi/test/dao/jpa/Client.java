@@ -24,6 +24,7 @@ public class Client {
 
     @Test
     public void testInsert() throws Exception {
+
         User s = new User();
         s.setUsername("nihao");
         s.setPassword("nihao");
