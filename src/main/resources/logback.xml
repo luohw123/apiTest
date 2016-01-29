@@ -65,10 +65,13 @@
 	
 <!-- 	com.javaapi.test.dao  自己得dao层设置为Trace级别就能让mybatis打印所有返回值 -->
 	<logger name="com.javaapi.test.dao" level="ALL" />
-	<logger name="org.apache.ibatis" level="trace" />
+    <logger name="org.hibernate.engine.jdbc.spi.SqlStatementLoggger" level="DEBUG"/>
+
+
+    <logger name="org.apache.ibatis" level="trace" />
 	
 	
-	<root level="DEBUG">
+	<root level="warn">
 		<appender-ref ref="stdout" />
 	</root>
 </configuration>
