@@ -11,7 +11,6 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -22,26 +21,40 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")
 @ActiveProfiles("development")
-@Transactional
+//@Transactional
 public class Client {
     @Autowired
     private UserDao dao;
 
     @Test
     public void testInsert() throws Exception {
-
         User s = new User();
         s.setUsername("nihao");
         s.setPassword("nihao");
         User save = dao.save(s);
         System.out.println("save = " + save);
     }
+
+    // 保证有则,删除,需要先查询下,然后再删除.
+    // 查询和接下来的删除在同一个事物中
+
+    // 按id删除,即便是有一个delete方法,也是先查询下,有则删除,没有则不删除
+    @Test
+//    @Rollback(value = false)
+    public void testDelete() throws Exception {
+        //Hibernate: select user0_.id as id0_0_, user0_.password as password0_0_, user0_.username as username0_0_ from i_user user0_ where user0_.id=?
+//        Hibernate: select user0_.id as id0_0_, user0_.password as password0_0_, user0_.username as username0_0_ from i_user user0_ where user0_.id=?
+//        Hibernate: delete from i_user where id=?
+        User one = dao.findOne(4);
+        dao.delete(one);
+    }
+
     @Test
     @Rollback(value = false)
     // 非显示更新
     public void testUpdate() throws Exception {
         User one = dao.findOne(1);
-        one.setUsername("kk2");
+        one.setUsername("kk4");
 //        dao.save(one);
         System.out.println("one = " + one);
 
