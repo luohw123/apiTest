@@ -1,6 +1,6 @@
-package com.javaapi.test.dao.jpa.dao;
+package com.javaapi.test.dao.jpa.springJpa.dao;
 
-import com.javaapi.test.dao.jpa.model.User;
+import com.javaapi.test.dao.jpa.springJpa.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

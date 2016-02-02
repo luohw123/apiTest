@@ -25,7 +25,7 @@
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
 		<property name="dataSource" ref="dataSource"/>
 		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
-		<property name="packagesToScan" value="com.javaapi.test.dao.jpa.model"/><!--待扫描的实体类包，不再需要persistence.xml了-->
+		<property name="packagesToScan" value="com.javaapi.test.dao.jpa.springJpa.model"/><!--待扫描的实体类包，不再需要persistence.xml了-->
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
@@ -47,7 +47,7 @@
 	
 	<!-- Spring Data Jpa配置 -->
 	
-	<jpa:repositories base-package="com.javaapi.test.dao.jpa.dao"  transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory"/>
+	<jpa:repositories base-package="com.javaapi.test.dao.jpa.springJpa.dao"  transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory"/>
 	<!-- 使用annotation定义事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 
@@ -58,7 +58,7 @@
 	<!-- local development环境 -->
 	<beans profile="development">
 		<context:property-placeholder ignore-resource-not-found="true"
-			location="classpath*:com/javaapi/test/dao/jpa/db.properties" />
+			location="classpath*:com/javaapi/test/dao/jpa/springJpa/db.properties" />
 
 		<!-- DBCP连接池 -->
 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">

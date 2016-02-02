@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.jpa.model;
+package com.javaapi.test.dao.jpa.springJpa.model;
 
 
 import javax.persistence.*;

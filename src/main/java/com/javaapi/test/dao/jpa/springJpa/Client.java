@@ -1,7 +1,7 @@
-package com.javaapi.test.dao.jpa;
+package com.javaapi.test.dao.jpa.springJpa;
 
-import com.javaapi.test.dao.jpa.dao.UserDao;
-import com.javaapi.test.dao.jpa.model.User;
+import com.javaapi.test.dao.jpa.springJpa.dao.UserDao;
+import com.javaapi.test.dao.jpa.springJpa.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
