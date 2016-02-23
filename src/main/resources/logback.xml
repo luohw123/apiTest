@@ -73,5 +73,6 @@
 	
 	<root level="info">
 		<appender-ref ref="stdout" />
-	</root>
+        <appender-ref ref="FILE" />
+    </root>
 </configuration>

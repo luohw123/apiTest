@@ -9,7 +9,9 @@ public class TestLog4j {
 	private static transient Logger	logger	= LoggerFactory
 												.getLogger(TestLog4j.class);
 
-	@Test
+
+
+    @Test
 	public void testLog4jlogger() {
 		logger.info("this is log4j style");
 		logger.info("test replace in {}", "log4j");

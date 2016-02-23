@@ -96,7 +96,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.javaapi.test.testUtil.Time.apache.TestTime</mainClass>
+                            <mainClass>com.javaapi.test.application.log.log.logback.TestLogback</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

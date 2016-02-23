@@ -11,4 +11,6 @@
  <bean id="teacher" class="com.javaapi.test.spring.springioc.annotationXmlSpring.TeacherImp" >
 		<property name="name" value="wk-annotation-spring"/>
 	</bean>
+
+    <import resource="applicationContext2.xml"/>
 </beans>

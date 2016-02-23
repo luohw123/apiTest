@@ -5,10 +5,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TestLogback {
-	private transient Logger	logger	= LoggerFactory
+	private static transient Logger	logger	= LoggerFactory
 												.getLogger(TestLogback.class);
 
-	@Test
+
+    public static void main(String[] args) {
+        logger.info("this is logback log");
+        System.out.println("this is stdout log");
+    }
+
+    @Test
 	public void test() {
 		logger.info("this is {}", "logback");
 	}
