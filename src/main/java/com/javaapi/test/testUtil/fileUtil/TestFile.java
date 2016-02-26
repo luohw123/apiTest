@@ -131,25 +131,25 @@ public class TestFile {
     @Test
     public void test() {
         try {
-            InputStream in = new FileInputStream(new File("/Users/user/program/shell/transdata/20160222-sina/20160222-50000.txt"));
+            InputStream in = new FileInputStream(new File("/Users/user/program/shell/transdata/20160224-sina/acfun-10w-20160224.txt"));
             InputStreamReader reader = new InputStreamReader(in);
             BufferedReader bufferedInputStream = new BufferedReader(reader);
             String temp = null;
 
-            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160222-sina/insertSql.list.sql"));
+            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160224-sina/insertSql.list.sql"));
             OutputStreamWriter writer = new OutputStreamWriter(out);
             BufferedWriter bw = new BufferedWriter(writer);
 
-            FileOutputStream out2 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160222-sina/insertSql_RollBack.list.sql"));
+            FileOutputStream out2 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160224-sina/insertSql_RollBack.list.sql"));
             OutputStreamWriter writer2 = new OutputStreamWriter(out2);
             BufferedWriter bw2 = new BufferedWriter(writer2);
 
 
-            FileOutputStream out3 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160222-sina/ac_new_video_update.list.sql"));
+            FileOutputStream out3 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160224-sina/ac_new_video_update.list.sql"));
             OutputStreamWriter writer3 = new OutputStreamWriter(out3);
             BufferedWriter bw3 = new BufferedWriter(writer3);
 
-            FileOutputStream out4 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160222-sina/ac_new_video_update_RollBack.list.sql"));
+            FileOutputStream out4 = new FileOutputStream(new File("/Users/user/program/shell/transdata/20160224-sina/ac_new_video_update_RollBack.list.sql"));
             OutputStreamWriter writer4 = new OutputStreamWriter(out4);
             BufferedWriter bw4 = new BufferedWriter(writer4);
 
