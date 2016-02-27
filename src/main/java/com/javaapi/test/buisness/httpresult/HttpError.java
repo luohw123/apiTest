@@ -8,6 +8,12 @@ import java.io.Serializable;
 public class HttpError implements Serializable{
     private static final long serialVersionUID = -1;
 
+
+    public static final String G_ERROR_LIST = "errorList";
+    public static final String G_SUCCESS_CODE = "success";
+    public static final String G_SUCCESS_MSG = "成功";
+    public static final String G_ERROR_DISPLAY_CODE = "display";
+
     public static final String G_USERNAME_ERROR = "username.error";
     public static final String G_PASSWORD_ERROR = "password.error";
     public static final String G_MAIL_ERROR = "mail.error";
@@ -38,5 +44,14 @@ public class HttpError implements Serializable{
     public HttpError(String i, String msg) {
         this.code = i;
         this.msg =  msg;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("HttpError{");
+        sb.append("code='").append(code).append('\'');
+        sb.append(", msg='").append(msg).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

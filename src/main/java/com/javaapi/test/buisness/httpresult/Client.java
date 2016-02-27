@@ -3,42 +3,45 @@ package com.javaapi.test.buisness.httpresult;
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 /**
- * Created by user on 16/2/21.
+ * @TODO  raw type
  */
 public class Client {
     @Test
     public void testSuccess() {
-        HttpResult hr = new HttpResult();
-        hr.setCode("success");
-        hr.setMsg("成功");
-        ArrayList<String> objects = new ArrayList<>();
-        objects.add("nihao");
-        objects.add("nihao2");
-        hr.setResult(objects);
-        String s = JSON.toJSONString(hr);
-        System.out.println(s);
+        System.out.println(JSON.toJSONString(HttpResult.ok()));
+        System.out.println(JSON.toJSONString(HttpResult.ok("这是返回的结果")));
     }
+
     // code 为common ,则直接提示错误的msg
     @Test
-    public void testError() {
-        HttpResult hr = new HttpResult();
-        hr.setCode("common");
-        hr.setMsg("未有权限");
-        String s = JSON.toJSONString(hr);
-        System.out.println(s);
+    public void testOk() {
+        HttpResult nihao = HttpResult.ok("nihao");
+        System.out.println(JSON.toJSONString(nihao));
     }
-    // code为 errorlist 则使用 errorList成员变量
+
     @Test
-    public void testErrorList(){
-        HttpResult hr = new HttpResult();
-        hr.setCode("errorlist");
-        hr.setMsg("批量错误,请查看errorlist字段");
-        hr.addError(new HttpError(HttpError.G_USERNAME_ERROR, "用户名错误"));
-        hr.addError(new HttpError(HttpError.G_MAIL_ERROR, "邮箱格式错误"));
-        String s = JSON.toJSONString(hr);
-        System.out.println(s);
+    public void testError() {
+        HttpResult nihao = HttpResult.displayError("请先登录");
+        System.out.println(JSON.toJSONString(nihao));
+    }
+
+    @Test
+    public void testErrorCode() {
+        HttpResult nihao = HttpResult.error("need.login", "请先登录");
+        System.out.println(JSON.toJSONString(nihao));
+    }
+
+    @Test
+    public void testErrorList() {
+        HttpResult nihao = HttpResult.errorList(new HttpError("need.login", "请先登录")).addError("need.item.2", "条件2不符合");
+        System.out.println(JSON.toJSONString(nihao));
+    }
+
+    @Test
+    public void testErrorList_v2() {
+        HttpResult nihao = HttpResult.errorList("need.item.1", "条件1不符合")
+                .addError("need.item.2", "条件2不符合");
+        System.out.println(JSON.toJSONString(nihao));
     }
 }
