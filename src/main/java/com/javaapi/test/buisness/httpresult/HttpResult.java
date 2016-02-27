@@ -1,5 +1,7 @@
 package com.javaapi.test.buisness.httpresult;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,37 +39,37 @@ public class HttpResult<T> implements Serializable {
         this.errorList = errorList;
     }
 
-    public static <T> HttpResult ok() {
-        return new HttpResult(true, HttpError.G_SUCCESS_CODE, HttpError.G_SUCCESS_MSG, null);
+    public static <T> HttpResult<T> ok() {
+        return new HttpResult<>(true, HttpError.G_SUCCESS_CODE, HttpError.G_SUCCESS_MSG, null);
     }
-    public static <T> HttpResult ok(T result) {
-        return new HttpResult(true, HttpError.G_SUCCESS_CODE, HttpError.G_SUCCESS_MSG, result);
-    }
-
-    public static HttpResult displayError(String msg) {
-        return new HttpResult(false, HttpError.G_ERROR_DISPLAY_CODE, msg, null);
+    public static <T> HttpResult<T> ok(T result) {
+        return new HttpResult<>(true, HttpError.G_SUCCESS_CODE, HttpError.G_SUCCESS_MSG, result);
     }
 
-    public static HttpResult error(String code, String msg) {
-        return new HttpResult(false, code, msg, null);
+    public static <T> HttpResult<T> displayError(String msg) {
+        return new HttpResult<>(false, HttpError.G_ERROR_DISPLAY_CODE, msg, null);
     }
 
-    public static <T> HttpResult error(String code, String msg, T result) {
-        return new HttpResult(false, code, msg, result);
+    public static <T> HttpResult<T> error(String code, String msg) {
+        return new HttpResult<>(false, code, msg, null);
     }
 
-    public static <T> HttpResult errorList() {
-        HttpResult objectHttpResult = new HttpResult(false, HttpError.G_ERROR_LIST, null, null, new ArrayList<>());
+    public static <T> HttpResult<T> error(String code, String msg, T result) {
+        return new HttpResult<>(false, code, msg, result);
+    }
+
+    public static <T> HttpResult<T> errorList() {
+        HttpResult<T> objectHttpResult = new HttpResult<>(false, HttpError.G_ERROR_LIST, null, null, new ArrayList<HttpError>());
         return objectHttpResult;
     }
 
-    public static  HttpResult errorList(HttpError error) {
-        HttpResult objectHttpResult = new HttpResult(false, HttpError.G_ERROR_LIST, null, null, new ArrayList<>());
+    public static <T> HttpResult<T> errorList(HttpError error) {
+        HttpResult<T> objectHttpResult = new HttpResult<>(false, HttpError.G_ERROR_LIST, null, null, new ArrayList<HttpError>());
         objectHttpResult.addError(error);
         return objectHttpResult;
     }
-    public static  HttpResult errorList(String code,String msg) {
-        HttpResult objectHttpResult = new HttpResult(false, HttpError.G_ERROR_LIST, null, null, new ArrayList<>());
+    public static <T> HttpResult<T> errorList(String code,String msg) {
+        HttpResult<T> objectHttpResult = new HttpResult<>(false, HttpError.G_ERROR_LIST, null, null, new ArrayList<HttpError>());
         objectHttpResult.addError(new HttpError(code,msg));
         return objectHttpResult;
     }
@@ -104,7 +106,7 @@ public class HttpResult<T> implements Serializable {
         this.errorList = errorList;
     }
 
-    public HttpResult addError(HttpError error) {
+    public HttpResult<T> addError(HttpError error) {
         if (this.getErrorList() == null) {
             this.code = HttpError.G_ERROR_LIST;
             this.errorList = new ArrayList<>();
@@ -116,6 +118,7 @@ public class HttpResult<T> implements Serializable {
     public HttpResult<T> addError(String code, String msg) {
 
         if (this.getErrorList() == null) {
+            this.ok = false;
             this.code = HttpError.G_ERROR_LIST;
             this.errorList = new ArrayList<>();
         }
@@ -132,6 +135,11 @@ public class HttpResult<T> implements Serializable {
         this.ok = ok;
     }
 
+    // 人性化方法 易于读取
+    @JSONField(serialize = false)
+    public boolean isFail() {
+        return !isOk();
+    }
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("HttpResult{");
