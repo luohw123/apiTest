@@ -100,7 +100,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.javaapi.test.application.log.log.logback.TestLogback</mainClass>
+                            <mainClass>com.javaapi.test.application.rpc.dubbo.LuncherProvider</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

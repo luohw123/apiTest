@@ -1,14 +1,14 @@
 package com.javaapi.test.dao.hibernate.biz.relation.one2onedanxiang;
 
-import java.io.File;
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+import java.util.List;
 
 
 /**
@@ -92,4 +92,27 @@ public class One2OneDanXiang {
 		beginTransaction.commit();
 		openSession.close();
 	}
+
+    /**
+     * 2 或者是在session.save(person)之前session.save(idCard)
+     */
+    @Test
+    public void testInsert_v2() throws Exception {
+        Bill b = new Bill();
+        b.setBillname("b_kk");
+
+        BillDetail bd = new BillDetail();
+        bd.setCreate_user("kk");
+
+        Session openSession = sf.openSession();
+        Transaction beginTransaction = openSession.beginTransaction();
+//        beginTransaction.begin();
+
+        openSession.save(b);
+        bd.setBill(b);
+        System.out.println("doSomething");
+        openSession.save(bd);
+        beginTransaction.commit();
+        openSession.close();
+    }
 }

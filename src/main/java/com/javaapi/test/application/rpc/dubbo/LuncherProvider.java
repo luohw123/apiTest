@@ -1,7 +1,7 @@
 package com.javaapi.test.application.rpc.dubbo;
 
+import org.apache.xbean.spring.context.ClassPathXmlApplicationContext;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 
 public class LuncherProvider  {
@@ -11,15 +11,19 @@ public class LuncherProvider  {
 		Thread.sleep(1000*60*10);
 	}
 	
-	void start(){
-        String configLocation = LuncherProvider.class.getResource("").getPath() + "dubbo-provider.xml";
-        ApplicationContext context = new FileSystemXmlApplicationContext("file:" + configLocation);
-		String [] names=context.getBeanDefinitionNames();
-		System.out.print("Beans:");
-		for (String string : names){
+	void start() {
+//        String configLocation = LuncherProvider.class.getResource("").getPath() + "dubbo-provider.xml";
+//        String configLocation = LuncherProvider.class.getClassLoader().getResource("com/javaapi/test/application/rpc/dubbo/dubbo-provider.xml").getPath();
+//        System.out.println(configLocation);
+//        ApplicationContext context = new FileSystemXmlApplicationContext("file:" + configLocation);
+//        System.out.println("path is:" + configLocation);
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:" + "com/javaapi/test/application/rpc/dubbo/dubbo-provider.xml");
+        String[] names = context.getBeanDefinitionNames();
+        System.out.print("Beans:");
+        for (String string : names) {
             System.out.println(string);
             System.out.println(",");
         }
         System.out.println("=============end===========");
-	}
+    }
 }

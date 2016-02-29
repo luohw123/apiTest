@@ -14,4 +14,11 @@ public class Client {
         System.out.println(a == Boolean.TRUE);
         System.out.println(null == Boolean.TRUE);
     }
+
+    @Test
+    public void test_v2() throws Exception {
+        Boolean a = null;
+        System.out.println(a == true);
+
+    }
 }

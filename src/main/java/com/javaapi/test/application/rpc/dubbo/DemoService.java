@@ -6,5 +6,7 @@ public interface DemoService {
     public String returnHello();
     
     public MsgInfo returnMsgInfo(MsgInfo info);
-    
+
+
+    MsgInfo returnMsgInfo2(String name, EnumSample info);
 }
