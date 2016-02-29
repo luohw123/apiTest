@@ -18,4 +18,13 @@ public class BusinessException extends RuntimeException {
 		this.error = error;
 	}
 
+    /**
+     * 重写异常提高性能
+     * @return
+     */
+    @Override
+    public synchronized Throwable fillInStackTrace() {
+        return this;
+    }
+
 }
