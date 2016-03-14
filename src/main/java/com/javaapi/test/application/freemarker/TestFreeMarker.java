@@ -1,11 +1,11 @@
 package com.javaapi.test.application.freemarker;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.junit.Test;
 
 
 public class TestFreeMarker {
@@ -96,6 +96,25 @@ public class TestFreeMarker {
 		// 输出到path变量
 		FreeMarkerUtil.geneHtmlFile(freemarkerName, map, path2, freemarkerHtml);
 	}
+    @Test
+    public void testIf_V2() {
+        String freemarkerName = "testIf.ftl";
+        String freemarkerHtml = "testIf.shtml";
+        String path2 = TestFreeMarker.class.getResource("").getPath();
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("number2", 2);
+        map.put("number3", "3");
+        map.put("booleanTrue", true);
+        map.put("booleanFalse", false);
+        Map<Object, Object> mapInner = new HashMap<>();
+//        mapInner.put("booleanTrue", true);
+        mapInner.put("booleanTrue", Boolean.TRUE);
+
+        mapInner.put("booleanFalse", false);
+        map.put("mapInner", mapInner);
+        // 输出到path变量
+        FreeMarkerUtil.geneHtmlFileToString(freemarkerName, map, path2, freemarkerHtml);
+    }
 
 	// TODO 1 属性值存在得时候 2 map值是否存在
 

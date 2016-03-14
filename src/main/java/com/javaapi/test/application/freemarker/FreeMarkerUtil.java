@@ -1,13 +1,10 @@
 package com.javaapi.test.application.freemarker;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -83,6 +80,67 @@ public class FreeMarkerUtil {
                 }
             }
             
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    logger.error(e.getMessage());
+                }
+            }
+        }
+        return true;
+    }
+    public static boolean geneHtmlFileToString(String vsource, Map propMap, String vpath, String vtarget) {
+        FileOutputStream fos = null;
+        OutputStreamWriter osw = null;
+        Writer out = null;
+        try {
+            Configuration freemarker_cfg = new Configuration();
+            freemarker_cfg.setDirectoryForTemplateLoading(new File(vpath));
+            freemarker_cfg.setObjectWrapper(new DefaultObjectWrapper());
+            freemarker_cfg.setDefaultEncoding("UTF-8");
+            freemarker_cfg.setTemplateExceptionHandler(TemplateExceptionHandler.IGNORE_HANDLER);
+            // setTemplateUpdateDelay  设置为0，表示立刻加载模板   @see http://freemart.iteye.com/blog/1086211
+            freemarker_cfg.setTemplateUpdateDelay(0);
+            Template template = freemarker_cfg.getTemplate(vsource);
+            template.setEncoding("UTF-8");
+            template.setClassicCompatible(true);
+            File afile = new File(vpath + vtarget);
+            fos = new FileOutputStream(afile);
+            osw = new OutputStreamWriter(fos, "UTF-8");
+//            out = new BufferedWriter(osw);
+//            PrintStream out1 = System.out;
+            out = new BufferedWriter(osw = new OutputStreamWriter(System.out, "UTF-8"));
+
+            template.process(propMap, out);
+            out.flush();
+        } catch (TemplateException e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+            return false;
+        } finally {
+            if (out != null) {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    logger.error(e.getMessage());
+                }
+            }
+            if (osw != null) {
+                try {
+                    osw.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    logger.error(e.getMessage());
+                }
+            }
+
             if (fos != null) {
                 try {
                     fos.close();

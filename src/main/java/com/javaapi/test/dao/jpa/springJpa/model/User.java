@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "i_user")
+@Cacheable
 public class User implements Serializable {
     private static final long serialVersionUID = 5177699062365176136L;
     private Integer id;
