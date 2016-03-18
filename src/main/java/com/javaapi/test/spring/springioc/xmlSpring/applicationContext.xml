@@ -24,7 +24,7 @@
 		<property name="student" ref="student"/>
 	</bean>
 	<bean id="student" class="com.javaapi.test.spring.springioc.xmlSpring.Student">
-		<property name="name" value="kk" />
-		<property name="age" value="18" />
+        <constructor-arg index="0" value="kk"/>
+        <constructor-arg index="1" value="18" />
 	</bean>
 </beans>

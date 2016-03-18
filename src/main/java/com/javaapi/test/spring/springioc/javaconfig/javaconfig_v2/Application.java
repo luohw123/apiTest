@@ -20,6 +20,7 @@ import org.springframework.context.annotation.ComponentScan;
  @Value
  */
 //https://www.ibm.com/developerworks/cn/webservices/ws-springjava/
+// javaconfig 使用AnnotationConfigApplicationContext
 @ComponentScan
 public class Application {
 
@@ -41,8 +42,11 @@ public class Application {
     public void testSchool(){
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(Application.class);
-        School bean = context.getBean(School.class);
-        bean.haveClass();
+//        School bean = context.getBean(School.class);
+//        bean.haveClass();
+        School school = (School) context.getBean("school");
+        school.haveClass();
+
     }
 
 }

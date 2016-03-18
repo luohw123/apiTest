@@ -14,7 +14,9 @@
         <plugin.war.version>2.5</plugin.war.version>
         <!-- 编译版本 maven 内置 -->
         <maven.compiler.source>${java.version}</maven.compiler.source>
+        <!--<maven.compiler.source>1.7</maven.compiler.source>-->
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!--<maven.compiler.target>1.7</maven.compiler.target>-->
         <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
         <!-- 文件拷贝时的编码用于处理resources得编码 maven 内置 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

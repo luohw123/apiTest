@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.springioc.javaconfig;
+package com.javaapi.test.spring.springioc.javaconfig.javaconfig_v1;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

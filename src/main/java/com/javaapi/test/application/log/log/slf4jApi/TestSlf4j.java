@@ -22,7 +22,11 @@ public class TestSlf4j {
      */
     @Test
     public void testSlf4jException() {
-        logger.info("test exception", getSss());
+        try {
+            getSss();
+        } catch (Exception e) {
+            logger.info("test exception", e);
+        }
     }
 
     /**
@@ -30,26 +34,43 @@ public class TestSlf4j {
 	 */
 	@Test
 	public void testSlf4jException0() {
-		logger.info("test replace in {}","exception", getSss());
+        try {
+            getSss();
+        } catch (Exception e) {
+            logger.info("test replace in {}","exception", e);
+        }
 	}
 	/**
 	 * 异常在占位符中,1个占位符号可以打印完整堆栈
 	 */
 	@Test
 	public void testSlf4jException1() {
-		logger.info("test replace in {}", getSss());
+        try {
+            getSss();
+        } catch (Exception e) {
+            logger.info("test replace in {}", e);
+        }
 	}
 
-    private RuntimeException getSss() {
-        return new RuntimeException("sss");
-    }
 
     /**
-	 * 异常在占位符中,2个占位符号以及以上,不会打印堆栈
-	 */
-	@Test
-	public void testSlf4jException2() {
-		logger.info("test replace in {} {}","exception", getSss());
-	}
+     * 异常在占位符中,2个占位符号以及以上,不会打印堆栈
+     */
+    @Test
+    public void testSlf4jException2() {
+        try {
+            getSss();
+        } catch (Exception e) {
+            logger.info("test replace in {} {}","exception",e);
+        }
+    }
+
+    private String getSss() {
+        if (true) {
+            throw new RuntimeException("sss");
+        }
+        return "sss";
+    }
+
 	
 }
