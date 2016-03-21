@@ -7,10 +7,15 @@ import java.io.IOException;
 public class ReceiveLogsTopic {
 
   private static final String EXCHANGE_NAME = "topic_logs";
+//    public static final String HOST = "192.168.60.25";
+    public static final String HOST = "localhost";
 
-  public static void main(String[] argv) throws Exception {
-    ConnectionFactory factory = new ConnectionFactory();
-    factory.setHost("localhost");
+
+    public static void main(String[] argv) throws Exception {
+        argv =new String[] {"info"};
+
+        ConnectionFactory factory = new ConnectionFactory();
+    factory.setHost(HOST);
     Connection connection = factory.newConnection();
     Channel channel = connection.createChannel();
 

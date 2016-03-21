@@ -7,37 +7,44 @@ import com.rabbitmq.client.Channel;
 public class EmitLogTopic {
 
   private static final String EXCHANGE_NAME = "topic_logs";
+//    public static final String HOST = "192.168.60.25";
+    public static final String HOST = "localhost";
+    public static int index=0;
 
-  public static void main(String[] argv) {
-    Connection connection = null;
-    Channel channel = null;
-    try {
-      ConnectionFactory factory = new ConnectionFactory();
-      factory.setHost("localhost");
 
-      connection = factory.newConnection();
-      channel = connection.createChannel();
+    public static void main(String[] argv) {
+        for (int i = 0; i < 3; i++) {
+            index = i;
+            argv = new String[]{"info"};
 
-      channel.exchangeDeclare(EXCHANGE_NAME, "topic");
+            Connection connection = null;
+            Channel channel = null;
+            try {
+                ConnectionFactory factory = new ConnectionFactory();
+                factory.setHost(HOST);
 
-      String routingKey = getRouting(argv);
-      String message = getMessage(argv);
+                connection = factory.newConnection();
+                channel = connection.createChannel();
 
-      channel.basicPublish(EXCHANGE_NAME, routingKey, null, message.getBytes("UTF-8"));
-      System.out.println(" [x] Sent '" + routingKey + "':'" + message + "'");
+                channel.exchangeDeclare(EXCHANGE_NAME, "topic");
 
-    }
-    catch  (Exception e) {
-      e.printStackTrace();
-    }
-    finally {
-      if (connection != null) {
-        try {
-          connection.close();
+                String routingKey = getRouting(argv);
+                String message = getMessage(argv);
+
+                channel.basicPublish(EXCHANGE_NAME, routingKey, null, message.getBytes("UTF-8"));
+                System.out.println(" [x] Sent '" + routingKey + "':'" + message + "'");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (connection != null) {
+                    try {
+                        connection.close();
+                    } catch (Exception ignore) {
+                    }
+                }
+            }
         }
-        catch (Exception ignore) {}
-      }
-    }
   }
 
   private static String getRouting(String[] strings){
@@ -48,7 +55,7 @@ public class EmitLogTopic {
 
   private static String getMessage(String[] strings){
     if (strings.length < 2)
-    	    return "Hello World!";
+    	    return "Hello World!="+index;
     return joinStrings(strings, " ", 1);
   }
 

@@ -6,12 +6,14 @@ import com.rabbitmq.client.Channel;
 
 public class EmitLogDirect {
 
-  private static final String EXCHANGE_NAME = "direct_logs";
+    private static final String EXCHANGE_NAME = "direct_logs";
+    public static final String HOST = "192.168.60.25";
 
-  public static void main(String[] argv) throws Exception {
+    public static void main(String[] argv) throws Exception {
+        argv =new String[] {"info"};
 
-    ConnectionFactory factory = new ConnectionFactory();
-    factory.setHost("localhost");
+        ConnectionFactory factory = new ConnectionFactory();
+    factory.setHost(HOST);
     Connection connection = factory.newConnection();
     Channel channel = connection.createChannel();
 
