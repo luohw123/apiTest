@@ -24,7 +24,7 @@ public class DbUtil {
     @Test
     public void test() throws IOException {
         String ac_video_source = "ac_video_source_7";
-        List<Map<String, Object>> youku = jdbcTemplate.queryForList("SELECT video_id FROM " + ac_video_source + " WHERE source='youku'");
+        List<Map<String, Object>> youku = jdbcTemplate.queryForList("SELECT video_id FROM " + ac_video_source + " WHERE source='youku' and create_time > '2016-03-05 00:00:00'");
         StringJoiner sj = new StringJoiner(",","(",")");
 
         for (Map<String, Object> map : youku) {

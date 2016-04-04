@@ -179,10 +179,13 @@ public class DealSourceStatus {
 //        public static final String VIDEO_STATUS_ENCODE_FAILED = "6";//视频转码失败
 //        public static final String VIDEO_STATUS_REJECTED = "7";//退稿
         if(VIDEO_STATUS_CHECKED.equals(status)){
-            return VIDEO_STATUS_CHECKED;
+            return status;
         }
         if(VIDEO_STATUS_DELETE.equals(status)){
-            return VIDEO_STATUS_DELETE;
+            return status;
+        }
+        if(VIDEO_STATUS_UNCHECKED.equals(status)){
+            return status;
         }
 
         return VIDEO_STATUS_UNCHECKED;
@@ -270,14 +273,14 @@ public class DealSourceStatus {
 //            System.out.println("other old stats="+VIDEO_STATUS_ENCODE);
 
 
-            return checkEnCode(createTime);
+            return getOtherStatus(source_id,createTime);
 
         }
         if (VIDEO_STATUS_ENCODE_FAILED.equals(status)) {
 //            System.out.println("other old stats="+VIDEO_STATUS_ENCODE_FAILED);
             return ENCODE_FAIL;
         }
-        return getOtherStatus(source_id);
+        return getOtherStatus(source_id,createTime);
     }
     private String checkEnCode(String createTime) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -295,14 +298,15 @@ public class DealSourceStatus {
         }
     }
 
-    private String getOtherStatus(String source_id) {
+    private String getOtherStatus(String source_id, String createTime) {
         boolean b = videoSourceMap.containsKey(source_id);
         if (b) {
             System.out.println("other stats="+ENCOD_OK);
             return ENCOD_OK;
         } else {
-            System.out.println("other stats="+ENCODE_FAIL);
-            return ENCODE_FAIL;
+            String s = checkEnCode(createTime);
+            System.out.println("other stats=" + s);
+            return s;
         }
     }
 

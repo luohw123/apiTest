@@ -31,4 +31,9 @@ public class TestLogback {
     public void testLogadditivity(){
         logger.info("this is {}", "logback");
     }
+
+    @Test
+    public void testParamNumber() {
+        logger.error("this is {},{},{},{}", "logback","logback","logback","logback");
+    }
 }
