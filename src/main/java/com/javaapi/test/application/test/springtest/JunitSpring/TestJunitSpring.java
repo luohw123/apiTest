@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.springtest.JunitSpring;
+package com.javaapi.test.application.test.springtest.JunitSpring;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

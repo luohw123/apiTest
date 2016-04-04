@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.springtest.JunitSpringMock;
+package com.javaapi.test.application.test.springtest.JunitSpringMock;
 
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.ApplicationContext;

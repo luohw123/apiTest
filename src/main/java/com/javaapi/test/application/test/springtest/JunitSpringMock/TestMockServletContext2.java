@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.springtest.JunitSpringMock;
+package com.javaapi.test.application.test.springtest.JunitSpringMock;
 
 import org.junit.Test;
 import org.springframework.mock.web.MockServletContext;
