@@ -1,4 +1,4 @@
-package com.javaapi.test.application.test.testmockito.tutorials;
+package com.javaapi.test.application.test.testmockito.tutorials.basedemo2;
 
 import org.junit.Test;
 
