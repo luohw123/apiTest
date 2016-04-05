@@ -5,6 +5,7 @@
     <artifactId>JavaApiSample</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
+		<test1>1</test1>
         <dep.jackson-databind.version>2.4.4</dep.jackson-databind.version>
         <spring.version>3.2.7.RELEASE</spring.version>
         <junit.version>4.11</junit.version>
