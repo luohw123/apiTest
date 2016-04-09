@@ -135,32 +135,38 @@ public class ClientToYouku {
     @Test
     public void test() {
         try {
-            InputStream in = new FileInputStream(new File("/Users/user/program/shell/youkutransdata/20160229-youku/acfun_30T_part2.txt"));
+            InputStream in = new FileInputStream(new File("/Users/user/program/shell/youkutransdata/20160408-youku-100T/acfunVideo_100T.txt"));
             InputStreamReader reader = new InputStreamReader(in);
             BufferedReader bufferedInputStream = new BufferedReader(reader);
             String temp = null;
 
-            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/20160229-youku/youku.insertSql.list.sql"));
+            FileOutputStream out = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/20160408-youku-100T/youku.insertSql.list.sql"));
             OutputStreamWriter writer = new OutputStreamWriter(out);
             BufferedWriter bw = new BufferedWriter(writer);
 
-            FileOutputStream out2 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/20160229-youku/youku.insertSql_RollBack.list.sql"));
+            FileOutputStream out2 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/20160408-youku-100T/youku.insertSql_RollBack.list.sql"));
             OutputStreamWriter writer2 = new OutputStreamWriter(out2);
             BufferedWriter bw2 = new BufferedWriter(writer2);
 
 
-            FileOutputStream out3 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/20160229-youku/youku.ac_new_video_update.list.sql"));
+            FileOutputStream out3 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/20160408-youku-100T/youku.ac_new_video_update.list.sql"));
             OutputStreamWriter writer3 = new OutputStreamWriter(out3);
             BufferedWriter bw3 = new BufferedWriter(writer3);
 
-            FileOutputStream out4 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/20160229-youku/youku.ac_new_video_update_RollBack.list.sql"));
+            FileOutputStream out4 = new FileOutputStream(new File("/Users/user/program/shell/youkutransdata/20160408-youku-100T/youku.ac_new_video_update_RollBack.list.sql"));
             OutputStreamWriter writer4 = new OutputStreamWriter(out4);
             BufferedWriter bw4 = new BufferedWriter(writer4);
 
-
+            int i = 0;
+            ////说明：第一列：A站vid  第二列：优酷vid数字 第三列：优酷vid编码。给播放器传递优酷vid编码
             while ((temp = bufferedInputStream.readLine()) != null) {
-
-                String sqlByUrl = getSqlByUrl(temp);
+                String sqlByUrl = null;
+                try {
+                    sqlByUrl = getSqlByUrl(temp);
+                } catch (Exception e) {
+                    System.out.println("temp = " + temp);
+                    throw new RuntimeException(e);
+                }
                 bw.write(sqlByUrl);
             }
             // 更新sql

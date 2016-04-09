@@ -1,5 +1,6 @@
 package com.javaapi.test.testUtil.fileUtil.Util;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -7,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -21,10 +23,16 @@ public class DbUtil {
 
     @Resource
     private JdbcTemplate jdbcTemplate;
+
+    /**
+     * only dilian ,no youku
+     * @throws IOException
+     */
     @Test
     public void test() throws IOException {
         String ac_video_source = "ac_video_source_7";
-        List<Map<String, Object>> youku = jdbcTemplate.queryForList("SELECT video_id FROM " + ac_video_source + " WHERE source='youku' and create_time > '2016-03-05 00:00:00'");
+//        List<Map<String, Object>> youku = jdbcTemplate.queryForList("SELECT video_id FROM " + ac_video_source + " WHERE source='youku'");
+        List<Map<String, Object>> youku = jdbcTemplate.queryForList("SELECT DISTINCT(video_id) FROM " + ac_video_source + " WHERE source='D_LIAN'");
         StringJoiner sj = new StringJoiner(",","(",")");
 
         for (Map<String, Object> map : youku) {
@@ -34,8 +42,9 @@ public class DbUtil {
         }
 
 
-        String sql = "SELECT DISTINCT(video_id) FROM " + ac_video_source + " WHERE source='D_LIAN' and video_id in " + sj.toString();
-        System.out.println(sql);
+//        String sql = "SELECT DISTINCT(video_id) FROM " + ac_video_source + " WHERE source='D_LIAN' and video_id in " + sj.toString();
+        String sql = "SELECT video_id FROM " + ac_video_source + " WHERE source='youku' and video_id in " + sj.toString();
+//        System.out.println(sql);
         List<Map<String, Object>> dilian = jdbcTemplate.queryForList(sql);
 
         for (Map<String, Object> map : dilian) {
@@ -44,7 +53,9 @@ public class DbUtil {
         }
 
         youkuSet.removeAll(dilianSet);
-        System.out.println(youkuSet);
+//        System.out.println(youkuSet);
+
+        FileUtils.writeLines(new File("/Users/user/program/tmp/onlyDilian_"+ac_video_source+".txt"),youkuSet);
 
 
 
