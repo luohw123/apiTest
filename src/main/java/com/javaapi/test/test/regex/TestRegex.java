@@ -1,10 +1,10 @@
 package com.javaapi.test.test.regex;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.junit.Test;
 
 /**
  * http://www.cnblogs.com/ggjucheng/p/3423731.html</br>
@@ -140,7 +140,7 @@ public class TestRegex {
 	 */
 	@Test
 	public void testFenZu3() throws Exception {
-		String thisMatchName ="sa sa"; 
+		String thisMatchName ="sa sa";
 		String regex = "^(\\w{2})\\s(\\1)$";
 		Matcher matcher= Pattern.compile(regex).matcher(thisMatchName);
 		System.err.println(matcher.find());

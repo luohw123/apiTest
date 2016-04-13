@@ -1,12 +1,12 @@
 package com.javaapi.test.test.testType.String.testString;
 
+import org.apache.commons.lang.StringUtils;
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.lang.StringUtils;
-import org.junit.Test;
 
 public class TestRegulerExpression {
 
@@ -69,5 +69,26 @@ public class TestRegulerExpression {
         Integer number = 11;
         String format1 = String.format(format, number);
         System.out.println("format1 = " + format1);
+    }
+
+    @Test
+    public void testGroup() {
+        String url = "http://www.xxx.com/v/ab123_5";
+        Pattern pattern = Pattern.compile("(ab(\\d+)_?(\\d+)?)");
+        Matcher m1 = pattern.matcher(url);
+        String acpath = null;
+        String cid = null;
+        String pageNo = null;
+        String acpath_2 = null;
+        if(m1.find()){
+            cid = m1.group(2);
+            pageNo = m1.group(3);
+            acpath = m1.group(0);
+            acpath_2 = m1.group(1);
+        }
+        System.out.println(cid);
+        System.out.println(pageNo);
+        System.out.println(acpath);
+        System.out.println(acpath_2);
     }
 }

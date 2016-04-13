@@ -1,11 +1,11 @@
 package com.javaapi.test.spring.zotherFeature.scheduler.springscheduler;
 
+import org.springframework.stereotype.Service;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.springframework.stereotype.Service;
-
-//@Service
+@Service
 public class TaskJob {
 
 	public void job1() {

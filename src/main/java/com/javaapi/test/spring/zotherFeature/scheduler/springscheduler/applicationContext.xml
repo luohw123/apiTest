@@ -11,12 +11,16 @@
 	<context:component-scan 	base-package="com.javaapi.test.spring.zotherFeature.scheduler.springscheduler" />
 	<task:scheduled-tasks scheduler="myScheduler" >
 <!-- 		<task:scheduled ref="taskJob" method="job1" cron="0/5 * * * * ?" /> -->
+ 		<task:scheduled ref="taskJob" method="job1" fixed-delay="1000" />
 <!-- 		<task:scheduled ref="taskJobXml" method="job1" cron="0 0/10 * * * ?" /> -->
 
 			<!--注意cron表达式 不可以实现 每隔40秒   fixed-delay可以实现-->
 <!-- 			<task:scheduled ref="taskJobXml" method="job1" cron="40/40 * * * * ?" /> -->
-		<task:scheduled ref="taskJobXml" method="job1" fixed-delay="2000"/>
-        <task:scheduled ref="taskJobXml" method="job1" fixed-delay="3000"/>
+		<!--<task:scheduled ref="taskJobXml" method="job1" fixed-delay="1000"/>-->
+        <!--<task:scheduled ref="taskJobXml" method="job1" fixed-delay="5000"/>-->
+        <!--<task:scheduled ref="taskJobXml" method="job2" fixed-delay="5000"/>-->
+        <!--<task:scheduled ref="taskJobXml" method="job2" fixed-delay="1000"/>-->
+        <task:scheduled ref="taskJobXml" method="job3" fixed-delay="1000" />
 
     </task:scheduled-tasks>
 	<task:scheduler id="myScheduler" pool-size="10"/>
