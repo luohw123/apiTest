@@ -1,6 +1,5 @@
 package com.javaapi.test.testUtil.fileUtil.Util;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -8,7 +7,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -32,7 +30,7 @@ public class DbUtil {
     public void test() throws IOException {
         String ac_video_source = "ac_video_source_7";
 //        List<Map<String, Object>> youku = jdbcTemplate.queryForList("SELECT video_id FROM " + ac_video_source + " WHERE source='youku'");
-        List<Map<String, Object>> youku = jdbcTemplate.queryForList("SELECT DISTINCT(video_id) FROM " + ac_video_source + " WHERE source='D_LIAN'");
+        List<Map<String, Object>> youku = jdbcTemplate.queryForList("SELECT DISTINCT(video_id) FROM " + ac_video_source + " WHERE source='D_LIAN' and create_time >'2016-04-18 00:00:00' ");
         StringJoiner sj = new StringJoiner(",","(",")");
 
         for (Map<String, Object> map : youku) {
@@ -55,7 +53,8 @@ public class DbUtil {
         youkuSet.removeAll(dilianSet);
 //        System.out.println(youkuSet);
 
-        FileUtils.writeLines(new File("/Users/user/program/tmp/onlyDilian_"+ac_video_source+".txt"),youkuSet);
+        System.out.println(youkuSet);
+//        FileUtils.writeLines(new File("/Users/user/program/tmp/onlyDilian_"+ac_video_source+".txt"),youkuSet);
 
 
 

@@ -9,7 +9,7 @@ public class QuartzJob implements Job {
     @Override
     public void execute(JobExecutionContext context)
             throws JobExecutionException {
-        System.out.println("nihao");
+        System.out.println("nihao="+System.currentTimeMillis());
 //        SelfJob object = (SelfJob) context.getMergedJobDataMap().get("selfJob");
         System.out.println("SelfJob回调SelfJob==>"+this);
 //		extracted();
