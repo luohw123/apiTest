@@ -152,7 +152,8 @@ public class Client {
         System.out.println("根据 name 排序,并显示前5个 Java programmers:");
         javaProgrammers.sort((t1, t2) -> t1.getAge() - t2.getAge());
         System.out.println(javaProgrammers);
-
+        javaProgrammers.sort((t1, t2) -> t2.getAge() - t1.getAge());
+        System.out.println(javaProgrammers);
     }
 
     @Test
@@ -171,6 +172,15 @@ public class Client {
                 .get();
 
         System.out.printf("Name: %s %s; Salary: $%,d.", person.getFirstName(), person.getLastName(), person.getSalary());
+    }
+
+    @Test
+    public void testStreamsSort3(){
+    /*    对于函数体只有一行代码的，你可以去掉大括号{}以及return关键字：*/
+        Collections.sort(javaProgrammers, (Person t1, Person t2) -> t1.getAge() - t2.getAge());
+        System.out.println("javaProgrammers = " + javaProgrammers);
+        /*但是你还可以写得更短点,Java编译器可以自动推导出参数类型*/
+        Collections.sort(javaProgrammers, (t1, t2) -> t1.getAge() - t2.getAge());
     }
 
     /**
