@@ -9,6 +9,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+import static java.util.stream.Collectors.toList;
+
 /**
  * Created by user on 16/4/24.
  */
@@ -88,7 +90,19 @@ public class ClientTutorial {
         System.out.println("predicate = " + isEmpty.test(""));
         Predicate<String> isNotEmpty = isEmpty.negate();
         System.out.println("predicate = " + isNotEmpty.test(""));
+    }
 
+    @Test
+    public void testPredicate2() throws Exception {
+        List<String> list = new ArrayList<>();
+        list.add("nihao2");
+        list.add("nihao23");
+        list.add("nihao24");
+        list.add("nihao255");
+        Predicate<String> stringPredicate = (x) -> x.length() > 6 ? true : false;
+        List<String> collect = list.stream().filter(stringPredicate).collect(toList());
+        System.out.println("collect = " + list.stream().filter(stringPredicate).count());
+        System.out.println("collect = " + collect);
     }
 
     @Test
@@ -119,6 +133,15 @@ public class ClientTutorial {
         Consumer<Person> greeter = (p) -> System.out.println("Hello, " + p.getFirstName());
         greeter.accept(new Person("Luke", "Skywalker", "java", "man", 23, 1024));
 
+    }
+
+    @Test
+    public void testConsumer2() throws Exception {
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.forEach((x) -> System.out.println(x));
     }
 
     @Test
