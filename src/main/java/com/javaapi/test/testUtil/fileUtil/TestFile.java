@@ -1,5 +1,6 @@
 package com.javaapi.test.testUtil.fileUtil;
 
+import com.javaapi.test.testUtil.fileUtil.common.CommonUtil;
 import org.junit.Test;
 
 import java.io.*;
@@ -61,7 +62,7 @@ public class TestFile {
         }
         String videoId = matcher.group(1);
         String rate = mapDilianProfile(matcher.group(2));
-        String tablename = getTablename(videoId);
+        String tablename = CommonUtil.getTablename(videoId);
         StringBuilder sb = new StringBuilder();
         sb.append(" DELETE FROM ");
         sb.append(tablename);
@@ -80,17 +81,8 @@ public class TestFile {
         }
         String videoId = matcher.group(1);
         String rate = mapDilianProfile(matcher.group(2));
-        String tablename = getTablename(videoId);
 
-        StringBuilder sb = new StringBuilder();
-        sb.append(" INSERT INTO ");
-        sb.append(tablename);
-        sb.append("(video_id,url,source,bit_rate,creater,create_time,updater,update_time) VALUES (");
-        sb.append(videoId + ",");
-        sb.append("'" + url + "',");
-        sb.append("'D_LIAN' ,");
-        sb.append(rate + ",");
-        sb.append("1,'" + now + "',1,'" + now + "');\r\n");
+        String sb = CommonUtil.getSourceSql(videoId, url,"D_LIAN", rate, now);
         return sb.toString();
     }
 
@@ -112,20 +104,6 @@ public class TestFile {
         if (profileName.contains("lvbr"))
             return "4";
         return "-2";
-    }
-
-    public static String getTablename(String subColumnValue) {
-        Integer value = Integer.valueOf(Integer.parseInt(subColumnValue.toString()));
-        String tName = "ac_video_source";
-        int position = value.intValue() / 500000 + 1;
-        String tableName = null;
-        if (position == 1) {
-            tableName = tName;
-        } else {
-            StringBuilder sb = new StringBuilder();
-            tableName = sb.append(tName).append("_").append(position).toString();
-        }
-        return tableName;
     }
 
     @Test
@@ -264,17 +242,17 @@ public class TestFile {
 
     @Test
     public void testTableName() {
-        System.out.println(getTablename("500000"));
-        System.out.println(getTablename("499999"));
-        System.out.println(getTablename("600000"));
-        System.out.println(getTablename("1100000"));
-        System.out.println(getTablename("1600000"));
-        System.out.println(getTablename("2100000"));
-        System.out.println(getTablename("2600000"));
-        System.out.println(getTablename("3100000"));
-        System.out.println(getTablename("3600000"));
-        System.out.println(getTablename("4100000"));
-        System.out.println(getTablename("4600000"));
+        System.out.println(CommonUtil.getTablename("500000"));
+        System.out.println(CommonUtil.getTablename("499999"));
+        System.out.println(CommonUtil.getTablename("600000"));
+        System.out.println(CommonUtil.getTablename("1100000"));
+        System.out.println(CommonUtil.getTablename("1600000"));
+        System.out.println(CommonUtil.getTablename("2100000"));
+        System.out.println(CommonUtil.getTablename("2600000"));
+        System.out.println(CommonUtil.getTablename("3100000"));
+        System.out.println(CommonUtil.getTablename("3600000"));
+        System.out.println(CommonUtil.getTablename("4100000"));
+        System.out.println(CommonUtil.getTablename("4600000"));
     }
 
     @Test
