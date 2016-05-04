@@ -5,9 +5,8 @@ import org.junit.Test;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.ArrayList;
+import java.nio.charset.Charset;
 import java.util.Arrays;
-import java.util.List;
 
 public class StringUtil {
     @Test
@@ -179,5 +178,11 @@ public class StringUtil {
         // 最后的逗号不会分割
         System.out.println("strings = " + Arrays.asList("a,".split(",")));
         System.out.println("strings = " + Arrays.asList("a,b,".split(",")));
+    }
+
+    @Test
+    public void testCharset() {
+        Charset charset = Charset.defaultCharset();
+        System.out.println("charset = " + charset);
     }
 }
