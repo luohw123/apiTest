@@ -17,7 +17,12 @@ public class Person {
         this.job = job;
         this.salary = salary;
     }
-// Getter and Setter
+
+    public Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    // Getter and Setter
 // . . . . .
 
     public String getFirstName() {
