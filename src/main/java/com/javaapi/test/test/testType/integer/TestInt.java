@@ -9,6 +9,14 @@ import java.io.Serializable;
  */
 public class TestInt {
 
+    private  int a = 111_222;
+
+    @Test
+    public void testXiaHuaXian(){
+        System.out.println("a = " + a);
+    }
+
+
     @Test
     public void test(){
         int a = 0;

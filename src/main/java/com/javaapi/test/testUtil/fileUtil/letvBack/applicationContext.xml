@@ -21,7 +21,7 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:com/javaapi/test/testUtil/fileUtil/letvBack/config.properties</value>
+                <value>classpath:com/javaapi/test/testUtil/fileUtil/Util/config.properties</value>
             </list>
         </property>
     </bean>
