@@ -3,11 +3,13 @@ package com.javaapi.test.test.testJavaFeature.innerClass;
 import org.junit.Test;
 
 /**
- * 测试外部类读取内部类属性 </br> 1 无论内部类修饰符如何,或者属性如何,外部类都可以直接访问内部类属性 </br>
- * 
+ *
  * 
  */
 public class Client {
+
+
+
 	/**
 	 * 如果方法参数过多,而且不想在外部包写个参数占用位置,可以直接写在类里
 	 */
