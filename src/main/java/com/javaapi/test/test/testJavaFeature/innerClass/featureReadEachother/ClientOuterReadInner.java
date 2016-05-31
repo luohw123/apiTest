@@ -13,12 +13,16 @@ public class ClientOuterReadInner {
 
     /**
      * 在外部类里面初始化内部类的方式
+     *
+     * 在外部类中初始非静态内部类可以有2种方式
      */
     @Test
     public void testInitInOuter() {
+        //1
         ClientOuterReadInner.ClientInnerPrivate innerPrivate = new ClientOuterReadInner.ClientInnerPrivate();
         System.out.println(innerPrivate.getName());
 
+        //2
         ClientOuterReadInner.ClientInnerPrivate innerPrivate2 = new ClientOuterReadInner().new ClientInnerPrivate();
         System.out.println(innerPrivate2.getName());
 

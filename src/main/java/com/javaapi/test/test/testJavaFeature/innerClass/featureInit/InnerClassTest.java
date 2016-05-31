@@ -1,5 +1,6 @@
 package com.javaapi.test.test.testJavaFeature.innerClass.featureInit;
 
+import com.javaapi.test.test.testJavaFeature.innerClass.featureReadEachother.ClientOuterReadInner;
 import org.junit.Test;
 
 /**
@@ -11,6 +12,20 @@ import org.junit.Test;
  *
  **/
 public class InnerClassTest {
+
+
+    /**
+     * 在其他类里初始化外部类里的内部类 ,只能使用   外部类的实例来初始化
+     * 在外部类中初始化可以有2种方式 参见 @ClientOuterReadInner
+     */
+    @Test
+    public void testInitInOuter() {
+
+        ClientOuterReadInner.ClientInnerPublic innerPublic2 = new ClientOuterReadInner().new ClientInnerPublic();
+        System.out.println(innerPublic2.getName());
+
+    }
+
 
     /**
      * 普通内部类 初始化需要依赖外部类实例
