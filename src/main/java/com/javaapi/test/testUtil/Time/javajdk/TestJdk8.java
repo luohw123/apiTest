@@ -3,7 +3,10 @@ package com.javaapi.test.testUtil.Time.javajdk;
 import org.junit.Test;
 
 import java.sql.Date;
-import java.time.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -32,11 +35,22 @@ public class TestJdk8 {
     }
 
     @Test
+    public void testInstant2() {
+
+        Date date = new Date(1464847980000l);
+        System.out.println(date);
+        System.out.println("date = " + new Date(1464934380000l));
+
+    }
+
+
+    @Test
     public void testLocaleDate() throws Exception {
         LocalDate today = LocalDate.now();
         LocalDateTime localDateTime = today.atStartOfDay();
         String format = localDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         System.out.println("format = " + format);
+        System.out.println("format = " + Date.valueOf(localDateTime.toLocalDate()).getTime());
     }
 
     public static void main(String[] args) {
@@ -45,6 +59,14 @@ public class TestJdk8 {
         System.out.println("l = " + System.currentTimeMillis());
         String s = LocalDate.now().plusDays(1).atStartOfDay(ZoneId.of("Asia/Shanghai")).toLocalDateTime().toString();
         System.out.println("s = " + s);
+
+
+        LocalDate localDate = LocalDate.now().minusDays(2);
+        LocalDate localDate1 = localDate.atStartOfDay().toLocalDate();
+        String format = localDate1.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        System.out.println("format = " + format);
+        System.out.println("localDate = " + Date.valueOf(localDate1).getTime());
+
     }
 
     @Test

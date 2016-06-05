@@ -15,9 +15,10 @@ import org.springframework.context.annotation.ComponentScan;
  @Bean
  @DependsOn
  @Primary
+ http://www.yihaomen.com/article/java/581.htm
  @Lazy
- @Import
- @ImportResource
+ @Import    导入   java-config
+ @ImportResource 导入xml-config
  @Value
  */
 @ComponentScan
