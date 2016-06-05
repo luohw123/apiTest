@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Configuration;
 public  class ContextConfig {
 
     @Bean
-    @ConditionalOnSystemProperty("servicedefault")
+    @KKConditionalOnSystemProperty("servicedefault")
     public CustomerService service1() {
         return new CustomerServiceImpl1();
     }
 
     @Bean
-    @ConditionalOnSystemProperty(value="servicedefault", exists=false)
+    @KKConditionalOnSystemProperty(value="servicedefault", exists=false)
     public CustomerService service2() {
         return new CustomerServiceImpl2();
     }

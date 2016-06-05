@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 @Conditional(OnSystemPropertyCondition.class)
-public @interface ConditionalOnSystemProperty {
+public @interface KKConditionalOnSystemProperty {
     public String value();
     public boolean exists() default true;
 }
