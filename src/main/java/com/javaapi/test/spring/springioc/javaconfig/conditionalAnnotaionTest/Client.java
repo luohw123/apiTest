@@ -1,6 +1,6 @@
-package com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaionTest2;
+package com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaionTest;
 
-import com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaionTest2.Service.CustomerService;
+import com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaionTest.Service.CustomerService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
