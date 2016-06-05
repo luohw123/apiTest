@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaion;
+package com.javaapi.test.spring.springioc.javaconfig.conditionalAsMetaAnnotaion;
 
 import org.springframework.context.annotation.Conditional;
 

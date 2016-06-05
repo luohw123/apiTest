@@ -1,12 +1,16 @@
-package com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaion;
+package com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaionTest2;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
-public class HardCodedSystemPropertyAbsentCondition implements Condition {
+/**
+ * Created by user on 16/6/5.
+ */
+public class MacOsCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        return (System.getProperty("servicedefault") == null);
+
+        return context.getEnvironment().getProperty("os.name").contains("Mac OS X");
     }
 }

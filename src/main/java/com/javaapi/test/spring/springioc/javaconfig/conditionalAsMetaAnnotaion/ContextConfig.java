@@ -1,8 +1,8 @@
-package com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaion;
+package com.javaapi.test.spring.springioc.javaconfig.conditionalAsMetaAnnotaion;
 
-import com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaion.Service.CustomerService;
-import com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaion.Service.impl.CustomerServiceImpl1;
-import com.javaapi.test.spring.springioc.javaconfig.conditionalAnnotaion.Service.impl.CustomerServiceImpl2;
+import com.javaapi.test.spring.springioc.javaconfig.conditionalAsMetaAnnotaion.Service.CustomerService;
+import com.javaapi.test.spring.springioc.javaconfig.conditionalAsMetaAnnotaion.Service.impl.CustomerServiceImpl1;
+import com.javaapi.test.spring.springioc.javaconfig.conditionalAsMetaAnnotaion.Service.impl.CustomerServiceImpl2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
