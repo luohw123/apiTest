@@ -7,6 +7,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 /**
  * https://www.javacodegeeks.com/2013/10/spring-4-conditional.html
+ *
+ * http://nezhazheng.com/2014/01/06/spring-conditional-annotation.html
  */
 public class Client {
 

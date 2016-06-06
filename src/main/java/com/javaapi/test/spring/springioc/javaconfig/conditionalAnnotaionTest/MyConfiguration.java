@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
  *只有符合条件的情况下,相关类才会被注册
  *
  * conditional
- * 1 在类级别,对直接或间接标注了@compontant,@Configuration
+ * 1 在类级别,对直接或间接标注了@Component,@Configuration
  * 2 参见 @KKConditionalOnSystemProperty,也就是 当做一个meta-annotation,(所谓的meta-annotataion的实例比如说@Retention,@Target,就是了)
  * 3 在方法级别,标注了@Bean
  * 会进行判断
