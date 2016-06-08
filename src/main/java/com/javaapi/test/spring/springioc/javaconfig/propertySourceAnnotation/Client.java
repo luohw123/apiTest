@@ -1,0 +1,35 @@
+package com.javaapi.test.spring.springioc.javaconfig.propertySourceAnnotation;
+
+import org.junit.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+/**
+ *
+ * http://www.mkyong.com/spring/spring-propertysources-example/
+ * 注意要配置 PropertySourcesPlaceholderConfigurer
+ * http://www.mkyong.com/spring/spring-is-not-working-in-value/
+
+    注意 在spring3.2 中想要使用@Value,  读取properties 里的数据,需要一个PropertySourcesPlaceholderConfigurer实例
+ To resolve ${} in Spring @Value, you need to declare a STATIC PropertySourcesPlaceholderConfigurer bean manually. For example :
+
+ */
+public class Client {
+    @Test
+    public void testValueAnnotation() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = applicationContext.getBean(AppConfig.class);
+        //下面俩个都可以用
+        bean.print();
+        bean.printEnv();
+    }
+
+    @Test
+    public void testEnv() {
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfigEnv.class);
+        AppConfigEnv bean = applicationContext.getBean(AppConfigEnv.class);
+        // 不可用
+        bean.print();
+        // 可以用
+        bean.printEnv();
+    }
+}
