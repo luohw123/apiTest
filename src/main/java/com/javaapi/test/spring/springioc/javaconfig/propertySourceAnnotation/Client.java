@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * http://www.mkyong.com/spring/spring-propertysources-example/
  * 注意要配置 PropertySourcesPlaceholderConfigurer
  * http://www.mkyong.com/spring/spring-is-not-working-in-value/
+ * http://blog.jamesdbloom.com/UsingPropertySourceAndEnvironment.html
 
     注意 在spring3.2 中想要使用@Value,  读取properties 里的数据,需要一个PropertySourcesPlaceholderConfigurer实例
  To resolve ${} in Spring @Value, you need to declare a STATIC PropertySourcesPlaceholderConfigurer bean manually. For example :
@@ -21,6 +22,7 @@ public class Client {
         //下面俩个都可以用
         bean.print();
         bean.printEnv();
+        bean.printXml();
     }
 
     @Test

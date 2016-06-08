@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
@@ -14,6 +15,7 @@ import org.springframework.core.env.Environment;
  */
 @Configuration
 @PropertySource("classpath:com/javaapi/test/spring/springioc/javaconfig/propertySourceAnnotation/db.properties")
+@ImportResource("classpath:com/javaapi/test/spring/springioc/javaconfig/propertySourceAnnotation/applicationContext.xml")
 public class AppConfig {
 
     @Value("${db.driver}")
@@ -21,6 +23,9 @@ public class AppConfig {
 
     @Autowired
     private Environment environment;
+
+
+    private String xmlProperties;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
@@ -33,5 +38,17 @@ public class AppConfig {
 
     public void printEnv(){
         System.out.println("environment = " + environment.getProperty("db.driver"));
+    }
+
+    public void printXml(){
+        System.out.println("xmlProperties = " + xmlProperties);
+    }
+
+    public void setXmlProperties(String xmlProperties) {
+        this.xmlProperties = xmlProperties;
+    }
+
+    public String getXmlProperties() {
+        return xmlProperties;
     }
 }
