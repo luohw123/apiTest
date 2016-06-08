@@ -13,6 +13,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
     注意 在spring3.2 中想要使用@Value,  读取properties 里的数据,需要一个PropertySourcesPlaceholderConfigurer实例
  To resolve ${} in Spring @Value, you need to declare a STATIC PropertySourcesPlaceholderConfigurer bean manually. For example :
 
+
+ http://www.baeldung.com/2012/02/06/properties-with-spring/
+
  */
 public class Client {
     @Test
