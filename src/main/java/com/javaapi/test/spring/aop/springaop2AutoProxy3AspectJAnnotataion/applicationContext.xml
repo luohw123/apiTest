@@ -6,13 +6,13 @@
 
     <!-- more bean definitions for data access objects go here -->
 
-    <bean id="book" class="com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJ.Book">
+    <bean id="book" class="com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJAnnotataion.Book">
         <property name="name" value="Effective java" />
         <property name="url" value="www.google.cn"/>
         <property name="pages" value="300" />
     </bean>
     <!-- around  method -->
-    <bean id="aroundMethod"  class="com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJ.AroundMethod" />
+    <bean id="aroundMethod"  class="com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJAnnotataion.AroundMethod" />
 
     <!-- define  a  pointcut -->
 
@@ -25,17 +25,8 @@
         <property name="pointcut"  ref="bookPointcut"/>
         <property name="advice" ref="aroundMethod"></property>
     </bean>
-    <bean id="bookProxy" class="org.springframework.aop.framework.ProxyFactoryBean" >
-        <property name="target" ref="book"/>
 
-        <property name="interceptorNames">
-            <list>
-
-                <value>bookAdvisor</value>
-            </list>
-        </property>
-
-    </bean>
-
+     <!-- 配置了 aop:aspectj-autoproxy 就可以省略bookProxy 得配置-->
+    <aop:aspectj-autoproxy  proxy-target-class="true"/>
 
 </beans>

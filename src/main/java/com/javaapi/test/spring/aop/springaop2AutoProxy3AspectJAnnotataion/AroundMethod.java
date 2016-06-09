@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJ;
+package com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJAnnotataion;
 
 
 import org.aopalliance.intercept.MethodInterceptor;
