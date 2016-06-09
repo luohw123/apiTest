@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop3;
+package com.javaapi.test.spring.aop.springaop2AutoProxy1;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("applicationContext2.xml")
+@ContextConfiguration("applicationContext.xml")
 public class Client {
 	@Autowired
     @Qualifier("greetingImpl")

@@ -7,15 +7,15 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.javaapi.test.spring.aop.springaop3"/>
+    <context:component-scan base-package="com.javaapi.test.spring.aop.springaop2AutoProxy2"/>
     
       <bean id="greetingAdvisor2" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
-        <property name="pattern" value="com.javaapi.test.spring.aop.springaop3.*Impl.good.*"/>
+        <property name="pattern" value="com.javaapi.test.spring.aop.springaop2AutoProxy2.*Impl.good.*"/>
         <property name="advice" ref="greetingAroundAdvice2"/>
     </bean>
     
      <bean id="greetingAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
-        <property name="pattern" value="com.javaapi.test.spring.aop.springaop3.*Impl.good.*"/>
+        <property name="pattern" value="com.javaapi.test.spring.aop.springaop2AutoProxy2.*Impl.good.*"/>
         <property name="advice" ref="greetingAroundAdvice"/>
     </bean>
    

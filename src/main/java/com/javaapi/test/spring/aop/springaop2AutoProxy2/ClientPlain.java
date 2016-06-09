@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop3;
+package com.javaapi.test.spring.aop.springaop2AutoProxy2;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -6,6 +6,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
  * http://my.oschina.net/huangyong/blog/161402
+ * 自动找advisor,自动判断是否符合匹配条件,如果符合匹配条件就应用advice
  * 
  */
 public class ClientPlain {
@@ -19,8 +20,9 @@ public class ClientPlain {
 		ApplicationContext app = new FileSystemXmlApplicationContext(apppath);
 		GreetingImpl bean = (GreetingImpl) app.getBean("greetingImpl");
 		bean.goodMorning("kk");
-		System.out.println(bean);
-		System.out.println("----------------");
+        System.out.println("----------------");
+        System.out.println(bean);
+        System.out.println("----------------");
 		Greeting2Impl bean2 = (Greeting2Impl) app.getBean("greeting2Impl");
 		bean2.goodMorning("kk2");
 	}

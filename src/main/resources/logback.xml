@@ -47,7 +47,7 @@
 	<logger name="com.javaapi.test.spring.aop.springaop1ProxyFactoryBean1">
 		<level value="INFO" />
 	</logger>
-	<logger name="com.javaapi.test.spring.aop.springaop3">
+	<logger name="com.javaapi.test.spring.aop.springaop2AutoProxy2">
 		<level value="INFO" />
 	</logger>
 	<logger name="org.springframework">
