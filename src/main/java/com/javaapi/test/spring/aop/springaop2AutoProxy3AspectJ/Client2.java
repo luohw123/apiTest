@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaopAnnotationPointcut;
+package com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJ;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,15 +9,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("applicationContext.xml")
-public class Client {
+@ContextConfiguration("applicationContext2.xml")
+public class Client2 {
 
     @Autowired
     private ApplicationContext context;
 
-    // 在xml里配置了    <aop:aspectj-autoproxy  proxy-target-class="true"/>,通过AnnotationAwareAspectJAutoProxyCreator自动生成代理对象 ，
-    // 通过获取原bean的名字就可以获取到代理对象
-
+    // 获取book得名字的bean为原bean
     @Test
     public void testNameBook() throws Exception {
         Book book = (Book) context.getBean("book");
@@ -42,6 +40,33 @@ public class Client {
 
 
     }
+    // 获取bookProxy得名字的bean为代理bean
+    @Test
+    public void testBookProxy() throws Exception {
+        Book book = (Book) context.getBean("bookProxy");
+
+        System.out.println("---------------------");
+
+        book.printName();
+
+        System.out.println("---------------------");
+
+        book.printUrl();
+
+        System.out.println("----------------------");
+
+        try {
+
+            book.printThrowException();
+
+        } catch (Exception e) {
+            //  e.printStackTrace();
+        }
+
+
+    }
+
+
 
 
 }

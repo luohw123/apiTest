@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaopAnnotationPointcut;
+package com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJ;
 
 /**
  * Created by user on 15/9/20.

@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaopAnnotationPointcut;
+package com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJ;
 
 
 import org.aopalliance.intercept.MethodInterceptor;

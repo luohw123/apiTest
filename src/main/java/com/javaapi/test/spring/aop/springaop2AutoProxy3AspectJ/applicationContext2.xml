@@ -6,13 +6,13 @@
 
     <!-- more bean definitions for data access objects go here -->
 
-    <bean id="book" class="com.javaapi.test.spring.aop.springaopAnnotationPointcut.Book">
+    <bean id="book" class="com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJ.Book">
         <property name="name" value="Effective java" />
         <property name="url" value="www.google.cn"/>
         <property name="pages" value="300" />
     </bean>
     <!-- around  method -->
-    <bean id="aroundMethod"  class="com.javaapi.test.spring.aop.springaopAnnotationPointcut.AroundMethod" />
+    <bean id="aroundMethod"  class="com.javaapi.test.spring.aop.springaop2AutoProxy3AspectJ.AroundMethod" />
 
     <!-- define  a  pointcut -->
 
