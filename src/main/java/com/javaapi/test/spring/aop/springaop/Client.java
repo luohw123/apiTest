@@ -4,7 +4,7 @@ import org.springframework.aop.framework.ProxyFactory;
 
 /**
  * 利用ProxyFactory , 编程方式实现增强,顺带解释一个bug
- *http://my.oschina.net/mushui/blog/161387
+ *  http://my.oschina.net/mushui/blog/161387
  */
 public class Client {
     public static void main(String[] args) {
