@@ -8,24 +8,29 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * spring这种可以对指定类,或者指定接口的所有方法进行拦截.</br>
- * <strong>但是如果我想拦截指定的类得指定方法应该怎么样那?</strong></br>
- * 
- * 应该想 interceptorNames中添加切面(包含advice和pointcut)
- * 就可以对指定方法进行拦截
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("applicationContext3.xml")
+@ContextConfiguration("applicationContext2.xml")
 public class Client {
 	@Autowired
-//	@Qualifier("greetingProxy")
-	Greeting greeting;
+    @Qualifier("greetingImpl")
+    Greeting greeting;
+
+    @Autowired
+    @Qualifier("greeting2Impl")
+    Greeting greeting2;
 
 	@Test
 	public void test() {
 		greeting.sayHello("Jack");
 		greeting.goodMorning("kk");
 		greeting.goodNight("kk");
-	}
+        System.out.println("========");
+
+
+        greeting2.sayHello("Jack");
+        greeting2.goodMorning("kk");
+        greeting2.goodNight("kk");
+    }
 }

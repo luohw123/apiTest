@@ -44,7 +44,7 @@
 	<logger name="com.google.code.yanf4j" level="INFO" />
 	<logger name="com.google.code.yanf4j.core" level="INFO" />
 	<logger name="com.javaapi.test" level="INFO" />
-	<logger name="com.javaapi.test.spring.aop.springaop1">
+	<logger name="com.javaapi.test.spring.aop.springaop1ProxyFactoryBean1">
 		<level value="INFO" />
 	</logger>
 	<logger name="com.javaapi.test.spring.aop.springaop3">

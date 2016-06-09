@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop1;
+package com.javaapi.test.spring.aop.springaop1ProxyFactoryBean1;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

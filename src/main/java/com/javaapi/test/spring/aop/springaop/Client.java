@@ -5,6 +5,10 @@ import org.springframework.aop.framework.ProxyFactory;
 /**
  * 利用ProxyFactory , 编程方式实现增强,顺带解释一个bug
  *  http://my.oschina.net/mushui/blog/161387
+ *  http://my.oschina.net/huangyong/blog/161338?fromerr=xDAt65so
+ *  =======
+ *  代理实现aop,
+ *  可以将advisor,advice, 整合起来,达到自动生成代理的目的
  */
 public class Client {
     public static void main(String[] args) {

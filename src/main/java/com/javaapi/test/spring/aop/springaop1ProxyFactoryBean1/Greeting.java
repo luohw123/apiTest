@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop1;
+package com.javaapi.test.spring.aop.springaop1ProxyFactoryBean1;
 
 public interface Greeting {
 	public void sayHello(String name);

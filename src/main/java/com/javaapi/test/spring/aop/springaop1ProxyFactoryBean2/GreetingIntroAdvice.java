@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop2;
+package com.javaapi.test.spring.aop.springaop1ProxyFactoryBean2;
 
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;

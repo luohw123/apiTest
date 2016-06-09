@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.aop.springaop2;
+package com.javaapi.test.spring.aop.springaop1ProxyFactoryBean2;
 
 import com.javaapi.test.spring.aop.springaop.Greeting;
 import org.springframework.stereotype.Component;
