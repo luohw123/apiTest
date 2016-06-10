@@ -8,6 +8,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.javaapi.test.spring.aop.aspectj.MyBService;
 
+/**
+ * 请看 com.javaapi.test.spring.aop.aspectj 下的信息
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")
 public class Client {

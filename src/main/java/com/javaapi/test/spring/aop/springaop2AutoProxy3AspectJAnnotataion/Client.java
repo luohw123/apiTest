@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * spring 自动代理 ,aspectj
+ * 请看 com.javaapi.test.spring.aop.aspectj.annotation 下的信息
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")
