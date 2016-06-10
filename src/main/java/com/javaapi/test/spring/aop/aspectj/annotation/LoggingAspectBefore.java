@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class LoggingAspectBefore {
-	@Before("execution(* com.javaapi.test.spring.aop.aspectj.CustomerBo.addCustomer(..))")
+	@Before("execution(* com.javaapi.test.spring.aop.aspectj.annotation.CustomerBo.addCustomer(..))")
 	public void logBefore(JoinPoint joinPoint) {
 		System.out.println(LoggingAspectBefore.class.getSimpleName()+ "==>before");
 	}

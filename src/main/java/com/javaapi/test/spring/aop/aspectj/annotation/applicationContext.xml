@@ -6,15 +6,9 @@
 http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
-	<context:component-scan base-package="com.javaapi.test.spring.aop.aspectj" />
+
+
+    <context:component-scan base-package="com.javaapi.test.spring.aop.aspectj.annotation" />
+
 	<aop:aspectj-autoproxy />
-	<aop:config>
-		<aop:aspect id="MyAspect" ref="aspectBean">
-			<aop:pointcut id="bisService"
-				expression="execution(* com.javaapi.test.spring.aop.aspectj..*.*(..))" />
-			<aop:before pointcut-ref="bisService" method="doBefore" />
-			<aop:after pointcut-ref="bisService" method="doAfter" />
-		</aop:aspect>
-	</aop:config>
-	<bean id="aspectBean" class="com.javaapi.test.spring.aop.aspectj.xml1.MyAspect" />
 </beans>

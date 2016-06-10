@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class LoggingAspectAfter {
-	@After("execution(* com.javaapi.test.spring.aop.aspectj.CustomerBo.addCustomer(..))")
+	@After("execution(* com.javaapi.test.spring.aop.aspectj.annotation.CustomerBo.addCustomer(..))")
 	public void logAfter(JoinPoint joinPoint) {
 		System.out.println(LoggingAspectAfter.class.getSimpleName()+"==>after");
 	}

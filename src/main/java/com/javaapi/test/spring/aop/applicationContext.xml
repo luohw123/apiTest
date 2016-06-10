@@ -13,5 +13,5 @@
 <bean id="personThrowsAdvice" class="com.javaapi.test.spring.aop.PersonThrowsAdvice"/>  
 
 <import resource="applicationContext2.xml"/>
-<!-- <import resource="applicationContext3.xml"/> -->
+<!-- <import resource="applicationContext.xml"/> -->
 </beans>

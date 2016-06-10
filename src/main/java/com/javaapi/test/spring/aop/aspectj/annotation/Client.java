@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.javaapi.test.spring.aop.aspectj.CustomerBo;
 
 /**spring aop 得annotation方式貌似只能用这个aspectj注解
  * aspectj +spring  ,annotation

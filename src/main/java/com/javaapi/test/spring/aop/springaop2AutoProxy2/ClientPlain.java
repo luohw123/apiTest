@@ -5,8 +5,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
+ * 1 以上这个例子只能匹配目标类，而不能进一步匹配其中指定的方法，要匹配方法，就要考虑使用切面与切点了
  * http://my.oschina.net/huangyong/blog/161402
- * 自动找advisor,自动判断是否符合匹配条件,如果符合匹配条件就应用advice
+ * 2 自动找advisor,自动判断是否符合匹配条件,如果符合匹配条件就应用advice
  * 
  */
 public class ClientPlain {
@@ -16,7 +17,7 @@ public class ClientPlain {
 		String path = ClientPlain.class.getResource("")
 				.getPath();
 		System.out.println(path);
-		String apppath = "file:" + path + "applicationContext3.xml";
+		String apppath = "file:" + path + "applicationContext.xml";
 		ApplicationContext app = new FileSystemXmlApplicationContext(apppath);
 		GreetingImpl bean = (GreetingImpl) app.getBean("greetingImpl");
 		bean.goodMorning("kk");
