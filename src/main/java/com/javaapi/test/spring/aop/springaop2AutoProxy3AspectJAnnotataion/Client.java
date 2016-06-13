@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * spring 自动代理 ,aspectj
+ * 这个不算纯注解的
  * 请看 com.javaapi.test.spring.aop.aspectj.annotation 下的信息
  * 使用 AnnotationAwareAspectJAutoProxyCreator (org.springframework.aop.aspectj.annotation)  自动代理
  */

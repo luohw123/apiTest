@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd" default-lazy-init="false">
 
     <!-- more bean definitions for data access objects go here -->
 
@@ -27,6 +27,7 @@
     </bean>
 
      <!-- 配置了 aop:aspectj-autoproxy 就可以省略bookProxy 得配置-->
-    <aop:aspectj-autoproxy  proxy-target-class="true"/>
+    <!--<aop:aspectj-autoproxy  proxy-target-class="true"/>-->
+    <aop:aspectj-autoproxy  proxy-target-class="false"/>
 
 </beans>
