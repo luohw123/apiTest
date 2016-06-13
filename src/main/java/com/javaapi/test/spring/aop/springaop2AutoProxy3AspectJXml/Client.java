@@ -10,6 +10,7 @@ import com.javaapi.test.spring.aop.aspectj.MyBService;
 
 /**
  * 请看 com.javaapi.test.spring.aop.aspectj 下的信息
+ * 使用AspectJAwareAdvisorAutoProxyCreator 作为自动代理, 注意 与 aspectj 注解方式的自动代理不同
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")
