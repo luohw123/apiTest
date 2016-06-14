@@ -11,6 +11,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * 1 http://sishuok.com/forum/blogPost/list/2506.html
  * 2 事务配置的5种方式
  *
+ *
+ * 自动代理使用AspectJAwareAdvisorAutoProxyCreator
+ * advisor 使用DefaultBeanFactoryPointcutAdvisor
+ * 使用NameMatchTransactionAttributeSource
+ *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("applicationContext.xml")

@@ -9,13 +9,14 @@ public class UpdateImp implements IupdateService {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
-	private static String	sql	= "update csc_sns_dev.tbl_b set val='kk' where id=4";
+	private static String	sql	= "update tbl_b set val='kk' where id=4";
 	// private static final String sql =
 	// "update matchs set league_name='斯伐乙西2'  where bet007_id=595959";
 	
 	@Override
 	public void update() {
 		jdbcTemplate.update(sql);
-	}
+        throw new RuntimeException("自定义异常");
+    }
 
 }

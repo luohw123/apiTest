@@ -5,12 +5,15 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 通过annotation实现事务
  * 1 http://sishuok.com/forum/blogPost/list/2506.html
  * 2 事务配置的5种方式
+ *
+ * ==============
+ * 注解使用InfrastructureAdvisorAutoProxyCreator 进行事物的自动代理
+ * 使用BeanFactoryTransactionAttributeSourceAdvisor作为advisor
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,7 +23,7 @@ public class Client {
     IupdateService iupdateService;
     
     @Test
-    @Transactional
+//    @Transactional
     public void testUpdate() {
         iupdateService.update();
     }
