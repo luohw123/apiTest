@@ -1,19 +1,14 @@
 package com.javaapi.test.dao.jdbc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.javaapi.test.application.frontTemplate.freemarker.FreeMarkerUtil;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.javaapi.test.application.freemarker.FreeMarkerUtil;
 
 public class TestJdbcForMatchName {
     // ------------------

@@ -1,10 +1,8 @@
-package com.javaapi.test.application.freemarker;
+package com.javaapi.test.application.frontTemplate.freemarker;
 
 import java.io.*;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

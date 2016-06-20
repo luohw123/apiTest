@@ -1,4 +1,4 @@
-package com.javaapi.test.application.freemarker;
+package com.javaapi.test.application.frontTemplate.freemarker;
 
 import java.util.HashMap;
 import java.util.Map;
