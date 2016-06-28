@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -41,16 +43,16 @@ public class StatUtil {
 
     @Test
     public void test() throws IOException {
-        List<String> haveYouku = FileUtils.readLines(new File("/Users/user/program/shellTmp/haveYouku.txt"));
+        List<String> haveYouku = FileUtils.readLines(new File("/Users/user/program/shellTmp/haveLetv.txt"));
         List<String> statusEqual = getStatusEqual(haveYouku, "2");
-        FileUtils.writeLines(new File("/Users/user/program/shellTmp/过审的只有Youku没有letv.txt"), statusEqual);
+        FileUtils.writeLines(new File("/Users/user/program/shellTmp/过审的只有letv没有youku.txt"), statusEqual);
     }
 
     @Test
     public void test2() throws IOException {
-        List<String> haveYouku = FileUtils.readLines(new File("/Users/user/program/shellTmp/haveYouku.txt"));
+        List<String> haveYouku = FileUtils.readLines(new File("/Users/user/program/shellTmp/haveLetv.txt"));
         List<String> statusEqual = getStatusNotEqual(haveYouku, "2");
-        FileUtils.writeLines(new File("/Users/user/program/shellTmp/未过审的只有Youku没有letv.txt"), statusEqual);
+        FileUtils.writeLines(new File("/Users/user/program/shellTmp/未过审的只有letv没有youku.txt"), statusEqual);
     }
     @Test
     public void test3() throws IOException {
@@ -80,6 +82,54 @@ public class StatUtil {
     }
 
 
+    @Test
+    public void testGetSid() throws IOException {
+        String sid = "/Users/user/program/shellTmp/未过审的只有Youku没有letv.txt";
+        List<String> sid1 = Files.readAllLines(Paths.get(sid));
+
+        StringJoiner sj = new StringJoiner(",","(",")");
+        sid1.forEach((s -> sj.add(s)));
+
+        List<Map<String, Object>> allSidByTypeForSid = getAllSidByTypeForSid(sj.toString());
+        System.out.println("allSidByTypeForSid = " + allSidByTypeForSid.size());
+        List<String> collect = allSidByTypeForSid.stream().map((m) -> {
+            String s = m.get("video_id") + "," + m.get("url");
+            return s;
+        }).collect(Collectors.toList());
+        FileUtils.writeLines(new File("/Users/user/program/shellTmp/未过审的只有Youku没有letv_sid_url.txt"), collect);
+    }
+
+    /**
+     * 获取 sid,they_vid,they_unique的对应关系
+     * @throws IOException
+     */
+    @Test
+    public void testGetLetvSidVid() throws IOException {
+        String sid = "/Users/user/program/shellTmp/过审的只有letv没有youku.txt";
+        List<String> strings = Files.readAllLines(Paths.get(sid));
+        System.out.println("strings = " + strings.size());
+        List<String> collect1 = strings.stream().distinct().collect(Collectors.toList());
+        System.out.println("collect1 = " + collect1.size());
+
+
+
+        StringJoiner sj = new StringJoiner(",","(",")");
+        collect1.forEach((s -> sj.add(s)));
+
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList("SELECT special_id,they_vid,they_unique FROM ac_source_info where special_id in "+sj.toString());
+        List<String> collect = maps.stream().map((m) -> {
+            return m.get("special_id") + "," + m.get("they_vid") + "," + m.get("they_unique");
+        }).collect(Collectors.toList());
+
+        FileUtils.writeLines(new File("/Users/user/program/shellTmp/过审的只有letv没有youku_sid_vid_unique.txt"),collect);
+
+
+    }
+
+
+
+
+
 
 
 
@@ -87,7 +137,7 @@ public class StatUtil {
     private List<String> getStatusEqual(List<String> strings1, String status) throws IOException {
         StringJoiner sj = new StringJoiner(",","(",")");
         strings1.forEach((s -> sj.add(s)));
-        List<Map<String, Object>> maps = jdbcTemplate.queryForList("SELECT source_id FROM ac_new_video where source_type='zhuzhan' and status =" + status + " and  source_id in " + sj.toString() + ";");
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList("SELECT DISTINCT(source_id) FROM ac_new_video where source_type='zhuzhan' and status =" + status + " and  source_id in " + sj.toString() + ";");
 
         List<String> result = new ArrayList<>();
         for (Map<String, Object> map : maps) {
@@ -102,7 +152,7 @@ public class StatUtil {
     private List<String> getStatusNotEqual(List<String> strings1, String status) throws IOException {
         StringJoiner sj = new StringJoiner(",","(",")");
         strings1.forEach((s -> sj.add(s)));
-        List<Map<String, Object>> maps = jdbcTemplate.queryForList("SELECT source_id FROM ac_new_video where source_type='zhuzhan' and status !=" + status + " and  source_id in " + sj.toString() + ";");
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList("SELECT DISTINCT(source_id) FROM ac_new_video where source_type='zhuzhan' and status !=" + status + " and  source_id in " + sj.toString() + ";");
 
         List<String> result = new ArrayList<>();
         for (Map<String, Object> map : maps) {
@@ -152,5 +202,25 @@ public class StatUtil {
         List<Map<String, Object>> maps = jdbcTemplate.queryForList(allLetvSid);
         maps.forEach((sid) -> result.add((sid.get("video_id")).toString()));
         return result;
+    }
+
+    private List<Map<String, Object>> getAllSidByTypeForSid(String sids) {
+        String allLetvSid = "select video_id,url from ac_video_source where source='youku' and video_id in " + sids + "\n" +
+                "UNION all \n" +
+                "select video_id,url from ac_video_source_2 where source='youku' and video_id in " + sids + "\n" +
+                "UNION all \n" +
+                "select video_id,url from ac_video_source_3 where source='youku' and video_id in " + sids + "\n" +
+                "UNION all \n" +
+                "select video_id,url from ac_video_source_4 where source='youku' and video_id in " + sids + "\n" +
+                "UNION all \n" +
+                "select video_id,url from ac_video_source_5 where source='youku' and video_id in " + sids + "\n" +
+                "UNION all \n" +
+                "select video_id,url from ac_video_source_6 where source='youku' and video_id in " + sids + "\n" +
+                "UNION all \n" +
+                "select video_id,url from ac_video_source_7 where source='youku' and video_id in " + sids + "\n" +
+                "UNION all \n" +
+                "select video_id,url from ac_video_source_8 where source='youku' and video_id in " + sids + ";\n";
+        List<Map<String, Object>> maps = jdbcTemplate.queryForList(allLetvSid);
+        return maps;
     }
 }
