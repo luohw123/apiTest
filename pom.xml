@@ -6,7 +6,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <properties>
         <dep.jackson-databind.version>2.4.4</dep.jackson-databind.version>
-        <spring.version>4.1.9.RELEASE</spring.version>
+        <spring.version>4.2.6.RELEASE</spring.version>
         <junit.version>4.11</junit.version>
         <java.version>1.8</java.version>
         <plugin.clean.version>2.6.1</plugin.clean.version>
@@ -224,7 +224,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
-            <version>1.4.2.RELEASE</version>
+            <version>1.10.2.RELEASE</version>
         </dependency>
 
         <!-- hibernate begin -->

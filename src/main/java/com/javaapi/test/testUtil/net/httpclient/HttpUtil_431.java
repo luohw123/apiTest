@@ -71,6 +71,12 @@ public class HttpUtil_431 {
         return result;
     }
 
+    /**
+     * url 里不能有参数,否则会有问题
+     * @param url
+     * @param param
+     * @return
+     */
     public static String get(String url, Map<String, String> param) {
         URIBuilder uri = new URIBuilder();
         uri.setPath(url);

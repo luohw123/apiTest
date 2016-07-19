@@ -7,6 +7,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * http://blog.csdn.net/dm_vincent/article/details/40340291
@@ -194,6 +195,11 @@ public class ClientStreamTrans {
     @Test
     public void testToArray() throws Exception {
         Integer[] a = {1, 1, 2, 3};
+        Stream<Integer> stream = Stream.of(a);
+        stream.forEach((s) -> {
+            System.out.println(s);
+        });
+
     }
 
 

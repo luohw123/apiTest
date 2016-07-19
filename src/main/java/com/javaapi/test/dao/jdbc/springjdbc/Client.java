@@ -1,13 +1,5 @@
 package com.javaapi.test.dao.jdbc.springjdbc;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +10,14 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 测试 spring jdbc
@@ -111,8 +111,8 @@ public class Client {
 		String sql = "select count(1) from csc_sns_dev.tbl_b  where id=:id";
 		Map<String,String> map =new HashMap<>();
 		map.put("id", "1");
-		int result = nameJdbc.queryForInt(sql, map);
-		System.out.println(result);
+//		int result = nameJdbc.queryForInt(sql, map);
+//		System.out.println(result);
 	}
     @Test
     public void testNamedJdbcTemplateU() {

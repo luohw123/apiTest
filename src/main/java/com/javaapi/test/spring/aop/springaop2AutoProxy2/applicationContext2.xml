@@ -26,4 +26,10 @@
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
         <property name="optimize" value="true"/>
     </bean>
+
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="*Impl"/>                       <!-- 只为后缀是“Impl”的 Bean 生成代理 -->
+        <property name="interceptorNames" value="greetingAroundAdvice3"/> <!-- 增强 -->
+        <property name="optimize" value="true"/>                         <!-- 是否对代理生成策略进行优化 -->
+    </bean>
 </beans>

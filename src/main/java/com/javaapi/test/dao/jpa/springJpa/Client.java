@@ -24,14 +24,15 @@ import static org.junit.Assert.assertNotNull;
 //@Transactional
 public class Client {
     @Autowired
-    private UserDao dao;
+    private UserDao userDao;
+
 
     @Test
     public void testInsert() throws Exception {
         User s = new User();
-        s.setUsername("nihao");
-        s.setPassword("nihao");
-        User save = dao.save(s);
+        s.setUsername("2nihao");
+        s.setPassword("nihaoppp");
+        User save = userDao.save(s);
         System.out.println("save = " + save);
     }
 
@@ -45,52 +46,58 @@ public class Client {
         //Hibernate: select user0_.id as id0_0_, user0_.password as password0_0_, user0_.username as username0_0_ from i_user user0_ where user0_.id=?
 //        Hibernate: select user0_.id as id0_0_, user0_.password as password0_0_, user0_.username as username0_0_ from i_user user0_ where user0_.id=?
 //        Hibernate: delete from i_user where id=?
-        User one = dao.findOne(4);
-        dao.delete(one);
+        User one = userDao.findOne(4);
+        userDao.delete(one);
     }
 
     @Test
     @Rollback(value = false)
     // 非显示更新
     public void testUpdate() throws Exception {
-        User one = dao.findOne(1);
+        User one = userDao.findOne(1);
         one.setUsername("kk4");
-//        dao.save(one);
+//        userDao.save(one);
         System.out.println("one = " + one);
 
     }
 
     @Test
     public void testExist() throws Exception {
-        User one = dao.findOne(1);
-        System.out.println("dao = " + dao.exists(one.getId()));
+        User one = userDao.findOne(1);
+        System.out.println("userDao = " + userDao.exists(one.getId()));
 
     }
-
 
 
     @Test
     public void testCount() throws Exception {
-        System.out.println("dao = " + dao.count());
+        System.out.println("userDao = " + userDao.count());
     }
 
     @Test
     public void testPage() throws Exception {
-        Page<User> all = dao.findAll(new PageRequest(0, 1));
+        Page<User> all = userDao.findAll(new PageRequest(0, 1));
         System.out.println(all.getContent());
         System.out.println("all = " + all);
     }
 
     @Test
     public void testFindOne() throws Exception {
-        User findOne = dao.findOne(1);
+        User findOne = userDao.findOne(1);
         System.out.println(findOne);
         assertNotNull(findOne);
     }
+
     @Test
     public void findOne() throws Exception {
-        User user = dao.findUserByQueryAnnotation("admin");
+        User user = userDao.findUserByQueryAnnotation("admin");
         System.out.println(user);
         assertNotNull(user);
+    }
+
+    @Test
+    public void testSelfImpl() throws Exception {
+        User users = userDao.myFindAll("kk", "kkpassword");
+        System.out.println("users = " + users);
     }
 }
