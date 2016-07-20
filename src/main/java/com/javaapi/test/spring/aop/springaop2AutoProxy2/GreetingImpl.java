@@ -12,7 +12,7 @@ public class GreetingImpl implements Greeting {
 
 	@Override
 	public void goodMorning(String name) {
-	    System.out.println(this);
+//	    System.out.println(this);
 		System.out.println("Good Morning! " + name);
 	}
 
