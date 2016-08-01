@@ -38,10 +38,15 @@ public interface IBaseDao<T, ID extends Serializable> {
     public T findOne(ID id);
 
 
-
+    /**
+     * 按id list进行查询实体,返回单个实体
+     * @param id
+     * @return
+     */
     public List<T> findAll(List<ID> id);
 
-    /**
+
+    /**按实体进行分页查询
      * @param
      */
     public List<T> findAll(T t, Integer pageNo, Integer pageSize);
@@ -80,7 +85,7 @@ public interface IBaseDao<T, ID extends Serializable> {
     public int save(List<T> ts);
 
     /**
-     * 按id,对非null值动态更新
+     * 按id,对非null值进行更新 (动态更新)
      *
      * @param t
      * @return
