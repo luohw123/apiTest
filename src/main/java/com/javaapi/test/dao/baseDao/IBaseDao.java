@@ -30,7 +30,7 @@ import java.util.List;
  * 判断实体是否存在,传入实体参数,返回 布尔值  (boolean)
  * 判断id对应的数据是否存在,传入id参数,返回 布尔值  (boolean)
  */
-public interface IBaseDao<T, ID extends Serializable> extends IBaseHqlDao,IBaseSqlDao {
+public interface IBaseDao<T, ID extends Serializable>{
 
     /**
      *   * 根据id 查询实体,返回单个实体
