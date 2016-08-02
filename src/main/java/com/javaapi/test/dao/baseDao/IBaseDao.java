@@ -1,5 +1,8 @@
 package com.javaapi.test.dao.baseDao;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -27,7 +30,7 @@ import java.util.List;
  * 判断实体是否存在,传入实体参数,返回 布尔值  (boolean)
  * 判断id对应的数据是否存在,传入id参数,返回 布尔值  (boolean)
  */
-public interface IBaseDao<T, ID extends Serializable> {
+public interface IBaseDao<T, ID extends Serializable> extends IBaseHqlDao,IBaseSqlDao {
 
     /**
      *   * 根据id 查询实体,返回单个实体
@@ -49,8 +52,18 @@ public interface IBaseDao<T, ID extends Serializable> {
     /**按实体进行分页查询
      * @param
      */
-    public List<T> findAll(T t, Integer pageNo, Integer pageSize);
+    public Page<T> findAll(T t, Integer pageNo, Integer pageSize);
 
+    /**按实体进行分页查询
+     * @param
+     */
+    public Page<T> findAll(T t, Pageable pageable);
+
+    /**
+     * 查询所有实体
+     * @return
+     */
+    public List<T> findAll();
 
     /**
      * 按单个id进行删除
