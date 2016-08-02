@@ -3,13 +3,14 @@ package com.javaapi.test.dao.baseDao;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by user on 16/8/2.
  */
-public interface IBaseSqlDao<T> {
+public interface IBaseSqlDao<T,ID extends Serializable> extends IBaseDao<T,ID> {
     /**
      * ----sql start -----------------------------------------
      */
