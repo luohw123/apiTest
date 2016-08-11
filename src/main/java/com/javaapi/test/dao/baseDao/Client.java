@@ -79,6 +79,14 @@ public class Client {
     }
 
     @Test
+    public void testFindOneHql() throws Exception {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("password", "nihao");
+        User one = userService.findOne("FROM User user WHERE user.password=:password", params);
+        System.out.println("one = " + one);
+    }
+
+    @Test
     public void testFindAllHql() throws Exception {
         HashMap<String, Object> params = new HashMap<>();
         params.put("password", "nihao");
@@ -114,13 +122,91 @@ public class Client {
         System.out.println("all.getTotalElements = " + all.getTotalElements());
 
     }
+    @Test
+    public void testFindAllPageByPageOneRequest_1() throws Exception {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("password", "nihao");
+        int page = 1;
+        int size = 6;
+        PageOneRequest pageable = new PageOneRequest(page, size);
+        Page<User> all = userService.findAll("FROM User user WHERE user.password=:password", pageable, params);
+        List<User> content = all.getContent();
+        // list
+        System.out.println("content = " + content);
+        // pageNo
+        System.out.println("all.getNumber() = " + all.getNumber());
+//        Assert.assertEquals(page, all.getNumber());
+        // pageSize
+        System.out.println("size = " + all.getSize());
+//        Assert.assertEquals(size, all.getSize());
+        // 具体数据的数量
+        System.out.println("all.getNumberOfElements() = " + all.getNumberOfElements());
+        // 总页数
+        System.out.println("all.getTotalPages() = " + all.getTotalPages());
+        // 总条数
+        System.out.println("all.getTotalElements = " + all.getTotalElements());
+
+        // 有前一个么
+        System.out.println("all.hasPrevious() = " + all.hasPrevious());
+        // 有下一个么
+        System.out.println("all.hasNext() = " + all.hasNext());
+        // 是第一个么
+        System.out.println("all.isFirst() = " + all.isFirst());
+        // 是最后一个么
+        System.out.println("all.isLast() = " + all.isLast());
+
+        // 该页具体的list数据长度
+        System.out.println("all.nextPageable() = " + all.nextPageable());
+        System.out.println("all.previousPageable() = " + all.previousPageable());
+        System.out.println("all.hasContent() = " + all.hasContent());
+
+    }
 
 
     @Test
-    public void testFindAllPageByPageOneRequest() throws Exception {
+     public void testFindAllPageByPageOneRequest_2() throws Exception {
         HashMap<String, Object> params = new HashMap<>();
         params.put("password", "nihao");
         int page = 2;
+        int size = 6;
+        PageOneRequest pageable = new PageOneRequest(page, size);
+        Page<User> all = userService.findAll("FROM User user WHERE user.password=:password", pageable, params);
+        List<User> content = all.getContent();
+        // list
+        System.out.println("content = " + content);
+        // pageNo
+        System.out.println("all.getNumber() = " + all.getNumber());
+//        Assert.assertEquals(page, all.getNumber());
+        // pageSize
+        System.out.println("size = " + all.getSize());
+//        Assert.assertEquals(size, all.getSize());
+        // 具体数据的数量
+        System.out.println("all.getNumberOfElements() = " + all.getNumberOfElements());
+        // 总页数
+        System.out.println("all.getTotalPages() = " + all.getTotalPages());
+        // 总条数
+        System.out.println("all.getTotalElements = " + all.getTotalElements());
+
+        // 有前一个么
+        System.out.println("all.hasPrevious() = " + all.hasPrevious());
+        // 有下一个么
+        System.out.println("all.hasNext() = " + all.hasNext());
+        // 是第一个么
+        System.out.println("all.isFirst() = " + all.isFirst());
+        // 是最后一个么
+        System.out.println("all.isLast() = " + all.isLast());
+
+        // 该页具体的list数据长度
+        System.out.println("all.nextPageable() = " + all.nextPageable());
+        System.out.println("all.previousPageable() = " + all.previousPageable());
+        System.out.println("all.hasContent() = " + all.hasContent());
+
+    }
+    @Test
+    public void testFindAllPageByPageOneRequest_3() throws Exception {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("password", "nihao");
+        int page = 3;
         int size = 6;
         PageOneRequest pageable = new PageOneRequest(page, size);
         Page<User> all = userService.findAll("FROM User user WHERE user.password=:password", pageable, params);

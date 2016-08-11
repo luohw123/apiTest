@@ -50,25 +50,25 @@ public class UserService {
         return userDao.deleteById(integer);
     }
 
-    public Page<User> findAll(String hql, Pageable pageable, Object... params) {
-        return userDao.findAll(hql, pageable, params);
-    }
+//    public Page<User> findAll(String hql, Pageable pageable, Object... params) {
+//        return userDao.findAll(hql, pageable, params);
+//    }
 
-    public User findOne(String hql, List<Object> params) {
-        return userDao.findOne(hql, params);
-    }
+//    public User findOne(String hql, List<Object> params) {
+//        return userDao.findOne(hql, params);
+//    }
 
     public int updateRRC(User user) {
         return userDao.updateRRC(user);
     }
 
-    public List<User> findAll(String hql, List<Object> params) {
-        return userDao.findAll(hql, params);
-    }
+//    public List<User> findAll(String hql, List<Object> params) {
+//        return userDao.findAll(hql, params);
+//    }
 
-    public User findOne(String hql, Object... params) {
-        return userDao.findOne(hql, params);
-    }
+//    public User findOne(String hql, Object... params) {
+//        return userDao.findOne(hql, params);
+//    }
 
     public int updateDynamic(User user) {
         return userDao.updateDynamic(user);
@@ -90,17 +90,17 @@ public class UserService {
         return userDao.saveRRC(user);
     }
 
-    public List<User> findAll(String hql, Object... params) {
-        return userDao.findAll(hql, params);
-    }
+//    public List<User> findAll(String hql, Object... params) {
+//        return userDao.findAll(hql, params);
+//    }
 
     public List<User> findAll() {
         return userDao.findAll();
     }
 
-    public Page<User> findAll(String hql, Pageable pageable, List<Object> params) {
-        return userDao.findAll(hql, pageable, params);
-    }
+//    public Page<User> findAll(String hql, Pageable pageable, List<Object> params) {
+//        return userDao.findAll(hql, pageable, params);
+//    }
 
     public int deleteByIds(List<Integer> integers) {
         return userDao.deleteByIds(integers);

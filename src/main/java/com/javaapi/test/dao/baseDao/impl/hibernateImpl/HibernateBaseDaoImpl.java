@@ -51,58 +51,20 @@ public class HibernateBaseDaoImpl<T, ID extends Serializable> extends BaseDaoImp
         getSession().save(t);
     }
 
-    @Override
-    public Page<T> findAll(String hql, Pageable pageable, List params) {
-        Finder finder = Finder.create(hql);
-        int total = countQueryResult(finder);
-        if (total < 1) {
-            PageOneImpl<T> page = new PageOneImpl<>(new ArrayList(), pageable, total);
-            return page;
-        }
-
-
-        Query query = getSession().createQuery(finder.getOrigHql());
-        finder.setParamsToQuery(query);
-        query.setFirstResult(pageable.getOffset());
-        query.setMaxResults(pageable.getPageSize());
-        if (finder.isCacheable()) {
-            query.setCacheable(true);
-        }
-
-
-        List<T> list = query.list();
-
-        PageOneImpl<T> page = new PageOneImpl<>(list, pageable, total);
-
-        return page;
-    }
 
     @Override
     public T findOne(String hql, Map params) {
+        Finder finder = Finder.create(hql);
+        finder.setParams(params);
 
-        return null;
+        Query query = getSession().createQuery(finder.getOrigHql());
+        finder.setParamsToQuery(query);
+        if (finder.isCacheable()) {
+            query.setCacheable(true);
+        }
+        T o = (T) query.uniqueResult();
+        return o;
     }
-
-    @Override
-    public T findOne(String hql, Object... params) {
-        return null;
-    }
-
-    @Override
-    public List<T> findAll(String hql, Object... params) {
-        return null;
-    }
-
-    @Override
-    public Page<T> findAll(String hql, Pageable pageable, Object... params) {
-        return null;
-    }
-
-    @Override
-    public List<T> findAll(String hql, List params) {
-        return null;
-    }
-
     @Override
     public Page<T> findAll(String hql, Pageable pageable, Map params) {
         Finder finder = Finder.create(hql);
@@ -154,8 +116,36 @@ public class HibernateBaseDaoImpl<T, ID extends Serializable> extends BaseDaoImp
         return list;
     }
 
-    @Override
-    public T findOne(String hql, List params) {
-        return null;
-    }
+//    @Override
+//    public T findOne(String hql, List params) {
+//        return null;
+//    }
+//
+//    @Override
+//    public T findOne(String hql, Object... params) {
+//        return null;
+//    }
+//
+//    @Override
+//    public List<T> findAll(String hql, List params) {
+//        return null;
+//    }
+//
+//    @Override
+//    public List<T> findAll(String hql, Object... params) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Page<T> findAll(String hql, Pageable pageable, List params) {
+//        return null;
+//    }
+//
+//
+//    @Override
+//    public Page<T> findAll(String hql, Pageable pageable, Object... params) {
+//        return null;
+//    }
+
+
 }

@@ -24,9 +24,9 @@ public interface IBaseHqlDao<T,ID extends Serializable> extends IBaseDao<T,ID> {
      */
     public T findOne(String hql, Map<String, Object> params);
 
-    public T findOne(String hql, Object... params);
-
-    public T findOne(String hql, List<Object> params);
+//    public T findOne(String hql, Object... params);
+//
+//    public T findOne(String hql, List<Object> params);
 
     /**
      * 按hql进行查询 实体list
@@ -47,9 +47,9 @@ public interface IBaseHqlDao<T,ID extends Serializable> extends IBaseDao<T,ID> {
      * @param params
      * @return
      */
-    public List<T> findAll(String hql, Object... params);
-
-    public Page<T> findAll(String hql, Pageable pageable, Object... params);
+//    public List<T> findAll(String hql, Object... params);
+//
+//    public Page<T> findAll(String hql, Pageable pageable, Object... params);
 
 
     /**
@@ -59,9 +59,9 @@ public interface IBaseHqlDao<T,ID extends Serializable> extends IBaseDao<T,ID> {
      * @param params
      * @return
      */
-    public List<T> findAll(String hql, List<Object> params);
+//    public List<T> findAll(String hql, List<Object> params);
 
-    public Page<T> findAll(String hql, Pageable pageable, List<Object> params);
+//    public Page<T> findAll(String hql, Pageable pageable, List<Object> params);
 
     /**
      * -----hibernate end----------------------------------------
