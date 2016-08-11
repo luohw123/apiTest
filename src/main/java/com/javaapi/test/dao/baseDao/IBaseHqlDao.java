@@ -66,4 +66,17 @@ public interface IBaseHqlDao<T,ID extends Serializable> extends IBaseDao<T,ID> {
     /**
      * -----hibernate end----------------------------------------
      */
+
+    /**
+     * 按id,对全部字段进行更新
+     *
+     * @param t
+     * @return
+     */
+    public void update(T t);
+
+    public void delete(T t);
+
+    public void save(T t);
+
 }

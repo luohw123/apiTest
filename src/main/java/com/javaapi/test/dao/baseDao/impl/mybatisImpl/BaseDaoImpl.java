@@ -10,9 +10,9 @@ import java.util.List;
 /**
  * Created by user on 16/8/2.
  */
-public class BaseDaoImpl<T,ID extends Serializable> implements IBaseDao<T,ID>{
+public abstract class BaseDaoImpl<T,ID extends Serializable> implements IBaseDao<T,ID>{
     @Override
-    public T findOne(ID id) {
+    public T findById(ID id) {
         return null;
     }
 
@@ -37,18 +37,18 @@ public class BaseDaoImpl<T,ID extends Serializable> implements IBaseDao<T,ID>{
     }
 
     @Override
-    public int delete(ID id) {
+    public int deleteById(ID id) {
         return 0;
     }
 
     @Override
-    public int delete(List<ID> ids) {
+    public int deleteByIds(List<ID> ids) {
         return 0;
     }
 
     @Override
-    public int save(T t) {
-        return 0;
+    public ID saveRID(T t) {
+        return (ID)Integer.valueOf(0);
     }
 
     @Override
@@ -62,7 +62,7 @@ public class BaseDaoImpl<T,ID extends Serializable> implements IBaseDao<T,ID>{
     }
 
     @Override
-    public int update(T t) {
+    public int updateRRC(T t) {
         return 0;
     }
 }

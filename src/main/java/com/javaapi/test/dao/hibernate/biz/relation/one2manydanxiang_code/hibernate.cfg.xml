@@ -7,7 +7,7 @@
  		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
  		
  		<!-- connection.url中的///表示本地并且端口号是默认的3306 -->
- 		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/test</property>
+ 		<property name="connection.url">jdbc:mysql://127.0.0.1:3307/test</property>
  		<property name="connection.username">root</property>
  		<property name="connection.password">root</property>
  		<!-- SQL方言 -->

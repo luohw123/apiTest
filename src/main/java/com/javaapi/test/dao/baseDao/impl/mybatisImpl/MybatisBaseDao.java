@@ -56,4 +56,19 @@ public class MybatisBaseDao<T, ID extends Serializable> extends BaseDaoImpl<T, I
     public Page<T> selectAll(String sql, Pageable pageable, List<Object> params) {
         return null;
     }
+
+    @Override
+    public ID saveRID(T t) {
+        return null;
+    }
+
+    @Override
+    public int saveRRC(T t) {
+        return 0;
+    }
+
+    @Override
+    public int deleteRRC(T t) {
+        return 0;
+    }
 }

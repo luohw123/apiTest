@@ -20,10 +20,15 @@ import java.util.List;
  * 根据id list进行删除,并返回删除个数
  * 根据实体条件进行删除,并返回删除个数  (可选)
  * <p>
- * 动态更新单个实体,传入单个实体,返回更新个数: 0/1
- * 对全部字段进行更新,传入单个实体,返回更新个数: 0/1
+ * 动态更新单个实体,传入单个实体 ,返回 void
+ * 动态更新单个实体,传入单个实体,返回更新个数: 0/1  (可选)
+ *
+ * 对全部字段进行更新,传入单个实体,返回void
+ * 对全部字段进行更新,传入单个实体,返回更新个数: 0/1 (可选)
  * <p>
- * 保存单个实体,返回插入条数 0/1
+ * 保存单个实体,返回值为void
+ * 保存单个实体,返回插入条数 0/1 (可选)
+ * 保存单个实体,返回新数据的主键值 (可选)
  * 保存实体list,返回插入条数
  * <p>
  * <p>
@@ -38,7 +43,7 @@ public interface IBaseDao<T, ID extends Serializable>{
      * @param id
      * @return
      */
-    public T findOne(ID id);
+    public T findById(ID id);
 
 
     /**
@@ -71,7 +76,7 @@ public interface IBaseDao<T, ID extends Serializable>{
      * @param id
      * @return
      */
-    public int delete(ID id);
+    public int deleteById(ID id);
 
     /**
      * 按批量id进行删除
@@ -79,18 +84,18 @@ public interface IBaseDao<T, ID extends Serializable>{
      * @param ids
      * @return
      */
-    public int delete(List<ID> ids);
+    public int deleteByIds(List<ID> ids);
+
 
     /**
-     * 保存单个实体,返回插入条数 0/1
-     *
+     * 保存实体,返回新生成的id
      * @param t
      * @return
      */
-    public int save(T t);
+    ID saveRID(T t);
 
     /**
-     * 保存实体list,返回插入条数
+     * 保存实体list,返回更新条数
      *
      * @param ts
      * @return
@@ -106,12 +111,29 @@ public interface IBaseDao<T, ID extends Serializable>{
     public int updateDynamic(T t);
 
     /**
-     * 按id,对全部字段进行更新
+     * 返回影响行数, 不会出异常  0/1
      *
      * @param t
      * @return
      */
-    public int update(T t);
+    public int saveRRC(T t);
+
+    /**
+     * 返回影响行数, 不会出异常  0/1
+     * Return Row Count
+     * @param t
+     * @return
+     */
+    public int deleteRRC(T t);
+
+    /**
+     * 返回更新行数, 不会出异常  0/1
+     * Return Row Count
+     * @param t
+     * @return
+     */
+    public int updateRRC(T t);
+
 
 
 }
