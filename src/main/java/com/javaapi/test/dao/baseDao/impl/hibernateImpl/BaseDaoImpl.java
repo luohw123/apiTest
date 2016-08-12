@@ -1,16 +1,19 @@
 package com.javaapi.test.dao.baseDao.impl.hibernateImpl;
 
 import com.javaapi.test.dao.baseDao.IBaseDao;
-import org.hibernate.LockMode;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import com.javaapi.test.dao.baseDao.page.PageOneImpl;
+import com.javaapi.test.dao.baseDao.page.PageOneRequest;
+import org.hibernate.*;
+import org.hibernate.criterion.Example;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class BaseDaoImpl<T, ID extends Serializable> implements IBaseDao<T, ID> {
@@ -74,19 +77,58 @@ public class BaseDaoImpl<T, ID extends Serializable> implements IBaseDao<T, ID> 
         sb.append(" WHERE ");
         sb.append(getIdentifierPropertyName());
         sb.append(" IN :ids");
-        Query ids = getSession().createQuery(sb.toString()).setParameterList("ids", id);
-        List list = ids.list();
+        Query query = getSession().createQuery(sb.toString()).setParameterList("ids", id);
+        Iterator<T> iterate = query.iterate();
+        List<T> list = new ArrayList();
+        while(iterate.hasNext()){
+            T o = iterate.next();
+            list.add(o);
+        }
         return list;
     }
 
+    /**
+     *  criteria.list() 未知
+     * @param t
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
     @Override
     public Page<T> findAll(T t, Integer pageNo, Integer pageSize) {
-        return null;
+        Criteria criteria = getSession().createCriteria(clazz).add(Example.create(t));
+        Integer total = ((Number) criteria.setProjection(
+                Projections.rowCount()).uniqueResult()).intValue();
+        PageOneRequest pageable = new PageOneRequest(pageNo, pageSize);
+        if (total < 1) {
+            PageOneImpl<T> page = new PageOneImpl<T>(new ArrayList<T>(), pageable, total);
+            return page;
+        }
+        // 必须设置为空,否则多进行一次count总数
+        criteria.setProjection(null);
+        criteria.setFirstResult(pageable.getOffset());
+        criteria.setMaxResults(pageable.getPageSize());
+        List<T> list = criteria.list();
+        PageOneImpl<T> page = new PageOneImpl<T>(list, pageable, total);
+        return page;
     }
 
     @Override
     public Page<T> findAll(T t, Pageable pageable) {
-        return null;
+        Criteria criteria = getSession().createCriteria(clazz).add(Example.create(t));
+        Integer total = ((Number) criteria.setProjection(
+                Projections.rowCount()).uniqueResult()).intValue();
+        if (total < 1) {
+            PageOneImpl<T> page = new PageOneImpl<T>(new ArrayList<T>(), pageable, total);
+            return page;
+        }
+        // 必须设置为空,否则多进行一次count总数
+        criteria.setProjection(null);
+        criteria.setFirstResult(pageable.getOffset());
+        criteria.setMaxResults(pageable.getPageSize());
+        List<T> list = criteria.list();
+        PageOneImpl<T> page = new PageOneImpl<T>(list, pageable, total);
+        return page;
     }
 
     @Override
@@ -94,8 +136,8 @@ public class BaseDaoImpl<T, ID extends Serializable> implements IBaseDao<T, ID> 
         StringBuilder sb = new StringBuilder();
         sb.append("FROM ");
         sb.append(clazz.getSimpleName());
-        Query ids = getSession().createQuery(sb.toString());
-        List list = ids.list();
+        Query query = getSession().createQuery(sb.toString());
+        List list = query.list();
         return list;
     }
 
@@ -138,6 +180,11 @@ public class BaseDaoImpl<T, ID extends Serializable> implements IBaseDao<T, ID> 
         return save;
     }
 
+    /**
+     * TODO 刷到数据库后,如果回滚,会回滚么
+     * @param ts
+     * @return
+     */
     @Override
     public int save(List<T> ts) {
         int i = 0;

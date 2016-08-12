@@ -91,9 +91,7 @@ public class HibernateBaseDaoImpl<T, ID extends Serializable> extends BaseDaoImp
             T o = iterate.next();
             list.add(o);
         }
-
         PageOneImpl<T> page = new PageOneImpl<>(list, pageable, total);
-
         return page;
     }
 
