@@ -149,6 +149,12 @@
             <artifactId>spring-aspects</artifactId>
             <scope>compile</scope>
         </dependency>
+        <!-- dbutil-->
+        <dependency>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
+            <version>1.6</version>
+        </dependency>
         <!-- mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>

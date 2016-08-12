@@ -78,6 +78,10 @@ public class Client {
         System.out.println("success = >" + success);
     }
 
+    /**
+     * 如果出现多个,会报异常
+     * @throws Exception
+     */
     @Test
     public void testFindOneHql() throws Exception {
         HashMap<String, Object> params = new HashMap<>();
