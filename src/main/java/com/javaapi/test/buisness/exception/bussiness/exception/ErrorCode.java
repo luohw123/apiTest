@@ -45,7 +45,13 @@ public class ErrorCode {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	
-	
-	
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ErrorCode{");
+        sb.append("index=").append(index);
+        sb.append(", msg='").append(msg).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

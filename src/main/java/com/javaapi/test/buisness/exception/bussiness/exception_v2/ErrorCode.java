@@ -71,4 +71,12 @@ public class ErrorCode implements Serializable {
         return true;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ErrorCode{");
+        sb.append("key='").append(key).append('\'');
+        sb.append(", msg='").append(msg).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
