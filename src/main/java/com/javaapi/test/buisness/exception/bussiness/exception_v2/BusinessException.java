@@ -1,5 +1,7 @@
 package com.javaapi.test.buisness.exception.bussiness.exception_v2;
 
+import java.util.Map;
+
 public class BusinessException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     private ErrorCode errorCode;
@@ -28,6 +30,24 @@ public class BusinessException extends RuntimeException {
         this.errorCode = new ErrorCode(ErrorCode.BUSINESS_COMMON_ERROR, message);
     }
 
+    public BusinessException(String key,String message) {
+        super(message);
+        this.errorCode = new ErrorCode(key, message);
+    }
+
+    public BusinessException(String key,String message, Throwable cause) {
+        super(message, cause);
+        this.errorCode = new ErrorCode(key, message);
+    }
+
+    public String getMsg() {
+        return errorCode.getMsg();
+    }
+
+    public String getKey() {
+        return errorCode.getKey();
+    }
+
     public ErrorCode getErrorCode() {
         return errorCode;
     }
@@ -36,6 +56,9 @@ public class BusinessException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
+    public Map<String, Object> getExtra() {
+        return errorCode.getExtra();
+    }
 
     @Override
     public synchronized Throwable fillInStackTrace() {
