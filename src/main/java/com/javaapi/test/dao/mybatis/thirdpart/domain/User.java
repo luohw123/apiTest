@@ -9,8 +9,11 @@ import java.io.Serializable;
 @Cacheable
 public class User implements Serializable {
     private static final long serialVersionUID = 5177699062365176136L;
+    @Id
     private Integer id;
+    @Column
     private String username;
+    @Column
     private String password;
 
     public User() {

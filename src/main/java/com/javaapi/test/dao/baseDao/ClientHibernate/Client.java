@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.baseDao;
+package com.javaapi.test.dao.baseDao.ClientHibernate;
 
 import com.javaapi.test.dao.baseDao.domain.User;
 import com.javaapi.test.dao.baseDao.page.PageOneRequest;

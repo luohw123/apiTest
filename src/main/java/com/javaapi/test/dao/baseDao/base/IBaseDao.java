@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.baseDao;
+package com.javaapi.test.dao.baseDao.base;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -44,6 +44,8 @@ public interface IBaseDao<T, ID extends Serializable>{
      * @return
      */
     public T findById(ID id);
+
+
 
 
     /**

@@ -1,6 +1,6 @@
 package com.javaapi.test.dao.baseDao.repository;
 
-import com.javaapi.test.dao.baseDao.IBaseHqlDao;
+import com.javaapi.test.dao.baseDao.base.IBaseHqlDao;
 import com.javaapi.test.dao.baseDao.domain.User;
 
 /**

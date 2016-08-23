@@ -1,8 +1,9 @@
 package com.javaapi.test.dao.baseDao.impl.mybatisImpl;
 
-import com.javaapi.test.dao.baseDao.IBaseSqlDao;
+import com.javaapi.test.dao.baseDao.base.IBaseSqlDao;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,7 +12,13 @@ import java.util.Map;
 /**
  * Created by user on 16/8/2.
  */
+@Component
 public class MybatisBaseDao<T, ID extends Serializable> extends BaseDaoImpl<T, ID> implements IBaseSqlDao<T, ID> {
+
+    public T findByIdInteger(Integer id) {
+        return mapper.selectByPrimaryKey(id);
+    }
+
     @Override
     public T selectOne(String sql, Map<String, Object> params) {
         return null;

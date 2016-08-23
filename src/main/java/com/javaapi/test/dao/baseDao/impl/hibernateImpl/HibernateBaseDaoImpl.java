@@ -1,6 +1,6 @@
 package com.javaapi.test.dao.baseDao.impl.hibernateImpl;
 
-import com.javaapi.test.dao.baseDao.IBaseHqlDao;
+import com.javaapi.test.dao.baseDao.base.IBaseHqlDao;
 import com.javaapi.test.dao.baseDao.page.PageOneImpl;
 import org.hibernate.Query;
 import org.springframework.data.domain.Page;

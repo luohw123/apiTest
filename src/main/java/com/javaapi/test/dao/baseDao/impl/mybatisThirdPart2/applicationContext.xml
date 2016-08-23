@@ -12,7 +12,7 @@
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd 
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-    <context:component-scan base-package="com.javaapi.test.dao.mybatis.thirdpart"/>
+    <context:component-scan base-package="com.javaapi.test.dao.baseDao.impl.mybatisThirdPart2"/>
     <!-- <bean id="dataSource" -->
     <!-- class="org.apache.commons.dbcp.BasicDataSource" -->
     <!-- destroy-method="close" -->
@@ -40,7 +40,9 @@
         <!--<property name="mapperLocations" value="classpath*:com/javaapi/test/dao/mybatis/springInterface/*Mapper.xml"/>-->
     </bean>
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.javaapi.test.dao.mybatis.thirdpart.dao"/>
+        <property name="basePackage" value="com.javaapi.test.dao.baseDao.impl.mybatisThirdPart2.dao"/>
+        <!--<property name="markerInterface" value="com.javaapi.test.dao.baseDao.impl.mybatisThirdPart2.dao.UserDao"/>-->
+
         <!--<property name="properties">-->
             <!--<value>-->
                 <!--mappers=tk.mybatis.mapper.common.Mapper-->

@@ -1,6 +1,6 @@
 package com.javaapi.test.dao.baseDao.impl.hibernateImpl;
 
-import com.javaapi.test.dao.baseDao.IBaseDao;
+import com.javaapi.test.dao.baseDao.base.IBaseDao;
 import com.javaapi.test.dao.baseDao.page.PageOneImpl;
 import com.javaapi.test.dao.baseDao.page.PageOneRequest;
 import org.hibernate.*;

@@ -2,6 +2,7 @@ package com.javaapi.test.dao.mybatis.thirdpart;
 
 import com.javaapi.test.dao.mybatis.thirdpart.dao.UserDao;
 import com.javaapi.test.dao.mybatis.thirdpart.domain.User;
+import com.javaapi.test.dao.mybatis.thirdpart.service.DemoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,19 @@ public class Client {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private DemoService demoService;
+
     @Test
     public void testSelectAll() throws Exception {
         List<User> users = userDao.selectAll();
         System.out.println("users = " + users);
 
+    }
+
+    @Test
+    public void testService() {
+        User byId = demoService.findById(5);
+        System.out.println("byId = " + byId);
     }
 }

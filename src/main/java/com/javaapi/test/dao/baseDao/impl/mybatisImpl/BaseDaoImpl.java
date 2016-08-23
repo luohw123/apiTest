@@ -1,8 +1,11 @@
 package com.javaapi.test.dao.baseDao.impl.mybatisImpl;
 
-import com.javaapi.test.dao.baseDao.IBaseDao;
+import com.javaapi.test.dao.baseDao.base.IBaseDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Component;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,11 +13,19 @@ import java.util.List;
 /**
  * Created by user on 16/8/2.
  */
+@Component
 public abstract class BaseDaoImpl<T,ID extends Serializable> implements IBaseDao<T,ID>{
+
+    @Autowired
+    Mapper<T> mapper;
+
     @Override
     public T findById(ID id) {
-        return null;
+        return mapper.selectByPrimaryKey(id);
     }
+
+
+
 
     @Override
     public List<T> findAll(List<ID> id) {

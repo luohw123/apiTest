@@ -1,4 +1,4 @@
-package com.javaapi.test.dao.baseDao.domain;
+package com.javaapi.test.dao.baseDao.impl.mybatisThirdPart2.domain;
 
 
 import javax.persistence.*;
@@ -9,7 +9,6 @@ import java.io.Serializable;
 @Cacheable
 public class User implements Serializable {
     private static final long serialVersionUID = 5177699062365176136L;
-
     @Id
     private Integer id;
     @Column
