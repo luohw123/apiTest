@@ -101,6 +101,13 @@ public class StringUtil {
         content = content.replaceAll("\\^", "\r\n");
         System.out.println(content);
     }
+
+    @Test
+    public void testReplaceAll() {
+        String content = "http://www.baidu.com";
+        content = content.replaceAll("www.baidu.com", "www.nihao.com");
+        System.out.println(content);
+    }
     
     @Test
     public void testContains() {
