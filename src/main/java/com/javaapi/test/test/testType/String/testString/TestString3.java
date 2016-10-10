@@ -1,6 +1,13 @@
 package com.javaapi.test.test.testType.String.testString;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 public class TestString3 {
     /** intern方法
@@ -163,5 +170,51 @@ public class TestString3 {
         for (byte b : b9.trim().getBytes()) {
             System.out.print(">>>" + (int) b + " ");
         }
+    }
+
+    @Test
+    public void testName() throws Exception {
+        String tagName = "nihaoo###";
+        Map<String, Object> map = new HashMap<>();
+        List<String> sensitiveSymbol = Arrays.asList(new String[]{"#", ",", "/"});
+        for (String symbol : sensitiveSymbol) {
+            if (this.contains(tagName, symbol)) {
+                map.put("result", "标签不能插入“＃”、“，”、“／”符号");
+                map.put("success", false);
+                System.out.println("symbol = " + map);
+                return;
+            }
+        }
+
+    }
+
+    @Test
+    public void testName2() throws Exception {
+
+        String tagName = "nihaoo###";
+        List<String> sensitiveSymbol = Arrays.asList(new String[]{"#", ",", "/"});
+        for (String symbol : sensitiveSymbol) {
+            if (tagName.contains(symbol)) {
+                System.out.println("symbol = " + symbol);
+            }
+        }
+
+    }
+
+    @Test
+    public void testSplit() throws Exception {
+        String users = ",2,3,";
+        List<String> strings = Arrays.asList(users.split(","));
+        System.out.println("strings = " + strings);
+
+    }
+
+    public static boolean contains(String str, String search) {
+        if (StringUtils.isBlank(str) || StringUtils.isBlank(search)) {
+            return false;
+        }
+        String reg = StringUtils.replace(search, "*", ".*");
+        Pattern p = Pattern.compile(reg);
+        return p.matcher(str).matches();
     }
 }

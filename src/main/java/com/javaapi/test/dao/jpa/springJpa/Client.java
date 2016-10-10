@@ -100,4 +100,9 @@ public class Client {
         User users = userDao.myFindAll("kk", "kkpassword");
         System.out.println("users = " + users);
     }
+
+    @Test
+    public void testName() throws Exception {
+
+    }
 }

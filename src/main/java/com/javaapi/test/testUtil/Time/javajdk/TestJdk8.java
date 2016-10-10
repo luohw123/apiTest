@@ -3,10 +3,7 @@ package com.javaapi.test.testUtil.Time.javajdk;
 import org.junit.Test;
 
 import java.sql.Date;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -86,4 +83,13 @@ public class TestJdk8 {
     }
 
 
+    @Test
+    public void testName() throws Exception {
+        LocalDateTime localDateTime = LocalDate.now().plusDays(1).atStartOfDay();
+        System.out.println("localDateTime = " + localDateTime);
+//        localDateTime.
+        Duration between = Duration.between(LocalDateTime.now(), LocalDate.now().plusDays(1).atStartOfDay());
+        long seconds = between.getSeconds();
+        System.out.println(seconds);
+    }
 }

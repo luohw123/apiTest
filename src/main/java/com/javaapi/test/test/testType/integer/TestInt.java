@@ -35,4 +35,14 @@ public class TestInt {
     public void ser(Serializable a ){
         System.out.println("a = " + a);
     }
+
+
+
+    public static final byte CHECKED = 2;
+
+    @Test
+    public void testName() throws Exception {
+        System.out.println(CHECKED);
+        System.out.println(CHECKED == 2);
+    }
 }

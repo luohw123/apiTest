@@ -1,5 +1,9 @@
 package com.javaapi.test.testUtil.fileUtil.common;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 /**
  * Created by user on 16/4/28.
  */
@@ -32,4 +36,14 @@ public class CommonUtil {
         sb.append("1,'" + now + "',1,'" + now + "');");
         return sb.toString();
     }
+
+    public static <T> List<T> removeAll(List<T> collection, List<T> toBeRemove) {
+        Map<T, T> collect = toBeRemove.stream().collect(Collectors.toMap((s) -> s, (s1 -> s1)));
+
+        List<T> result = collection.stream().filter((s -> !collect.containsKey(s))).collect(Collectors.toList());
+
+
+        return result;
+    }
+
 }
