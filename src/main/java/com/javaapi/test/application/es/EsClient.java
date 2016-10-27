@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**
+ * es CRUD
  */
 public class EsClient {
 

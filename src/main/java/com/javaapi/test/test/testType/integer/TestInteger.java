@@ -99,4 +99,11 @@ public class TestInteger {
         System.out.println(a == b);
     }
 
+    @Test
+    public void testIntegerNull() throws Exception {
+        Integer a = 1;
+        System.out.println("a = " + a==null?true:false);
+
+
+    }
 }

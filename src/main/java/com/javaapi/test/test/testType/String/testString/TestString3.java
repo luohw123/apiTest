@@ -217,4 +217,15 @@ public class TestString3 {
         Pattern p = Pattern.compile(reg);
         return p.matcher(str).matches();
     }
+    @Test
+    public void test() {
+        String a = "CNjU3OTU27MA==";
+        int length = a.length();
+        String substring = a.substring(0, length - 5);
+        System.out.println("substring = " + substring);
+        String substring2 = a.substring(length - 5+1,length);
+        System.out.println("substring2 = " + substring2);
+        System.out.println("length = " + length);
+
+    }
 }
