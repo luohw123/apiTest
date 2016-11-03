@@ -9,6 +9,20 @@ import java.util.stream.Collectors;
  */
 public class CommonUtil {
 
+
+    public static String getTablenameByIndex(Integer tableIndex) {
+        if(tableIndex == 0) {
+            return "ac_video_source";
+        }
+        else {
+            String format = String.format("ac_video_source_%s", tableIndex);
+            return format;
+        }
+    }
+
+
+
+
     public static String getTablename(String subColumnValue) {
         Integer value = Integer.valueOf(Integer.parseInt(subColumnValue.toString()));
         String tName = "ac_video_source";
