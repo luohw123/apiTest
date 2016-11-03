@@ -1,5 +1,6 @@
-package com.javaapi.test.spring.zotherFeature.javaconfig.enableAnnotation.Service;
+package com.javaapi.test.spring.zotherFeature.javaconfig.enableAnnotation.Service.importAnnotation;
 
+import com.javaapi.test.spring.zotherFeature.javaconfig.enableAnnotation.Service.ContextConfig;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
