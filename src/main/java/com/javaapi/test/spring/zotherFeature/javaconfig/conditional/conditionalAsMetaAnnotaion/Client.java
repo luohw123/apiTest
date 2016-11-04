@@ -1,6 +1,6 @@
-package com.javaapi.test.spring.zotherFeature.javaconfig.conditionalAsMetaAnnotaion;
+package com.javaapi.test.spring.zotherFeature.javaconfig.conditional.conditionalAsMetaAnnotaion;
 
-import com.javaapi.test.spring.zotherFeature.javaconfig.conditionalAsMetaAnnotaion.Service.CustomerService;
+import com.javaapi.test.spring.zotherFeature.javaconfig.conditional.conditionalAsMetaAnnotaion.Service.CustomerService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

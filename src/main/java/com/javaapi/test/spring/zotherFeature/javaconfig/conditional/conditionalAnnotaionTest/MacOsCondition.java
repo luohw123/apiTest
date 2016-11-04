@@ -1,12 +1,16 @@
-package com.javaapi.test.spring.zotherFeature.javaconfig.conditionalAnnotaionTest;
+package com.javaapi.test.spring.zotherFeature.javaconfig.conditional.conditionalAnnotaionTest;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
-public class LinuxCondition implements Condition {
-
+/**
+ * Created by user on 16/6/5.
+ */
+public class MacOsCondition implements Condition {
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
-        return context.getEnvironment().getProperty("os.name").contains("Linux");  }
+
+        return context.getEnvironment().getProperty("os.name").contains("Mac OS X");
+    }
 }

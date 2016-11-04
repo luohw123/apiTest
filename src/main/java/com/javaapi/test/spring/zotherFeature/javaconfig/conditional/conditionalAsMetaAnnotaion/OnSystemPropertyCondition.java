@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.zotherFeature.javaconfig.conditionalAsMetaAnnotaion;
+package com.javaapi.test.spring.zotherFeature.javaconfig.conditional.conditionalAsMetaAnnotaion;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;

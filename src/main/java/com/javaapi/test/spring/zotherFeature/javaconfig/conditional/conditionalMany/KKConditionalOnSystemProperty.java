@@ -1,4 +1,4 @@
-package com.javaapi.test.spring.zotherFeature.javaconfig.conditionalAsMetaAnnotaion;
+package com.javaapi.test.spring.zotherFeature.javaconfig.conditional.conditionalMany;
 
 import org.springframework.context.annotation.Conditional;
 
