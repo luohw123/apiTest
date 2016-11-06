@@ -18,4 +18,23 @@ public class SpringConfig {
     public Counter counter() {
         return new Counter(12, "Shake it Off");
     }
+
+    /**
+     * 内部类会自动加载
+     */
+    @Configuration
+    public static class Desk{
+        public Desk() {
+        }
+
+        @Bean
+        public Piano desck() {
+            Piano piano = new Piano();
+            piano.setSound("desk");
+            return piano;
+        }
+
+    }
+
+
 }
