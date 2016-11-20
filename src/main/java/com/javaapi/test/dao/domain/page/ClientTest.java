@@ -14,10 +14,9 @@ public class ClientTest {
         // select count(1) from xxx;
         int totalCount  = 100;  //from dao
 
-        Pagination partData = getPartData(new Pagination(0, 10, totalCount));
-        List<?> list = partData.getList();
-        System.out.println(list);
-
+        Pagination<String> partData = getPartData(new Pagination(0, 10, totalCount));
+        List<String> list = partData.getList();
+        System.out.println("list = " + list);
     }
 
     @Test
@@ -25,10 +24,9 @@ public class ClientTest {
         // select count(1) from xxx;
         int totalCount  = 100;  //from dao
 
-        Pagination partData = getPartData(new Pagination(1, 10, totalCount));
-        List<?> list = partData.getList();
-        System.out.println(list);
-
+        Pagination<String> partData = getPartData(new Pagination(1, 10, totalCount));
+        List<String> list = partData.getList();
+        System.out.println("list = " + list);
     }
 
     @Test
@@ -36,8 +34,8 @@ public class ClientTest {
         // select count(1) from xxx;
         int totalCount  = 100;  //from dao
 
-        Pagination partData = getPartData(new Pagination(2, 10, totalCount));
-        List<?> list = partData.getList();
+        Pagination<String> partData = getPartData(new Pagination(2, 10, totalCount));
+        List<String> list = partData.getList();
         System.out.println(list);
 
     }
@@ -46,14 +44,14 @@ public class ClientTest {
         // select count(1) from xxx;
         int totalCount  = 100;  //from dao
 
-        Pagination partData = getPartData(new Pagination(3, 10, totalCount));
-        List<?> list = partData.getList();
+        Pagination<String> partData = getPartData(new Pagination(2, 10, totalCount));
+        List<String> list = partData.getList();
         System.out.println(list);
 
     }
 
 
-    private Pagination getPartData(Pagination pagination) {
+    private <T> Pagination<T> getPartData(Pagination pagination) {
         int firstResult = pagination.getFirstResult();
         System.out.println("first = " + firstResult);
         int totalPage = pagination.getTotalPage();
@@ -61,7 +59,10 @@ public class ClientTest {
         System.out.println("pageSize = "+pageSize);
         System.out.println("totalPage = "+totalPage);
         //sql  select * from xxx  order by yyy limit firstResult, pageSize;
-        pagination.setList(new ArrayList());
+        ArrayList<String> list = new ArrayList<>();
+        list.add("nihao");
+        list.add("nihao2");
+        pagination.setList(list);
         return pagination;
     }
 }

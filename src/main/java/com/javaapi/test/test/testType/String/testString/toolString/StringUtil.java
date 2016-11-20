@@ -108,6 +108,21 @@ public class StringUtil {
         content = content.replaceAll("www.baidu.com", "www.nihao.com");
         System.out.println(content);
     }
+
+    @Test
+    public void testReplaceAll2() {
+        String content = "I'm kk";
+        content = content.replaceAll("'", "\\\\'");
+        System.out.println(content);
+    }
+
+    @Test
+    public void testReplaceAll3() {
+        String content = "[SOSI]倒计时开始！《潜行吧奈亚子》第二季即将上演 ";
+        content = content.replaceAll("\\[", "【");
+        content = content.replaceAll("\\]", "】");
+        System.out.println(content);
+    }
     
     @Test
     public void testContains() {
