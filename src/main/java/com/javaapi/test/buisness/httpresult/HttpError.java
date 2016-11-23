@@ -8,6 +8,9 @@ import java.io.Serializable;
 public class HttpError implements Serializable{
     private static final long serialVersionUID = -1;
 
+    public static final HttpError NEED_LOGIN = new HttpError("common.biz.needlogin","请先登录");
+    public static final HttpError SYS_ERR = new HttpError("common.sys.err","系统内部异常");
+
 
     public static final String G_ERROR_LIST = "errorList";
     public static final String G_SUCCESS_CODE = "success";

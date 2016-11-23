@@ -23,6 +23,11 @@ public class HttpResult<T> implements Serializable {
     private T data;
     // 需要批量错误的场景 再用errorList
     private List<HttpError> errorList;
+    public HttpResult(HttpError httpError) {
+        this.ok = false;
+        this.code = httpError.getCode();
+        this.msg = httpError.getMsg();
+    }
 
     public HttpResult(boolean ok, String code, String msg, T data) {
         this.ok = ok;
@@ -52,6 +57,9 @@ public class HttpResult<T> implements Serializable {
 
     public static <T> HttpResult<T> error(String code, String msg) {
         return new HttpResult<>(false, code, msg, null);
+    }
+    public static <T> HttpResult<T> error(HttpError httpError) {
+        return new HttpResult<>(httpError);
     }
 
     public static <T> HttpResult<T> error(String code, String msg, T result) {
