@@ -389,6 +389,12 @@
             <artifactId>jsoup</artifactId>
             <version>1.7.2</version>
         </dependency>
+        <!--antisamy -->
+        <dependency>
+            <groupId>org.owasp.antisamy</groupId>
+            <artifactId>antisamy</artifactId>
+            <version>1.5.3</version>
+        </dependency>
         <!-- apache common -->
         <dependency>
             <groupId>org.apache.commons</groupId>
