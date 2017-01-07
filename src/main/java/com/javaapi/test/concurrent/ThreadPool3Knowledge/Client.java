@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 1 工作线程  worker
@@ -34,8 +35,19 @@ import java.util.concurrent.Executors;
 
 public class Client {
     @Test
-    public void test() {
+    public void test() throws InterruptedException {
         ExecutorService es = Executors.newFixedThreadPool(5);
+        for (int i = 0; i < 1; i++) {
+            es.submit(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("es = nihao");
+                }
+            });
+
+        }
+        TimeUnit.HOURS.sleep(1);
+
     }
 
 }

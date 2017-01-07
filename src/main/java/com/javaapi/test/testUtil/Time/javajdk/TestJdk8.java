@@ -92,4 +92,13 @@ public class TestJdk8 {
         long seconds = between.getSeconds();
         System.out.println(seconds);
     }
+
+    @Test
+    public void testToDate() throws Exception {
+        LocalDateTime localDateTime = LocalDateTime.now().minusMonths(3);
+
+        java.util.Date startDate = java.util.Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+        System.out.println("startDate = " + startDate);
+
+    }
 }

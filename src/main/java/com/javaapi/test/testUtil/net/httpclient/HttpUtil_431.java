@@ -2,25 +2,40 @@ package com.javaapi.test.testUtil.net.httpclient;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
+import org.apache.http.config.SocketConfig;
+import org.apache.http.conn.socket.ConnectionSocketFactory;
+import org.apache.http.conn.ssl.AllowAllHostnameVerifier;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLContexts;
+import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.net.ssl.SSLContext;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -52,7 +67,7 @@ public class HttpUtil_431 {
         URIBuilder uri = new URIBuilder();
         uri.setPath(url);
         setParams(uri, param);
-        CloseableHttpClient client = HttpClientBuilder.create().build();
+        CloseableHttpClient client = getClient();
         String result = "";
         try {
             HttpPost post = new HttpPost(uri.build());
@@ -72,6 +87,58 @@ public class HttpUtil_431 {
     }
 
     /**
+     * 可以忽略证书访问https
+     * http://blog.csdn.net/java_4_ever/article/details/47807661
+     * http://mengyang.iteye.com/blog/575671(jdk 原生)
+     * @return
+     */
+    private static CloseableHttpClient getClient() {
+        //此处跳过证书验证的方式适用于apache httpclient 4.3.x版本，并不一定适用于其他httpclient版本，请注意。
+        SSLContext sslContext = null;
+        try {
+            sslContext = SSLContexts.custom().useTLS().loadTrustMaterial(null, new TrustStrategy() {
+                public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+                    //信任所有
+                    return true;
+                }
+            }).build();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (KeyManagementException e) {
+            e.printStackTrace();
+        } catch (KeyStoreException e) {
+            e.printStackTrace();
+        }
+
+        SSLConnectionSocketFactory sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContext, new AllowAllHostnameVerifier());
+
+        Registry<ConnectionSocketFactory> r = RegistryBuilder.<ConnectionSocketFactory>create()
+                .register("https", sslConnectionSocketFactory)
+                .build();
+
+        //设置连接池，配置过期时间为20s。
+        PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager(r);
+        cm.setMaxTotal(500);
+        cm.setDefaultMaxPerRoute(350);
+
+        SocketConfig socketConfig = SocketConfig.custom()
+                .setSoKeepAlive(true)
+                .setTcpNoDelay(true)
+                .setSoTimeout(20000)
+                .build();
+        cm.setDefaultSocketConfig(socketConfig);
+
+        RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(20000).setConnectTimeout(20000).setSocketTimeout(20000).build();
+
+        //创建httpClient
+        CloseableHttpClient client = HttpClients.custom()
+                .setConnectionManager(cm)
+                .setDefaultRequestConfig(requestConfig)
+                .build();
+        return client;
+    }
+
+    /**
      * url 里不能有参数,否则会有问题
      * @param url
      * @param param
@@ -81,7 +148,7 @@ public class HttpUtil_431 {
         URIBuilder uri = new URIBuilder();
         uri.setPath(url);
         setParams(uri, param);
-        CloseableHttpClient client = HttpClientBuilder.create().build();
+        CloseableHttpClient client = getClient();
         String result = "";
         try {
             HttpGet post = new HttpGet(uri.build());
