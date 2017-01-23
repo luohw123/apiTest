@@ -1,10 +1,10 @@
 package com.javaapi.test.test.testType.Number;
 
-import java.math.BigDecimal;
-
 import org.junit.Test;
 
-public class BigDemcial {
+import java.math.BigDecimal;
+
+public class TestBigDemcial {
 	@Test
 	public void testName() throws Exception {
 		BigDecimal bigDecimal = new BigDecimal(-5);
@@ -55,4 +55,15 @@ public class BigDemcial {
 		BigDecimal value = new BigDecimal(val);
 		System.out.println(value);
 	}
+    @Test
+    public void testScale() throws Exception {
+        BigDecimal bigDecimal1 = new BigDecimal("0.04");
+        System.out.println("bigDecimal = " + bigDecimal1.scale());
+
+        BigDecimal bigDecimal = new BigDecimal("0.0004");
+        System.out.println("bigDecimal = " + bigDecimal.scale());
+
+        BigDecimal big = new BigDecimal("1");
+        System.out.println("bigDecimal = " + big.scale());
+    }
 }

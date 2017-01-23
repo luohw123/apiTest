@@ -4,6 +4,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * http://www.iteye.com/topic/1002652
+ * http://www.importnew.com/15731.html
+ */
 public class TestCountDownLatch {
 	static int a = 0;
 	static int su =0;

@@ -1,6 +1,7 @@
 package com.javaapi.test.buisness.dataTrans.json.fastjson;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.parser.Feature;
@@ -171,7 +172,14 @@ public class TestFastJson {
         list.add(new HashMap<>(map));
         String s = JSON.toJSONString(list);
         System.out.println("s = " + s);
+    }
 
+    @Test
+    public void testJsonArr() {
+        String s = "[]";
+        JSONArray parse = (JSONArray) JSONArray.parse(s);
+        System.out.println("parse = " + parse.toJSONString());
+        System.out.println("parse = " + parse.size());
 
     }
 }
