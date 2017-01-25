@@ -580,16 +580,22 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- 如果使用curator,则curator会传递一个zk的依赖进来,所以不需要自己定义 -->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.zookeeper</groupId>-->
+            <!--<artifactId>zookeeper</artifactId>-->
+            <!--<version>3.3.6</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>log4j</groupId>-->
+                    <!--<artifactId>log4j</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>org.apache.zookeeper</groupId>
-            <artifactId>zookeeper</artifactId>
-            <version>3.3.6</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>2.7.0</version>
         </dependency>
         <!-- hessian -->
         <dependency>

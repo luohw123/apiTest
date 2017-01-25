@@ -1,4 +1,4 @@
-package com.javaapi.test.appframework.zookeeper;
+package com.javaapi.test.appframework.zookeeper.zookeeper;
 
 import org.apache.zookeeper.*;
 import org.junit.Test;
