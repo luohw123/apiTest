@@ -646,5 +646,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+	<!--version 1 -->
+	<!--version 2 -->
 </project>
