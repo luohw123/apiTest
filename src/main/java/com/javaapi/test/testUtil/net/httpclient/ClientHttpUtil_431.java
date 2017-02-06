@@ -1,5 +1,6 @@
 package com.javaapi.test.testUtil.net.httpclient;
 
+import com.javaapi.test.testUtil.fileUtil4.TestYoukuUtil;
 import org.junit.Test;
 
 /**
@@ -8,7 +9,7 @@ import org.junit.Test;
 public class ClientHttpUtil_431 {
     @Test
     public void test() {
-        String s = HttpUtil_431.get("https://aplay-vod.cn-beijing.aliyuncs.com/cloud/videos/show.json", null);
+        String s = HttpUtil_431.get(TestYoukuUtil.YKUrl, null);
         System.out.println("s = " + s);
 
     }

@@ -1,5 +1,6 @@
 package com.javaapi.test.testUtil.fileUtil.common;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -18,6 +19,22 @@ public class CommonUtil {
             String format = String.format("ac_video_source_%s", tableIndex);
             return format;
         }
+    }
+
+    public static List<String> getAllVideoSourceTableNames(Integer max) {
+        if (max == null) {
+            throw new IllegalArgumentException("max 不能为空");
+        }
+        List<String> list = new ArrayList<>();
+        for (int i = 1; i <=max; i++) {
+            if (i == 1) {
+                list.add("ac_video_source");
+                continue;
+            }
+            String format = String.format("ac_video_source_%s", i);
+            list.add(format);
+        }
+        return list;
     }
 
 

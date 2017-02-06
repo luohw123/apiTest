@@ -2,6 +2,7 @@ package com.javaapi.test.testUtil.fileUtil.Util;
 
 import com.alibaba.fastjson.JSONObject;
 import com.javaapi.test.testUtil.fileUtil.common.CommonUtil;
+import com.javaapi.test.testUtil.fileUtil4.TestYoukuUtil;
 import com.javaapi.test.testUtil.net.httpclient.HttpUtil_431;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -132,7 +133,7 @@ public class DbInUtil7_dealYoukuUrl {
     }
 
     private String getSign(String url) {
-        String client_id = "908a519d032263f8";
+        String client_id = TestYoukuUtil.CLIENT_ID;
         String s = "https://api.youku.com/players/custom.json";
         Map<String, String> map = new HashMap<>();
         map.put("client_id", client_id);
