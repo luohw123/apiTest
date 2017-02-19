@@ -20,10 +20,10 @@ public class TestAntPathMatcher {
 		boolean match4 = antPathMatcher.match(pattern4, path);
 		boolean match5 = antPathMatcher.match(pattern5, path);
 		System.out.println(match);
-		System.out.println(match2);
-		System.out.println(match3);
-		System.out.println(match4);
-		System.out.println(match5);
+        System.out.println(match2);
+        System.out.println(match3);
+        System.out.println(match4);
+        System.out.println(match5);
 	}
 
 	@Test
