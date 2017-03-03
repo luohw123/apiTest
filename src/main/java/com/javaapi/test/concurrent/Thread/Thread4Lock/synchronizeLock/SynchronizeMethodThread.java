@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread4Lock;
+package com.javaapi.test.concurrent.Thread.Thread4Lock.synchronizeLock;
 
 
 /**
@@ -11,6 +11,9 @@ package com.javaapi.test.concurrent.Thread.Thread4Lock;
  * 3、对于代码块，对象锁即指synchronized(abc)中的abc；
  * @see http://enetor.iteye.com/blog/986623
  */
+
+import com.javaapi.test.concurrent.Thread.Thread4Lock.lock2.SynchronizeMethod;
+
 /**
  * 2 同步方法
  * 

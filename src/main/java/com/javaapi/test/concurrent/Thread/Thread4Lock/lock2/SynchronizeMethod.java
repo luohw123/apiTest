@@ -1,4 +1,4 @@
-package com.javaapi.test.concurrent.Thread.Thread4Lock;
+package com.javaapi.test.concurrent.Thread.Thread4Lock.lock2;
 
 public class SynchronizeMethod {
 	/**
@@ -11,7 +11,6 @@ public class SynchronizeMethod {
 	public  static synchronized void synchronizedMethod(int threadNo) {
 		for (int i = 1; i < 10; i++) {
 			try {
-//				System.out.println("线程=>"+threadNo+"得到同步监听器");
 				System.out.println("No." + threadNo + ":" + i);
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

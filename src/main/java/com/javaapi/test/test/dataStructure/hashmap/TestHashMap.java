@@ -1,11 +1,11 @@
 package com.javaapi.test.test.dataStructure.hashmap;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.junit.Test;
 
 /**
  * http://www.cnblogs.com/hubingxu/archive/2012/02/21/2361281.html</br>
@@ -23,6 +23,14 @@ public class TestHashMap {
 		map.put("1", "2");
 		System.out.println(map.get("1"));
 	}
+
+    @Test
+    public void testHashMapSize() {
+        HashMap<String, String> map = new HashMap<>(1000);
+        map.put("1", "1");
+        map.put("1", "2");
+        System.out.println(map.get("1"));
+    }
 
     @Test
     public void testHashMapMerge() {
@@ -47,6 +55,15 @@ public class TestHashMap {
         map1.put("4", 4);
         map.putAll(map1);
         map.remove("2");
+        System.out.println(map);
+    }
+
+    @Test
+    public void testHashMapRemove2() {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        map.put("2", 2);
+        map.remove("2");
+        map.remove("3");
         System.out.println(map);
     }
     @Test
@@ -78,5 +95,27 @@ public class TestHashMap {
         {
             map.put("key", f);
         }
+    }
+
+    /**
+     * 所以，在存储大容量数据的时候，最好预先指定hashmap的size为2的整数次幂次方。就算不指定的话，也会以大于且最接近指定值大小的2次幂来初始化的
+     * @throws Exception
+     */
+    @Test
+    public void testTableSizeFor() throws Exception {
+        int i = tableSizeFor(1000);
+        System.out.println("i = " + i);
+    }
+
+    static final int MAXIMUM_CAPACITY = 1 << 30;
+
+    static final int tableSizeFor(int cap) {
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
     }
 }
