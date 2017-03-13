@@ -1,4 +1,4 @@
-package com.javaapi.test.test.dataStructure.link;
+package com.javaapi.test.test.dataStructure.link.sample;
 
 
 public class Node {

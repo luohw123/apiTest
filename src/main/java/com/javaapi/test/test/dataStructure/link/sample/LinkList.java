@@ -1,4 +1,4 @@
-package com.javaapi.test.test.dataStructure.link;
+package com.javaapi.test.test.dataStructure.link.sample;
 
 //单链表
 public class LinkList {
